@@ -53,6 +53,11 @@ jQuery(document).ready(function($) {
       
     });
 
+		$(document).scroll(function () {
+	  var $nav = $(".site-navbar");
+	  $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+	});
+
 		$(window).resize(function() {
 			var $this = $(this),
 				w = $this.width();

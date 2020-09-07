@@ -300,8 +300,14 @@ h1, h2, h3, h4, h5,
   margin-bottom: 0px;
   z-index: 1999;
   position: absolute;
-  top: 2rem;
-  width: 100%; }
+  padding-top: 20px;
+  width: 100%;}
+  .site-navbar.scrolled {
+    padding-top: 20px;
+    padding-bottom: 20px;
+      background-color: #fff !important;
+  transition: background-color 200ms linear;
+  }
   .site-navbar.transparent {
     background: transparent; }
   .site-navbar.absolute {
@@ -331,6 +337,11 @@ h1, h2, h3, h4, h5,
       .site-navbar .site-navigation .site-menu > li > a {
         padding: 10px 0px;
         color: #fff;
+        text-decoration: none !important; }
+        .site-navbar.scrolled .site-navigation .site-menu > li > a {
+        padding: 10px 0px;
+        color: #555;
+        transition: color 100ms linear;
         text-decoration: none !important; }
         .site-navbar .site-navigation .site-menu > li > a > span {
           padding: 5px 20px;
