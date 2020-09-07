@@ -6034,11 +6034,6 @@ button.bg-dark:focus {
 .position-fixed {
   position: fixed !important; }
 
-.position-fixed.scrolled{
-    background-color: #fff !important;
-  transition: background-color 200ms linear;
-}
-
 .position-sticky {
   position: -webkit-sticky !important;
   position: sticky !important; }
