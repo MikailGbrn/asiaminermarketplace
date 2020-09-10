@@ -296,13 +296,17 @@ h1, h2, h3, h4, h5,
   font-weight: bold; }
 
 /* Navbar */
+.site-navbar-nothome{
+  box-shadow: 0px 5px 30px grey;
+}
+
+
 .site-navbar {
   margin-bottom: 0px;
   z-index: 1999;
   position: absolute;
     padding-top: 10px;
     padding-bottom: 10px;
-  box-shadow: 0px 5px 30px grey;
   width: 100%;}
 
   /* ganti warna background navbar saat di scroll*/
@@ -340,14 +344,21 @@ h1, h2, h3, h4, h5,
       display: inline-block; }
       .site-navbar .site-navigation .site-menu > li > a {
         padding: 10px 0px;
-        color: #000;
+        color: #555;
         text-decoration: none !important; }
+
+      .site-navbar .home .site-navigation .site-menu > li > a {
+        padding: 10px 0px;
+        color: #fff;
+        text-decoration: none !important; }
+
         /*ganti warna text di navbar saat di scroll*/
         .site-navbar.scrolled .site-navigation .site-menu > li > a {
         padding: 10px 0px;
         color: #555;
         transition: color 100ms linear;
         text-decoration: none !important; }
+
         .site-navbar .site-navigation .site-menu > li > a > span {
           padding: 5px 20px;
           display: inline-block;
@@ -1579,6 +1590,7 @@ h1, h2, h3, h4, h5,
     width: 100%; }
     .listing-item .listing-item-content .category {
       font-size: 12px;
+      opacity: 70%;
       display: inline-block;
       padding: 5px 30px;
       background: #00918e;
@@ -1654,6 +1666,7 @@ h1, h2, h3, h4, h5,
         border-bottom-left-radius: 0px; } }
     .listing-horizontal .img .category {
       font-size: 12px;
+      opacity: 70%;
       display: inline-block;
       position: absolute;
       top: 20px;
