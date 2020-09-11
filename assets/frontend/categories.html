@@ -116,53 +116,26 @@
       <div class="container">
         <div class="row mt-5">
             <div class="col-lg-3 ml-auto">
-
+              <!-- FILTER STARTS HERE -->
             <div class="mb-5">
               <h3 class="h4 text-black mb-3">Filters</h3>
               <form action="#" method="post">
                 <div class="form-group">
+
+                  <!-- search by keywords -->
                   <h6 class="text-sm text-secondary">Search By Keywords</h6>
                   <input type="text" placeholder="What are you looking for?" class="form-control">
                 </div>
+
+                <!-- search by companies -->
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
                 <div class="form-group">
                   <input type="text" placeholder="Company Name" class="form-control">
                 </div>
-                <h6 class="text-sm text-secondary">Content Categories</h6>
-                <div class="form-group">
-                  <div class="select-wrap">
-                      <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                      <select class="form-control" name="" id="">
-                        <option value="">All Categories</option>
-                        <option value="">Appartment</option>
-                        <option value="">Restaurant</option>
-                        <option value="">Eat &amp; Drink</option>
-                        <option value="">Events</option>
-                        <option value="">Fitness</option>
-                        <option value="">Others</option>
-                      </select>
-                    </div>
-                </div>
-              </form>
-            </div>
-            
-            <div class="mb-5">
-              <form action="#" method="post">
-                <div class="form-group">
-                  <p>Radius around selected destination</p>
-                </div>
-                <div class="form-group">
-                  <input type="range" min="0" max="100" value="20" data-rangeslider>
-                </div>
-              </form>
-            </div>
 
-            <div class="mb-5">
-              <form action="#" method="post">
-                <div class="form-group">
-                  <p>Category 'Restaurant' is selected</p>
-                  <p>More filters</p>
-                </div>
+
+                <h6 class="text-sm text-secondary">Content Categories</h6>
+                <!-- checklist for categories -->
                 <div class="form-group">
                   <ul class="list-unstyled">
                     <li>
@@ -189,12 +162,43 @@
                         Sea Foods
                       </label>
                     </li>
+                    <li class="text-primary">View All Categories</li>
                   </ul>
                 </div>
               </form>
             </div>
 
+            <div class="mb-5">
+              <h6 class="h4 text-black mb-3">Sort By</h6>
+              <form action="#" method="POST">
+                  <div class="form-group">
+                    <label for="uploaddate">Upload Date</label>
+                    <select class="form-control" id="uploaddate">
+                      <option>Today</option>
+                      <option>This Week</option>
+                      <option>Latest</option>
+                      <option>Oldest</option>
+                    </select>
+                  <div class="form-group">
+                    <label for="uploaddate">View Count</label>
+                    <select class="form-control" id="uploaddate">
+                      <option>Most Viewed</option>
+                      <option>Least Viewed</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="uploaddate">Download Count</label>
+                    <select class="form-control" id="uploaddate">
+                      <option>Most Downloaded</option>
+                      <option>Least Downloaded</option>
+                    </select>
+                  </div>
+                  </div>
+              </form>
+            </div>
+
           </div>
+          <!-- FILTER END HERE -->
 
           <!-- CATEGORIES START HERE -->
           <div class="col-lg-8">
