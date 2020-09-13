@@ -1498,6 +1498,24 @@ h1, h2, h3, h4, h5,
         width: 100% !important;
         display: block; } }
 
+.form-search-directory {
+  padding: 10px;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 2px 30px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 30px -5px rgba(0, 0, 0, 0.2); }
+  .form-search-directory .form-control {
+    border: none; }
+    @media (max-width: 1199.98px) {
+      .form-search-directory .form-control {
+        height: 55px; } }
+  .form-search-directory .btn {
+    border-radius: 30px;
+    padding: 10px 30px; }
+    @media (max-width: 1199.98px) {
+      .form-search-directory .btn {
+        width: 100% !important;
+        display: block; } }
+
 .popular-category {
   background: #fff;
   display: block;
