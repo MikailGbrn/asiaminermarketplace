@@ -30,6 +30,14 @@ h1, h2, h3, h4, h5,
 .text-black {
   color: #000 !important; }
 
+.text-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
 .bg-black {
   background: #000 !important; }
 
@@ -1298,6 +1306,7 @@ h1, h2, h3, h4, h5,
 
 .h-entry .h-entry-inner {
   padding: 30px;
+  display: block;
   border: 1px solid #eee;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px; }
