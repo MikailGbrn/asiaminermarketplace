@@ -1311,6 +1311,27 @@ h1, h2, h3, h4, h5,
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px; }
 
+.h-option a{
+  color: black;
+}
+
+.h-option object a{
+    color: #00918e;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.h-option:hover {
+    transform: scale(1.01);
+    -webkit-transition: .3s all ease;
+    -webkit-box-shadow: 0 10px 30px -5px rgba(0, 145, 142, 0.5);
+    box-shadow: 0 10px 30px -5px rgba(0, 145, 142, 0.5); 
+}
+
+.h-option object a:hover{
+  color: black;
+}
+
 .overlap-left {
   margin-left: -100px; }
   @media (max-width: 991.98px) {
