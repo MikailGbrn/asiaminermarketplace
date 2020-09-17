@@ -4,4 +4,4 @@
 
 > Gibran Fernanda as Frontend Developer
 
-> Evan Yudistira as Backend Developer
+> Muhammad Arkan Mufadho as Backend Developer
