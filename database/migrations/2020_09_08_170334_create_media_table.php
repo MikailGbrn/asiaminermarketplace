@@ -17,13 +17,17 @@ class CreateMediaTable extends Migration
             $table->bigIncrements('id');
             $table->string('photo');
             $table->bigInteger('company_id')->unsigned();
+            $table->bigInteger('media_catagory_id')->unsigned();
             $table->string('title');
+            $table->string('slug');
             $table->string('author');
             $table->text('description');
+            $table->string('content_type');
             $table->integer('view');
             $table->integer('download');
             $table->text('keyword');
             $table->string('type');
+            $table->string('file_name');
             $table->timestamps();
         });
     }
