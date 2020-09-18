@@ -1816,6 +1816,23 @@ h1, h2, h3, h4, h5,
         background: #f23a2e; }
         .detail-content .lh-content .bookmark:hover span {
           color: #fff; }
+      .detail-content .lh-content .tag span {
+        color: #fff;
+        padding: 5px;
+        font-size: 15px;
+        margin-right: 5px;
+        border-radius: 15px;
+        background-color: #00918e;
+      }
+      .detail-content .lh-content .btn {
+        width: 50%;
+        max-width: auto;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 30px;
+        border-radius: 30px;
+        padding: 10px 30px;
+      }
 
 .rangeslider.rangeslider--horizontal {
   margin-bottom: 10px;
