@@ -4,4 +4,4 @@
 
 > Gibran Fernanda as Frontend Developer
 
-> Muhammad Arkan Mufadho as Backend Developer
+> Mohammad Arkan Mufadho as Backend Developer
