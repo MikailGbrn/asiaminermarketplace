@@ -83,7 +83,6 @@ class MediaController extends Controller
     {
         //$uuid = "4bbde04f-2120-36ba-978d-0cb9a8914250";
         $resource = Media::where('uuid', $uuid)->firstOrFail();
-        echo "wakwaw";
         if(Auth::check()){
             if (!DB::table('media_download')->where('user_id','=',Auth::user()->id)->where('media_id','=',$resource->id)->exists()) {
                 Media::find($resource->id)->increment('download');
