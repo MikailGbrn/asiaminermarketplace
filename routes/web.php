@@ -23,4 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/company', 'CompanyController@show')->name('company');
 
+
 Route::get('/search', 'MediaController@find');
+Route::get('/resource/{CompanyId}/{slug}','MediaController@detail');
+Route::get('/download-resource/{Uuid}','MediaController@download');
