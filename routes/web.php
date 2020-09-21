@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/company', 'CompanyController@show')->name('company');
+Route::get('/company', 'CompanyController@find')->name('company');
 
 
 Route::get('/search', 'MediaController@find');

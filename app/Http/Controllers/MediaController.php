@@ -22,15 +22,16 @@ class MediaController extends Controller
         $resourceType = $request->input('rt');
         $contentType = $request->input('ct');
 
-        $query = Media::join('media_catagory', 'media_catagory_id', '=', 'media_catagory.id')
-        ->join('companies', 'company_id', '=', 'companies.id')
-        ->select('media.*', 'media_catagory.name as catagory', 'companies.name as company');
+        $query = Media::join('companies', 'company_id', '=', 'companies.id')
+        ->select('media.*', 'companies.name as company');
 
         if(!empty($keyword)){
             $query->where('title','like',$keyword);
         }
         if(!empty($contentCatagory)){
-            $query->where('catagory','>=',$contentCatagory);
+            $query->whereHas('catagory', function ($query) use($contentCatagory) {
+                return $query->where('id', $contentCatagory);
+            });
         }
         if(!empty($company)){
             $query->where('company','like',$company);
