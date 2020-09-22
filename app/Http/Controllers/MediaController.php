@@ -57,9 +57,8 @@ class MediaController extends Controller
     }
     public function detail($companyId,$slug)
     {
-        $resource = Media::join('media_catagory', 'media_catagory_id', '=', 'media_catagory.id')
-        ->join('companies', 'company_id', '=', 'companies.id')
-        ->select('media.*', 'media_catagory.name as catagory', 'companies.name as company')
+        $resource = Media::join('companies', 'company_id', '=', 'companies.id')
+        ->select('media.*', 'companies.name as company')
         ->where("company_id","=",$companyId)
         ->where("media.slug","=",$slug)
         ->firstOrFail();
@@ -96,6 +95,8 @@ class MediaController extends Controller
             }
             $pathToFile = storage_path('app/resource/' . $resource->file_name);
             return response()->download($pathToFile);
+        }else {
+            return redirect('login')->intended($this->redirectPath());
         }
 
 
