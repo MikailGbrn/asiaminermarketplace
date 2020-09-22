@@ -25,9 +25,14 @@ class MediaAdditional extends Migration
             $table->bigInteger('media_id')->unsigned();
             $table->timestamps();
         });
-        Schema::create('media_catagory', function (Blueprint $table) {
+        Schema::create('mcatagory', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+        });
+        Schema::create('mcatagory_media', function (Blueprint $table) {
+            $table->bigInteger('mcatagory_id')->unsigned();
+            $table->bigInteger('media_id')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -40,6 +45,6 @@ class MediaAdditional extends Migration
     {
         Schema::dropIfExists('media_view');
         Schema::dropIfExists('media_download');
-        Schema::dropIfExists('media_catagory');
+        Schema::dropIfExists('mcatagory');
     }
 }
