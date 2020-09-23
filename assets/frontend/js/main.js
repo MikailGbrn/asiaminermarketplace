@@ -7,16 +7,20 @@
  function myFunction() {
   var dots = document.getElementById("dots");
   var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
+  var btnText = document.getElementById("morebtn");
 
   if (dots.style.display === "none") {
-    dots.style.display = "inline";
+
+    dots.style.display = "-webkit-box";
     btnText.innerHTML = "Read more"; 
     moreText.style.display = "none";
+
   } else {
+
     dots.style.display = "none";
     btnText.innerHTML = "Read less"; 
     moreText.style.display = "inline";
+
   }
 }
 

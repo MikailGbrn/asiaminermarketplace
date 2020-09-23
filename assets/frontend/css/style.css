@@ -1763,9 +1763,26 @@ h1, h2, h3, h4, h5,
   background: #fff;
   position: relative; 
   padding: 10px;}
+
+  .detail-content #morebtn {
+    background: none;
+    border: none;
+    color: #00918e;
+  }
+
   .detail-content #more {
     display: none;
   }
+
+  .detail-content #dots {
+      overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  }
+
   @media (min-width: 992px) {
     .detail-content {
       border-top-right-radius: 7px;
