@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/company', 'CompanyController@show')->name('company');
+Route::get('/company', 'CompanyController@find')->name('company');
+Route::get('/company/{slug}', 'CompanyController@detail');
+
+Route::get('/product', 'ProductController@find')->name('product');
+Route::get('/product/{CompanyId}/{slug}','ProductController@detail');
 
 Route::get('/search', 'MediaController@find');
+Route::get('/resource/{CompanyId}/{slug}','MediaController@detail');
+Route::get('/download-resource/{Uuid}','MediaController@download');
