@@ -632,21 +632,41 @@ h1, h2, h3, h4, h5,
   background-color: blue;
 }
 
+.company-profile .profile-header .header{
+  width: 100%;
+  height: calc(40vh);
+  object-fit: cover;
+  object-position: 0px -10px;
+}
+
 .company-profile .profile-content{
   width: 100%;
-  height: calc(60vh);
-  background-color: orange;
+  height: 500px;
+  background-color: white;
+  padding: 100px;
+  text-align: center;
 }
+
+.company-profile .profile-content h2{
+ font-weight: bold;
+ color: #00918e
+}
+
 
 .company-profile .image-container {
   width: 170px;
   height: 170px;
   border-radius: 50%;
   overflow: hidden;
+  transform: translate(470px, -80px);
+  z-index: 10;
 }
+
 .company-profile .image-container img {
- 
- border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  object-position: -60px 0px;
 }
 
 /* Blocks */
