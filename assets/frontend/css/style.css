@@ -623,74 +623,115 @@ h1, h2, h3, h4, h5,
 
 .company-profile{
   width: 100%;
-  height: calc(120vh);
-  border-radius: 6px;
+  height: calc(95vh);
 }
 
 .company-profile .image-container {
-  width: 170px;
-  height: 170px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  transform: translate(470px, -80px);
+  transform: translate(500px, -80px);
   z-index: 10;
 }
 
 .company-profile .image-container img {
-  width: 170px;
-  height: 170px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  object-position: -60px 0px;
+  object-position: -43px 0px;
 }
 .company-profile .profile-header{
   width: 100%;
   height: calc(40vh);
   background-color: blue;
 }
-
 .company-profile .profile-header .header{
   width: 100%;
   height: calc(40vh);
   object-fit: cover;
   object-position: 0px -10px;
 }
-
 .company-profile .profile-content{
   width: 100%;
-  height: calc(60vh);
+  height: calc(40vh);
   background-color: white;
-  padding: 100px 100px 0px 100px;
+  padding: 50px 100px 0px 100px;
   text-align: center;
 }
-
 .company-profile .profile-content p{
   font-size: 14px;
 }
-
 .company-profile .profile-footer{
   width: 100%;
   height: calc(10vh);
   background-color: white;
-  position: 
-  /*border: 1px solid black;*/
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 .company-profile .profile-footer .companynav a{
   text-decoration: none !important;
   display: inline-block;
 }
-
+.company-profile .profile-footer .companynav .active > a span{
+  border-bottom: 5px solid #00918e;
+  color: #00918e;
+  display: inline-block;
+  padding: 5px 20px;
+}
 .company-profile .profile-footer .companynav > li{
   display: inline-block;
+  position: relative;
+  left: 30px;
 }
-.company-profile .profile-footer .companynav > li > a{
+.company-profile .profile-footer .companynav > li > a {
   padding: 20px;
   color: #555;
   text-decoration: none !important; 
 }
-
+.company-profile .profile-footer .companynav > li > a > span {
+  padding: 5px 20px;
+  display: inline-block;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}     
+.company-profile .profile-footer .companynav > li > a:hover > span {
+  border-bottom: 5px solid #00918e;
+  color: #00918e;
+  display: inline-block; 
+}
 .company-profile .profile-content h2{
  font-weight: bold;
  color: #00918e
+}
+
+.card {
+  width: 100%;
+  height: calc(50vh);
+  background-color: white;
+  border-radius: 30px;
+}
+.card .card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125); 
+  font-weight: bold;
+}
+.card .card-header a span {
+  font-weight: lighter;
+  position: relative;
+  float: right;
+}
+
+.card2 {
+  width: 100%;
+  height: calc(70vh);
+  background-color: white;
+  border-radius: 30px;
 }
 
 
