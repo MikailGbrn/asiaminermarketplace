@@ -623,7 +623,7 @@ h1, h2, h3, h4, h5,
 
 .company-profile{
   width: 100%;
-  height: calc(100vh);
+  height: calc(120vh);
   border-radius: 6px;
 }
 
@@ -657,18 +657,22 @@ h1, h2, h3, h4, h5,
 
 .company-profile .profile-content{
   width: 100%;
-  height: calc(40vh);
+  height: calc(60vh);
   background-color: white;
-  padding: 100px;
+  padding: 100px 100px 0px 100px;
   text-align: center;
+}
+
+.company-profile .profile-content p{
+  font-size: 14px;
 }
 
 .company-profile .profile-footer{
   width: 100%;
   height: calc(10vh);
   background-color: white;
-  padding: 100px;
-  
+  position: 
+  /*border: 1px solid black;*/
 }
 .company-profile .profile-footer .companynav a{
   text-decoration: none !important;
