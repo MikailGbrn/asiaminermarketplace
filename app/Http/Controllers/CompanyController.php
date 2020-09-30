@@ -6,6 +6,7 @@ use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Media;
+use App\CCatagory;
 
 class CompanyController extends Controller
 {
@@ -37,21 +38,23 @@ class CompanyController extends Controller
         if(!empty($catagory)){
             $query->where('catagory_id','=',$catagory);
         }
-        $company = $query->paginate(20);
+        $company = $query->paginate(21);
+        $catList = CCatagory::all();
 
-        foreach ($company as $c){
-            echo $c->name." <br>";
-            echo $c->email." <br>";
-            echo $c->business_hour." <br>";
-            foreach ($c->address as $a){
-                echo $a->address." <br>";
-            }
-            echo "<a href='".url("/company/$c->slug")."'>tombol</a>";
-            echo "<br>";
-            echo "<br>";
-            echo "<br>";
+    //     foreach ($company as $c){
+    //         echo $c->name." <br>";
+    //         echo $c->email." <br>";
+    //         echo $c->business_hour." <br>";
+    //         foreach ($c->address as $a){
+    //             echo $a->address." <br>";
+    //         }
+    //         echo "<a href='".url("/company/$c->slug")."'>tombol</a>";
+    //         echo "<br>";
+    //         echo "<br>";
+    //         echo "<br>";
             
-       }
+    //    }
+       return view('directory',compact('company','catList'));
 
     }
     public function detail($slug)
