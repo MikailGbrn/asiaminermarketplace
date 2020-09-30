@@ -69,7 +69,7 @@
             </nav>
           </div>
 
-          <div class="col-md-2 d-none d-xl-block position-relative text-right"> <a href="" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;">SIGN IN</a></div>
+          <div class="col-md-2 d-none d-xl-block position-relative text-right"> <a href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a></div>
 
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
           </div>
@@ -108,6 +108,80 @@
     </div>
   </div>
 </div>
+
+<!-- start of modal login -->
+
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Phone, Email</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="lname">Password</label>
+                  <input type="password" id="lname" class="form-control">
+                  <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+                  <label for="rememberme">Remember Me</label>
+                  <span style="float: right;"><a href="#">Forget Password?</a></span>
+                </div>
+              </div>
+              <div class="row form-group ">
+                <div class="col-md-12">
+                  <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
+                  <p><a href="#">Don't have an account?</a></p>
+                </div>
+              </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of modal login -->
+
+<!-- start of login failed -->
+<!-- <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Phone, Email</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="lname">Password</label>
+                  <input type="password" id="lname" class="form-control">
+                  <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+                  <label for="rememberme">Remember Me</label>
+                  <span style="float: right;"><a href="#">Forget Password?</a></span>
+                  <p class="text-danger">The email and password you entered did not match our records. Please try again. </p>
+                </div>
+              </div>
+              <div class="row form-group ">
+                <div class="col-md-12">
+                  <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
+                  <p><a href="#">Don't have an account?</a></p>
+                </div>
+              </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- end of modal login failed -->
       
     </header>
     
