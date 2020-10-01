@@ -1453,10 +1453,11 @@ h1, h2, h3, h4, h5,
 
 .h-entry .h-entry-inner {
   padding: 30px;
+  background-color: #fff;
   display: block;
   border: 1px solid #eee;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px; }
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px; }
 
 .h-option a{
   color: black;
@@ -1473,6 +1474,8 @@ h1, h2, h3, h4, h5,
     -webkit-transition: .3s all ease;
     -webkit-box-shadow: 0 10px 30px -5px rgba(0, 145, 142, 0.5);
     box-shadow: 0 10px 30px -5px rgba(0, 145, 142, 0.5); 
+      border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .h-option object a:hover{
@@ -1693,6 +1696,43 @@ h1, h2, h3, h4, h5,
       .form-search-directory .btn {
         width: 100% !important;
         display: block; } }
+
+.accordion {
+  background-color: #fff;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion .active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion .active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 25px;
+  display: block;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
 
 .popular-category {
   background: #fff;

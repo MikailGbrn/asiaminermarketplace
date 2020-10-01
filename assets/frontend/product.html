@@ -191,24 +191,62 @@
         <div class="row mt-5">
 
           <div class="col-lg-3 ml-auto">
-            <div class="mb-5">
-              <h3 class="h4 text-black mb-3">Filters</h3>
-              <form action="#" method="post">
-                <div class="form-group">
+              <!-- FILTER STARTS HERE -->    
+              <h4 class="h4">Filters</h4>          
+              <h3 class="h4 text-black accordion mb-0">Category</h3>
+              <div class="panel">
+                <form action="#" method="post">
+              <!--<div class="form-group">
 
-                  <!-- search by keywords -->
                   <h6 class="text-sm text-secondary">Search By Keywords</h6>
                   <input type="text" placeholder="What are you looking for?" class="form-control">
                 </div>
 
-                <!-- search by companies -->
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
                 <div class="form-group">
                   <input type="text" placeholder="Company Name" class="form-control">
+                </div> -->
+
+
+                
+                <!-- checklist for categories -->
+                <div class="form-group">
+                  <label class="text-sm text-secondary pt-3">Content Categories</label>
+                  <ul class="list-unstyled">
+                    <li>
+                      <label for="option1">
+                        <input type="checkbox" id="option1">
+                        Coffee
+                      </label>
+                    </li>
+                    <li>
+                      <label for="option2">
+                        <input type="checkbox" id="option2">
+                        Vegetarian
+                      </label>
+                    </li>
+                    <li>
+                      <label for="option3">
+                        <input type="checkbox" id="option3">
+                        Vegan Foods
+                      </label>
+                    </li>
+                    <li>
+                      <label for="option4">
+                        <input type="checkbox" id="option4">
+                        Sea Foods
+                      </label>
+                    </li>
+                    <li class="text-primary">View All Categories</li>
+                  </ul>
                 </div>
+              </form>
+            </div>
 
-
-                <h6 class="text-sm text-secondary">Content Categories</h6>
+            <h4 class="h4 text-black accordion mb-0">Type of Resources</h4>
+            <div class="panel">
+              <form action="#" method="POST">
+                <label class="text-sm text-secondary pt-3">Content Categories</label>
                 <!-- checklist for categories -->
                 <div class="form-group">
                   <ul class="list-unstyled">
@@ -242,11 +280,11 @@
               </form>
             </div>
 
-            <div class="mb-5">
-              <h6 class="h4 text-black mb-3">Sort By</h6>
+              <h6 class="h4 text-black mb-0 accordion">Sort By</h6>
+              <div class="panel">
               <form action="#" method="POST">
                   <div class="form-group">
-                    <label for="uploaddate">Upload Date</label>
+                    <label for="uploaddate" class="text-sm text-secondary pt-3">Upload Date</label>
                     <select class="form-control" id="uploaddate">
                       <option>Today</option>
                       <option>This Week</option>
@@ -254,14 +292,14 @@
                       <option>Oldest</option>
                     </select>
                   <div class="form-group">
-                    <label for="uploaddate">View Count</label>
+                    <label for="uploaddate" class="text-sm text-secondary pt-3">View Count</label>
                     <select class="form-control" id="uploaddate">
                       <option>Most Viewed</option>
                       <option>Least Viewed</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="uploaddate">Location</label>
+                    <label for="uploaddate" class="text-sm text-secondary pt-3">Location</label>
                     <select class="form-control" id="uploaddate">
                       <option>Most Downloaded</option>
                       <option>Least Downloaded</option>
@@ -269,8 +307,10 @@
                   </div>
                   </div>
               </form>
-            </div>
+              </div>
 
+
+          <!-- FILTER END HERE -->
           </div>
 
           <!-- COMPANY DIRECTORY START HERE -->
