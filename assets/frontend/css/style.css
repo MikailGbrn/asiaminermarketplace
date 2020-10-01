@@ -308,6 +308,7 @@ h1, h2, h3, h4, h5,
 /* Navbar */
 .site-navbar-nothome{
   box-shadow: 0px 4px 30px 0px #d6d6d6;
+  background-color: #fff !important;
 }
 
 
@@ -1678,7 +1679,8 @@ h1, h2, h3, h4, h5,
   padding: 10px;
   border-radius: 50px;
   -webkit-box-shadow: 0 2px 30px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 30px -5px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 2px 30px -5px rgba(0, 0, 0, 0.2);
+  background-color: #fff; }
   .form-search-directory .form-control {
     border: none; }
     @media (max-width: 1199.98px) {
