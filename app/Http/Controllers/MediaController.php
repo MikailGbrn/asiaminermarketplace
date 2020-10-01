@@ -21,12 +21,15 @@ class MediaController extends Controller
         $company = $request->input('comp');
         $resourceType = $request->input('rt');
         $contentType = $request->input('ct');
+        $uploadDate = $request->input('dt');
+        $view = $request->input('view');
+        $download = $request->input('download');
 
-        $query = Media::join('companies', 'company_id', '=', 'companies.id')
-        ->select('media.*', 'companies.name as company');
+        $query = Media::with('company');
 
         if(!empty($keyword)){
             $query->where('title','like',$keyword);
+            //->orWhere('keyword','like',$keyword);
         }
         if(!empty($contentCatagory)){
             $query->whereHas('catagory', function ($query) use($contentCatagory) {
@@ -34,7 +37,9 @@ class MediaController extends Controller
             });
         }
         if(!empty($company)){
-            $query->where('company','like',$company);
+            $query->whereHas('company', function ($query) use($company) {
+                return $query->where('name', 'like', $company);
+            });
         }
         if(!empty($resourceType)){
             $query->where('type','=',$resourceType);
@@ -42,26 +47,43 @@ class MediaController extends Controller
         if(!empty($contentType)){
             $query->where('content_type','=',$contentType);
         }
-
-        $resource = $query->paginate(20);
-        
-        foreach ($resource as $r) {
-            echo $r->title."<br>";
-            echo $r->author."<br>";
-            echo $r->company."<br>";
-            echo $r->slug."<br>";
-            echo "<a href='".url("/resource/$r->company_id/$r->slug")."'>tombol</a>";
-            echo "<br>";
+        if(!empty($uploadDate)){
+            if ($uploadDate==1) {
+                $query->where(DB::raw("DATE(media.created_at)"),'=',date("Y-m-d"));    
+            }else if($uploadDate==2){
+                $query->where(DB::raw("WEEK(media.created_at)"),'=',date("W"));   
+            }
+            else if($uploadDate==3){
+                $query->latest();  
+            }
+            else if($uploadDate==4){
+                $query->oldest();  
+            }
         }
-        //return view('shop',compact('products'));
+        if(!empty($view)){
+            if ($view==1) {
+                $query->orderBy('view', 'desc');
+            }else if($view==2){
+                $query->orderBy('view', 'asc');   
+            }
+        }
+        if(!empty($download)){
+            if ($download==1) {
+                $query->orderBy('download', 'desc');    
+            }else if($download==2){
+                $query->orderBy('download', 'asc');  
+            }
+        }
+        $resource = $query->paginate(20);
+        return view('resource',compact('resource'));
     }
     public function detail($companyId,$slug)
     {
-        $resource = Media::join('companies', 'company_id', '=', 'companies.id')
-        ->select('media.*', 'companies.name as company')
-        ->where("company_id","=",$companyId)
+        $resource = Media::where("company_id","=",$companyId)
         ->where("media.slug","=",$slug)
         ->firstOrFail();
+
+        $relatedMedia = Media::where("company_id","=",$companyId)->limit(5)->get();
 
         if(Auth::check()){
             if (!DB::table('media_view')->where('user_id','=',Auth::user()->id)->where('media_id','=',$resource->id)->exists()) {
@@ -74,9 +96,7 @@ class MediaController extends Controller
                 ]);
             }
         }
-        print_r($resource);
-        echo "<br>";
-        echo "<a href='".url("/download-resource/$resource->uuid")."'>tombol</a>";
+        return view('detail-resource',compact('resource','relatedMedia'));
 
     }
     public function download($uuid)
@@ -94,9 +114,10 @@ class MediaController extends Controller
                 ]);
             }
             $pathToFile = storage_path('app/resource/' . $resource->file_name);
+            echo Auth::id();
             return response()->download($pathToFile);
         }else {
-            return redirect('login')->intended($this->redirectPath());
+            //return redirect('login')->intended($this->redirectPath());
         }
 
 

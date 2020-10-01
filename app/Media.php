@@ -10,4 +10,8 @@ class Media extends Model
     {
         return $this->belongsToMany('App\MCatagory','mcatagory_media','mcatagory_id','media_id');
     }
+    public function company()
+    {
+        return $this->belongsTo("App\Company");
+    }
 }
