@@ -3,11 +3,12 @@
     <div class="site-section bg-light">
       <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-3 ml-auto">
+          <div class="col-lg-3 ml-auto">
               <!-- FILTER STARTS HERE -->
+          <form action="" method="GET">
             <div class="mb-5">
               <h3 class="h4 text-black mb-3">Filters</h3>
-              <form action="" method="GET">
+              
                 <div class="form-group">
 
                   <!-- search by keywords -->
@@ -83,11 +84,12 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <button style="border: 1px solid #00918e; background-color:transparent; border-radius: 30px; padding: 8px;">submit</button>
+                    <button type="submit" style="border: 1px solid #00918e; background-color:transparent; border-radius: 30px; padding: 8px;">submit</button>
                   </div>
                   </div>
-              </form>
+              
             </div>
+          </form>
           <!-- FILTER END HERE -->
           </div>
 

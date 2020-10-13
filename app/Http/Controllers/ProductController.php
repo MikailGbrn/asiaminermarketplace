@@ -13,26 +13,52 @@ class ProductController extends Controller
     {   
         $keyword = '%'.$request->input('kw').'%';
         $catagory = $request->input('cat');
+        $company = $request->input('comp');
+        $resourceType = $request->input('rt');
+        $contentType = $request->input('ct');
+        $uploadDate = $request->input('dt');
+        $view = $request->input('view');
+        $download = $request->input('download');
 
         $query = Product::where('name','like',$keyword);
         
+        if(!empty($company)){
+            $query->whereHas('company', function ($query) use($company) {
+                return $query->where('name', 'like', $company);
+            });
+        }
         if(!empty($catagory)){
             $query->where('catagory_id','=',$catagory);
         }
+        if(!empty($uploadDate)){
+            if ($uploadDate==1) {
+                $query->where(DB::raw("DATE(media.created_at)"),'=',date("Y-m-d"));    
+            }else if($uploadDate==2){
+                $query->where(DB::raw("WEEK(media.created_at)"),'=',date("W"));   
+            }
+            else if($uploadDate==3){
+                $query->latest();  
+            }
+            else if($uploadDate==4){
+                $query->oldest();  
+            }
+        }
+        if(!empty($view)){
+            if ($view==1) {
+                $query->orderBy('view', 'desc');
+            }else if($view==2){
+                $query->orderBy('view', 'asc');   
+            }
+        }
+        if(!empty($download)){
+            if ($download==1) {
+                $query->orderBy('download', 'desc');    
+            }else if($download==2){
+                $query->orderBy('download', 'asc');  
+            }
+        }
         $product = $query->paginate(20);
-
-        foreach ($product as $p){
-            echo $p->name." <br>";
-            echo $p->description." <br>";
-            echo $p->catagory->name." <br>";
-            echo $p->company->name." <br>";
-
-            echo "<a href='".url("/product/$p->company_id/$p->slug")."'>tombol</a>";
-            echo "<br>";
-            echo "<br>";
-            echo "<br>";
-            
-       }
+       return view('product', compact('product'));
 
     }
     public function detail($companyId,$slug)
@@ -40,11 +66,11 @@ class ProductController extends Controller
         $product = Product::where('slug',$slug)->where('company_id',$companyId)->firstOrFail();
 
         if(Auth::check()){
-            if (!DB::table('media_view')->where('user_id','=',Auth::user()->id)->where('media_id','=',$product->id)->exists()) {
+            if (!DB::table('product_view')->where('user_id','=',Auth::user()->id)->where('product_id','=',$product->id)->exists()) {
                 Product::find($product->id)->increment('view');
-                DB::table('media_view')->insert([
+                DB::table('product_view')->insert([
                     'user_id' => Auth::user()->id,
-                    'product' => $product->id,
+                    'product_id' => $product->id,
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);

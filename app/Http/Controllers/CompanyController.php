@@ -60,23 +60,6 @@ class CompanyController extends Controller
     public function detail($slug)
     {       
         $company = Company::where('slug',$slug)->firstOrFail();
-
-        echo $company->name." <br>";
-        echo $company->email." <br>";
-        echo $company->business_hour." <br>";
-        foreach ($company->address as $a){
-            echo $a->address." <br>";
-        }
-
-        echo "<br>";
-        echo "Media <br>";
-        echo "<br>";
-        
-        foreach ($company->media as $m){
-            echo $m->title." <br>";
-            echo $m->author." <br>";
-            echo "<br>";
-            
-        }
+        return view('detail-directory', compact('company'));
     }
 }
