@@ -64,6 +64,7 @@ class ProductController extends Controller
     public function detail($companyId,$slug)
     {
         $product = Product::where('slug',$slug)->where('company_id',$companyId)->firstOrFail();
+        $relatedProduct = Product::where("company_id","=",$companyId)->limit(5)->get();
 
         if(Auth::check()){
             if (!DB::table('product_view')->where('user_id','=',Auth::user()->id)->where('product_id','=',$product->id)->exists()) {
@@ -76,9 +77,7 @@ class ProductController extends Controller
                 ]);
             }
         }
-        echo $product->name." <br>";
-        echo $product->description." <br>";
-        echo $product->catagory->name." <br>";
-        echo $product->company->name." <br>";
+
+        return view('detail-product', compact('product','relatedProduct'));
     }
 }
