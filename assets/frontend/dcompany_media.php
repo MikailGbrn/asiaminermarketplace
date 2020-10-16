@@ -6,7 +6,7 @@
     <title>Browse &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/rangeslider.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="croppie/croppie.css" />
+
     
   </head>
   <body>
@@ -259,10 +261,30 @@
         <h4>Edit Profile</h4>
       </div>
       <div class="modal-body">
-        <form action="#">
+        <form>
           <div class="custom-files">
             <input class="custom-file-inputs" type="file"  id="upload_image" name="upload_image" accept="image/*">
             <div id="uploaded_image"></div>
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#companyname">Company Name</label>
+            <input type="text" name="companyname" class="form-control" id="companyname" placeholder="add company name">
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#description">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#Website">Company Website</label>
+            <input type="text" name="website" class="form-control" id="website" placeholder="add company website">
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#email">Company E-mail</label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="add company e-mail">
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#number">Company Phone Number</label>
+            <input type="number" name="number" class="form-control" id="number" placeholder="add company phone number">
           </div>
         </form>
       </div>
@@ -274,6 +296,30 @@
   </div>
 </div>
 <!-- modal edit profile -->
+
+<!-- modal croppie profile picture -->
+<div id="uploadimageModal" class="modal" role="dialog">
+ <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+  <div class="modal-content">
+        <div class="modal-header" >
+            <h4 class="modal-title">Upload &amp; Crop Image</h4>
+            <button type="button" class="close" data-dismiss="modal" >&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+       <div class="col-md-12 text-center">
+        <div id="image_demo"></div>
+        <button class="btn btn-success crop_image">Crop &amp; Upload Image</button>
+     </div>
+    </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>
+<!-- modal croppie profile picture -->
 
     <div class="site-section">
       <div class="container">
@@ -544,8 +590,11 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/rangeslider.min.js"></script>
+  <script src="croppie/croppie.js"></script>
+
   
   <script src="js/main.js"></script>
+  <script src="js/crop.js"></script>
   
   </body>
 </html>

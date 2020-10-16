@@ -7,6 +7,7 @@
           <script src="croppie/croppie.js"></script>
           <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
           <link rel="stylesheet" href="croppie/croppie.css" />
+          <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>  
     <body>  
         <div class="container">
@@ -14,11 +15,20 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Select Profile Image</div>
                 <div class="panel-body" align="center">
-                    <input type="file" name="upload_image" id="upload_image" accept="image/*" />
-                    <div id="uploaded_image"></div>
+                    <form>
+<!--                     <div class="col-md-4" class="custom-file" style="width: 300px; height: 300px;">
+                        <input class="text-white custom-file-input" type="file" name="upload_image" id="upload_image" accept="image/*" />
+                        <div id="uploaded_image"></div> -->
+                        <div class="custom-files mb-3">
+                          <input class="custom-file-inputs" type="file"  id="upload_image" name="upload_image" accept="image/*">
+                          <!-- <label class="custom-file-label text-left" for="customFile">Choose file</label> -->
+                          <div id="uploaded_image"></div>
+                        </div>
+                      </form>
+                    </div>
+                    
                 </div>
             </div>
-        </div>
     </body>  
 </html>
 
@@ -50,13 +60,13 @@ $(document).ready(function(){
  $image_crop = $('#image_demo').croppie({
     enableExif: true,
     viewport: {
-      width:200,
-      height:200,
+      width:300,
+      height:300,
       type:'circle' //circle
     },
     boundary:{
-      width:300,
-      height:300
+      width:400,
+      height:400
     }
   });
 

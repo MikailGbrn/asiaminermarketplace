@@ -3049,7 +3049,7 @@ input[type="button"].btn-block {
   width: 100%;
   height: calc(2.25rem + 2px);
   margin: 0;
-  opacity: 0; }
+  opacity: 50%; }
   .custom-file-input:focus ~ .custom-file-label {
     border-color: #12fffa;
     -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 145, 142, 0.25);
@@ -4393,6 +4393,12 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
+.center {
+  position: absolute;
+  
+  transform: translate(-50%, -50%);
+}
+
 .modal-open {
   overflow: hidden; }
   .modal-open .modal {
@@ -4406,7 +4412,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2050;
+  z-index: 9999;
   display: none;
   overflow: hidden;
   outline: 0; }

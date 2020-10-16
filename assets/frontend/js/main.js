@@ -1,8 +1,79 @@
+// Croppie
+// $(document).ready(function(){
+
+//  $image_crop = $('#image_demo').croppie({
+//     enableExif: true,
+//     viewport: {
+//       width:300,
+//       height:300,
+//       type:'circle' //circle
+//     },
+//     boundary:{
+//       width:400,
+//       height:400
+//     }
+//   });
+
+//   $('#upload_image').on('change', function(){
+//     var reader = new FileReader();
+//     reader.onload = function (event) {
+//       $image_crop.croppie('bind', {
+//         url: event.target.result
+//       }).then(function(){
+//         console.log('jQuery bind complete');
+//       });
+//     }
+//     reader.readAsDataURL(this.files[0]);
+//     $('#uploadimageModal').modal('show');
+//   });
+
+//   $('.crop_image').click(function(event){
+//     $image_crop.croppie('result', {
+//       type: 'canvas',
+//       size: 'viewport'
+//     }).then(function(response){
+//       $.ajax({
+//         url:"upload.php",
+//         type: "POST",
+//         data:{"image": response},
+//         success:function(data)
+//         {
+//           $('#uploadimageModal').modal('hide');
+//           $('#uploaded_image').html(data);
+//         }
+//       });
+//     })
+//   });
+
+// });  
+// Croppie
+
  AOS.init({
  	duration: 800,
  	easing: 'slide',
  	once: true
  });
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function Dropdown() {
+  document.getElementById("dropdownacc").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 var acc = document.getElementsByClassName("accordion");
 var i;
