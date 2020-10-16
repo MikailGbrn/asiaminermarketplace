@@ -41,7 +41,7 @@
               @foreach($company as $c)
               <div class="col-md-4 col-lg-4 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
-                  <a href="#">
+                  <a href="{{url('company/'.$c->slug)}}">
                   <img src="{{asset('assets/frontend/images/img_2.jpg')}}" alt="Image" class="img-fluid">
                   <div class="h-entry-inner">
                   <h2 class="font-size-regular"><object><a href="blog-single.html">{{$c->name}}</a></object></h2>

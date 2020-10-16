@@ -6,6 +6,7 @@ use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Media;
+use APp\Prodcut;
 use App\CCatagory;
 
 class CompanyController extends Controller
@@ -21,7 +22,6 @@ class CompanyController extends Controller
                 echo $a->address." <br>";
             }
             
-
             echo "<br>";
             echo "<br>";
             echo "<br>";
@@ -60,23 +60,14 @@ class CompanyController extends Controller
     public function detail($slug)
     {       
         $company = Company::where('slug',$slug)->firstOrFail();
-
-        echo $company->name." <br>";
-        echo $company->email." <br>";
-        echo $company->business_hour." <br>";
-        foreach ($company->address as $a){
-            echo $a->address." <br>";
-        }
-
-        echo "<br>";
-        echo "Media <br>";
-        echo "<br>";
-        
-        foreach ($company->media as $m){
-            echo $m->title." <br>";
-            echo $m->author." <br>";
-            echo "<br>";
-            
-        }
+        return view('detail-directory', compact('company'));
+    }
+    public function showCompanyMedia()
+    {
+        # code...
+    }
+    public function showComapanyProduct()
+    {
+        # code...
     }
 }
