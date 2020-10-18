@@ -40,8 +40,8 @@
               <div class="profile-footer" style="margin-top: 10px;">
                 <ul class="companynav mr-auto">
                   <li  class="active"><a href="#"><span>TIMELINE</span></a></li>
-                  <li><a href=""><span>MEDIA/RESOURCE</span></a></li>
-                  <li><a href=""><span>PRODUCTS</span></a></li>
+                  <li><a href="{{url('/')}}/company/{{$company->slug}}/media"><span>MEDIA/RESOURCE</span></a></li>
+                  <li><a href="{{url('/')}}/company/{{$company->slug}}/product"><span>PRODUCTS</span></a></li>
                   <li><a href=""><span>NEWS</span></a></li>
                   <li><a href=""><span>PROJECT</span></a></li>
                   <li><a href=""><span>ABOUT</span></a></li>

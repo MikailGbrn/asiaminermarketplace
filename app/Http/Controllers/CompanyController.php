@@ -6,7 +6,7 @@ use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Media;
-use APp\Prodcut;
+use App\Product;
 use App\CCatagory;
 
 class CompanyController extends Controller
@@ -41,19 +41,6 @@ class CompanyController extends Controller
         $company = $query->paginate(21);
         $catList = CCatagory::all();
 
-    //     foreach ($company as $c){
-    //         echo $c->name." <br>";
-    //         echo $c->email." <br>";
-    //         echo $c->business_hour." <br>";
-    //         foreach ($c->address as $a){
-    //             echo $a->address." <br>";
-    //         }
-    //         echo "<a href='".url("/company/$c->slug")."'>tombol</a>";
-    //         echo "<br>";
-    //         echo "<br>";
-    //         echo "<br>";
-            
-    //    }
        return view('directory',compact('company','catList'));
 
     }
@@ -62,12 +49,22 @@ class CompanyController extends Controller
         $company = Company::where('slug',$slug)->firstOrFail();
         return view('detail-directory', compact('company'));
     }
-    public function showCompanyMedia()
+    public function showCompanyMedia($slug)
     {
-        # code...
+        $company = Company::where('slug',$slug)->firstOrFail();
+        $media = Media::whereHas('company', function ($query) use($slug) {
+            return $query->where('slug', $slug);
+        })->paginate(8);
+        
+        return view('company_media', compact('media','company'));
     }
-    public function showComapanyProduct()
+    public function showCompanyProduct($slug)
     {
-        # code...
+        $company = Company::where('slug',$slug)->firstOrFail();
+        $product = Product::whereHas('company', function ($query) use($slug) {
+            return $query->where('slug', $slug);
+        })->paginate(20);
+        
+        return view('company_product', compact('product','company'));
     }
 }

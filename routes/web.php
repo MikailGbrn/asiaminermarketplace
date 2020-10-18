@@ -17,10 +17,18 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+Route::domain('{account}.myapp.com')->group(function () {
+    Route::get('user/', function ($account, $id) {
+        echo "wakwaw";
+    });
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/company', 'CompanyController@find')->name('company');
 Route::get('/company/{slug}', 'CompanyController@detail');
+Route::get('/company/{slug}/media', 'CompanyController@showCompanyMedia');
+Route::get('/company/{slug}/product', 'CompanyController@showCompanyProduct');
 
 Route::get('/product', 'ProductController@find')->name('product');
 Route::get('/product/{CompanyId}/{slug}','ProductController@detail');
