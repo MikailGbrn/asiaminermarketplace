@@ -10,7 +10,7 @@
           <div class=" d-md-flex detail-content container">
 
 
-              <img src="{{asset('assets/frontend/images/img_2.jpg')}}">
+              <img src="{{url('public/'.Storage::url($product->photo))}}">
               <div class="lh-content">
                 <h3 class="h1">{{$product->name}}</h3>
                 <p class="mb-0">By: <a href="#">{{$product->company->name}}</a></p>

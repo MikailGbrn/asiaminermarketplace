@@ -94,7 +94,7 @@
       <!-- media resorce content ended here -->
     </div>
 
-    <div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade " id="additem" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content p-4">
           <div class="modal-header">
@@ -108,19 +108,24 @@
                       <label class="text-secondary" for="#title">Product Title</label>
                       <input type="text" id="title" name="name" class="form-control">
                       @error('name')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
+                        <span style="color:red; font-size:12px">*{{$message}}</span>
                       @enderror
+                          
+                      
                     </div>
                     <div class="form-group col-md-12 mb-3 mb-md-0">
                       <label class="text-secondary" for="#desc">Description</label>
                       <textarea name="description" class="form-control" id="desc" rows="3"></textarea>
+                      @error('description')
+                        <span style="color:red; font-size:12px">*{{$message}}</span>
+                      @enderror
                     </div>
                     <div class="input-group col-md-7 mt-3 mb-md-0">
                       <label class="text-secondary">File Upload</label>
                       <input type="file" name="foto" class="custom-file-input" id="customFile">
-                      {{-- <label class="custom-file-label text-secondary" for="customFile"></label> --}}
+                      @error('foto')
+                        <span style="color:red; font-size:12px">*{{$message}}</span>
+                      @enderror
                     </div>
                   </div>
 
@@ -134,4 +139,14 @@
       </div>
     </div>
 
+@endsection
+
+@section('jsplus')
+  @if ($errors->any())
+  <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#additem').modal('show');
+    });
+  </script>
+  @endif
 @endsection

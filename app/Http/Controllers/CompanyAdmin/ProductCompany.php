@@ -5,8 +5,10 @@ namespace App\Http\Controllers\CompanyAdmin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Product;
 use App\Company;
+use Image;
 
 class ProductCompany extends Controller
 {
@@ -26,13 +28,17 @@ class ProductCompany extends Controller
     public function addProduct(Request $request)
     {
         $this->validate($request,[
-            'name' => ['required', 'unique:products', 'max:255'],
+            'name' => ['required', 'unique:products', 'max:255', 'min:10'],
             'description' => 'required',
+            'foto' => 'file|image|max:3072'
         ]);
 
         $path="public/product/defaultProduct.jpg";
         if ($request->hasFile('foto') && $request->file('foto')->isValid()) {
-            $path = $request->file('foto')->store('public/product');
+            $image = $request->file('foto');
+            $path = 'public/product/'.(string) Str::uuid().'.'.$image->extension();
+            $img = Image::make($image->path());
+            $img->fit(800,687)->save('storage/app/'.$path);
         }
 
         $product = new Product;
@@ -45,6 +51,6 @@ class ProductCompany extends Controller
         $product->description = $request->input('description');;
         $product->save();
 
-        return redirect();
+        return redirect('company-profile/product');
     }
 }
