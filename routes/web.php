@@ -39,6 +39,7 @@ Route::get('/company/{slug}/product', 'CompanyController@showCompanyProduct');
 
 Route::get('/product', 'ProductController@find')->name('product');
 Route::get('/product/{CompanyId}/{slug}','ProductController@detail');
+Route::post('product/addquotation', 'ProductController@addQuotation');
 
 Route::get('/search', 'MediaController@find');
 Route::get('/resource/{CompanyId}/{slug}','MediaController@detail');

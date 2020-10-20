@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Quotation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -78,6 +79,29 @@ class ProductController extends Controller
             }
         }
         return view('detail-product', compact('product','relatedProduct'));
+    }
+    public function addQuotation(Request $request)
+    {
+        $this->validate($request, [
+            'detail' => 'required|min:10',
+            'company_id' => 'required',
+            'file' => 'file|max:3072',
+        ]);
+
+        $path=null;
+        if ($request->hasFile('file') && $request->file('file')->isValid()) {
+            $path = $request->file('file')->store('quotation');
+        }
+
+        $quotation =  new Quotation;
+        $quotation->user_id = Auth::user()->id;
+        $quotation->company_id = $request->input('company_id');
+        $quotation->description = $request->input('detail');
+        $quotation->additional = implode(',', $request->input('additional'));
+        $quotation->file = $path;
+        $quotation->save();
+
+        return redirect()->back()->with(['success' => 'Quote/info sent successfully']);;
     }
 
 }
