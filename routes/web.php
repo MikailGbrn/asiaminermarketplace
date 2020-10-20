@@ -17,12 +17,19 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::domain('{account}.myapp.com')->group(function () {
-    Route::get('user/', function ($account, $id) {
-        echo "wakwaw";
-    });
-});
+Route::get('company/login', 'CompanyAdmin\CompanyAuth@showLogin')->name('company.login');
+Route::get('company/register', 'CompanyAdmin\CompanyAuth@showRegister');
+Route::post('company/login', 'CompanyAdmin\CompanyAuth@Login');
+Route::post('company/register', 'CompanyAdmin\CompanyAuth@Register');
+Route::get('company/logout', 'CompanyAdmin\CompanyAuth@Logout');
 
+
+Route::prefix('company-profile')->middleware('auth:admin-company')->group( function(){
+    Route::get('/','CompanyAdmin\DashboardCompany@index');
+    
+    Route::get('/product','CompanyAdmin\ProductCompany@showProduct');
+    Route::post('/product','CompanyAdmin\ProductCompany@addProduct');
+});
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/company', 'CompanyController@find')->name('company');

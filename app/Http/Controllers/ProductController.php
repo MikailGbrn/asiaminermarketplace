@@ -79,4 +79,5 @@ class ProductController extends Controller
         }
         return view('detail-product', compact('product','relatedProduct'));
     }
+
 }
