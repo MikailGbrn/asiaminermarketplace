@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('company/login', 'CompanyAdmin\CompanyAuth@showLogin')->name('company.login');
 Route::get('company/register', 'CompanyAdmin\CompanyAuth@showRegister');
