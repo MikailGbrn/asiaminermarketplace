@@ -59,50 +59,19 @@
         </div>
       </div>
 
-<div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content p-4">
-      <table>
-        <tr>
-          <td><a href="categories.html">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Mining</a></td>
-          <td><a href="#">Coal Preparation</a></td>
-        </tr>
-        <tr>
-          <td><a href="#">Coal Preparation</a></td>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Mining</a></td>
-        </tr>
-        <tr>
-          <td><a href="#">Coal Mining</a></td>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Preparation</a></td>
-        </tr>
-        <tr>
-          <td><a href="#">Coal Mining</a></td>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Preparation</a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-      
     </header>
+
+    <!-- start of site section -->
     <div class="site-section bg-light">
+
+      <!-- start of company profile -->
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-
             <div class="company-profile">
 
-                <!-- header company profile -->
+                <!-- header company header -->
               <div class="profile-header">
-
                 <img class="header" src="images/hero_1.jpg"> 
                 <!-- profile picture company -->
                 <div class="image-container">
@@ -110,15 +79,17 @@
                 </div>
               </div>
               <span><a class="editbtn" href="" data-toggle="modal" data-target="#editprofile">Edit Profile</a></span>
+              <!-- end of header company header -->
+
+              <!-- start of profile content -->
               <div class="profile-content">
-                
                 <h2 class="text-center">Company Name</h2>
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat.</p>
                 <p>
-                <a href=""><span class="icon-paperclip mr-2 text-primary"></span>http://www.website.com</a>
+                  <a href=""><span class="icon-paperclip mr-2 text-primary"></span>http://www.website.com</a>
                 </p>
                 <p>
                   <span class="mr-5 text-secondary"><span class="icon-map-pin mr-2"></span>Company Location</span>
@@ -129,7 +100,9 @@
                   <span class="text-secondary"><span class="icon-phone mr-2"></span>+1-776-SAMPL</span>
                 </p>
               </div>
+              <!-- end of profile content -->
 
+              <!-- start of profile navigation -->
               <div class="profile-footer">
                 <ul class="companynav mr-auto">
                   <li><a href="#"><span>TIMELINE</span></a></li>
@@ -140,15 +113,19 @@
                   <li><a href=""><span>ABOUT</span></a></li>
                 </ul>
               </div>
+              <!-- start of profile navigation -->
 
             </div>
 
           </div>
         </div>
       </div>
+      <!-- end of company profile -->
 
-<!-- Media resource content starts here -->
+      <!-- Media resource content starts here -->
       <div class="container company-content">
+
+        <!-- start of content header -->
         <div class="row mb-3">
           <div class="col-md-12">
             <h4 class="contentsection">Media/Resources (2)</h4>
@@ -157,17 +134,19 @@
             <h5 class="text-primary" style="float: right;"><a href="" data-toggle="modal" data-target="#additem">+ Add Item</a></h5>
           </div>
         </div>
+        <!-- end of content header -->
+
+        <!-- start of content -->
         <div class="row">
 
+          <!-- content 1 -->
             <div class="col-md-6">
               <div class="d-block d-md-flex listing-horizontal h-option">
-
               <a href="" class="img d-block" style="background-image: url(images/img_2.jpg);">
-                <span class="category">Sample Category</span>
               </a>
-
               <div class="lh-content">
-                <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
+                <object><a href="#" class="bookmark"><span class="icon-edit"></span></a></object>
+                <object><a href="#" class="deletepost"><span class="icon-trash"></span></a></object>
                 <h3><object><a href="#">Media / Resources Title</a></object></h3>
                 <p><object><a href="#">Company Name</a></object></p>
                 <p>
@@ -181,15 +160,14 @@
             </div>
             </div>
 
+            <!-- content 2 -->
             <div class="col-md-6">
               <div class="d-block d-md-flex listing-horizontal h-option">
-
               <a href="" class="img d-block" style="background-image: url(images/img_2.jpg);">
-                <span class="category">Sample Category</span>
               </a>
-
               <div class="lh-content">
-                <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
+                <object><a href="#" class="bookmark"><span class="icon-edit"></span></a></object>
+                <object><a href="#" class="deletepost"><span class="icon-trash"></span></a></object>
                 <h3><object><a href="#">Media / Resources Title</a></object></h3>
                 <p><object><a href="#">Company Name</a></object></p>
                 <p>
@@ -204,297 +182,13 @@
             </div>
 
         </div>
+        <!-- end of content -->
 
       </div>
       <!-- media resorce content ended here -->
 
-<!-- modal add item -->
-<div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable" role="document">
-    <div class="modal-content p-4">
-      <div class="modal-header">
-        <h4>Add Item</h4>
-      </div>
-      <div class="modal-body">
-        <form action="#">
-              <div class="row">
-                <div class="form-group col-md-12 mt-3 mb-md-0 files">
-                  <label class="text-secondary">Upload Your Resource File </label>
-                  <input type="file" class="form-control" multiple="" required="">
-                </div>                
-                <div class="form-group col-md-12 mt-3 mb-md-0">
-                  <label class="text-secondary">Resource Image </label>
-                  <input type="file" class="form-control" multiple="" required="">
-                </div>
-                <div class="form-group col-md-12 mt-3 mb-md-0">
-                  <label class="text-secondary" for="#title">Media/Resouce Title</label>
-                  <input type="text" id="title" class="form-control">
-                </div>
-                <div class="form-group col-md-12 mt-3 mb-md-0">
-                  <label class="text-secondary" for="#author">Author</label>
-                  <input type="text" id="author" class="form-control">
-                </div>
-                <div class="form-group col-md-12 mt-3 mb-md-0">
-                  <label class="text-secondary" for="#desc">Description</label>
-                  <textarea class="form-control" id="desc" rows="3"></textarea>
-                </div>
-
-              </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
-  </div>
-</div>
-<!-- modal add item -->
-
-    </div>
-
-<!-- modal edit profile -->
-<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content p-4">
-      <div class="modal-header">
-        <h4>Edit Profile</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="custom-files">
-            <input class="custom-file-inputs" type="file"  id="upload_image" name="upload_image" accept="image/*">
-            <div id="uploaded_image"></div>
-          </div>
-          <div class="form-group">
-            <label class="text-secondary" for="#companyname">Company Name</label>
-            <input type="text" name="companyname" class="form-control" id="companyname" placeholder="add company name">
-          </div>
-          <div class="form-group">
-            <label class="text-secondary" for="#description">Description</label>
-            <textarea class="form-control" id="description" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label class="text-secondary" for="#Website">Company Website</label>
-            <input type="text" name="website" class="form-control" id="website" placeholder="add company website">
-          </div>
-          <div class="form-group">
-            <label class="text-secondary" for="#email">Company E-mail</label>
-            <input type="text" name="email" class="form-control" id="email" placeholder="add company e-mail">
-          </div>
-          <div class="form-group">
-            <label class="text-secondary" for="#number">Company Phone Number</label>
-            <input type="number" name="number" class="form-control" id="number" placeholder="add company phone number">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- modal edit profile -->
-
-<!-- modal croppie profile picture -->
-<div id="uploadimageModal" class="modal" role="dialog">
- <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-  <div class="modal-content">
-        <div class="modal-header" >
-            <h4 class="modal-title">Upload &amp; Crop Image</h4>
-            <button type="button" class="close" data-dismiss="modal" >&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-       <div class="col-md-12 text-center">
-        <div id="image_demo"></div>
-        <button class="btn btn-success crop_image">Crop &amp; Upload Image</button>
-     </div>
-    </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-     </div>
-    </div>
-</div>
-<!-- modal croppie profile picture -->
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-md-8">
-
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-
-
-            <p class="mb-4"><img src="images/hero_1.jpg" alt="Image" class="img-fluid rounded"></p>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-
-            <h3>Even the all-powerful</h3>
-            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-
-            <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-
-            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-
-            <div class="pt-5">
-              <p>Categories:  <a href="#">Design</a>, <a href="#">Events</a>  Tags: <a href="#">#html</a>, <a href="#">#trends</a></p>
-            </div>
-
-
-            <div class="pt-5">
-              <h3 class="mb-5">6 Comments</h3>
-              <ul class="comment-list">
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/comment_vcard.jpg" alt="Image">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/comment_vcard.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-
-                  <ul class="children">
-                    <li class="comment">
-                      <div class="vcard bio">
-                        <img src="images/comment_vcard.jpg" alt="Image placeholder">
-                      </div>
-                      <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
-
-
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="images/comment_vcard.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>Jean Doe</h3>
-                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
-
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="vcard bio">
-                                  <img src="images/comment_vcard.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                  <h3>Jean Doe</h3>
-                                  <div class="meta">January 9, 2018 at 2:21pm</div>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                  <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-                              </li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/comment_vcard.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-              </ul>
-              <!-- END comment-list -->
-              
-              <div class="comment-form-wrap pt-5">
-                <h3 class="mb-5">Leave a comment</h3>
-                <form action="#" class="p-5 bg-light">
-                  <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" class="form-control" id="name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" class="form-control" id="email">
-                  </div>
-                  <div class="form-group">
-                    <label for="website">Website</label>
-                    <input type="url" class="form-control" id="website">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Post Comment" class="btn btn-primary text-white btn-md">
-                  </div>
-
-                </form>
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="col-md-3 ml-auto">
-            <div class="mb-5">
-              <h3 class="h5 text-black mb-3">Search</h3>
-              <form action="#" method="post">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
-                </div>
-              </form>
-            </div>
-
-            <div class="mb-5">
-              <h3 class="h5 text-black mb-3">Popular Posts</h3>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li class="mb-2"><a href="#">Quaerat rerum voluptatibus veritatis</a></li>
-                <li class="mb-2"><a href="#">Maiores sapiente veritatis reprehenderit</a></li>
-                <li class="mb-2"><a href="#">Natus eligendi nobis</a></li>
-              </ul>
-            </div>
-
-            <div class="mb-5">
-              <h3 class="h5 text-black mb-3">Recent Comments</h3>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="#">Admin</a> <em>in</em> <a href="#">Lorem ipsum dolor sit amet</a></li>
-                <li class="mb-2"><a href="#">Admin</a> <em>in</em> <a href="#">Quaerat rerum voluptatibus veritatis</a></li>
-                <li class="mb-2"><a href="#">Admin</a> <em>in</em> <a href="#">Maiores sapiente veritatis reprehenderit</a></li>
-                <li class="mb-2"><a href="#">Admin</a> <em>in</em> <a href="#">Natus eligendi nobis</a></li>
-              </ul>
-            </div>
-
-          </div>
-          
-        </div>
-      </div>
-    </div>
+    <!-- end of site section -->
 
     
     <div class="py-5 bg-primary">
@@ -577,6 +271,183 @@
       </div>
     </footer>
   </div>
+
+  <!-- ALL MODAL START-->
+
+<!-- modal categories START-->
+<div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-4">
+      <table>
+        <tr>
+          <td><a href="categories.html">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Preparation</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- modal categories END-->
+
+<!-- modal add item START-->
+<div class="modal fade" id="additem" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Add Item</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+              <div class="row">
+                <div class="form-group col-md-12 mt-3 mb-md-0 files">
+                  <label class="text-secondary">Upload Your Resource File </label>
+                  <input type="file" class="form-control" multiple="" required="">
+                </div>                
+                <div class="form-group col-md-12 mt-3 mb-md-0">
+                  <label class="text-secondary">Resource Image </label>
+                  <input type="file" class="form-control" multiple="" required="">
+                </div>
+                <div class="form-group col-md-12 mt-3 mb-md-0">
+                  <label class="text-secondary" for="#title">Media/Resouce Title</label>
+                  <input type="text" id="title" class="form-control">
+                </div>
+                <div class="form-group col-md-12 mt-3 mb-md-0">
+                  <label class="text-secondary" for="#author">Author</label>
+                  <input type="text" id="author" class="form-control">
+                </div>
+                <div class="form-group col-md-12 mt-3 mb-md-0">
+                  <label class="text-secondary" for="#desc">Description</label>
+                  <textarea class="form-control" id="desc" rows="3"></textarea>
+                </div>
+              </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal add item END-->
+
+<!-- modal edit profile START -->
+<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Edit Profile</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="header-file mb-3">
+            <input class="custom-file-inputs" type="file"  id="upload_header_image" name="upload_image" accept="image/*">
+            <div id="uploaded_header"></div>
+          </div>
+          <div class="custom-files">
+            <input class="custom-file-inputs" type="file"  id="upload_profile_image" name="upload_image" accept="image/*">
+            <div id="uploaded_image"></div>
+          </div>
+          <div class="form-group mb-5">
+            <label class="text-secondary" for="#companyname">Company Name</label>
+            <input type="text" name="companyname" class="form-control" id="companyname" placeholder="add company name">
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#description">Description</label>
+            <textarea class="form-control" id="description" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#Website">Company Website</label>
+            <input type="text" name="website" class="form-control" id="website" placeholder="add company website">
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#email">Company E-mail</label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="add company e-mail">
+          </div>
+          <div class="form-group">
+            <label class="text-secondary" for="#number">Company Phone Number</label>
+            <input type="number" name="number" class="form-control" id="number" placeholder="add company phone number">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal edit profile END-->
+
+<!-- modal croppie profile picture -->
+<div id="uploadprofileimageModal" tabindex="-1" class="modal" role="dialog" style="overflow-y: scroll;">
+ <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header" >
+      <h4 class="modal-title">Upload &amp; Crop Image</h4>
+      <button type="button" class="close" data-dismiss="modal" >&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+       <div class="col-md-12 text-center">
+        <div id="profile_image"></div>
+        <button class="btn btn-success crop_image">Crop &amp; Upload Image</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+</div>
+<!-- modal croppie profile picture -->
+
+<!-- modal croppie header picture -->
+<div id="uploadheaderimageModal" tabindex="-1" class="modal" role="dialog" style="overflow-y: scroll;">
+ <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header" >
+      <h4 class="modal-title">Upload &amp; Crop Image</h4>
+      <button type="button" class="close" data-dismiss="modal" >&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+       <div class="col-md-12 text-center">
+        <div id="header_image"></div>
+        <button class="btn btn-success crop_image">Crop &amp; Upload Image</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+</div>
+<!-- modal croppie header picture -->
+
+  <!-- ALL MODAL END -->
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

@@ -1,20 +1,21 @@
-// Croppie
+// Croppie Profile Picture
 $(document).ready(function(){
 
- $image_crop = $('#image_demo').croppie({
+ $image_crop = $('#profile_image').croppie({
     enableExif: true,
     viewport: {
-      width:300,
+      width:800,
       height:300,
-      type:'circle' //circle
+      type:'square' //circle
     },
     boundary:{
-      width:400,
-      height:400
+      width:900,
+      height:900
     }
   });
+  // document.getElementById('#editprofile')style.overflowY = "scroll";
 
-  $('#upload_image').on('change', function(){
+  $('#upload_profile_image').on('change', function(){
     var reader = new FileReader();
     reader.onload = function (event) {
       $image_crop.croppie('bind', {
@@ -24,13 +25,14 @@ $(document).ready(function(){
       });
     }
     reader.readAsDataURL(this.files[0]);
-    $('#uploadimageModal').modal('show');
+    $('#editprofile').modal('hide');
+    $('#uploadprofileimageModal').modal('show');
   });
 
   $('.crop_image').click(function(event){
     $image_crop.croppie('result', {
       type: 'canvas',
-      size: 'viewport'
+      size: 'viewport'          
     }).then(function(response){
       $.ajax({
         url:"upload.php",
@@ -38,12 +40,64 @@ $(document).ready(function(){
         data:{"image": response},
         success:function(data)
         {
-          $('#uploadimageModal').modal('hide');
+          $('#uploadprofileimageModal').modal('hide');
+          $('#editprofile').modal('show');
           $('#uploaded_image').html(data);
+
         }
       });
     })
   });
 
 });  
-// Croppie
+// END OF Croppie Profile Picture
+
+// Croppie Profile header
+// $(document).ready(function(){
+
+//  $image_crop = $('#header_image').croppie({
+//     enableExif: true,
+//     viewport: {
+//       width:800,
+//       height:640,
+//       type:'square' //circle
+//     },
+//     boundary:{
+//       width:1000,
+//       height:720
+//     }
+//   });
+
+//   $('#upload_header_image').on('change', function(){
+//     var reader = new FileReader();
+//     reader.onload = function (event) {
+//       $image_crop.croppie('bind', {
+//         url: event.target.result
+//       }).then(function(){
+//         console.log('jQuery bind complete');
+//       });
+//     }
+//     reader.readAsDataURL(this.files[0]);
+//     $('#uploadheaderimageModal').modal('show');
+//   });
+
+//   $('.crop_image').click(function(event){
+//     $image_crop.croppie('result', {
+//       type: 'canvas',
+//       size: 'viewport'
+//     }).then(function(response){
+//       $.ajax({
+//         url:"",
+//         type: "POST",
+//         data:{"image": response},
+//         success:function(data)
+//         {
+//           $('#uploadheaderimageModal').modal('hide');
+//           $('#uploaded_image').html(data);
+//         }
+//       });
+//     })
+//   });
+
+// });  
+// END OF Croppie Profile Picture

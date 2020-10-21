@@ -41,14 +41,14 @@
     
         <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
 
-      <div class="container">
+      <div class="warp-container pr-4 pl-4"> <!-- ubah 1 -->
         <div class="row align-items-center">
           
           <div class="col-11 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
           </div>
           <div class="col-12 col-md-8 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
+            <nav class="site-navigation position-relative text-center" role="navigation"> <!-- ubah 2 -->
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.html"><span>Home</span></a></li>
@@ -75,114 +75,6 @@
           </div>
         </div>
       </div>
-
-<div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content p-4">
-      <table>
-        <tr>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Mining</a></td>
-          <td><a href="#">Coal Preparation</a></td>
-        </tr>
-        <tr>
-          <td><a href="#">Coal Preparation</a></td>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Mining</a></td>
-        </tr>
-        <tr>
-          <td><a href="#">Coal Mining</a></td>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Preparation</a></td>
-        </tr>
-        <tr>
-          <td><a href="#">Coal Mining</a></td>
-          <td><a href="#">Automation</a></td>
-          <td><a href="#">Cement</a></td>
-          <td><a href="#">Coal Preparation</a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<!-- start of modal login -->
-
-<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content p-4">
-      <div class="modal-header">
-        <h4>Sign In</h4>
-      </div>
-      <div class="modal-body">
-        <form action="#">
-              <div class="row form-group">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Phone, Email</label>
-                  <input type="text" id="fname" class="form-control">
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" for="lname">Password</label>
-                  <input type="password" id="lname" class="form-control">
-                  <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
-                  <label for="rememberme">Remember Me</label>
-                  <span style="float: right;"><a href="#">Forget Password?</a></span>
-                </div>
-              </div>
-              <div class="row form-group ">
-                <div class="col-md-12">
-                  <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
-                  <p><a href="#">Don't have an account?</a></p>
-                </div>
-              </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end of modal login -->
-
-<!-- start of login failed -->
-<!-- <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content p-4">
-      <div class="modal-header">
-        <h4>Sign In</h4>
-      </div>
-      <div class="modal-body">
-        <form action="#">
-              <div class="row form-group">
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Phone, Email</label>
-                  <input type="text" id="fname" class="form-control">
-                </div>
-                <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" for="lname">Password</label>
-                  <input type="password" id="lname" class="form-control">
-                  <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
-                  <label for="rememberme">Remember Me</label>
-                  <span style="float: right;"><a href="#">Forget Password?</a></span>
-                  <p class="text-danger">The email and password you entered did not match our records. Please try again. </p>
-                </div>
-              </div>
-              <div class="row form-group ">
-                <div class="col-md-12">
-                  <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
-                  <p><a href="#">Don't have an account?</a></p>
-                </div>
-              </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- end of modal login failed -->
-      
     </header>
 
     <div class="site-section bg-light">
@@ -191,12 +83,12 @@
         <div class="row mt-5">
 
           <div class="col-lg-3 ml-auto">
-              <!-- FILTER STARTS HERE -->    
+<!-- FILTER STARTS HERE -->    
               <h4 class="h4">Filters</h4>          
               <h3 class="h4 text-black accordion mb-0">Category</h3>
               <div class="panel">
                 <form action="#" method="post">
-              <!--<div class="form-group">
+              <div class="form-group">
 
                   <h6 class="text-sm text-secondary">Search By Keywords</h6>
                   <input type="text" placeholder="What are you looking for?" class="form-control">
@@ -205,9 +97,7 @@
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
                 <div class="form-group">
                   <input type="text" placeholder="Company Name" class="form-control">
-                </div> -->
-
-
+                </div> 
                 
                 <!-- checklist for categories -->
                 <div class="form-group">
@@ -237,7 +127,7 @@
                         Sea Foods
                       </label>
                     </li>
-                    <li class="text-primary">View All Categories</li>
+                    <li class="text-primary"><a href="" data-toggle="modal" data-target="#categoriesfilter">View All Categories</a></li>
                   </ul>
                 </div>
               </form>
@@ -299,7 +189,7 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="uploaddate" class="text-sm text-secondary pt-3">Location</label>
+                    <label for="uploaddate" class="text-sm text-secondary pt-3">Download Count</label>
                     <select class="form-control" id="uploaddate">
                       <option>Most Downloaded</option>
                       <option>Least Downloaded</option>
@@ -313,13 +203,13 @@
           <!-- FILTER END HERE -->
           </div>
 
-          <!-- COMPANY DIRECTORY START HERE -->
+          <!-- PRODUCT LIST START HERE -->
           <div class="col-lg-8">
-
+            <h3 class="h4">Search Result (118)</h3>
             <div class="row mb-3 align-items-stretch">
               <div class="col-md-6 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
-                  <a href="#">
+                  <a href="d-product.html">
                   <img src="images/img_1.jpg" alt="Image" class="img-fluid">
                   <div class="h-entry-inner">
                     <h2 class="font-size-regular"><object><a href="blog-single.html">Sample Products Name</a></object></h2>
@@ -332,7 +222,7 @@
               </div>
               <div class="col-md-6 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
-                  <a href="#">
+                  <a href="d-product.html">
                   <img src="images/img_2.jpg" alt="Image" class="img-fluid">
                   <div class="h-entry-inner">
                     <h2 class="font-size-regular"><object><a href="blog-single.html">Sample Company Name</a></object></h2>
@@ -346,7 +236,7 @@
             </div>
           </div>
 
-            <!-- COMPANY DIRECTORY END HERE -->
+            <!-- PRODUCT LIST END HERE -->
 
             <!-- PAGINATION START HERE -->
             <div class="col-12 text-center mt-5">
@@ -464,6 +354,152 @@
   <script src="js/rangeslider.min.js"></script>
   
   <script src="js/main.js"></script>
+
+    <!-- ALL MODAL -->
+
+    <!-- start of modal categories on filter-->
+<div class="modal fade" id="categoriesfilter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-centered">
+    <div class="modal-content p-4">
+      <table>
+        <tr>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Preparation</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- end of modal categories on filter-->
+
+  <!-- start of modal categories on nav-->
+<div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-4">
+      <table>
+        <tr>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Preparation</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- end of modal categories on nav-->
+
+<!-- start of modal login -->
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Phone, Email</label>
+              <input type="text" id="fname" class="form-control">
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="lname">Password</label>
+              <input type="password" id="lname" class="form-control">
+              <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+              <label for="rememberme">Remember Me</label>
+              <span style="float: right;"><a href="#">Forget Password?</a></span>
+            </div>
+          </div>
+          <div class="row form-group ">
+            <div class="col-md-12">
+              <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
+              <p><a href="#">Don't have an account?</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of modal login -->
+
+<!-- start of login failed -->
+<!-- <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Phone, Email</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="lname">Password</label>
+                  <input type="password" id="lname" class="form-control">
+                  <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+                  <label for="rememberme">Remember Me</label>
+                  <span style="float: right;"><a href="#">Forget Password?</a></span>
+                  <p class="text-danger">The email and password you entered did not match our records. Please try again. </p>
+                </div>
+              </div>
+              <div class="row form-group ">
+                <div class="col-md-12">
+                  <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
+                  <p><a href="#">Don't have an account?</a></p>
+                </div>
+              </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- end of modal login failed -->
+
+<!-- END OF ALL MODAL -->
   
   </body>
 </html>

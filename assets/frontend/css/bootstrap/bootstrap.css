@@ -1582,16 +1582,16 @@ pre {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 145, 142, 0.25);
     box-shadow: 0 0 0 0.2rem rgba(0, 145, 142, 0.25); }
   .form-control::-webkit-input-placeholder {
-    color: #6c757d;
+    color: #ccc;
     opacity: 1; }
   .form-control:-ms-input-placeholder {
-    color: #6c757d;
+    color: #ccc;
     opacity: 1; }
   .form-control::-ms-input-placeholder {
-    color: #6c757d;
+    color: #ccc;
     opacity: 1; }
   .form-control::placeholder {
-    color: #6c757d;
+    color: #ccc;
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
@@ -3045,6 +3045,7 @@ input[type="button"].btn-block {
 
 .custom-file-input {
   position: relative;
+  visibility: hidden;
   z-index: 2;
   width: 100%;
   height: calc(2.25rem + 2px);
