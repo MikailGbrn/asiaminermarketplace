@@ -7,12 +7,13 @@ use App\News;
 
 class NewsController extends Controller
 {
-    public function show()
+    public function show($id)
     {
-        
+        $news = News::where('company_id',$id)->paginate(10);
+
     }
     public function detail($slug)
     {
-        # code...
+        
     }
 }

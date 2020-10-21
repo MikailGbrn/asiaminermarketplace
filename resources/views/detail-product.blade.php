@@ -4,21 +4,27 @@
       <div class="container mt-5">
          <div class="row">
             <div class="col-md-12">
-
-        
+              @if (session('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Quotation / Info</strong> sent successfully !
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              @endif
 
           <div class=" d-md-flex detail-content container">
 
 
-              <img src="{{asset('assets/frontend/images/img_2.jpg')}}">
+              <img src="{{url('public/'.Storage::url($product->photo))}}">
               <div class="lh-content">
                 <h3 class="h1">{{$product->name}}</h3>
                 <p class="mb-0">By: <a href="#">{{$product->company->name}}</a></p>
                 <p style="margin-top: 10px;">
                   @guest
-                  <a data-toggle="modal" data-target="#signin" class="btn btn-primary text-white">Download</a>
+                  <a data-toggle="modal" data-target="#signin" class="btn btn-primary text-white">Quote / Info</a>
                   @else
-                  <a href="{{url("/download-resource/$resource->uuid")}}" class="btn btn-primary text-white">Download</a>
+                  <a data-toggle="modal" data-target="#addquotation" class="btn btn-primary text-white">Quotation / Info</a>
                   @endguest
                 </p>
                 <p>
@@ -63,10 +69,76 @@
           </div>
         </div>
         @endforeach
+      </div>
+    </div>
+  </div>
 
+  <div class="modal fade " id="addquotation" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content p-4">
+        <div class="modal-header">
+          <h4>Add Quotation</h4>
+        </div>
+        <div class="modal-body">
+          <form id="form1" action="{{ url('product/addquotation')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <input name="company_id" type="hidden" value="{{$product->company_id}}">
+                <div class="row">
+                  <div class="form-group col-md-12 mb-3 mb-md-0">
+                    <label class="text-secondary" for="#desc">Type, paste OR attach your Request for a Quote or Questions below *</label>
+                    <textarea name="detail" class="form-control" id="desc" rows="3"></textarea>
+                    @error('detail')
+                      <span style="color:red; font-size:12px">*{{$message}}</span>
+                    @enderror
+                  </div>
+                  <div class="input-group col-md-7 mt-3 mb-md-0">
+                    <label class="text-secondary">File Upload</label>
+                    <input type="file" name="file" class="custom-file-input" id="customFile">
+                    <span style="font-size:12px">*Maximum file size 3 Mb</span>
+                    @error('file')
+                      <span style="color:red; font-size:12px">*{{$message}}</span>
+                    @enderror
+                  </div>
+                  <div class="input-group col-md-7 mt-3 mb-md-0 ">
+                    <label class="text-secondary" for="">I would also like to:</label>
+                  </div>
+                  <div class="input-group col-md-6 mb-md-0 mt-2">
+                      <input name="additional[]" value="Recieve quotation" type="checkbox" class="ml-1" id="exampleCheck1" style="transform: scale(1.5)">
+                      <label class="form-check-label" style="margin-left:15px; margin-top:-7px" for="exampleCheck1">Receive Quotation</label>
+                  </div>
+                  <div class="input-group col-md-6 mb-md-0 mt-2">
+                    <input name="additional[]" value="Recieve documentation" type="checkbox" class="ml-1" id="exampleCheck1" style="transform: scale(1.5)">
+                    <label class="form-check-label" style="margin-left:15px; margin-top:-7px" for="exampleCheck1">Receive Documentation</label>
+                  </div>
+                  <div class="input-group col-md-6 mb-md-0 mt-2">
+                    <input name="additional[]" value="Contacted by phone" type="checkbox" class="ml-1" id="exampleCheck1" style="transform: scale(1.5)">
+                    <label class="form-check-label" style="margin-left:15px; margin-top:-7px" for="exampleCheck1">Be contacted by phone</label>
+                  </div>
+                  <div class="input-group col-md-6 mb-md-0 mt-2">
+                    <input name="additional[]" value="Need pricing information" type="checkbox" class="ml-1" id="exampleCheck1" style="transform: scale(1.5)">
+                    <label class="form-check-label" style="margin-left:15px; margin-top:-7px" for="exampleCheck1">Receive pricing information</label>
+                  </div>
+                </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" form="form1" type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
   @endsection
+
+  @section('jsplus')
+  @if ($errors->any())
+  <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#addquotation').modal('show');
+    });
+  </script>
+  @endif
+@endsection
 
   

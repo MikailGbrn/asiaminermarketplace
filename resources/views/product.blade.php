@@ -104,10 +104,10 @@
               <div class="col-md-6 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
                   <a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">
-                  <img src="{{asset('assets/frontend/images/img_1.jpg')}}" alt="Image" class="img-fluid">
+                  <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
                   <div class="h-entry-inner">
-                    <h2 class="font-size-regular"><object><a href="blog-single.html">{{$p->name}}</a></object></h2>
-                    <p><object><a href="#">{{$p->company->name}}</a></object></p>
+                    <h2 class="font-size-regular"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
+                    <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
                     <p class="text-limit">{{$p->description}}</p>
                   </div>
                   </a>

@@ -18,7 +18,7 @@
     <div class="container">
       <div class="row align-items-center">
         
-        <div class="col-11 col-xl-2">
+        <div class="col-11 col-xl-1">
           <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
         </div>
         <div class="col-12 col-md-8 d-none d-xl-block">
@@ -54,12 +54,34 @@
         </div>
         
 
-        <div class="col-md-2 d-none d-xl-block position-relative text-right"> 
+        <div class="col-md-3 position-relative "> 
           @guest
-          <a href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a>
+          <a class="float-right" href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a>
           @else
-          <a href="{{ route('logout') }}"
-          onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>Sign Out</span></a>
+          <div class="dropdown">
+          
+            <a class="float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span style="color: grey">Welcome, </span> mufadho !
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="">Quotation</a>
+              <a class="dropdown-item" href="">Setting</a>
+              
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
+            </div>
+          </div>
+
+          {{-- <div class="row">
+            <div class="dropdownacc">
+              <a onclick="Dropdown()" class="dropbtn">Welcome <span class="text-primary">Ardiansyah!</span></a>
+              <div id="dropdownacc" class="dropdown-content">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">logout</a>
+              </div>
+            </div>
+          </div> --}}
+
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
           </form>
@@ -80,32 +102,6 @@
         <div class="col-lg-3"><a href="{{url("search?cat=".$a->id)}}">{{$a->name}}</a></div>
       @endforeach
     </div>
-    {{-- <table>
-      <tr>
-        <td><a href="categories.html">Automation</a></td>
-        <td><a href="">Cement</a></td>
-        <td><a href="#">Coal Mining</a></td>
-        <td><a href="#">Coal Preparation</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Coal Preparation</a></td>
-        <td><a href="#">Automation</a></td>
-        <td><a href="#">Cement</a></td>
-        <td><a href="#">Coal Mining</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Coal Mining</a></td>
-        <td><a href="#">Automation</a></td>
-        <td><a href="#">Cement</a></td>
-        <td><a href="#">Coal Preparation</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Coal Mining</a></td>
-        <td><a href="#">Automation</a></td>
-        <td><a href="#">Cement</a></td>
-        <td><a href="#">Coal Preparation</a></td>
-      </tr>
-    </table> --}}
   </div>
 </div>
 </div>
