@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Media;
 use App\Product;
+use App\News;
 use App\CCatagory;
+use App\Project;
 
 class CompanyController extends Controller
 {
@@ -47,7 +50,18 @@ class CompanyController extends Controller
     public function detail($slug)
     {       
         $company = Company::where('slug',$slug)->firstOrFail();
-        return view('detail-directory', compact('company'));
+        $product = Product::where('company_id',$company->id)->limit(6)->get();
+        $media = Media::where('company_id',$company->id)->limit(6)->get();
+        
+    
+
+        $timeline =  DB::select("
+            (SELECT name, photo, slug, view, description, null as download, 'product' as type, updated_at from products where company_id = '$company->id')
+            UNION
+            (SELECT title, photo, slug, view, description, download, 'media' as type, updated_at from media where company_id = '$company->id')
+            order by updated_at limit 20
+        ");
+        return view('detail-directory', compact('company','media','product','timeline'));
     }
     public function showCompanyMedia($slug)
     {
@@ -66,5 +80,25 @@ class CompanyController extends Controller
         })->paginate(20);
         
         return view('company_product', compact('product','company'));
+    }
+    public function showCompanyNews($slug)
+    {
+        $company = Company::where('slug',$slug)->firstOrFail();
+        $news = News::where('company_id', $company->id)->paginate(20);
+        
+        return view('company_news', compact('news','company'));
+    }
+
+    public function showCompanyProject($slug)
+    {
+        $company = Company::where('slug',$slug)->firstOrFail();
+        $project = Project::where('company_id', $company->id)->paginate(20);
+        
+        return view('company_project', compact('project','company'));
+    }
+    public function showCompanyAbout($slug)
+    {
+        $company = Company::where('slug',$slug)->firstOrFail();
+        return view('company_about', compact('company'));
     }
 }

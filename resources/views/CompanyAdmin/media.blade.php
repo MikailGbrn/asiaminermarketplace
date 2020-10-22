@@ -107,24 +107,30 @@
         <form action="#">
               <div class="row">
                 <div class="form-group col-md-12 mt-3 mb-md-0 files">
-                  <label class="text-secondary">Upload Your Resource File </label>
-                  <input type="file" class="form-control" multiple="" required="">
+                  <label class="text-secondary"> </label>
+                  <input type="file" name="media" class="form-control"  required="">
                 </div>                
                 <div class="form-group col-md-12 mt-3 mb-md-0">
                   <label class="text-secondary">Resource Image </label>
-                  <input type="file" class="form-control" multiple="" required="">
+                  <input type="file" name="foto" class="form-control" required="">
                 </div>
                 <div class="form-group col-md-12 mt-3 mb-md-0">
                   <label class="text-secondary" for="#title">Media/Resouce Title</label>
-                  <input type="text" id="title" class="form-control">
+                  <input type="text" name="title" id="title" class="form-control">
                 </div>
                 <div class="form-group col-md-12 mt-3 mb-md-0">
                   <label class="text-secondary" for="#author">Author</label>
-                  <input type="text" id="author" class="form-control">
+                  <input type="text" name="author" id="author" class="form-control">
+                </div>
+                <div class="form-group col-md-12 mt-3 mb-md-0">
+                  <label class="text-secondary" for="#author">Content Type</label>
+                  <select class="form-control" name="content_type" id="">
+                    <option value="asdasd">asdasdasd</option>
+                  </select>
                 </div>
                 <div class="form-group col-md-12 mt-3 mb-md-0">
                   <label class="text-secondary" for="#desc">Description</label>
-                  <textarea class="form-control" id="desc" rows="3"></textarea>
+                  <textarea class="form-control" name="description" id="desc" rows="3"></textarea>
                 </div>
 
               </div>

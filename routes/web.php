@@ -29,6 +29,9 @@ Route::prefix('company-profile')->middleware('auth:admin-company')->group( funct
     
     Route::get('/product','CompanyAdmin\ProductCompany@showProduct');
     Route::post('/product','CompanyAdmin\ProductCompany@addProduct');
+
+    Route::get('/media','CompanyAdmin\MediaCompany@showMedia');
+    Route::post('/media','CompanyAdmin\MediaCompany@addMedia');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -36,6 +39,9 @@ Route::get('/company', 'CompanyController@find')->name('company');
 Route::get('/company/{slug}', 'CompanyController@detail');
 Route::get('/company/{slug}/media', 'CompanyController@showCompanyMedia');
 Route::get('/company/{slug}/product', 'CompanyController@showCompanyProduct');
+Route::get('/company/{slug}/news', 'CompanyController@showCompanyNews');
+Route::get('/company/{slug}/project', 'CompanyController@showCompanyProject');
+Route::get('/company/{slug}/about', 'CompanyController@showCompanyAbout');
 
 Route::get('/product', 'ProductController@find')->name('product');
 Route::get('/product/{CompanyId}/{slug}','ProductController@detail');
