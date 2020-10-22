@@ -49,6 +49,8 @@
 // Croppie
 
 CKEDITOR.replace('about');
+CKEDITOR.replace('newsbody');
+
 
  AOS.init({
  	duration: 800,

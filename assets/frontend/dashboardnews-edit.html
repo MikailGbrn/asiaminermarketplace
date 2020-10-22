@@ -37,7 +37,7 @@
             <nav class="site-navigation position-relative text-center" role="navigation"> <!-- ubah 2 -->
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="dashboard.html"><span>Dashboard</span></a></li>
+                <li><a href="dashboard.html"><span>Dashboard</span></a></li>
                 <li><a href="dashboardmedia.html"><span>Media/Resources</span></a></li>
                 <li><a href="dashboardproduct.html"><span>Products</span></a></li>
                 <li><a href="dashboardnews.html"><span>News</span></a></li>
@@ -70,33 +70,53 @@
     <div class="site-section">
       <div class="container mt-5">
         <div class="row">
+          <div class="col-md-6">
+            <a href="dashboardnews.html"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-12">
-            <h2>Company's Name Basic Information</h2>
-            <a href="dashboard-edit.html" class="btn" style="float:right;"><span class="icon-edit mr-2"></span>Edit Profile</a>
+            <h2>Edit News</h2>
             <div class="card mt-4">
-              <div class="card-header">
-                <h4>Basic Information</h4>
-              </div>
               <div class="card-body"> 
-                <label for="fpdescription">Front Page Description</label>
-                <textarea name="fpdescription" rows="3" class="form-control mb-3" style="resize: none;" readonly="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </textarea>
-                <label for="website" >Website</label>
-                <textarea name="website" rows="1" class="form-control mb-3" style="resize: none;" readonly="">http://www.company.com</textarea>
-                <label for="location" >Location</label>
-                <textarea name="location" rows="1" class="form-control mb-3" style="resize: none;" readonly="">Jakarta, Indonesia</textarea>
-                <label for="email" >E-mail</label>
-                <textarea name="email" rows="1" class="form-control mb-3" style="resize: none;" readonly="">company@mail.com</textarea>
-                <label for="phone" >Phone</label>
-                <textarea name="phone" rows="1" class="form-control mb-3" style="resize: none;" readonly="">+1-23456-543</textarea>
-              </div>
-            </div>
-            <a href="dashboard-edit.html" class="btn mt-5" style="float:right;"><span class="icon-edit mr-2"></span>Edit This Page</a>
-            <div class="card mt-4">
-              <div class="card-header">
-                <h4>Company's About Page</h4>
-              </div>
-              <div class="card-body">
-                <textarea name="about" id="about" rows="4" class="" readonly=""></textarea>
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="newstitle">News Title</label>
+                      <input type="text" name="newstitle" id="newstitle" class="form-control" placeholder="Add news title">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="author">Author</label>
+                      <input type="text" name="author" id="author" class="form-control" placeholder="Add author">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="newslocation">News Location</label>
+                      <input type="text" name="newslocation" id="newslocation" class="form-control" placeholder="Jakarta, Indonesia">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="abstract">News' Abstract</label>
+                      <textarea class="form-control" name="abstract" id="abstract" rows="3"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="newsbody">News Body</label>
+                      <textarea name="newsbody" id="newsbody" rows="4" class=""></textarea>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6" >
+                      <a href="#" type="button" class="btn btn-primary ml-5" style="float: right;">Save Changes</a>
+                      <a href="dashboardnews.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

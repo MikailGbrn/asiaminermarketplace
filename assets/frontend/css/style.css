@@ -783,6 +783,67 @@ h1, h2, h3, h4, h5,
 .show {display: block;}
 /*logged account*/
 
+/*news*/
+.news {
+  padding: 10px;
+  padding-right: 40px;
+  border-right: 1px solid #ccc;
+}
+
+.news .news-header {
+  padding: 0px 10px 0px 0px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.news .news-header p {
+  font-size: 14px;
+  padding: 0;
+}
+
+.news .news-header p span {
+  color: #00918e;
+}
+
+.news .news-body .abstract {
+  font-size: 12px;
+  color: #6c757d;
+  border-bottom: 1px solid #ccc;
+}
+
+.news .news-body p {
+  padding-left: 50px;
+}
+
+
+.news .image-container {
+  width: 100%;
+  max-height: calc(80vh);
+  overflow: hidden;
+}
+.news .image-container img {
+  object-fit: cover;
+  object-position: -43px -50px;
+}
+.related-news .image-container {
+  width: 100%;
+  max-height: calc(30vh);
+  overflow: hidden;
+}
+.related-news .image-container img{
+  max-width: 100%;
+  height: auto;
+  object-position: 0px -30px;
+}
+.related-news a {
+  font-size: 20px;
+}
+.related-news .abstract {
+    font-size: 12px;
+  color: #6c757d;
+}
+/*news*/
+
 .company-profile{
   width: 100%;
   min-height: calc(92vh);
