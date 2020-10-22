@@ -48,8 +48,6 @@
 // });  
 // Croppie
 
-CKEDITOR.replace('about');
-CKEDITOR.replace('newsbody');
 
 
  AOS.init({
@@ -58,6 +56,13 @@ CKEDITOR.replace('newsbody');
  	once: true
  });
 
+ $(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
+CKEDITOR.replace('about');
+CKEDITOR.replace('newsbody');
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
