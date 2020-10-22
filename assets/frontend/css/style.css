@@ -2287,7 +2287,7 @@ background-color: #e1f2f2;
     width: 100%; }
     .detail-content .lh-content .bookmark {
       position: absolute;
-      right: -20px;
+      right: -30px;
       top: 20px;
       width: 40px;
       height: 40px;
@@ -2305,9 +2305,34 @@ background-color: #e1f2f2;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
       .detail-content .lh-content .bookmark:hover {
-        background: #f23a2e; }
+        background: #00918e; }
         .detail-content .lh-content .bookmark:hover span {
           color: #fff; }
+
+    .detail-content .lh-content .delete {
+      position: absolute;
+      right: -30px;
+      top: 80px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.1);
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+      .detail-content .lh-content .delete span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+      .detail-content .lh-content .delete:hover {
+        background: #f23a2e; }
+        .detail-content .lh-content .delete:hover span {
+          color: #fff; }
+
       .detail-content .lh-content .tag span {
         color: #fff;
         padding: 5px 15px;

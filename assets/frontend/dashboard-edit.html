@@ -37,20 +37,11 @@
             <nav class="site-navigation position-relative text-center" role="navigation"> <!-- ubah 2 -->
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="index.html"><span>Home</span></a></li>
-                <li class="has-children">
-                  <a><span>Categories</span></a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="#">Automation</a></li>
-                    <li><a href="#">Cement</a></li>
-                    <li><a href="#">Coal Mining</a></li>
-                    <li><a data-toggle="modal" data-target="#categories">View All..</a></li>
-                  </ul>
-                </li>
-                <li><a href="directory.html"><span>Directory</span></a></li>
-                <li><a href="product.html"><span>Products</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
-                <li><a href="" class="d-xl-none">SIGN IN</a></li>
+                <li class="active"><a href="dashboard.html"><span>Basic</span></a></li>
+                <li><a href="dashboardmedia.html"><span>Media/Resources</span></a></li>
+                <li><a href="dashboardproduct.html"><span>Products</span></a></li>
+                <li><a href="dashboardnews.html"><span>News</span></a></li>
+                <li><a href="dashboardprojects.html"><span>Projects</span></a></li>
               </ul>
             </nav>
           </div>
@@ -73,42 +64,86 @@
       </div>
       
     </header>
+
   <body class="bg-light">
 
     <div class="site-section">
       <div class="container mt-5">
         <div class="row">
-          <div class="col-md-3"></div>
           <div class="col-md-6">
-            <div class="card">
+            <a href="dashboard.html"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Edit Profile</h2>
+            <div class="card mt-4">
               <div class="card-header">
-                COMPANY SIGN IN
+                <h4>Basic Information</h4>
               </div>
               <div class="card-body"> 
                 <form>
-                  <div class="form-group">
-                    <label for="companyemail">Company E-mail</label>
-                    <input type="email" name="companyemail" id="companyemail" class="form-control" placeholder="company@mail.com">
+                  <div class="form-row">
+                    <div class="custom-file col-md-5 mb-3">
+                      <input type="file" name="mediapic" id="mediapic" class="custom-file-input" accept="image/*">
+                      <label for="mediapic" class="custom-file-label"><span class="icon-image mr-3"></span>Upload Header Image</label>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="custom-file col-md-5 mb-5">
+                      <input type="file" name="mediapic" id="mediapic" class="custom-file-input">
+                      <label for="mediapic" class="custom-file-label"> <span class="icon-image mr-3"></span>Upload Profile Picture</label>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    <label for="companypassword">Password</label>
-                    <input type="password" name="companypassword" id="companypassword" class="form-control" placeholder="">
-                    <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
-                    <label for="rememberme">Remember Me</label>
-                    <span style="float: right;"><a href="#">Forget Password?</a></span>
+                  <div class="form-row">
                   </div>
-                  <div class="form-group">
-                    <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2" style="width: 50%">
-                    <p><a href="#">Don't have a company account?</a></p>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="fpdescription">Company's Description</label>
+                      <textarea class="form-control" name="fpdescription" id="fpdescription" rows="2"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="website">Company's Website</label>
+                      <input type="text" name="website" id="website" class="form-control" value="http://www.company.com">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="website">Company's Location</label>
+                      <input type="text" name="website" id="website" class="form-control" value="Jakarta, Indonesia">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="email">Company's E-mail</label>
+                      <input type="text" name="email" id="email" class="form-control" value="company@mail.com">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="website">Company's Phone</label>
+                      <input type="number" name="website" id="website" class="form-control" value="+1-2345-543">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6" >
+                      <a href="#" type="button" class="btn btn-primary ml-5" style="float: right;">Save Changes</a>
+                      <a href="dashboardmedia.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                    </div>
                   </div>
                 </form>
-              </div>
-              <div class="card-footer text-center">
-                <span ><a class="text-secondary" href="index.html">Bring me back to the site</a></span>
+<!--                 <label for="fpdescription">Front Page Description</label>
+                <textarea name="fpdescription" rows="3" class="form-control mb-3" style="resize: none;" readonly="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </textarea>
+                <label for="website" >Website</label>
+                <textarea name="website" rows="1" class="form-control mb-3" style="resize: none;" readonly="">http://www.company.com</textarea>
+                <label for="location" >Location</label>
+                <textarea name="location" rows="1" class="form-control mb-3" style="resize: none;" readonly="">Jakarta, Indonesia</textarea>
+                <label for="email" >E-mail</label>
+                <textarea name="email" rows="1" class="form-control mb-3" style="resize: none;" readonly="">company@mail.com</textarea>
+                <label for="phone" >Phone</label>
+                <textarea name="phone" rows="1" class="form-control mb-3" style="resize: none;" readonly="">+1-23456-543</textarea> -->
               </div>
             </div>
           </div>
-          <div class="col-md-3"></div>
         </div>
       </div>
     </div>
@@ -125,6 +160,7 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/rangeslider.min.js"></script>
+  <script src="ckeditor/ckeditor.js"></script>
   
   <script src="js/main.js"></script>
   

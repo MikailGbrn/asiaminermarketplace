@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <title>Browse &mdash; Website Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,54 +22,41 @@
 
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/rangeslider.css">
-
     <link rel="stylesheet" href="css/style.css">
     
   </head>
-  <body>
-  
-  <div class="site-wrap">
+          <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
 
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-    
-        <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
-
-      <div class="warp-container pr-4 pl-4"> <!-- ubah 1 -->
+      <div class="warp-container pr-4 pl-4"><!-- ubah 1 -->
         <div class="row align-items-center">
           
           <div class="col-11 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
           </div>
-          <div class="col-12 col-md-8 d-none d-xl-block">
+          <div class="col-12 col-md-7 d-none d-xl-block">
             <nav class="site-navigation position-relative text-center" role="navigation"> <!-- ubah 2 -->
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="index.html"><span>Home</span></a></li>
-                <li class="has-children">
-                  <a><span>Categories</span></a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="categories.html">Automation</a></li>
-                    <li><a href="#">Cement</a></li>
-                    <li><a href="#">Coal Mining</a></li>
-                    <li><a data-toggle="modal" data-target="#categories">View All..</a></li>
-                  </ul>
-                </li>
-                <li><a href="directory.html"><span>Directory</span></a></li>
-                <li><a href="product.html"><span>Products</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
-                <li><a href="" class="d-xl-none">SIGN IN</a></li>
+                <li><a href="dashboard.html"><span>Basic</span></a></li>
+                <li><a href="dashboardmedia.html"><span>Media/Resources</span></a></li>
+                <li><a href="dashboardproducts.html"><span>Products</span></a></li>
+                <li><a href="dashboardnews.html"><span>News</span></a></li>
+                <li><a href="dashboardprojects.html"><span>Projects</span></a></li>
               </ul>
             </nav>
           </div>
 
-          <div class="col-md-2 d-none d-xl-block position-relative text-right"> <a href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a></div>
+          <div class="col-md-3 d-none d-xl-block position-relative text-right"> 
+              <div class="dropdownacc">
+                <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">Ardiansyah!</span></a>
+                <div id="dropdownacc" class="dropdown-content">
+                  <a href="#home">Home</a>
+                  <a href="#about">About</a>
+                  <a href="#contact">Contact</a>
+                  <a href="#contact">Log out</a>
+                </div>
+              </div>
+          </div>
 
           <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
           </div>
@@ -79,13 +65,50 @@
       
     </header>
 
-    <div class="site-section bg-light">
+  <body class="bg-light">
+
+    <div class="site-section">
       <div class="container mt-5">
-         <div class="row">
-            <div class="col-md-12">
-          <div class=" d-md-flex detail-content container">
+        <div class="row">
+          <div class="col-md-6">
+            <a href="dashboardproduct.html"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Edit Company's Name Product Name</h2>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="title">Product Name</label>
+                  <input type="text" name="title" id="title" class="form-control" placeholder="Add Product Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="tags">Tags</label>
+                  <input type="text" name="tags" id="tags" class="form-control" placeholder="Add Tags">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="custom-file col-md-12 mb-3">
+                  <input type="file" name="mediapic" id="mediapic" class="custom-file-input" accept="image/*">
+                  <label for="mediapic" class="custom-file-label"><span class="icon-image mr-3"></span>Upload Product Image </label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                </div>
+                <div class="form-group col-md-6" >
+                  <a href="#" type="button" class="btn btn-primary ml-5" style="float: right;">Add Product</a>
+                  <a href="dashboardproduct.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                </div>
+              </div>
+            </form>
+<!--             <h2>Edit Media Resource Title</h2>
+            <div class=" d-md-flex detail-content container mt-5">
               <img src="images/img_1.jpg">
               <div class="lh-content">
+                <object><a href="#" class="bookmark"><span class="icon-edit"></span></a></object>
+                <object><a href="#" class="delete"><span class="icon-trash"></span></a></object>
                 <h3 class="h1">Media Resource Title</h3>
                 <p class="mb-0">By: <a href="#">Company Name</a></p>
                 <p>Author: <a href="#">John Doe</a></p>
@@ -93,163 +116,20 @@
                   <span>Tag 1</span>
                   <span>Tag 2</span>
                 </p>
-                <p><a href="#" class="btn btn-primary text-white">Download</a></p>
                 <p>
-                  <span class="icon-download text-left"></span>
-                  <span class="mr-4">Downloads: 46</span>
-                  <span class="icon-eye"></span>
-                  <span>Views: 103</span>
-                </p>
-                <p>
-                  <span id="dots">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-
-                  <span id="more">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                  <p style="padding: 1rem; text-align: center;"><button onclick="myFunction()" id="morebtn">Read More</button></p>
                 </p>
               </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-8">
-        <h3>Related Resources</h3>
-                    <div class="d-block d-md-flex listing-horizontal h-option">
-
-              <a href="" class="img d-block" style="background-image: url(images/img_2.jpg);">
-                <span class="category">Sample Category</span>
-              </a>
-
-              <div class="lh-content">
-                <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
-                <h3><object><a href="#">Media / Resources Title</a></object></h3>
-                <p><object><a href="#">Company Name</a></object></p>
-                <p>
-                  <span class="icon-eye"></span>
-                  <span class="pr-3">49 Views</span>
-                  <span class="icon-download text-left"></span>
-                  <span>19 Downloads</span>
-                </p>
-                <object><a href="d-categories.html">Open Details..</a></object>
-              </div>
-            </div>
-
-            <div class="d-block d-md-flex listing-horizontal h-option">
-
-              <a href="#" class="img d-block" style="background-image: url('images/img_1.jpg')">
-                <span class="category">Sample Category</span>
-              </a>
-
-              <div class="lh-content">
-                <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
-                <h3><object><a href="#">Media / Resources Title</a></object></h3>
-                <p><object><a href="#">Company Name</a></object></p>
-                <p>
-                  <span class="icon-eye"></span>
-                  <span class="pr-3">49 Views</span>
-                  <span class="icon-download text-left"></span>
-                  <span>19 Downloads</span>
-                </p>
-                <object><a href="#">Open Details..</a></object>
-              </div>
-            </div>
-      </div>
-    </div>
-  </div>
-
-    
-    <div class="py-5 bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
-            <h2 class="mb-3 mt-0 text-white">Let's get started. Create your account</h2>
-            <p class="mb-0 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-          <div class="col-lg-4">
-            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
-    
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Products</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Features</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Testimonials</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Follow Us</h2>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <form action="#" method="post">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row pt-5 mt-5">
-          <div class="col-12 text-md-center text-left">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -263,10 +143,11 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/rangeslider.min.js"></script>
+  <script src="ckeditor/ckeditor.js"></script>
   
   <script src="js/main.js"></script>
   
-    <!-- ALL MODAL -->
+   <!-- ALL MODAL -->
 
     <!-- start of modal categories on filter-->
 <div class="modal fade" id="categoriesfilter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

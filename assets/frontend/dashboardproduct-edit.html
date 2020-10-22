@@ -37,20 +37,11 @@
             <nav class="site-navigation position-relative text-center" role="navigation"> <!-- ubah 2 -->
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="index.html"><span>Home</span></a></li>
-                <li class="has-children">
-                  <a><span>Categories</span></a>
-                  <ul class="dropdown arrow-top">
-                    <li><a href="#">Automation</a></li>
-                    <li><a href="#">Cement</a></li>
-                    <li><a href="#">Coal Mining</a></li>
-                    <li><a data-toggle="modal" data-target="#categories">View All..</a></li>
-                  </ul>
-                </li>
-                <li><a href="directory.html"><span>Directory</span></a></li>
-                <li><a href="product.html"><span>Products</span></a></li>
-                <li><a href="contact.html"><span>Contact</span></a></li>
-                <li><a href="" class="d-xl-none">SIGN IN</a></li>
+                <li><a href="dashboard.html"><span>Basic</span></a></li>
+                <li><a href="dashboardmedia.html"><span>Media/Resources</span></a></li>
+                <li><a href="dashboardproducts.html"><span>Products</span></a></li>
+                <li><a href="dashboardnews.html"><span>News</span></a></li>
+                <li><a href="dashboardprojects.html"><span>Projects</span></a></li>
               </ul>
             </nav>
           </div>
@@ -73,42 +64,46 @@
       </div>
       
     </header>
+
   <body class="bg-light">
 
     <div class="site-section">
       <div class="container mt-5">
         <div class="row">
-          <div class="col-md-3"></div>
           <div class="col-md-6">
-            <div class="card">
-              <div class="card-header">
-                COMPANY SIGN IN
-              </div>
-              <div class="card-body"> 
-                <form>
-                  <div class="form-group">
-                    <label for="companyemail">Company E-mail</label>
-                    <input type="email" name="companyemail" id="companyemail" class="form-control" placeholder="company@mail.com">
-                  </div>
-                  <div class="form-group">
-                    <label for="companypassword">Password</label>
-                    <input type="password" name="companypassword" id="companypassword" class="form-control" placeholder="">
-                    <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
-                    <label for="rememberme">Remember Me</label>
-                    <span style="float: right;"><a href="#">Forget Password?</a></span>
-                  </div>
-                  <div class="form-group">
-                    <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2" style="width: 50%">
-                    <p><a href="#">Don't have a company account?</a></p>
-                  </div>
-                </form>
-              </div>
-              <div class="card-footer text-center">
-                <span ><a class="text-secondary" href="index.html">Bring me back to the site</a></span>
-              </div>
-            </div>
+            <a href="dashboardproduct.html"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
           </div>
-          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Edit Company's Name Product Name</h2>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="title">Product Name</label>
+                  <input type="text" name="title" id="title" class="form-control" value="Product Name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="tags">Tags</label>
+                  <input type="text" name="tags" id="tags" class="form-control" value="Tags 1, Tags 2,">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="custom-file col-md-12 mb-3">
+                  <input type="file" name="mediapic" id="mediapic" class="custom-file-input" accept="image/*">
+                  <label for="mediapic" class="custom-file-label"><span class="icon-image mr-3"></span>Upload Product Image </label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                </div>
+                <div class="form-group col-md-6" >
+                  <a href="#" type="button" class="btn btn-primary ml-5" style="float: right;">Save Changes</a>
+                  <a href="dashboardproduct.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -125,6 +120,7 @@
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/rangeslider.min.js"></script>
+  <script src="ckeditor/ckeditor.js"></script>
   
   <script src="js/main.js"></script>
   
