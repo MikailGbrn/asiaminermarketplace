@@ -18,23 +18,24 @@
     <div class="container">
       <div class="row align-items-center">
         
-        <div class="col-md-10 d-none d-xl-block text-center">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">{{$company->name}}</a></h1>
+        <div class="col-md-9 d-none d-xl-block text-left">
+          <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0" style="">{{$company->name}}</a></h1>
         </div>
 
-        <div class="col-md-2 position-relative">
-          <div class="row">
-
-            <div class="dropdownacc">
-              <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">Ardiansyah!</span></a>
-              <div id="dropdownacc" class="dropdown-content">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-              </div>
+        <div class="col-md-3"> 
+          <div class="dropdown">
+            <a class="float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span style="color: grey">Welcome, </span> mufadho !
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="">Quotation</a>
+              <a class="dropdown-item" href="">Setting</a>
+              <a class="dropdown-item" href="http://localhost/asiaminermarketplace/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
             </div>
-
           </div>
+          <form id="logout-form" action="http://localhost/asiaminermarketplace/logout" method="POST" style="display: none;">
+            <input type="hidden" name="_token" value="s1LLcWRsLvLLOMfxRz3JeFN1MkMxVmXiueEvGBCj">          
+          </form>
         </div>
         
 

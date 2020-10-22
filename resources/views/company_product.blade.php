@@ -43,9 +43,9 @@
                   <li><a href="{{url('/')}}/company/{{$company->slug}}"><span>TIMELINE</span></a></li>
                   <li><a href="{{url('/')}}/company/{{$company->slug}}/media"><span>MEDIA/RESOURCE</span></a></li>
                   <li class="active"><a href="{{url('/')}}/company/{{$company->slug}}/product"><span>PRODUCTS</span></a></li>
-                  <li><a href=""><span>NEWS</span></a></li>
-                  <li><a href=""><span>PROJECT</span></a></li>
-                  <li><a href=""><span>ABOUT</span></a></li>
+                  <li><a href="{{url('/')}}/company/{{$company->slug}}/news"><span>NEWS</span></a></li>
+                  <li><a href="{{url('/')}}/company/{{$company->slug}}/project"><span>PROJECT</span></a></li>
+                  <li><a href="{{url('/')}}/company/{{$company->slug}}/about"><span>ABOUT</span></a></li>
                 </ul>
               </div>
 
@@ -60,9 +60,6 @@
         <div class="row mb-3">
           <div class="col-md-12">
             <h4 class="contentsection">Products ({{$product->total()}})</h4>
-          </div>
-          <div class="col-md-12">
-            <h5 class="text-primary" style="float: right;"><a href="" data-toggle="modal" data-target="#additem">+ Add Product</a></h5>
           </div>
         </div>
         <div class="row">

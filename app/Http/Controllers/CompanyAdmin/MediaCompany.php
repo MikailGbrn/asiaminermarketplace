@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers\CompanyAdmin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use App\Product;
+use App\Media;
 use App\Company;
 use Image;
 
-class ProductCompany extends Controller
+class MediaCompany extends Controller
 {
-    public function showProduct()
+    public function showMedia()
     {
         $company_id = Auth::guard('admin-company')->user()->company_id;
         $company = Company::where('id', $company_id)->firstOrFail();
-        $product = Product::whereHas('company', function ($query) use($company_id) {
+        $media = Media::whereHas('company', function ($query) use($company_id) {
             return $query->where('id', $company_id);
         })->paginate(20);
-        
-        return view('CompanyAdmin.product', compact('product','company'));
+
+        return view('CompanyAdmin.media', compact('media','company'));
     }
-    public function addProduct(Request $request)
+    public function addMedia(Request $request)
     {
         $this->validate($request,[
             'name' => ['required', 'unique:products', 'max:255', 'min:10'],
@@ -37,17 +37,5 @@ class ProductCompany extends Controller
             $img = Image::make($image->path());
             $img->fit(800,687)->save('storage/app/'.$path);
         }
-
-        $product = new Product;
-        $product->name = $request->input('name');
-        $product->catagory_id = 1;
-        $product->photo = $path;
-        $product->view = 0;
-        $product->company_id = Auth::guard('admin-company')->user()->company_id;
-        $product->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('name'))));
-        $product->description = $request->input('description');;
-        $product->save();
-
-        return redirect('company-profile/product');
     }
 }
