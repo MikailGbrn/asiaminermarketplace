@@ -26,12 +26,24 @@ Route::get('company/logout', 'CompanyAdmin\CompanyAuth@Logout');
 
 Route::prefix('company-profile')->middleware('auth:admin-company')->group( function(){
     Route::get('/','CompanyAdmin\DashboardCompany@index');
+    Route::get('/edit','CompanyAdmin\DashboardCompany@showEditCompany');
+    Route::post('/edit','CompanyAdmin\DashboardCompany@editCompany');
+    Route::post('/about','CompanyAdmin\DashboardCompany@editAbout');
+
     
     Route::get('/product','CompanyAdmin\ProductCompany@showProduct');
+    Route::get('/product/add','CompanyAdmin\ProductCompany@showAddProduct');
+    Route::get('/product/{id}','CompanyAdmin\ProductCompany@showEditProduct');
     Route::post('/product','CompanyAdmin\ProductCompany@addProduct');
+    Route::put('/product','CompanyAdmin\ProductCompany@editProduct');
+    Route::delete('/product','CompanyAdmin\ProductCompany@deleteProduct');
 
     Route::get('/media','CompanyAdmin\MediaCompany@showMedia');
+    Route::get('/media/add','CompanyAdmin\MediaCompany@showAddMedia');
+    Route::get('/media/{id}','CompanyAdmin\MediaCompany@showEditMedia');
     Route::post('/media','CompanyAdmin\MediaCompany@addMedia');
+    Route::put('/media','CompanyAdmin\MediaCompany@editMedia');
+    Route::delete('/media','CompanyAdmin\MediaCompany@deleteMedia');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 

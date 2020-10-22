@@ -10,17 +10,6 @@
   <script src="{{asset('assets/frontend/js/bootstrap-datepicker.min.js')}}"></script>
   <script src="{{asset('assets/frontend/js/aos.js')}}"></script>
   <script src="{{asset('assets/frontend/js/rangeslider.min.js')}}"></script>
-  <script src="{{asset('assets/frontend/js/typed.js')}}"></script>
-  <script>
-  var typed = new Typed('.typed-words', {
-  strings: ["Products"," Mining Needs"," Equipment", " Companies", " News"],
-  typeSpeed: 80,
-  backSpeed: 80,
-  backDelay: 4000,
-  startDelay: 1000,
-  loop: true,
-  showCursor: true
-  });
-  </script>
+  <script src="{{asset('assets/frontend/ckeditor/ckeditor.js')}}"></script>
 
 <script src="{{asset('assets/frontend/js/main.js')}}"></script>
