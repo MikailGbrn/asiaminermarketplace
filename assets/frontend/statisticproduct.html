@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Browse &mdash; Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/rangeslider.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+  </head>
+          <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
+
+      <div class="warp-container pr-4 pl-4"><!-- ubah 1 -->
+        <div class="row align-items-center">
+          
+          <div class="col-11 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
+          </div>
+          <div class="col-12 col-md-7 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-center" role="navigation"> <!-- ubah 2 -->
+
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="dashboard.html"><span>Dashboard</span></a></li>
+                <li><a href="dashboardmedia.html"><span>Media/Resources</span></a></li>
+                <li ><a href="dashboardproducts.html"><span>Products</span></a></li>
+                <li><a href="dashboardnews.html"><span>News</span></a></li>
+                <li><a href="dashboardproject.html"><span>Projects</span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-md-3 d-none d-xl-block position-relative text-right"> 
+              <div class="dropdownacc">
+                <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">Ardiansyah!</span></a>
+                <div id="dropdownacc" class="dropdown-content">
+                  <a href="#home">Home</a>
+                  <a href="#about">About</a>
+                  <a href="#contact">Contact</a>
+                  <a href="#contact">Log out</a>
+                </div>
+              </div>
+          </div>
+
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <body class="bg-light">
+
+    <div class="site-section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-4" style="border-bottom: 1px solid #ccc">
+            <h2>Products Data</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12" style="border-bottom: 1px solid #ccc">
+            
+            <div class="form-search-directory mt-5 ">
+              <form method="post">
+                <div class="row align-items-center">
+                  <div class="col-lg-12 col-xl-10 no-sm-border border-right">
+                    <input type="text" class="form-control" placeholder="Search projects">
+                  </div>
+                  <div class="col-lg-12 col-xl-2 ml-auto text-right">
+                    <input type="submit" class="btn text-white btn-primary" value="Search">
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+            <h3 class="mt-5 h4">Quoted Products</h3>
+            <table class="table mt-5">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Request</th>
+                  <th scope="col">File</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Product Name</td>
+                  <td>John Doe</td>
+                  <td>john@mail.com</td>
+                  <td>Monster Inc.</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Product Name</td>
+                  <td>John Doe</td>
+                  <td>john@mail.com</td>
+                  <td>Monster Inc.</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Product Name</td>
+                  <td>John Doe</td>
+                  <td>john@mail.com</td>
+                  <td>Monster Inc.</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="mt-5">Media/Resource View Data Chart</h4>
+            <canvas id="chartproduct" width="100%" height="50"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/rangeslider.min.js"></script>
+  <script src="ckeditor/ckeditor.js"></script>
+  <script src="chartjs/samples/utils.js"></script>
+  <script src="chartjs/dist/Chart.js"></script>
+  
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+    var asd = document.getElementById('chartproduct').getContext('2d');
+var Chart = new Chart(asd, {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Views in 2020', /*judul chart*/
+            data: [110, 192, 120, 300, 400, 100],  /*jumlah datanya disini */
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: { /*configuration here*/
+      responsive: true,
+      title: {
+      },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: '#00918e', 
+                    fontSize: 14,
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+  </script>
+  
+   <!-- ALL MODAL -->
+
+    <!-- start of modal categories on filter-->
+<div class="modal fade" id="categoriesfilter" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-centered">
+    <div class="modal-content p-4">
+      <table>
+        <tr>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Preparation</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- end of modal categories on filter-->
+
+  <!-- start of modal categories on nav-->
+<div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content p-4">
+      <table>
+        <tr>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Preparation</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Mining</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Coal Mining</a></td>
+          <td><a href="#">Automation</a></td>
+          <td><a href="#">Cement</a></td>
+          <td><a href="#">Coal Preparation</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- end of modal categories on nav-->
+
+<!-- start of modal login -->
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <div class="row form-group">
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Phone, Email</label>
+              <input type="text" id="fname" class="form-control">
+            </div>
+            <div class="col-md-12 mb-3 mb-md-0">
+              <label class="text-black" for="lname">Password</label>
+              <input type="password" id="lname" class="form-control">
+              <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+              <label for="rememberme">Remember Me</label>
+              <span style="float: right;"><a href="#">Forget Password?</a></span>
+            </div>
+          </div>
+          <div class="row form-group ">
+            <div class="col-md-12">
+              <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
+              <p><a href="#">Don't have an account?</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of modal login -->
+
+<!-- start of login failed -->
+<!-- <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content p-4">
+      <div class="modal-header">
+        <h4>Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+              <div class="row form-group">
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">Phone, Email</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-12 mb-3 mb-md-0">
+                  <label class="text-black" for="lname">Password</label>
+                  <input type="password" id="lname" class="form-control">
+                  <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
+                  <label for="rememberme">Remember Me</label>
+                  <span style="float: right;"><a href="#">Forget Password?</a></span>
+                  <p class="text-danger">The email and password you entered did not match our records. Please try again. </p>
+                </div>
+              </div>
+              <div class="row form-group ">
+                <div class="col-md-12">
+                  <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2">
+                  <p><a href="#">Don't have an account?</a></p>
+                </div>
+              </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- end of modal login failed -->
+
+<!-- END OF ALL MODAL -->
+
+  </body>
+</html>

@@ -6,101 +6,67 @@
           <script src="js/bootstrap.min.js"></script>
           <script src="croppie/croppie.js"></script>
           <script src="ckeditor/ckeditor.js"></script>
+          <script src="chartjs/dist/Chart.js"></script>
+          <script src="chartjs/samples/utils.js"></script>
           <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
           <link rel="stylesheet" href="croppie/croppie.css" />
     </head>  
     <body>  
-
-      <form>
-            <textarea name="editor1" id="editor1" rows="3" cols="80">
-                Tasdasdasd
-            </textarea>
-        </form>
-            <script>
-                CKEDITOR.replace( 'editor1' );
-            </script>
-
-        <div class="container">
-            <h3 align="center">Image Crop & Upload using JQuery with PHP Ajax</h3>
-            <div class="panel panel-default">
-                <div class="panel-heading">Select Profile Image</div>
-                <div class="panel-body" align="center">
-                    <input type="file" name="upload_image" id="upload_image" accept="image/*" />
-                    <div id="uploaded_image"></div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+<canvas id="chartmedia" width="100%" height="50"></canvas>
+            
+          </div>
         </div>
-    </body>  
+      </div>
+
+<script>
+var ctx = document.getElementById('chartmedia').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Views in 2020',
+            data: [110, 192, 80],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: { /*configuration here*/
+      responsive: true,
+      title: {
+        display: true,
+        text: 'Media/Resources Views'
+      },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: '#00918e', 
+                    fontSize: 14,
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+    </body>
 </html>
 
-<div id="uploadimageModal" class="modal" role="dialog">
- <div class="modal-dialog">
-  <div class="modal-content">
-        <div class="modal-header" >
-            <h4 class="modal-title">Upload & Crop Image</h4>
-            <button type="button" class="close" data-dismiss="modal" >&times;</button>
-        </div>
-        <div class="modal-body" style="padding: 70px;">
-          <div class="row">
-       <div class="col-md-12 text-center">
-        <div id="image_demo"></div>
-        <button class="btn btn-success crop_image">Crop & Upload Image</button>
-     </div>
-    </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-     </div>
-    </div>
-</div>
-
-<script>  
-$(document).ready(function(){
-
- $image_crop = $('#image_demo').croppie({
-    enableExif: true,
-    viewport: {
-      width:200,
-      height:200,
-      type:'circle' //circle
-    },
-    boundary:{
-      width:300,
-      height:300
-    }
-  });
-
-  $('#upload_image').on('change', function(){
-    var reader = new FileReader();
-    reader.onload = function (event) {
-      $image_crop.croppie('bind', {
-        url: event.target.result
-      }).then(function(){
-        console.log('jQuery bind complete');
-      });
-    }
-    reader.readAsDataURL(this.files[0]);
-    $('#uploadimageModal').modal('show');
-  });
-
-  $('.crop_image').click(function(event){
-    $image_crop.croppie('result', {
-      type: 'canvas',
-      size: 'viewport'
-    }).then(function(response){
-      $.ajax({
-        url:"upload.php",
-        type: "POST",
-        data:{"image": response},
-        success:function(data)
-        {
-          $('#uploadimageModal').modal('hide');
-          $('#uploaded_image').html(data);
-        }
-      });
-    })
-  });
-
-});  
-</script>
