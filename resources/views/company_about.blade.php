@@ -71,7 +71,9 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
-                  {{$company->about}}
+                  @php
+                  echo $company->about;
+                  @endphp
                 </div>
               </div>
             </div>

@@ -23,7 +23,7 @@ class CompanyAuth extends Controller
 
     public function showLogin()
     {
-        return view('auth.login');
+        return view('CompanyAdmin.signin');
     }
 
     public function showRegister()
@@ -47,7 +47,7 @@ class CompanyAuth extends Controller
 
             return redirect()
                 ->back()
-                ->withInput();
+                ->withInput()->withErrors(['msg']);
         }
     }
 

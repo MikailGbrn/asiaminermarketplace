@@ -1,47 +1,36 @@
-<div class="site-wrap">
+<header class="site-navbar site-navbar-nothome position-fixed" role="banner">
 
-  <div class="site-mobile-menu">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close mt-3">
-        <span class="icon-close2 js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body"></div>
-  </div>
-  @if(Request::path() === '/' || Request::path() === 'home')
-    <header class="site-navbar position-fixed" role="banner">
-  @else
-    <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
-  @endif
+  <div class="warp-container pr-4 pl-4">
+    <div class="row align-items-center">
       
+      <div class="col-11 col-xl-2">
+        <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
+      </div>
+      <div class="col-12 col-md-7 d-none d-xl-block">
+        <nav class="site-navigation position-relative text-center" role="navigation"> 
 
-    <div class="container">
-      <div class="row align-items-center">
-        
-        <div class="col-md-9 d-none d-xl-block text-left">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0" style="">{{$company->name}}</a></h1>
-        </div>
+          <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+            <li><a href="{{url('/')}}/company-profile/"><span>Dashboard</span></a></li>
+            <li><a href="{{url('/')}}/company-profile/media"><span>Media/Resources</span></a></li>
+            <li><a href="{{url('/')}}/company-profile/product"><span>Products</span></a></li>
+            <li><a href="{{url('/')}}/company-profile/news"><span>News</span></a></li>
+            <li><a href="{{url('/')}}/company-profile/project"><span>Projects</span></a></li>
+          </ul>
+        </nav>
+      </div>
 
-        <div class="col-md-3"> 
-          <div class="dropdown">
-            <a class="float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span style="color: grey">Welcome, </span> mufadho !
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="">Quotation</a>
-              <a class="dropdown-item" href="">Setting</a>
-              <a class="dropdown-item" href="http://localhost/asiaminermarketplace/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
+      <div class="col-md-3 d-none d-xl-block position-relative text-right"> 
+          <div class="dropdownacc">
+            <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">{{ Auth::guard('admin-company')->user()->username}} !</span></a>
+            <div id="dropdownacc" class="dropdown-content" style="float: left">
+              <a href="{{url('/company/logout')}}">Log out</a>
             </div>
           </div>
-          <form id="logout-form" action="http://localhost/asiaminermarketplace/logout" method="POST" style="display: none;">
-            <input type="hidden" name="_token" value="s1LLcWRsLvLLOMfxRz3JeFN1MkMxVmXiueEvGBCj">          
-          </form>
-        </div>
-        
+      </div>
 
-        
-        </div>
+      <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
       </div>
     </div>
-    
-  </header>
+  </div>
+  
+</header>

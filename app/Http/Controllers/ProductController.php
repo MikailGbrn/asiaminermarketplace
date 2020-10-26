@@ -101,7 +101,7 @@ class ProductController extends Controller
         $quotation->file = $path;
         $quotation->save();
 
-        return redirect()->back()->with(['success' => 'Quote/info sent successfully']);;
+        return redirect()->back()->with(['success' => 'Quote/info sent successfully']);
     }
 
 }

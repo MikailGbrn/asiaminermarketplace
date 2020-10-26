@@ -42,7 +42,7 @@
               <div class="col-md-4 col-lg-4 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
                   <a href="{{url('company/'.$c->slug)}}">
-                  <img src="{{asset('assets/frontend/images/img_2.jpg')}}" alt="Image" class="img-fluid">
+                  <img src="{{url('public/'.Storage::url($c->logo))}}" alt="Image" class="img-fluid">
                   <div class="h-entry-inner">
                   <h2 class="font-size-regular"><object><a href="{{url('company/'.$c->slug)}}">{{$c->name}}</a></object></h2>
                     <div class="meta"><span class="icon-envelope mr-2"></span><object><a href="">{{$c->email}}</a></object> <span class="mx-2">&bullet;</span></div>
