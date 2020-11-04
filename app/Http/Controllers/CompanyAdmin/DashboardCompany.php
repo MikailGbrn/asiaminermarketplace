@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Company;
+use App\Product;
+use App\Quotation;
 use Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class DashboardCompany extends Controller
-{
+{ 
     public function index()
     {
         $company_id = Auth::guard('admin-company')->user()->company_id;
@@ -69,5 +72,61 @@ class DashboardCompany extends Controller
         $company->about = $request->input('about');
         $company->save();
         return redirect()->back()->with(['success' => 'Edit about company successfully']);
+    }
+    public function showStatisticMedia(Request $request)
+    {
+        $keyword = '%'.$request->input('kw').'%';
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+
+        $query = DB::table('media_download')->where('company_id','=',Auth::guard('admin-company')->user()->company_id)
+        ->join('media', 'media.id', '=', 'media_download.media_id')
+        ->join('users', 'users.id', '=', 'media_download.user_id');
+
+        if(!empty($keyword)){
+            $query->where('title','like',$keyword);
+        }
+
+        $mediadownload = $query->orderBy('media_download.created_at','DESC')->paginate(20);
+
+        $query1 = DB::table('media_view')
+        ->select(DB::raw('count(*) as count, MONTH(media_view.created_at) as bulan'))
+        ->where('company_id','=',Auth::guard('admin-company')->user()->company_id)
+        ->whereYear('media_view.created_at', date('Y'))
+        ->join('media', 'media.id', '=', 'media_view.media_id');
+
+        if(!empty($keyword)){
+            $query1->where('title','like',$keyword);
+        }
+
+        $grafik = $query1->groupBy(DB::raw('MONTH(media_view.created_at)'))->get();
+        $arrayGrafik = [0,0,0,0,0,0,0,0,0,0,0,0];
+        foreach($grafik as $g){
+            $arrayGrafik[$g->bulan-1]=$g->count;
+        }
+
+        return view('CompanyAdmin.media-statistic', compact('mediadownload','arrayGrafik'));
+    }
+    public function showStatisticProduct()
+    {
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+        $quotation = Quotation::with('user')->where('company_id',$company_id)->get();
+        $product = Product::where('company_id',$company_id)->get();
+
+        $query1 = DB::table('product_view')
+        ->select(DB::raw('count(*) as count, MONTH(product_view.created_at) as bulan'))
+        ->where('company_id', $company_id)
+        ->whereYear('product_view.created_at', date('Y'))
+        ->join('products', 'products.id', '=', 'product_view.product_id');
+
+        if(!empty($keyword)){
+            $query1->where('title','like',$keyword);
+        }
+
+        $grafik = $query1->groupBy(DB::raw('MONTH(product_view.created_at)'))->get();
+        $arrayGrafik = [0,0,0,0,0,0,0,0,0,0,0,0];
+        foreach($grafik as $g){
+            $arrayGrafik[$g->bulan-1]=$g->count;
+        }
+        return view('CompanyAdmin.product-statistic', compact('quotation','arrayGrafik','product'));
     }
 }

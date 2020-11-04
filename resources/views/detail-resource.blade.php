@@ -10,7 +10,7 @@
           <div class=" d-md-flex detail-content container">
 
 
-              <img src="{{asset('assets/frontend/images/img_2.jpg')}}">
+              <img src="{{url('public/'.Storage::url($resource->photo))}}">
               <div class="lh-content">
                 <h3 class="h1">{{$resource->title}}</h3>
                 <p class="mb-0">By: <a href="#">{{$resource->company->name}}</a></p>
@@ -53,7 +53,7 @@
         @foreach ($relatedMedia as $r)
         <div class="d-block d-md-flex listing-horizontal h-option">
 
-          <a href="resource/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url(assets/frontend/images/img_2.jpg);">
+          <a href="resource/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
             {{-- <span class="category">Sample Category</span> --}}
           </a>
 

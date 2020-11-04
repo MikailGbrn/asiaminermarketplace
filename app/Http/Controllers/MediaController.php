@@ -74,7 +74,7 @@ class MediaController extends Controller
                 $query->orderBy('download', 'asc');  
             }
         }
-        $resource = $query->paginate(20);
+        $resource = $query->orderBy('id', 'DESC')->paginate(20);
         return view('resource',compact('resource'));
     }
     public function detail($companyId,$slug)
@@ -83,11 +83,16 @@ class MediaController extends Controller
         ->where("media.slug","=",$slug)
         ->firstOrFail();
 
-        $relatedMedia = Media::where("company_id","=",$companyId)->limit(5)->get();
+        $resource->increment('view');
+        $resource->timestamps = false;
+        $resource->save();
 
+        $relatedMedia = Media::where("company_id","=",$companyId)->limit(5)->get();
         if(Auth::check()){
             if (!DB::table('media_view')->where('user_id','=',Auth::user()->id)->where('media_id','=',$resource->id)->exists()) {
-                Media::find($resource->id)->increment('view');
+                
+
+
                 DB::table('media_view')->insert([
                     'user_id' => Auth::user()->id,
                     'media_id' => $resource->id,
@@ -105,16 +110,19 @@ class MediaController extends Controller
         $resource = Media::where('uuid', $uuid)->firstOrFail();
         if(Auth::check()){
             if (!DB::table('media_download')->where('user_id','=',Auth::user()->id)->where('media_id','=',$resource->id)->exists()) {
-                Media::find($resource->id)->increment('download');
-                DB::table('media_view')->insert([
+                
+                $resource->increment('download');
+                $resource->timestamps = false;
+                $resource->save();
+
+                DB::table('media_download')->insert([
                     'user_id' => Auth::user()->id,
                     'media_id' => $resource->id,
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
             }
-            $pathToFile = storage_path('app/resource/' . $resource->file_name);
-            echo Auth::id();
+            $pathToFile = storage_path('app/' . $resource->file_name);
             return response()->download($pathToFile);
         }else {
             //return redirect('login')->intended($this->redirectPath());

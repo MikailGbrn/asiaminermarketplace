@@ -8,13 +8,13 @@
 
             <div class="company-profile">
 
-                <!-- header company profile -->
+                 <!-- header company profile -->
               <div class="profile-header">
 
-                <img class="header" src="{{asset('assets/frontend/images/hero_1.jpg')}}"> 
+                <img class="header" src="{{url('public/'.Storage::url($company->header))}}"> 
                 <!-- profile picture company -->
-                <div class="image-container">
-                  <img src="{{asset('assets/frontend/images/profile-logo.jpg')}}">
+                <div style="margin-top:15px" class="image-container">
+                  <img style="object-position:0px 0px" src="{{url('public/'.Storage::url($company->logo))}}">
                 </div>
               </div>
 
@@ -72,12 +72,12 @@
 
           <div class="col-md-4 mb-4 mb-lg-4">
             <div class="h-entry h-option">
-              <a href="#">
+              <a href="{{url("/news/$n->company_id/$n->slug")}}">
                 <img src="{{url('public/'.Storage::url($n->photo))}}" alt="Image" class="img-fluid">
                 <div class="h-entry-inner">
-                  <h2 class="font-size-regular"><object><a href="blog-single.html">{{$n->title}}</a></object></h2>
+                  <h2 class="font-size-regular"><object><a href="{{url("/news/$n->company_id/$n->slug")}}">{{$n->title}}</a></object></h2>
                   <p class="text-secondary"><object>{{date( 'F j, Y',strtotime( $n->created_at ))}}</object></p>
-                  <p class="text-limit">{{$n->description}}</p>
+                  <p class="text-limit">{{$n->abstract}}</p>
                 </div>
               </a>
             </div> 

@@ -18,4 +18,12 @@ class Company extends Model
     {
         return $this->hasMany('App\Product');
     }
+    public function news()
+    {
+        return $this->hasMany('App\News');
+    }
+    public function project()
+    {
+        return $this->hasMany('App\Project');
+    }
 }

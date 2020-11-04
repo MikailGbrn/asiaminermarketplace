@@ -9,14 +9,14 @@
             <div class="company-profile">
 
                 <!-- header company profile -->
-              <div class="profile-header">
+                <div class="profile-header">
 
-                <img class="header" src="{{asset('assets/frontend/images/hero_1.jpg')}}"> 
-                <!-- profile picture company -->
-                <div class="image-container">
-                  <img src="{{asset('assets/frontend/images/profile-logo.jpg')}}">
+                  <img class="header" src="{{url('public/'.Storage::url($company->header))}}"> 
+                  <!-- profile picture company -->
+                  <div style="margin-top:15px" class="image-container">
+                    <img style="object-position:0px 0px" src="{{url('public/'.Storage::url($company->logo))}}">
+                  </div>
                 </div>
-              </div>
 
 
 
@@ -70,7 +70,7 @@
           <div class="card">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   @php
                   echo $company->about;
                   @endphp

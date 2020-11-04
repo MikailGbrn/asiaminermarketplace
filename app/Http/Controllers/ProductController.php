@@ -58,7 +58,7 @@ class ProductController extends Controller
                 $query->orderBy('download', 'asc');  
             }
         }
-        $product = $query->paginate(20);
+        $product = $query->orderBy('id', 'DESC')->paginate(20);
        return view('product', compact('product'));
 
     }
@@ -67,9 +67,13 @@ class ProductController extends Controller
         $product = Product::where('slug',$slug)->where('company_id',$companyId)->firstOrFail();
         $relatedProduct = Product::where("company_id","=",$companyId)->limit(5)->get();
 
+        $product->increment('view');
+        $product->timestamps = false;
+        $product->save();
+
         if(Auth::check()){
             if (!DB::table('product_view')->where('user_id','=',Auth::user()->id)->where('product_id','=',$product->id)->exists()) {
-                Product::find($product->id)->increment('view');
+                // Product::find($product->id)->increment('view');
                 DB::table('product_view')->insert([
                     'user_id' => Auth::user()->id,
                     'product_id' => $product->id,

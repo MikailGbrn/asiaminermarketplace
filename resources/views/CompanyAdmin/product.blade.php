@@ -10,12 +10,20 @@
             <a href="{{url('/company-profile/product/add')}}"><h5>+ Add Item</h5></a>
           </div>
         </div>
+        @if (session('Product'))
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    @php echo session('Product'); @endphp !
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  @endif
 
-        {{-- <div class="form-search-directory mt-5 ">
-              <form method="post">
+        <div class="form-search-directory mt-5 ">
+              <form method="get">
                 <div class="row align-items-center">
                   <div class="col-lg-12 col-xl-10 no-sm-border border-right">
-                    <input type="text" class="form-control" placeholder="Search products">
+                    <input type="text" name="kw" class="form-control" placeholder="Search products">
                   </div>
                   <div class="col-lg-12 col-xl-2 ml-auto text-right">
                     <input type="submit" class="btn text-white btn-primary" value="Search">
@@ -23,7 +31,7 @@
                   
                 </div>
               </form>
-            </div> --}}
+            </div>
 
         <div class="row">
           <div class="col-md-12">

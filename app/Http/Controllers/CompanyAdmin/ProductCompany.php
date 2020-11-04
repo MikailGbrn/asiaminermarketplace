@@ -13,15 +13,20 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductCompany extends Controller
 {
-    public function showProduct()
+    public function showProduct(Request $request)
     {
+        $keyword = '%'.$request->input('kw').'%';
         $company_id = Auth::guard('admin-company')->user()->company_id;
-        $company = Company::where('id', $company_id)->firstOrFail();
-        $product = Product::whereHas('company', function ($query) use($company_id) {
-            return $query->where('id', $company_id);
-        })->paginate(20);
+
+        $query = Product::where('company_id',$company_id);
+
         
-        return view('CompanyAdmin.product', compact('product','company'));
+        if(!empty($keyword)){
+            $query->where('name','like',$keyword);
+        }
+        $product = $query->paginate(5);
+        
+        return view('CompanyAdmin.product', compact('product'));
     }
     public function showAddProduct()
     {
@@ -67,7 +72,7 @@ class ProductCompany extends Controller
     public function editProduct(Request $request)
     {
         $this->validate($request,[
-            'name' => ['required', 'max:255', 'min:10'],
+            'name' => ['required','unique:products,name,'.$request->input('id'), 'max:255', 'min:10'],
             'description' => 'required',
             'foto' => 'file|image|max:3072'
         ]);

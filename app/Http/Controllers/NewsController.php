@@ -7,13 +7,11 @@ use App\News;
 
 class NewsController extends Controller
 {
-    public function show($id)
+    public function detail($companyId,$slug)
     {
-        $news = News::where('company_id',$id)->paginate(10);
+        $news = News::where('slug',$slug)->where('company_id',$companyId)->firstOrFail();
+        $relatedNews = News::where("company_id",$companyId)->limit(2)->get();
 
-    }
-    public function detail($slug)
-    {
-        
+        return view('company_news_detail', compact('relatedNews','news'));
     }
 }

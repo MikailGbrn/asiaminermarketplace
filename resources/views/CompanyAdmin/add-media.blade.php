@@ -5,7 +5,7 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
-            <a href="dashboardmedia.html"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
+            <a href="{{url('/')}}/company-profile/media"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
           </div>
         </div>
         <div class="row">

@@ -100,7 +100,7 @@
             @foreach ($resource as $r)
             <div class="d-block d-md-flex listing-horizontal h-option">
 
-              <a href="resource/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url(assets/frontend/images/img_2.jpg);">
+              <a href="resource/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
                 {{-- <span class="category">Sample Category</span> --}}
               </a>
 

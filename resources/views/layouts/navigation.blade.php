@@ -61,11 +61,11 @@
           <div class="dropdown">
           
             <a class="float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span style="color: grey">Welcome, </span> mufadho !
+              <span style="color: grey">Welcome, </span> {{ Auth::user()->username}} !
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="">Quotation</a>
-              <a class="dropdown-item" href="">Setting</a>
+              {{-- <a class="dropdown-item" href="">Quotation</a>
+              <a class="dropdown-item" href="">Setting</a> --}}
               
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
             </div>

@@ -8,13 +8,13 @@
 
             <div class="company-profile">
 
-                <!-- header company profile -->
+                 <!-- header company profile -->
               <div class="profile-header">
 
-                <img class="header" src="{{asset('assets/frontend/images/hero_1.jpg')}}"> 
+                <img class="header" src="{{url('public/'.Storage::url($company->header))}}"> 
                 <!-- profile picture company -->
-                <div class="image-container">
-                  <img src="{{asset('assets/frontend/images/profile-logo.jpg')}}">
+                <div style="margin-top:15px" class="image-container">
+                  <img style="object-position:0px 0px" src="{{url('public/'.Storage::url($company->logo))}}">
                 </div>
               </div>
 

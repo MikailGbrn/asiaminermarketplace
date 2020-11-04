@@ -13,13 +13,20 @@ use Illuminate\Support\Facades\Storage;
 
 class MediaCompany extends Controller
 {
-    public function showMedia()
+
+    public function showMedia(Request $request)
     {
+        $keyword = '%'.$request->input('kw').'%';
         $company_id = Auth::guard('admin-company')->user()->company_id;
 
-        $media = Media::whereHas('company', function ($query) use($company_id) {
-            return $query->where('id', $company_id);
-        })->paginate(5);
+        $query = Media::where('company_id',$company_id);
+
+        
+        if(!empty($keyword)){
+            $query->where('title','like',$keyword);
+        }
+
+        $media = $query->paginate(5);
 
         return view('CompanyAdmin.media', compact('media'));
     }
@@ -35,7 +42,7 @@ class MediaCompany extends Controller
     public function editMedia(Request $request)
     {
         $this->validate($request,[
-            'title' => ['required', 'unique:media', 'max:255', 'min:10'],
+            'title' => ['required', 'unique:media,title,'.$request->input('id'), 'max:255', 'min:10'],
             'description' => 'required',
             'photo' => 'file|image|max:3072'
         ]);
@@ -68,6 +75,7 @@ class MediaCompany extends Controller
         $media->title = $request->input('title');
         $media->photo = $path;
         $media->file_name = $path1;
+        $media->uuid = (string) Str::uuid();
         $media->author = $request->input('author');
         $media->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('title'))));
         $media->keyword = $request->input('keyword');
@@ -120,6 +128,7 @@ class MediaCompany extends Controller
         $media->title = $request->input('title');
         $media->company_id = Auth::guard('admin-company')->user()->company_id;
         $media->photo = $path;
+        $media->uuid = (string) Str::uuid();
         $media->file_name = $path1;
         $media->author = $request->input('author');
         $media->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('title'))));

@@ -92,9 +92,9 @@
                     @enderror
                   </div>
                   <div class="input-group col-md-7 mt-3 mb-md-0">
-                    <label class="text-secondary">File Upload</label>
-                    <input type="file" name="file" class="custom-file-input" id="customFile">
-                    <span style="font-size:12px">*Maximum file size 3 Mb</span>
+                    <label id="customFile" class="text-secondary">File Upload</label>
+                    <input type="file" name="file">
+                    <span class="mt-1" style="font-size:12px">*Maximum file size 3 Mb</span>
                     @error('file')
                       <span style="color:red; font-size:12px">*{{$message}}</span>
                     @enderror

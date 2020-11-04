@@ -5,12 +5,22 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
-            <a href="dashboardmedia.html"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
+            <a href="{{url('/')}}/company-profile/media"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <h2>Edit Media Resource Title</h2>
+            @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{$error}}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    @endforeach
+            @endif
             <form method="post" action="{{url('/company-profile/media')}}" enctype="multipart/form-data">
               @csrf
               @method('put')
@@ -34,7 +44,7 @@
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="tags">Description</label>
-                  <textarea class="form-control"></textarea>
+                  <textarea name="description" class="form-control">{{$media->description}}</textarea>
                 </div>
               </div>
               {{-- <div class="form-row">

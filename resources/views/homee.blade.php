@@ -58,41 +58,23 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Tips &amp; Articles</h2>
-            <p class="color-black-opacity-5">See Our Daily tips &amp; articles</p>
+            <h2 class="font-weight-light text-primary">Fresh from the oven</h2>
+            <p class="color-black-opacity-5">See Our Lastest update articles</p>
           </div>
         </div>
         <div class="row mb-3 align-items-stretch">
+          @foreach ($timeline as $t)
           <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
             <div class="h-entry">
-              <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+              <img src="{{url('public/'.Storage::url($t->photo))}}" style="height :350px" alt="Free Website Template by Free-Template.co" class="img-fluid">
               <div class="h-entry-inner">
-                <h2 class="font-size-regular"><a href="#">Etiquette tips for travellers</a></h2>
-                <div class="meta mb-4">by <a href="#">Jeff Sheldon</a> <span class="mx-2">&bullet;</span> May 5th, 2019</div>
+                <h2 class="font-size-regular"><a href="{{url('/').'/'.$t->type.'/'.$t->company_id.'/'.$t->slug}}">{{$t->title}}</a></h2>
+                <div class="meta mb-4">by <a href="{{url('/company/').'/'.$t->Cslug}}">{{$t->name}}</a> <span class="mx-2">&bullet;</span> May 5th, 2019</div>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
               </div>
             </div> 
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="images/img_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              <div class="h-entry-inner">
-                <h2 class="font-size-regular"><a href="#">Etiquette tips for travellers</a></h2>
-                <div class="meta mb-4">by <a href="#">Jeff Sheldon</a> <span class="mx-2">&bullet;</span> May 5th, 2019</div>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-              </div>
-            </div> 
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <img src="images/img_3.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
-              <div class="h-entry-inner">
-                <h2 class="font-size-regular"><a href="#">Etiquette tips for travellers</a></h2>
-                <div class="meta mb-4">by <a href="#">Jeff Sheldon</a> <span class="mx-2">&bullet;</span> May 5th, 2019</div>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -106,7 +88,7 @@
             <p class="mb-0 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
           <div class="col-lg-4">
-            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
+            <p class="mb-0"><a href="{{url('/register')}}" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
           </div>
         </div>
       </div>

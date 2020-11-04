@@ -3,7 +3,8 @@
 
     <div class="site-section">
       <div class="container mt-5">
-        <div class="row">
+           
+        <div class="row ">
           <div class="col-md-6">
             <h2>Media/Resources ({{$media->total()}})</h2>
           </div>
@@ -11,12 +12,19 @@
             <a href="{{url('/company-profile/media/add')}}"><h5>+ Add Item</h5></a>
           </div>
         </div>
-
-        {{-- <div class="form-search-directory mt-5 ">
-              <form method="post">
+        @if (session('Media/Resource'))
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    @php echo session('Media/Resource'); @endphp !
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  @endif
+        <div class="form-search-directory mt-1 ">
+              <form method="get">
                 <div class="row align-items-center">
                   <div class="col-lg-12 col-xl-10 no-sm-border border-right">
-                    <input type="text" class="form-control" placeholder="Search media/resources">
+                    <input type="text" name="kw" class="form-control" placeholder="Search media/resources">
                   </div>
                   <div class="col-lg-12 col-xl-2 ml-auto text-right">
                     <input type="submit" class="btn text-white btn-primary" value="Search">
@@ -24,8 +32,8 @@
                   
                 </div>
               </form>
-        </div> --}}
-
+        </div>
+     
         <div class="row">
           <div class="col-md-12">
 

@@ -5,7 +5,6 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-
             <div class="company-profile">
 
                 <!-- header company profile -->
@@ -40,6 +39,69 @@
 
             </div>
 
+          </div>
+          <div class="col-md-12 mt-4">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header text-center bg-black">
+                    <h3 class="mb-0"><b class="text-white">Free</b></h3>
+                  </div>
+                  <div class="card-body text-center">
+                    <h2><b>Rp 0</b></h2>
+                  </div>
+                  <div class="card-body text-center">
+      
+                    <h5>5 Product</h5>
+                    <h5>10 Media/Resources</h5>
+                    <h5>&nbsp</h5>
+                    <h5>&nbsp</h5>
+   
+                  </div>
+                  <div class="card-body text-center">
+                    <a class="btn btn-primary text-white" style="border-radius: 5px;">You are here</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header text-center bg-light">
+                    <h3 class="mb-0"><b class="">Silver</b></h3>
+                  </div>
+                  <div class="card-body text-center">
+                    <h2><b>Rp 500.000</b></h2>
+                  </div>
+                  <div class="card-body text-center">
+                    <h5>∞ News</h5>
+                    <h5>45 Product</h5>
+                    <h5>45 Media/Resources</h5>
+                    <h5>45 Project</h5>
+                  </div>
+                  <div class="card-body text-center">
+                    <a href="https://wa.me/085155055241?text=Upgrade%20to%20silver%20" target="_blank" class="btn btn-outline-primary" style="border-radius: 5px;">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <div class="card-header text-center bg-warning">
+                    <h3 class="mb-0"><b class="text-white">Gold</b></h3>
+                  </div>
+                  <div class="card-body text-center">
+                    <h2><b>Rp 1.000.000</b></h2>
+                  </div>
+                  <div class="card-body text-center">
+                    <h5>∞ News</h5>
+                    <h5>45 Product</h5>
+                    <h5>45 Media/Resources</h5>
+                    <h5>45 Project</h5>
+                  </div>
+                  <div class="card-body text-center">
+                    <a href="https://wa.me/085155055241?text=Upgrade%20to%20gold%20" target="_blank" class="btn btn-outline-primary" style="border-radius: 5px;">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-md-12">
             <div class="card mt-4">

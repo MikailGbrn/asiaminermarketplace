@@ -41,7 +41,7 @@ class CompanyController extends Controller
         if(!empty($catagory)){
             $query->where('catagory_id','=',$catagory);
         }
-        $company = $query->paginate(21);
+        $company = $query->orderBy('id', 'DESC')->paginate(21);
         $catList = CCatagory::all();
 
        return view('directory',compact('company','catList'));

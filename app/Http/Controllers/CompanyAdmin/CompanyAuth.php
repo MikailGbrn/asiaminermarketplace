@@ -5,7 +5,7 @@ namespace App\Http\Controllers\CompanyAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
-
+use App\Company;
 use Illuminate\Support\Facades\Auth;
 
 class CompanyAuth extends Controller
@@ -28,7 +28,7 @@ class CompanyAuth extends Controller
 
     public function showRegister()
     {
-        return view('auth.rregister');
+        return view('CompanyAdmin.signup');
     }
 
     public function Login(Request $request)
@@ -56,9 +56,44 @@ class CompanyAuth extends Controller
         $request->validate([
             'username'      => 'required|string|unique:admin_companies',
             'email'         => 'required|string|email|unique:admin_companies',
-            'password'      => 'required|string|min:6|confirmed'
+            'password'      => 'required|string|min:6|confirmed',
+            'name'          => 'required|string|unique:companies|min:6',
+            'company_email' => 'required',
+            'company_website' => 'required',
+            'company_business_hour' => 'required',
+            'company_phone' => 'required',
+            'company_description' => 'required',
         ]);
-        \App\AdminCompany::create($request->all());
+        
+        $company = new Company;
+        $company->name = $request->input('name');
+        $company->subscription = 1;
+        $company->status = 0;
+        $company->about = null;
+        $company->logo = "public/logo/default.jpg";
+        $company->header = "public/header/default.jpeg";
+        $company->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('name'))));
+        $company->catagory_id = null;
+        $company->email = $request->input('company_email');
+        $company->website = $request->input('company_website');
+        $company->business_hour = $request->input('company_business_hour');
+        $company->phone = $request->input('company_phone');
+        $company->description = $request->input('company_description');
+        $company->save();
+
+        \App\AdminCompany::create([
+            'name' => $request->input('name_user'),
+            'username' => $request->input('username'),
+            'password' => $request->input('password'),
+            'email' => $request->input('email'),
+            'company_id' => $company->id
+        ]);
+        \App\CAddress::create([
+            'company_id' => $company->id,
+            'address' => $request->input('company_address'),
+            'province' => $request->input('company_province'),
+            'city' => $request->input('company_city')
+        ]);
         return redirect()->route('company.login')->with('success', 'Successfully register!');
     }
     
