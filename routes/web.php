@@ -73,7 +73,7 @@ Route::get('/company/{slug}/news', 'CompanyController@showCompanyNews');
 Route::get('/company/{slug}/project', 'CompanyController@showCompanyProject');
 Route::get('/company/{slug}/about', 'CompanyController@showCompanyAbout');
 
-Route::get('/project/{CompanyId}/{slug}','ProductController@detail');
+Route::get('/project/{CompanyId}/{slug}','ProjectController@detail');
 Route::get('/news/{CompanyId}/{slug}','NewsController@detail');
 
 Route::get('/product', 'ProductController@find')->name('product');
