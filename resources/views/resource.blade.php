@@ -5,6 +5,7 @@
         <div class="row mt-5">
           <div class="col-lg-3 ml-auto">
               <!-- FILTER STARTS HERE -->
+              
           <form action="" method="GET">
             <div class="mb-5">
               <h3 class="h4 text-black mb-3">Filters</h3>

@@ -15,14 +15,14 @@
   @endif
       
 
-    <div class="container">
+    <div class="warp-container pl-4 pr-4">
       <div class="row align-items-center">
         
-        <div class="col-11 col-xl-1">
+        <div class="col-11 col-xl-2">
           <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
         </div>
         <div class="col-12 col-md-8 d-none d-xl-block">
-          <nav class="site-navigation position-relative text-right" role="navigation">
+          <nav class="site-navigation position-relative text-center" role="navigation">
             @php 
               $ccategory = \App\MCatagory::all();
             @endphp
@@ -54,7 +54,7 @@
         </div>
         
 
-        <div class="col-md-3 position-relative "> 
+        <div class="col-md-2 position-relative "> 
           @guest
           <a class="float-right" href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a>
           @else
