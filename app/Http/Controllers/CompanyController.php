@@ -36,7 +36,7 @@ class CompanyController extends Controller
         $keyword = '%'.$request->input('kw').'%';
         $catagory = $request->input('cat');
 
-        $query = Company::with('address')->where('name','like',$keyword);
+        $query = Company::with('address')->where('name','like',$keyword)->where('status',1);
         
         if(!empty($catagory)){
             $query->where('catagory_id','=',$catagory);
@@ -49,7 +49,7 @@ class CompanyController extends Controller
     }
     public function detail($slug)
     {       
-        $company = Company::where('slug',$slug)->firstOrFail();
+        $company = Company::where('slug',$slug)->where('status',1)->firstOrFail();
         $product = Product::where('company_id',$company->id)->limit(6)->get();
         $media = Media::where('company_id',$company->id)->limit(6)->get();
         
@@ -65,7 +65,7 @@ class CompanyController extends Controller
     }
     public function showCompanyMedia($slug)
     {
-        $company = Company::where('slug',$slug)->firstOrFail();
+        $company = Company::where('slug',$slug)->where('status',1)->firstOrFail();
         $media = Media::whereHas('company', function ($query) use($slug) {
             return $query->where('slug', $slug);
         })->paginate(8);
@@ -74,7 +74,7 @@ class CompanyController extends Controller
     }
     public function showCompanyProduct($slug)
     {
-        $company = Company::where('slug',$slug)->firstOrFail();
+        $company = Company::where('slug',$slug)->where('status',1)->firstOrFail();
         $product = Product::whereHas('company', function ($query) use($slug) {
             return $query->where('slug', $slug);
         })->paginate(20);
@@ -83,7 +83,7 @@ class CompanyController extends Controller
     }
     public function showCompanyNews($slug)
     {
-        $company = Company::where('slug',$slug)->firstOrFail();
+        $company = Company::where('slug',$slug)->where('status',1)->firstOrFail();
         $news = News::where('company_id', $company->id)->paginate(20);
         
         return view('company_news', compact('news','company'));
@@ -91,14 +91,14 @@ class CompanyController extends Controller
 
     public function showCompanyProject($slug)
     {
-        $company = Company::where('slug',$slug)->firstOrFail();
+        $company = Company::where('slug',$slug)->where('status',1)->firstOrFail();
         $project = Project::where('company_id', $company->id)->paginate(20);
         
         return view('company_project', compact('project','company'));
     }
     public function showCompanyAbout($slug)
     {
-        $company = Company::where('slug',$slug)->firstOrFail();
+        $company = Company::where('slug',$slug)->where('status',1)->firstOrFail();
         return view('company_about', compact('company'));
     }
 }

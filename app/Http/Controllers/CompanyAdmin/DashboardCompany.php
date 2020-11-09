@@ -129,4 +129,13 @@ class DashboardCompany extends Controller
         }
         return view('CompanyAdmin.product-statistic', compact('quotation','arrayGrafik','product'));
     }
+    public function download($id)
+    {
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+        $quotation = Quotation::with('user')
+        ->where('company_id',$company_id)
+        ->where('id',$id)->firstOrFail();
+        $pathToFile = storage_path('app/' . $quotation->file);
+        return response()->download($pathToFile);
+    }
 }

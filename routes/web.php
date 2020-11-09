@@ -31,6 +31,7 @@ Route::prefix('company-profile')->middleware(['auth:admin-company','subscription
     Route::get('/media/statistic','CompanyAdmin\DashboardCompany@showStatisticMedia');
     Route::post('/edit','CompanyAdmin\DashboardCompany@editCompany');
     Route::post('/about','CompanyAdmin\DashboardCompany@editAbout');
+    Route::get('/download/{id}','CompanyAdmin\DashboardCompany@download');
     
 
     
@@ -83,3 +84,32 @@ Route::post('product/addquotation', 'ProductController@addQuotation');
 Route::get('/search', 'MediaController@find');
 Route::get('/resource/{CompanyId}/{slug}','MediaController@detail');
 Route::get('/download-resource/{Uuid}','MediaController@download');
+
+
+Route::get('/admin-456', 'Admin\AdminLogin@showLogin');
+Route::post('/admin-456', 'Admin\AdminLogin@login');
+
+
+Route::prefix('administrator')->middleware('mimin')->group( function(){
+    Route::get('/logout', 'Admin\AdminLogin@logout');
+
+    Route::get('/dashboard','Admin\DashboardAdmin@showDashboard');
+
+    Route::get('/company','Admin\CompanyAdmin@showCompany');
+    Route::put('/company','Admin\CompanyAdmin@activate');
+
+    Route::get('/subscription','Admin\SubscriptionAdmin@showSubscription');
+    Route::put('/subscription','Admin\SubscriptionAdmin@updateSubscription');
+
+    Route::get('/user','Admin\UserAdmin@showUser');
+
+    Route::get('/product','Admin\ContentAdmin@showProduct');
+    Route::put('/product','Admin\ContentAdmin@takedownProduct');
+    Route::get('/media','Admin\ContentAdmin@showMedia');
+    Route::put('/media','Admin\ContentAdmin@takedownMedia');
+    Route::get('/news','Admin\ContentAdmin@showNews');
+    Route::put('/news','Admin\ContentAdmin@takedownNews');
+    Route::get('/project','Admin\ContentAdmin@showProject');
+    Route::put('/project','Admin\ContentAdmin@takedownProject');
+    
+});

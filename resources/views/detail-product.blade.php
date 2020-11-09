@@ -83,6 +83,7 @@
           <form id="form1" action="{{ url('product/addquotation')}}" method="POST" enctype="multipart/form-data">
             @csrf
                 <input name="company_id" type="hidden" value="{{$product->company_id}}">
+                <input name="product_id" type="hidden" value="{{$product->id}}">
                 <div class="row">
                   <div class="form-group col-md-12 mb-3 mb-md-0">
                     <label class="text-secondary" for="#desc">Type, paste OR attach your Request for a Quote or Questions below *</label>

@@ -25,7 +25,7 @@ class MediaController extends Controller
         $view = $request->input('view');
         $download = $request->input('download');
 
-        $query = Media::with('company');
+        $query = Media::with('company')->where('status',1);
 
         if(!empty($keyword)){
             $query->where('title','like',$keyword);

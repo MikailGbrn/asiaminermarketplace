@@ -1,7 +1,7 @@
     @extends('layout')
 
     @section('content')
-    <div class="site-section">
+    <div class="site-section bg-light">
       <div class="container">
 
         <div class="form-search-directory mt-5 ">
