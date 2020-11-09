@@ -846,7 +846,7 @@ h1, h2, h3, h4, h5,
 
 .company-profile{
   width: 100%;
-  min-height: calc(92vh);
+  /*min-height: calc(92vh);*/
   background-color: white;
   border: 1px solid black;
   border-color: #bababa;
@@ -854,12 +854,13 @@ h1, h2, h3, h4, h5,
   border-bottom-right-radius: 30px;
 }
 
+@media (min-width: 300px) {
 .company-profile .image-container {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  transform: translate(500px, -80px);
+  transform: translate(200px, -80px);
   z-index: 10;
 }
 
@@ -869,10 +870,69 @@ h1, h2, h3, h4, h5,
   object-fit: cover;
   object-position: -43px 0px;
 }
+}
+
+@media (min-width: 768px) {
+.company-profile .image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate(290px, -80px);
+  z-index: 10;
+}
+
+.company-profile .image-container img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: -43px 0px;
+}
+}
+
+@media (min-width: 992px) {
+.company-profile .image-container {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate(410px, -80px);
+  z-index: 10;
+}
+
+.company-profile .image-container img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: -43px 0px;
+}
+}
+
+@media (min-width: 1200px) {
+.company-profile .image-container {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate(510px, -80px);
+  z-index: 10;
+}
+
+.company-profile .image-container img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: -43px 0px;
+}
+}
+
+
 .company-profile .profile-header{
   width: 100%;
   height: calc(40vh);
-  background-color: blue;
+  background-color: #f8f9fa;
 }
 .company-profile .profile-header .header{
   width: 100%;
@@ -882,17 +942,17 @@ h1, h2, h3, h4, h5,
 }
 .company-profile .profile-content{
   width: 100%;
-  min-height: calc(40vh);
+  min-height: calc(30vh);
   background-color: white;
+  border-bottom: 1px solid #ccc;
   padding: 50px 100px 0px 100px;
-  text-align: center;
+  text-align: center; 
 }
 .company-profile .profile-content p{
   font-size: 14px;
 }
 .company-profile .profile-footer{
   width: 100%;
-  min-height: calc(10vh);
   background-color: white;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
@@ -2027,7 +2087,6 @@ background-color: #e1f2f2;
   padding: 0 25px;
   display: block;
   background-color: white;
-  display: block;
   max-height: auto;
   overflow: hidden;
   transition: max-height 0.2s ease-out;

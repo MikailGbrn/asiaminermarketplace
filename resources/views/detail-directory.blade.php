@@ -29,16 +29,14 @@
                   @foreach ($company->address as $address)
                     <span class="mr-5 text-secondary"><span class="icon-map-pin mr-2"></span>{{$address->city}}, {{$address->province}}</span>
                   @endforeach
-                  <span class="text-secondary"><span class="icon-clock-o mr-2"></span>{{$company->business_hour}}</span>
-                </p>
-                <p>
+                  <span class="mr-5 text-secondary"><span class="icon-clock-o mr-2"></span>{{$company->business_hour}}</span>
                   <span class="mr-5 text-secondary"><span class="icon-envelope mr-2"></span>{{$company->email}}</span>
                   <span class="text-secondary"><span class="icon-phone mr-2"></span>{{$company->phone}}</span>
                 </p>
               </div>
 
               
-              <div class="profile-footer" style="margin-top: 12px;">
+              <div class="profile-footer">
                 <ul class="companynav mr-auto">
                   <li class="active"><a href="{{url('/')}}/company/{{$company->slug}}"><span>TIMELINE</span></a></li>
                   <li><a href="{{url('/')}}/company/{{$company->slug}}/media"><span>MEDIA/RESOURCE</span></a></li>
