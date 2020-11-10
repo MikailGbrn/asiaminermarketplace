@@ -916,7 +916,7 @@ h1, h2, h3, h4, h5,
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  transform: translate(510px, -80px);
+  transform: translate(500px, -80px);
   z-index: 10;
 }
 
