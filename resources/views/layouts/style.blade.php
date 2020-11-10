@@ -21,6 +21,17 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/rangeslider.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
+    
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-182397467-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-182397467-1');
+    </script>
+
 
     
   </head>

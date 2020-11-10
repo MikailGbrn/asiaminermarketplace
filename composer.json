@@ -9,11 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "anhskohbo/no-captcha": "^3.3",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.18.35",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^1.2"
+        "laravel/ui": "^1.2",
+        "spatie/laravel-analytics": "^3.10"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

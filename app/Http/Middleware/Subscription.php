@@ -22,6 +22,13 @@ class Subscription
         $name = "Dashboard";
         $object = 0;
         $max =[1,1,1];
+        if ($company->status == 0) {
+            if ($request->segment(3)=="add") {
+                return redirect()->back();
+            }
+            session()->now("activate", '<strong>the account has not been activated</strong>, please contact the admin');
+            return $next($request);
+        }
         if($request->segment(2)=="media"){
             $name = "Media/Resource";
             $object = $company->media()->count();

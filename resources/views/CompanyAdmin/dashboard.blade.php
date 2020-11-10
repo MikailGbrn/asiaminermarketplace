@@ -4,7 +4,16 @@
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
+                
           <div class="col-md-12">
+            @if (session('activate'))
+                  <div class="alert alert-danger alert-dismissible fade show" style="position: absolute; left:30px; right:30px; top:20px" role="alert">
+                    @php echo session('activate'); @endphp !
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                @endif
             <div class="company-profile">
 
                 <!-- header company profile -->

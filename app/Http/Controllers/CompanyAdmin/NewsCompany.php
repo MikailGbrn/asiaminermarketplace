@@ -46,6 +46,7 @@ class NewsCompany extends Controller
             'topic' => 'required',
             'author' => 'required',
             'location' => 'required',
+            'abstract' => 'required|max:255',
             'photo' => 'file|image|max:3072'
         ]);
         $news = News::find($request->input('id'));
@@ -83,6 +84,7 @@ class NewsCompany extends Controller
             'topic' => 'required',
             'author' => 'required',
             'location' => 'required',
+            'abstract' => 'required|max:255',
             'photo' => 'file|image|max:3072'
         ]);
 

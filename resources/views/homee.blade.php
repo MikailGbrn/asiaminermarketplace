@@ -54,7 +54,7 @@
 
 
 
-    <div class="site-section">
+    {{-- <div class="site-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
@@ -77,7 +77,7 @@
           @endforeach
         </div>
       </div>
-    </div>
+    </div> --}}
 
     
     <div class="py-5 bg-primary">

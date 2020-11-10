@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function detail($companyId,$slug)
     {
-        $news = News::where('slug',$slug)->where('company_id',$companyId)->firstOrFail();
+        $news = News::where('slug',$slug)->where('company_id',$companyId)->where('status',1)->firstOrFail();
         $relatedNews = News::where("company_id",$companyId)->limit(2)->get();
 
         return view('company_news_detail', compact('relatedNews','news'));

@@ -32,8 +32,12 @@
                   <td>{{$q->user->first_name." ".$q->user->last_name}}</td>
                   <td>{{$q->user->email}}</td>
                   <td>{{$q->user->company_name}}</td>
-                  <td></td>
-                  <td></td>
+                  <td>{{$q->description}}</td>
+                  <td>
+                    @if($q->file !== null)
+                    <a href="{{url('/company-profile/download/')}}/{{$q->id}}" class="btn btn-primary">download</a>
+                    @endif
+                  </td>
                 </tr>
                 @endforeach
               </tbody>

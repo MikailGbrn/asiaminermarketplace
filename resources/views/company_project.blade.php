@@ -75,9 +75,9 @@
               <a href="#">
                 <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
                 <div class="h-entry-inner">
-                  <h2 class="font-size-regular"><object><a href="blog-single.html">{{$p->title}}</a></object></h2>
+                  <h2 class="font-size-regular"><object><a href="{{url("/project/$p->company_id/$p->slug")}}">{{$p->title}}</a></object></h2>
                   <p class="text-secondary"><object>{{date( 'F j, Y',strtotime( $p->created_at ))}}</object></p>
-                  <p class="text-limit">{{$p->description}}</p>
+                  <p class="text-limit">@php echo $p->description @endphp</p>
                 </div>
               </a>
             </div> 

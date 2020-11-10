@@ -21,7 +21,7 @@ class ProductController extends Controller
         $view = $request->input('view');
         $download = $request->input('download');
 
-        $query = Product::where('name','like',$keyword);
+        $query = Product::where('name','like',$keyword)->where('status',1);
         
         if(!empty($company)){
             $query->whereHas('company', function ($query) use($company) {
@@ -64,7 +64,7 @@ class ProductController extends Controller
     }
     public function detail($companyId,$slug)
     {
-        $product = Product::where('slug',$slug)->where('company_id',$companyId)->firstOrFail();
+        $product = Product::where('slug',$slug)->where('company_id',$companyId)->where('status',1)->firstOrFail();
         $relatedProduct = Product::where("company_id","=",$companyId)->limit(5)->get();
 
         $product->increment('view');
@@ -100,6 +100,7 @@ class ProductController extends Controller
         $quotation =  new Quotation;
         $quotation->user_id = Auth::user()->id;
         $quotation->company_id = $request->input('company_id');
+        $quotation->product_id = $request->input('product_id');
         $quotation->description = $request->input('detail');
         $quotation->additional = implode(',', $request->input('additional'));
         $quotation->file = $path;
