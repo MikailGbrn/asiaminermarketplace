@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-12">
 
-            <div class="company-profile">
+            <div class="company-profile mt-5">
 
                 <!-- header company profile -->
               <div class="profile-header">

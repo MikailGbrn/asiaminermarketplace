@@ -87,49 +87,19 @@
               <h4 class="h4">Filters</h4>          
               <h3 class="h4 text-black accordion mb-0">Category</h3>
               <div class="panel mb-5">
-                <form action="#" method="post">
+                <form action="#" method="GET">
                   <div class="form-group">
 
                   <h6 class="text-sm text-secondary">Search By Keywords</h6>
-                  <input type="text" placeholder="What are you looking for?" class="form-control">
+                  <input type="text" name="kw" placeholder="What are you looking for?" class="form-control">
                   </div>
 
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
                 <div class="form-group">
-                  <input type="text" placeholder="Company Name" class="form-control">
+                  <input type="text" name="comp" placeholder="Company Name" class="form-control">
                 </div> 
                 
                 <!-- checklist for categories -->
-                <div class="form-group">
-                  <label class="text-sm text-secondary pt-3">Content Categories</label>
-                  <ul class="list-unstyled">
-                    <li>
-                      <label for="option1">
-                        <input type="checkbox" id="option1">
-                        Coffee
-                      </label>
-                    </li>
-                    <li>
-                      <label for="option2">
-                        <input type="checkbox" id="option2">
-                        Vegetarian
-                      </label>
-                    </li>
-                    <li>
-                      <label for="option3">
-                        <input type="checkbox" id="option3">
-                        Vegan Foods
-                      </label>
-                    </li>
-                    <li>
-                      <label for="option4">
-                        <input type="checkbox" id="option4">
-                        Sea Foods
-                      </label>
-                    </li>
-                    <li class="text-primary"><a href="" data-toggle="modal" data-target="#categoriesfilter">View All Categories</a></li>
-                  </ul>
-                </div>
               </form>
             </div>
 

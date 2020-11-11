@@ -54,7 +54,7 @@
         </div>
         
 
-        <div class="col-md-2 position-relative "> 
+        <div class="col-md-2 position-relative text-center"> 
           @guest
           <a class="float-right" href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a>
           @else

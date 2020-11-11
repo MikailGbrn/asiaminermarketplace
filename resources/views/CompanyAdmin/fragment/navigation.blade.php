@@ -19,7 +19,7 @@
         </nav>
       </div>
 
-      <div class="col-md-3 d-none d-xl-block position-relative text-right"> 
+      <div class="col-md-3 d-none d-xl-block position-relative text-center"> 
           <div class="dropdownacc">
             <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">{{ Auth::guard('admin-company')->user()->username}} !</span></a>
             <div id="dropdownacc" class="dropdown-content">
