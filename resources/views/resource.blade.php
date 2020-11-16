@@ -10,9 +10,9 @@
             <div class="panel mb-5">
                 <form action="" method="GET">
                   <div class="form-group">
-
-                  <h6 class="text-sm text-secondary">Search By Keywords</h6>
-                  <input type="text" name="kw" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
+                    <h6 class="text-sm text-secondary">Search By Keywords</h6>
+                    <input type="text" name="kw" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
+                  </div>
 
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
                 <div class="form-group">
@@ -180,7 +180,6 @@
 
           <!-- CATEGORIES START HERE -->
           <div class="col-lg-8">
-
             @foreach ($resource as $r)
             <div class="d-block d-md-flex listing-horizontal h-option">
 

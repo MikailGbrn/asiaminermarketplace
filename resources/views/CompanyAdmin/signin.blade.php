@@ -8,12 +8,13 @@
     <div class="site-section">
       <div class="container mt-2">
         <div class="row">
-          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h4 class="text-bold">Company Login</h4>
+            <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header">
-                COMPANY SIGN IN
-              </div>
               <div class="card-body"> 
                 <form action="" method="post">
                   @csrf
@@ -58,7 +59,6 @@
               </div>
             </div>
           </div>
-          <div class="col-md-3"></div>
         </div>
       </div>
     </div>

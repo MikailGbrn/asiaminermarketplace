@@ -698,7 +698,22 @@ h1, h2, h3, h4, h5,
         .site-mobile-menu .site-nav-wrap[data-class="social"] > li:first-child a {
           padding-left: 15px !important; }
 
+/*image preview*/
+#resource-container{
+  display: none;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  /*z-index: 10;*/
+}
 
+#resource-container #image-preview {
+  display: none;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
 
 /*drag and drop upload*/
 .files input {

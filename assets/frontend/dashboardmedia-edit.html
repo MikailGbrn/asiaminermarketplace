@@ -97,7 +97,10 @@
               <div class="form-row">
                 <div class="form-group col-md-6 mb-3">
                   <label for="mediapic"><span class="icon-image mr-3"></span>Upload Media Resource Image </label>
-                  <input type="file" name="mediapic" id="mediapic" class="form-control" accept="image/*">
+                  <input type="file" name="mediapic" id="mediapic" class="form-control" accept="image/*" onchange="editRsc();">
+                  <div id="resource-container" class="mt-3">
+                    <img id="image-preview" alt="image preview"/>
+                  </div>
                 </div>
               </div>
               <div class="form-row">
@@ -142,6 +145,7 @@
         </div>
       </div>
     </div>
+
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
