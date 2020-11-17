@@ -19,7 +19,7 @@
       <div class="row align-items-center">
         
         <div class="col-11 col-xl-2">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
+          <h1 class="mb-0 site-logo"><a href="{{url('/')}}" class="text-black h2 mb-0">Browse</a></h1>
         </div>
         <div class="col-12 col-md-8 d-none d-xl-block">
           <nav class="site-navigation position-relative text-center" role="navigation">

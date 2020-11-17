@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col-md-12">
 
-            <div class="company-profile mt-5">
-
+            <div class="company-profile">
+                <h4 class="ml-3" style="padding: 10px;"><a href=""><span class="icon-arrow-left mr-3"></span></a>Company Profile</h4>
                 <!-- header company profile -->
               <div class="profile-header">
 
