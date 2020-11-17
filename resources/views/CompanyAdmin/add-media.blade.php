@@ -1,7 +1,7 @@
 @extends('CompanyAdmin.layout')
     @section('content')
 
-    <div class="site-section">
+    <div class="site-section bg-light">
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
@@ -12,7 +12,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h2 class="text-center h4">add Media Resource Title</h2>
+                <h2 class="text-center h4">Add Media Resource Title</h2>
                   @if ($errors->any())
                     @foreach ($errors->all() as $error)
                       <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -56,7 +56,7 @@
                         <option value="">select catagory</option>
                         <option value=""></option>
                       </select>
-                    </div> --}}
+                    </div> 
                     <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="tags">Resource Type</label>
@@ -65,7 +65,7 @@
                         <option value="mining"></option>
                       </select>
                     </div>
-                  </div> 
+                  </div> --}}
                   <div class="form-row mt-2">
                     <div class="form-group col-md-5 mb-3">
                       <label for="photo"><span class="icon-image mr-3"></span>Upload Media Resource Image </label>

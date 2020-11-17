@@ -89,7 +89,7 @@
           <div class="col-md-7">
             @foreach ($timeline as $t)
             @if ($t->type == 'media')
-            <div class="card2 mb-2">
+            <div class="card2 mb-4">
               <div class="card-header">
                 <h6>{{$company->name}}</h6>
                 <p>Media/Resource</p>
@@ -111,7 +111,7 @@
             </div>
             @elseif ($t->type == 'product')
 
-            <div class="card2 mb-2">
+            <div class="card2 mb-4">
               <div class="card-header">
                 <h6>{{$company->name}}</h6>
                 <p>Product</p>
@@ -131,7 +131,7 @@
             </div>
             @endif
             @endforeach
-            {{-- <div class="card2 mb-5">
+            {{-- <div class="card2 mb-4">
               <div class="card-header">
                 <h6>Company Name</h6>
                 <p>Project</p>

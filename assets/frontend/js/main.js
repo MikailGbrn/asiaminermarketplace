@@ -71,6 +71,17 @@ CKEDITOR.replace('newsbody');
     };
   };
 
+        function editPdct() {
+    document.getElementById("image-preview").style.display = "block";
+    document.getElementById("resource-container").style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("mediapic").files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("image-preview").src = oFREvent.target.result;
+    };
+  };
+
  $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);

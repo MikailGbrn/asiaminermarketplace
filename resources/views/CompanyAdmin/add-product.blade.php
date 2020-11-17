@@ -35,12 +35,12 @@
             </div>
           </div>
           <div class="form-row">
-            <label class="ml-2">Upload Product Image </label>
-          </div>
-          <div class="form-row">
             <div class="form-group col-md-12 mb-3">   
-              <input type="file" name="foto" id="mediapic" class="form-control" accept="image/*">
-  
+              <label class="ml-2">Upload Product Image </label>
+              <input type="file" name="foto" id="mediapic" class="form-control" accept="image/*" onchange="editPdct();">
+              <div id="resource-container" class="mt-3">
+                <img id="image-preview" alt="image-preview"/>
+              </div>
             </div>
           </div>
           <div class="form-row">

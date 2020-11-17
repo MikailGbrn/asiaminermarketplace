@@ -9,13 +9,13 @@
     <div class="site-mobile-menu-body"></div>
   </div>
   @if(Request::path() === '/' || Request::path() === 'home')
-    <header class="site-navbar position-fixed" role="banner">
+    <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
   @else
     <header class="site-navbar site-navbar-nothome position-fixed" role="banner">
   @endif
       
 
-    <div class="warp-container pl-4 pr-4">
+    <div class="container pl-4 pr-4">
       <div class="row align-items-center">
         
         <div class="col-11 col-xl-2">
