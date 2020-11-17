@@ -946,14 +946,14 @@ h1, h2, h3, h4, h5,
 
 .company-profile .profile-header{
   width: 100%;
-  height: calc(40vh);
+  height: calc(30vh);
   background-color: #f8f9fa;
 }
 .company-profile .profile-header .header{
   width: 100%;
-  height: calc(40vh);
+  height: calc(30vh);
   object-fit: cover;
-  object-position: 0px -10px;
+  object-position: top;
 }
 .company-profile .profile-content{
   width: 100%;
@@ -1079,10 +1079,8 @@ background-color: #e1f2f2;
 .card .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 10px;
 }
 .card .grid-container .grid-item {
-  padding: 20px;
   font-size: 30px;
   text-align: center;
 }

@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <!-- <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5"> -->
+    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
@@ -20,6 +20,7 @@
                   <div class="col-lg-12 col-xl-7 no-sm-border border-right">
                     <input type="text" name="kw" class="form-control" placeholder="What are you looking for?">
                   </div>
+
                   {{-- <div class="col-lg-12 col-xl-3 no-sm-border border-right">
                     <div class="wrap-icon">
                       <span class="icon icon-room"></span>
@@ -27,6 +28,7 @@
                     </div>
                     
                   </div> --}}
+
                   <div class="col-lg-12 col-xl-3">
                     <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
@@ -48,8 +50,8 @@
 
           </div>
         </div>
-      </div>
-    </div>  
+    </div>
+  </div>
 
 
 
