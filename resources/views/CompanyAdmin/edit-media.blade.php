@@ -37,6 +37,16 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
+                  <label for="tags">Media Catagory</label>
+                  <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
+                    @foreach ($catagory as $c)
+                    <option value="{{$c->id}}" @if(in_array($c->id, $media->catagory->pluck('id')->toArray())) selected @endif>{{$c->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
                   <label for="tags">Keyword</label>
                   <input type="text" name="keyword" id="tags" class="form-control" value="{{$media->keyword}}">
                 </div>
@@ -47,22 +57,20 @@
                   <textarea name="description" class="form-control">{{$media->description}}</textarea>
                 </div>
               </div>
-              {{-- <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="tags">catagory</label>
-                  <select name="content_type" class="form-control">
-                    <option value="">select catagory</option>
-                    <option value=""></option>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="tags">Media Type</label>
+                  <select name="media_type" class="selectpicker form-control">
+                    <option selected disabled value="">Select Media Type</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Catalogue">Catalogue</option>
+                    <option value="E-Book">E-Book</option>
+                    <option value="Image">Image</option>
+                    <option value="Power Point">Power Point</option>
+                    <option value="Case Study">Case Study</option>
                   </select>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="tags">Resource Type</label>
-                  <select name="type" class="form-control">
-                    <option value="">select catagory</option>
-                    <option value=""></option>
-                  </select>
-                </div>
-              </div> --}}
+              </div>
               <div class="form-row mt-2">
                 <div class="custom-file col-md-5 mb-3">
                   <input type="file" name="photo" id="foto" class="custom-file-input" accept="image/*">

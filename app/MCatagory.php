@@ -9,6 +9,6 @@ class MCatagory extends Model
     protected $table = "mcatagory";
     public function media()
     {
-        return $this->belongsToMany('App\Media','mcatagory_media','mcatagory_id','media_id');
+        return $this->belongsToMany('App\Media','mcatagory_media','media_id','mcatagory_id');
     }
 }

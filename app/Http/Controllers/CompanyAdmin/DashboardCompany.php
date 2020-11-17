@@ -109,7 +109,7 @@ class DashboardCompany extends Controller
     public function showStatisticProduct()
     {
         $company_id = Auth::guard('admin-company')->user()->company_id;
-        $quotation = Quotation::with('user')->where('company_id',$company_id)->get();
+        $quotation = Quotation::with('user')->where('company_id',$company_id)->paginate(20);
         $product = Product::where('company_id',$company_id)->get();
 
         $query1 = DB::table('product_view')

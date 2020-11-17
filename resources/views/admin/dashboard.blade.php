@@ -110,7 +110,7 @@
       data: {
           labels: [
             @foreach ($visitor->rows as $key => $value)
-              '{{ date( 'Y M', mktime(0,0,0, substr($value[0],4,2)+1,0,substr($value[0],0,4)))      }}',
+              '{{$value[0]}}',
             @endforeach
           ],
           datasets: [{

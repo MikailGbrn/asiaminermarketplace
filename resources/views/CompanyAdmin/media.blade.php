@@ -55,7 +55,10 @@
                 <p class="mb-0">By: <a href="#">{{$m->company->name}}</a></p>
                 <p>Author: <a href="#">{{$m->author}}</a></p>
                 <p class="tag">
-                  <span>{{$m->keyword}}</span>
+                  {{-- @if($m->category) --}}
+                  @foreach ($m->catagory as $c)
+                  <span>{{$c->name}}</span>
+                  @endforeach
                 </p>
                 <p>
                   <span>{{substr($m->description,0,425) }} ...</span>

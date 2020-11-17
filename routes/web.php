@@ -113,3 +113,13 @@ Route::prefix('administrator')->middleware('mimin')->group( function(){
     Route::put('/project','Admin\ContentAdmin@takedownProject');
     
 });
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
+Route::get('/config-cache', function() {
+    $exitCode = Artisan::call('config:cache');
+    return '<h1>Clear Config cleared</h1>';
+});

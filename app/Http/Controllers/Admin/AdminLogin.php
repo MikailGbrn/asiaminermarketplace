@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
 
 class adminLogin extends Controller
 {
@@ -21,7 +22,7 @@ class adminLogin extends Controller
             'g-recaptcha-response' => 'required|captcha'
         ]);
 
-        if ($request->input('usern')==2020 && $request->input('passwd')=='ritelmart') {
+        if ($request->input('usern')=="2020" && $request->input('passwd')=='luyapbwq') {
             session(['admin' => 'benar']);
             return redirect('administrator/dashboard');
         }else {
