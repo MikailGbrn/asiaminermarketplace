@@ -60,7 +60,7 @@
 CKEDITOR.replace('about');
 CKEDITOR.replace('newsbody');
 
-      function editRsc() {
+      function addRsc() {
     document.getElementById("image-preview").style.display = "block";
     document.getElementById("resource-container").style.display = "block";
     var oFReader = new FileReader();
@@ -71,6 +71,18 @@ CKEDITOR.replace('newsbody');
     };
   };
 
+      function editRsc() {
+    document.getElementById("image-preview").style.display = "block";
+    document.getElementById("resource-container").style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("image-preview").src = oFREvent.target.result;
+    };
+  };
+
+
         function editPdct() {
     document.getElementById("image-preview").style.display = "block";
     document.getElementById("resource-container").style.display = "block";
@@ -79,6 +91,28 @@ CKEDITOR.replace('newsbody');
 
     oFReader.onload = function(oFREvent) {
       document.getElementById("image-preview").src = oFREvent.target.result;
+    };
+  };
+
+          function editHdr() {
+    document.getElementById("header-preview").style.display = "block";
+    document.getElementById("header-container").style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("header").files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("header-preview").src = oFREvent.target.result;
+    };
+  };
+
+            function editLogo() {
+    document.getElementById("logo-preview").style.display = "block";
+    document.getElementById("logo-container").style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("logo").files[0]);
+
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("logo-preview").src = oFREvent.target.result;
     };
   };
 

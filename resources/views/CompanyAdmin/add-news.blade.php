@@ -1,7 +1,7 @@
 @extends('CompanyAdmin.layout')
     @section('content')
 
-    <div class="site-section">
+    <div class="site-section bg-light">
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
@@ -22,6 +22,19 @@
                     @endforeach
             @endif
             <div class="card mt-4">
+              <div class="card-header">
+                <h2 class="text-center h4">Add New News</h2>
+                @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{$error}}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        @endforeach
+                @endif
+              </div>
               
               <div class="card-body"> 
                 <form action="{{ url('/company-profile/news')}}" method="post" enctype="multipart/form-data">

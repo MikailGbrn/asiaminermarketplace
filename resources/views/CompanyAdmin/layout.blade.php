@@ -6,7 +6,7 @@
     @include('CompanyAdmin.fragment.navigation')
     @include('CompanyAdmin.fragment.login')
     @yield('content')
-    @include('CompanyAdmin.fragment.footer')
+    <!-- @include('CompanyAdmin.fragment.footer') -->
     @include('CompanyAdmin.fragment.js')
     @yield('jsplus')
 </body>

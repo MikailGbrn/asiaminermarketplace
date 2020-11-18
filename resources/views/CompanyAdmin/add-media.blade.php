@@ -2,13 +2,13 @@
     @section('content')
 
     <div class="site-section bg-light">
-      <div class="container mt-5">
-        <div class="row">
+      <div class="container mt-3">
+        <div class="row mb-3">
           <div class="col-md-6">
             <a href="{{url('/')}}/company-profile/media"><span class="icon-arrow-left mr-3 mb-3"></span>Go Back to Dashboard</a>
           </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
@@ -69,7 +69,7 @@
                   <div class="form-row mt-2">
                     <div class="form-group col-md-5 mb-3">
                       <label for="photo"><span class="icon-image mr-3"></span>Upload Media Resource Image </label>
-                      <input type="file" name="photo" id="photo" class="form-control" accept="image/*" onchange="editRsc();">
+                      <input type="file" name="photo" id="photo" class="form-control" accept="image/*" onchange="addRsc();">
                       <div id="resource-container" class="mt-3">
                         <img id="image-preview" alt="image-preview"/>
                       </div>

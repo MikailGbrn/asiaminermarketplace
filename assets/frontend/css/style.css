@@ -715,6 +715,39 @@ h1, h2, h3, h4, h5,
   object-position: center;
 }
 
+#header-container{
+  display: none;
+  width: 500px;
+  height: 150px;
+  overflow: hidden;
+  /*z-index: 10;*/
+}
+
+#header-container #header-preview {
+  display: none;
+  width: 500px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+#logo-container{
+  display: none;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  /*z-index: 10;*/
+}
+
+#logo-container #logo-preview {
+  display: none;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /*drag and drop upload*/
 .files input {
     outline: 2px dashed #92b0b3;
@@ -883,7 +916,7 @@ h1, h2, h3, h4, h5,
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: -43px 0px;
+  object-position: center;
 }
 }
 
@@ -901,7 +934,7 @@ h1, h2, h3, h4, h5,
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: -43px 0px;
+  object-position: center;
 }
 }
 
@@ -920,7 +953,7 @@ h1, h2, h3, h4, h5,
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: -43px 0px;
+  object-position: center;
 }
 }
 
@@ -939,7 +972,7 @@ h1, h2, h3, h4, h5,
   width: 120px;
   height: 120px;
   object-fit: cover;
-  object-position: -43px 0px;
+  object-position: center;
 }
 }
 

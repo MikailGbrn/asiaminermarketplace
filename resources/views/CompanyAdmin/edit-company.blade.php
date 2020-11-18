@@ -1,6 +1,6 @@
 @extends('CompanyAdmin.layout')
 @section('content')
-<div class="site-section">
+<div class="site-section bg-light">
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
@@ -12,20 +12,28 @@
         <h2>Edit Profile</h2>
         <div class="card mt-4">
           <div class="card-header">
-            <h4>Basic Information</h4>
+            <h4 class="text-center h4">Basic Information</h4>
           </div>
           <div class="card-body"> 
             <form action="" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-row">
-                <div class="custom-file col-md-5 mb-3">
-                  <input type="file" name="header" id="header" accept="image/*">
-                  <label for="header" class="custom-file-label"><span class="icon-image mr-3"></span>Upload Header Image</label>
+                <div class="form-group col-md-5 mb-3">
+                  <label for="header"><span class="icon-image mr-3"></span>Upload Header Image</label>
+                  <p><small>*Max image size 1 mb; Ideal image aspect ratio 16:9 with .jpg format</small></p>
+                  <input type="file" class="form-control" name="header" id="header" accept="image/*" onchange="editHdr();">
+                  <div id="header-container" class="mt-3">
+                    <img id="header-preview" alt="image-preview"/>
+                  </div>
                 </div>
                 <div class="col-md-2"></div>
-                <div class="custom-file col-md-5 mb-5">
-                  <input type="file" name="logo" id="logo" class="custom-file-input">
-                  <label for="logo" class="custom-file-label"> <span class="icon-image mr-3"></span>Upload Profile Picture</label>
+                <div class="form-group col-md-5 mb-5">
+                  <label for="logo"><span class="icon-image mr-3"></span>Upload Profile Picture</label>
+                  <p><small>*Max image size 1 mb; Ideal image aspect ratio 1:1 .jpg format</small></p>
+                  <input type="file" name="logo" id="logo" class="form-control" onchange="editLogo();">
+                  <div id="logo-container" class="mt-3">
+                    <img id="logo-preview" alt="image-preview"/>
+                  </div>
                 </div>
               </div>
               <div class="form-row">
