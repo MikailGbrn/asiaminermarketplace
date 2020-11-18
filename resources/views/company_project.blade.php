@@ -72,7 +72,7 @@
 
           <div class="col-md-4 mb-4 mb-lg-4">
             <div class="h-entry h-option">
-              <a href="#">
+              <a href="{{url("/project/$p->company_id/$p->slug")}}">
                 <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
                 <div class="h-entry-inner">
                   <h2 class="font-size-regular"><object><a href="{{url("/project/$p->company_id/$p->slug")}}">{{$p->title}}</a></object></h2>

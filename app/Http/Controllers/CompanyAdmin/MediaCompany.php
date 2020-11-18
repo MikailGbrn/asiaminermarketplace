@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Media;
 use App\Company;
+use App\MCatagory;
 use Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -26,18 +27,19 @@ class MediaCompany extends Controller
             $query->where('title','like',$keyword);
         }
 
-        $media = $query->paginate(5);
+        $media = $query->orderBy('id', 'DESC')->paginate(5);
 
         return view('CompanyAdmin.media', compact('media'));
     }
     public function showEditMedia($id)
     {
         $media = Media::where('id', $id)->firstOrFail();
+        $catagory = MCatagory::all();
         $company_id = Auth::guard('admin-company')->user()->company_id;
         if ($media->company_id !== $company_id) {
             return redirect()->back();
         }
-        return view('CompanyAdmin.edit-media',compact('media'));
+        return view('CompanyAdmin.edit-media',compact('media','catagory'));
     }
     public function editMedia(Request $request)
     {
@@ -80,7 +82,10 @@ class MediaCompany extends Controller
         $media->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('title'))));
         $media->keyword = $request->input('keyword');
         $media->description = $request->input('description');
+        $media->type = $request->input('media_type');
         $media->save();
+
+        $media->catagory()->sync($request->input('catagory'));
 
         return redirect('company-profile/media');
     }
@@ -101,7 +106,8 @@ class MediaCompany extends Controller
     }
     public function showAddMedia()
     {
-        return view('CompanyAdmin.add-media');
+        $catagory = MCatagory::all();
+        return view('CompanyAdmin.add-media', compact('catagory'));
     }
     public function addMedia(Request $request)
     {
@@ -135,10 +141,12 @@ class MediaCompany extends Controller
         $media->keyword = $request->input('keyword');
         $media->description = $request->input('description');
         $media->content_type = "mining";
-        $media->type = "image";
+        $media->type = $request->input('media_type');
         $media->view = 0;
         $media->download = 0;
         $media->save();
+
+        $media->catagory()->sync($request->input('catagory'));
 
         return redirect('company-profile/media');
 

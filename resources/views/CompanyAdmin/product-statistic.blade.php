@@ -19,6 +19,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
+                  <th scope="col">Product</th>
                   <th scope="col">E-mail</th>
                   <th scope="col">Company</th>
                   <th scope="col">Request</th>
@@ -30,6 +31,7 @@
                   @foreach ($quotation as $q)
                   <th scope="row">{{$loop->iteration}}</th>
                   <td>{{$q->user->first_name." ".$q->user->last_name}}</td>
+                  <td>{{$q->product->name}}</td>
                   <td>{{$q->user->email}}</td>
                   <td>{{$q->user->company_name}}</td>
                   <td>{{$q->description}}</td>

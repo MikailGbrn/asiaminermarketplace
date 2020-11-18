@@ -2,7 +2,7 @@
 <ul id="dropdown2" class="dropdown-content">
     {{-- <li><a href="#!" class="wangsit-text"><i class="material-icons">settings</i>Setting</a></li> --}}
        <!--  <li class="divider" tabindex="-1"></li> -->
-    <li><a href="{{url('mimin/logout')}}" class="wangsit-text"><i class="material-icons">exit_to_app</i>Log Out</a></li>
+    <li><a href="{{url('administrator/logout')}}" class="wangsit-text"><i class="material-icons">exit_to_app</i>Log Out</a></li>
   </ul>
 <!-- Dropdown Test -->
 

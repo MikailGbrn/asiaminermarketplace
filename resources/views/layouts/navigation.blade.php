@@ -19,7 +19,7 @@
       <div class="row align-items-center">
         
         <div class="col-11 col-xl-2">
-          <h1 class="mb-0 site-logo"><a href="{{url('/')}}" class="text-black h2 mb-0">Browse</a></h1>
+          <h1 class="mb-0 site-logo"><a href="{{url('/')}}" class="h2 mb-0"><b>INDOMINING</b></a></h1>
         </div>
         <div class="col-12 col-md-8 d-none d-xl-block">
           <nav class="site-navigation position-relative text-center" role="navigation">
@@ -39,7 +39,7 @@
               </li>
               <li><a href="{{url('company')}}"><span>Directory</span></a></li>
               <li><a href="{{url('product')}}"><span>Products</span></a></li>
-              <li><a href="contact.html"><span>Contact</span></a></li>
+              <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
               @guest
               <li><a data-toggle="modal" data-target="#signin" class="d-xl-none">SIGN IN</a></li>
               @else

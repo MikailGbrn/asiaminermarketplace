@@ -4,7 +4,7 @@
     <div class="site-section bg-light">
       <div class="container">
         <div class="row mt-5">
-          <div class="col-md-6">
+          {{-- <div class="col-md-6">
             <h2>Contact Us
             </h2>
             <form>
@@ -30,8 +30,8 @@
               </div>
               <input type="submit" name="submit" class="btn btn-primary" style="width: 100%;">
             </form>
-          </div>
-          <div class="col-md-6 text-center pl-4"> 
+          </div> --}}
+          <div class="col-md-12 text-center pl-4"> 
             <h2>About This Site</h2>
             <p class="pl-4 mb-5"> Site Description. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

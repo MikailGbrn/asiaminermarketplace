@@ -30,6 +30,10 @@
                 <p>
                   <span class="icon-eye"></span>
                   <span>Views: {{$product->view}}</span>
+                  <a href="" data-toggle="modal" style="margin-left:20px" data-target="#exampleModal">
+                    <span> <i class="fa fa-share" aria-hidden="true"></i></span>
+                    <span>Share</span>
+                  </a>
                 </p>
                 <p>
                   <span id="dots">{{$product->description}}</span>
@@ -64,6 +68,7 @@
             <p>
               <span class="icon-eye"></span>
               <span class="pr-3">{{$r->view}}</span>
+
             </p>
             <object><a href="{{url('/')}}/product/{{$r->company->id}}/{{$r->slug}}">Open Details..</a></object>
           </div>
@@ -126,6 +131,28 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           <button type="submit" form="form1" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Share</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <a href="https://wa.me/?text={{url()->full()}}%0D%0A%2A{{$product->name}}%2A" target="_blank"><i class="fa fa-whatsapp fa-3x" style="color:#25d366; margin-right: 10px" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/intent/tweet?text={{$product->name}}&url={{url()->full()}}" target="_blank"><i class="fa fa-twitter-square fa-3x" style="color:#1DA1F2; margin-right: 10px" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->full()}}" target="_blank"><i class="fa fa-facebook-square fa-3x" style="color:#3b5998; margin-right: 10px" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{url()->full()}}" target="_blank"><i class="fa fa-linkedin-square fa-3x" style="color:#0072b1; margin-right: 10px" aria-hidden="true"></i></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
