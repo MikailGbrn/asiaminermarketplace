@@ -18,7 +18,7 @@ class MediaController extends Controller
     {
         $keyword = '%'.$request->input('kw').'%';
         $contentCatagory = $request->input('cat');
-        $company = $request->input('comp');
+        $company = '%'.$request->input('comp').'%';
         $resourceType = $request->input('rt');
         $contentType = $request->input('ct');
         $uploadDate = $request->input('dt');

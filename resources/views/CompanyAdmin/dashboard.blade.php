@@ -68,7 +68,11 @@
    
                   </div>
                   <div class="card-body text-center">
+                    @if($company->subscription==0)
                     <a class="btn btn-primary text-white" style="border-radius: 5px;">You are here</a>
+                    @else
+                    <a href="https://wa.me/085155055241?text=downgrade%20to%20Free%20" target="_blank" class="btn btn-outline-primary" style="border-radius: 5px;">Contact Us</a>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -87,7 +91,11 @@
                     <h5>45 Project</h5>
                   </div>
                   <div class="card-body text-center">
+                    @if($company->subscription==1)
+                    <a class="btn btn-primary text-white" style="border-radius: 5px;">You are here</a>
+                    @else
                     <a href="https://wa.me/085155055241?text=Upgrade%20to%20silver%20" target="_blank" class="btn btn-outline-primary" style="border-radius: 5px;">Contact Us</a>
+                    @endif
                   </div>
                 </div>
               </div>
@@ -106,7 +114,11 @@
                     <h5>45 Project</h5>
                   </div>
                   <div class="card-body text-center">
+                    @if($company->subscription==2)
+                    <a class="btn btn-primary text-white" style="border-radius: 5px;">You are here</a>
+                    @else
                     <a href="https://wa.me/085155055241?text=Upgrade%20to%20gold%20" target="_blank" class="btn btn-outline-primary" style="border-radius: 5px;">Contact Us</a>
+                    @endif
                   </div>
                 </div>
               </div>

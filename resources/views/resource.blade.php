@@ -11,12 +11,12 @@
                 <form action="" method="GET">
                   <div class="form-group">
                     <h6 class="text-sm text-secondary">Search By Keywords</h6>
-                    <input type="text" name="kw" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
+                    <input type="text" id="kw" name="kw" onblur="keyword()" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
                   </div>
 
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
                 <div class="form-group">
-                  <input type="text" name="comp" value="{{ app('request')->input('comp') }}" placeholder="Company Name" class="form-control">
+                  <input type="text" id="comp" name="comp" onblur="company()" value="{{ app('request')->input('comp') }}" placeholder="Company Name" class="form-control">
                 </div> 
               </form>
             </div>  
@@ -30,29 +30,40 @@
                     <ul class="list-unstyled">
                       <li>
                         <label for="option1">
-                          <input type="checkbox" id="option1">
-                          Coffee
+                          <input type="checkbox" name="Audio" id="Audio" onchange="checkBox('Audio')"  @if(app('request')->input('rt')=="Audio") checked @endif>
+                          Audio
                         </label>
                       </li>
                       <li>
                         <label for="option2">
-                          <input type="checkbox" id="option2">
-                          Vegetarian
+                          <input type="checkbox" name="Catalogue" id="Catalogue" onchange="checkBox('Catalogue')" @if(app('request')->input('rt')=="Catalogue") checked @endif>
+                          Catalogue
                         </label>
                       </li>
                       <li>
                         <label for="option3">
-                          <input type="checkbox" id="option3">
-                          Vegan Foods
+                          <input type="checkbox" name="E-Book" id="E-Book" onchange="checkBox('E-Book')" @if(app('request')->input('rt')=="E-Book") checked @endif>
+                          E-Book
                         </label>
                       </li>
                       <li>
                         <label for="option4">
-                          <input type="checkbox" id="option4">
-                          Sea Foods
+                          <input type="checkbox" name="Image" id="Image" onchange="checkBox('Image')" @if(app('request')->input('rt')=="Image") checked @endif>
+                          Image
                         </label>
                       </li>
-                      <li class="text-primary">View All Categories</li>
+                      <li>
+                        <label for="option4">
+                          <input type="checkbox" name="Power Point" id="Power Point" onchange="checkBox('Power Point')" @if(app('request')->input('rt')=="Power Point") checked @endif>
+                          Power Point
+                        </label>
+                      </li>
+                      <li>
+                        <label for="option4">
+                          <input type="checkbox" name="Case Study" id="Case Study" onchange="checkBox('Case Study')" @if(app('request')->input('rt')=="Case Study") checked @endif>
+                          Case Study
+                        </label>
+                      </li>
                     </ul>
                   </div>
               </form>
@@ -63,28 +74,28 @@
               <form action="" method="GET">
                 <div class="form-group">
                   <label for="uploaddate">Upload Date</label>
-                  <select name="dt" class="form-control" id="uploaddate">
+                  <select name="dt" class="form-control" id="dt" onchange="addFilter('dt')">
                     <option value="">upload date</option>
-                    <option value="1">Today</option>
-                    <option value="2">This Week</option>
-                    <option value="3">Latest</option>
-                    <option value="4">Oldest</option>
+                    <option value="1" @if(app('request')->input('dt')=="1") selected @endif>Today</option>
+                    <option value="2" @if(app('request')->input('dt')=="2") selected @endif>This Week</option>
+                    <option value="3" @if(app('request')->input('dt')=="3") selected @endif>Latest</option>
+                    <option value="4" @if(app('request')->input('dt')=="4") selected @endif>Oldest</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="uploaddate">View Count</label>
-                  <select name="view" class="form-control" id="uploaddate">
+                  <select name="view" class="form-control" id="view" onchange="addFilter('view')">
                     <option value="">view</option>
-                    <option value="1">Most Viewed</option>
-                    <option value="2">Least Viewed</option>
+                    <option value="1" @if(app('request')->input('view')=="1") selected @endif>Most Viewed</option>
+                    <option value="2" @if(app('request')->input('view')=="2") selected @endif>Least Viewed</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="uploaddate">Download Count</label>
-                  <select name="download" class="form-control" id="uploaddate">
+                  <select name="download" class="form-control" id="download" onchange="addFilter('download')">
                     <option value="">download</option>
-                    <option value="1">Most Downloaded</option>
-                    <option value="2">Least Downloaded</option>
+                    <option value="1" @if(app('request')->input('download')=="1") selected @endif>Most Downloaded</option>
+                    <option value="2" @if(app('request')->input('download')=="2") selected @endif>Least Downloaded</option>
                   </select>
                 </div>
               </form>
@@ -216,78 +227,55 @@
       </div>
     </div>
 
-    {{-- <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Popular Categories</h2>
-            <p class="color-black-opacity-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>
-
-        <div class="row align-items-stretch">
-          <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-hotel"></span></span>
-              <span class="caption mb-2 d-block">Hotels</span>
-              <span class="number">4,89</span>
-            </a>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-microphone"></span></span>
-              <span class="caption mb-2 d-block">Events</span>
-              <span class="number">482</span>
-            </a>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-flower"></span></span>
-              <span class="caption mb-2 d-block">Spa</span>
-              <span class="number">194</span>
-            </a>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-restaurant"></span></span>
-              <span class="caption mb-2 d-block">Stores</span>
-              <span class="number">1,472</span>
-            </a>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-cutlery"></span></span>
-              <span class="caption mb-2 d-block">Restaurants</span>
-              <span class="number">439</span>
-            </a>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-            <a href="#" class="popular-category h-100">
-              <span class="icon mb-3"><span class="flaticon-bike"></span></span>
-              <span class="caption mb-2 d-block">Other</span>
-              <span class="number">692</span>
-            </a>
-          </div>
-        </div>
-
-        
-      </div>
-    </div>
-
-    
-    <div class="py-5 bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
-            <h2 class="mb-3 mt-0 text-white">Let's get started. Create your account</h2>
-            <p class="mb-0 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-          <div class="col-lg-4">
-            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
-          </div>
-        </div>
-      </div>
-    </div> --}}
+   
+    @endsection
+    @section('jsplus')
+    <script>
+      function checkBox(name) {
+        console.log("wkwkwkwkwkwkw");
+        if (document.getElementById(name).checked) {
+          var searchParams = new URLSearchParams(window.location.search)
+          searchParams.set("rt", name)
+          searchParams.delete("page")
+          window.location.search = searchParams.toString()
+        }else{
+          var searchParams = new URLSearchParams(window.location.search)
+          searchParams.delete("page")
+          searchParams.delete("rt")
+          window.location.search = searchParams.toString()
+        }
+      };
+      function keyword() {
+          var number = document.getElementById("kw").value;
+          if (number !== null) {
+              var searchParams = new URLSearchParams(window.location.search)
+              searchParams.set("kw", number)
+              searchParams.delete("page")
+              window.location.search = searchParams.toString()
+          }  
+      }
+      function company() {
+          var number = document.getElementById("comp").value;
+          if (number !== null) {
+              var searchParams = new URLSearchParams(window.location.search)
+              searchParams.set("comp", number)
+              searchParams.delete("page")
+              window.location.search = searchParams.toString()
+          }  
+      }
+      function myFunction() {
+          var x = document.getElementById("fltr").value;
+          console.log(x);
+      }
+      function addFilter(name) {
+          var number = document.getElementById(name).value;
+          if (number !== null) {
+              var searchParams = new URLSearchParams(window.location.search)
+              searchParams.set(name, number)
+              window.location.search = searchParams.toString()
+          }  
+      }
+  </script>
     @endsection
     
     
