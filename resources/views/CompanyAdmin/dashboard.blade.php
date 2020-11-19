@@ -18,6 +18,13 @@
 
                 <!-- header company profile -->
               <div class="profile-header">
+                
+                @if($company->subscription== 2)
+                <div style="position: absolute; right: 50px"><img src="{{url('assets/frontend/images/gold.png')}}" style="width:75px" alt=""></div>
+                @elseif ($company->subscription== 1)
+                <div style="position: absolute; right: 50px"><img src="{{url('assets/frontend/images/silver.png')}}" style="width:75px" alt=""></div>
+                @endif
+
 
                 <img class="header" src="{{url('public/'.Storage::url($company->header))}}"> 
                 <!-- profile picture company -->
@@ -49,6 +56,7 @@
             </div>
 
           </div>
+          @if($company->subscription == 0)
           <div class="col-md-12 mt-4">
             <div class="row">
               <div class="col-md-4">
@@ -124,6 +132,7 @@
               </div>
             </div>
           </div>
+          @endif
           <div class="col-md-12">
             <div class="card mt-4">
               <div class="card-header">

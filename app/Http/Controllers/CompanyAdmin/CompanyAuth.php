@@ -64,12 +64,18 @@ class CompanyAuth extends Controller
             'company_business_hour_until' => 'required',
             'company_phone' => 'required',
             'company_description' => 'required',
+            'company_country' => 'required',
+            'company_city' => 'required',
+            'company_region' => 'required',
+            'company_province' => 'required',
+            'company_postal_code' => 'required',
+            'company_company_description' => 'required',
         ]);
         if($request->input('company_phone'))
         
         $company = new Company;
         $company->name = $request->input('name');
-        $company->subscription = 1;
+        $company->subscription = 0;
         $company->status = 0;
         $company->about = null;
         $company->logo = "public/logo/default.jpg";
@@ -94,7 +100,10 @@ class CompanyAuth extends Controller
             'company_id' => $company->id,
             'address' => $request->input('company_address'),
             'province' => $request->input('company_province'),
-            'city' => $request->input('company_city')
+            'city' => $request->input('company_city'),
+            'country' => $request->input('company_country'),
+            'postal_code' => $request->input('company_postal_code'),
+            'region' => $request->input('region')
         ]);
         $data = [
             'companyName' => $request->input('name'),

@@ -125,7 +125,7 @@ class MediaCompany extends Controller
             $img->fit(500,500)->save('storage/app/'.$path);
         }
 
-        $path1="resource/default.txt";
+        $path1=null;
         if ($request->hasFile('media') && $request->file('media')->isValid()) {
             $path1 = $request->file('media')->store('resource');
         }
@@ -138,10 +138,11 @@ class MediaCompany extends Controller
         $media->file_name = $path1;
         $media->author = $request->input('author');
         $media->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('title'))));
-        $media->keyword = $request->input('keyword');
+        $media->keyword = "";
         $media->description = $request->input('description');
         $media->content_type = "mining";
         $media->type = $request->input('media_type');
+        $media->link = $request->input('link');
         $media->view = 0;
         $media->download = 0;
         $media->save();
