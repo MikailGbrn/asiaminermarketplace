@@ -30,17 +30,11 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="title">Media Resource Title</label>
-                      <input type="text" name="title" id="title" class="form-control" >
+                      <input type="text" name="title" value="{{old('title')}}" id="title" class="form-control" >
                     </div>
                     <div class="form-group col-md-6">
                       <label for="author">Author</label>
-                      <input type="text" name="author" id="author" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-12">
-                      <label for="tags">Keyword</label>
-                      <input type="text" name="keyword" id="tags" class="form-control">
+                      <input type="text" name="author" value="{{old('author')}}" id="author" class="form-control">
                     </div>
                   </div>
                   <div class="form-row">
@@ -48,7 +42,7 @@
                       <label for="tags">Media Catagory</label>
                       <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
                         @foreach ($catagory as $c)
-                        <option value="{{ $c->id}}">{{$c->name}}</option>
+                        <option @if(in_array($c->id, old('catagory') ? old('catagory') : [])) selected @endif value="{{ $c->id}}">{{$c->name}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -58,22 +52,31 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="tags">Description</label>
-                      <textarea name="description" class="form-control"></textarea>
+                      <textarea name="description" class="form-control">{{old('description')}}</textarea>
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="tags">Media Type</label>
-                      <select name="media_type" class="selectpicker form-control">
+                      <select name="media_type" class="selectpicker form-control" id="type">
                         <option selected disabled value="">Select Media Type</option>
-                        <option value="Audio">Audio</option>
-                        <option value="Catalogue">Catalogue</option>
-                        <option value="E-Book">E-Book</option>
-                        <option value="Image">Image</option>
-                        <option value="Power Point">Power Point</option>
-                        <option value="Case Study">Case Study</option>
+                        <option @if(old('media_type') == "Audio") selected @endif value="Audio">Audio</option>
+                        <option @if(old('media_type')== "Catalogue") selected @endif value="Catalogue">Catalogue</option>
+                        <option @if(old('media_type') == "E-Book") selected @endif value="E-Book">E-Book</option>
+                        <option @if(old('media_type') == "Image") selected @endif value="Image">Image</option>
+                        <option @if(old('media_type') == "Image") selected @endif value="ImageImage">Power Point</option>
+                        <option @if(old('media_type') == "Case Study") selected @endif value="Case Study">Case Study</option>
+                        <option @if(old('media_type') == "Youtube Video") selected @endif value="Youtube Video">Youtube Video</option>
+                        <option @if(old('media_type') == "Another Link") selected @endif value="Another Link">Another Link</option>
                       </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row linkk" style="display:none;">
+                    <div class="form-group col-md-12">
+                      <label for="tags">Link</label>
+                      <input type="text" name="link" value="{{old('link')}}" id="link"class="form-control">
                     </div>
                   </div>
 
@@ -109,4 +112,22 @@
     </div>
     </div>
     
+@endsection
+@section('jsplus')
+<script>
+  $('#type').change(function() {
+    if ($(this).val() === 'Youtube Video' || $(this).val() === 'Another Link') {
+      $(".linkk").css("display","block");
+    }else{
+      $(".linkk").css("display","none");
+    }
+});
+$( document ).ready(function() {
+  if ($('#type').val() === 'Youtube Video' || $('#type').val() === 'Another Link') {
+      $(".linkk").css("display","block");
+    }else{
+      $(".linkk").css("display","none");
+    }
+});
+</script>
 @endsection

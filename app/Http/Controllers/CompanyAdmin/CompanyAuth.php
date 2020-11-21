@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Controller;
 use App\Company;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
 class CompanyAuth extends Controller
@@ -54,20 +55,27 @@ class CompanyAuth extends Controller
     public function Register(Request $request)
     {
         $request->validate([
-            'username'      => 'required|string|unique:admin_companies',
-            'email'         => 'required|string|email|unique:admin_companies',
+            'email'         => 'required|string|email|unique:admin_companies|confirmed',
             'password'      => 'required|string|min:6|confirmed',
             'name'          => 'required|string|unique:companies|min:6',
             'company_email' => 'required',
             'company_website' => 'required',
-            'company_business_hour' => 'required',
+            'company_business_hour_start' => 'required',
+            'company_business_hour_until' => 'required',
             'company_phone' => 'required',
             'company_description' => 'required',
+            'company_country' => 'required',
+            'company_city' => 'required',
+            'company_region' => 'required',
+            'company_province' => 'required',
+            'company_postal_code' => 'required',
+            'company_company_description' => 'required',
         ]);
+        if($request->input('company_phone'))
         
         $company = new Company;
         $company->name = $request->input('name');
-        $company->subscription = 1;
+        $company->subscription = 0;
         $company->status = 0;
         $company->about = null;
         $company->logo = "public/logo/default.jpg";
@@ -76,14 +84,14 @@ class CompanyAuth extends Controller
         $company->catagory_id = null;
         $company->email = $request->input('company_email');
         $company->website = $request->input('company_website');
-        $company->business_hour = $request->input('company_business_hour');
-        $company->phone = $request->input('company_phone');
+        $company->business_hour = $request->input('company_business_hour_start')." - ".$request->input('company_business_hour_until');
+        $company->phone = "+".$request->input('company_phone_code').$request->input('company_phone');
         $company->description = $request->input('company_description');
         $company->save();
 
         \App\AdminCompany::create([
             'name' => $request->input('name_user'),
-            'username' => $request->input('username'),
+            'username' => "Administrator",
             'password' => $request->input('password'),
             'email' => $request->input('email'),
             'company_id' => $company->id
@@ -92,8 +100,22 @@ class CompanyAuth extends Controller
             'company_id' => $company->id,
             'address' => $request->input('company_address'),
             'province' => $request->input('company_province'),
-            'city' => $request->input('company_city')
+            'city' => $request->input('company_city'),
+            'country' => $request->input('company_country'),
+            'postal_code' => $request->input('company_postal_code'),
+            'region' => $request->input('region')
         ]);
+        $data = [
+            'companyName' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password')
+        ];
+        try {
+            Mail::to($request->input('email'))->send(new \App\Mail\MailRegistcompany($data));
+        } catch (\Throwable $th) {
+
+        }
+        
         return redirect()->route('company.login')->with('success', 'Successfully register!');
     }
     

@@ -26,9 +26,12 @@
     <style>
       .bootstrap-select > button{
       background-color:white !important; 
-      border-color:grey !important; 
-      padding-top:10px; 
-      padding-bottom:10px;
+      border-color: #CED4DA !important; 
+      padding-top:8px; 
+      padding-bottom:9px;
+      }
+      .bootstrap-select > option {
+        display:none;
       }
     </style>
 

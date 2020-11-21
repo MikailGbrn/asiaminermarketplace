@@ -123,3 +123,15 @@ Route::get('/config-cache', function() {
     $exitCode = Artisan::call('config:cache');
     return '<h1>Clear Config cleared</h1>';
 });
+
+Route::get('send-maill', function () {
+    $data = [
+        'companyName' => "PT. DAHANA",
+        'email' =>"m.arkanmufadho@gmail.com",
+        'password' => "88342232"
+    ];
+   
+    \Mail::to('m.arkanmufadho@gmail.com')->send(new \App\Mail\MailRegistcompany($data));
+   
+    dd("Email is Sent.");
+});

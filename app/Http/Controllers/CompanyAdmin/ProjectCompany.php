@@ -87,7 +87,7 @@ class ProjectCompany extends Controller
     public function editProject(Request $request)
     {
         $this->validate($request,[
-            'title' => ['required', 'unique:project,title,'.$request->input('id'), 'max:255', 'min:10'],
+            'title' => ['required', 'unique:projects,title,'.$request->input('id'), 'max:255', 'min:10'],
             'description' => 'required',
             'author' => 'required',
             'location' => 'required',
