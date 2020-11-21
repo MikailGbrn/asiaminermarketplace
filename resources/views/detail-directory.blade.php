@@ -6,14 +6,13 @@
           <div class="col-md-12">
 
             <div class="company-profile">
-                <h4 class="ml-3" style="padding: 10px;"><a href=""><span class="icon-arrow-left mr-3"></span></a>Company Profile</h4>
                 <!-- header company profile -->
               <div class="profile-header">
 
                 <img class="header" src="{{url('public/'.Storage::url($company->header))}}"> 
                 <!-- profile picture company -->
-                <div style="margin-top:15px" class="image-container">
-                  <img style="object-position:0px 0px" src="{{url('public/'.Storage::url($company->logo))}}">
+                <div class="image-container">
+                  <img src="{{url('public/'.Storage::url($company->logo))}}">
                 </div>
               </div>
 
@@ -177,6 +176,7 @@
       </div>
 
     </div>
+  </div>
     @endsection
 
     

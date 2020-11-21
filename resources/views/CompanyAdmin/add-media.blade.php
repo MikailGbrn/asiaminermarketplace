@@ -80,6 +80,7 @@
                   <div class="form-row mt-2">
                     <div class="form-group col-md-6 mb-3">
                       <label for="photo"><span class="icon-image mr-3"></span>Upload Media Resource Image </label>
+                      <p><small>*Max image size 1 mb; Ideal image aspect ratio 1:1 .jpg format</small></p>
                       <input type="file" name="photo" id="photo" class="form-control" accept="image/*" onchange="addRsc();">
                       <div id="resource-container" class="mt-3">
                         <img id="image-preview" alt="image-preview"/>

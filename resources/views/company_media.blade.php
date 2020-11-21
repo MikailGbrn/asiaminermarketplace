@@ -65,7 +65,7 @@
         <div class="row">
 
             @foreach ($media as $m)
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="d-block d-md-flex listing-horizontal h-option">
                 <a href="{{url('/')}}/resource/{{$m->company->id}}/{{$m->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($m->photo))}});"></a>
                 <div class="lh-content">
