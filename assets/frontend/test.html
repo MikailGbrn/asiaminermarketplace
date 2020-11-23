@@ -12,42 +12,64 @@
           <link rel="stylesheet" href="croppie/croppie.css" />
           
           <style type="text/css">
-            #image-container{
-              display: none;
-            /*position: absolute;*/
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            /*transform: translate(510px, -80px);*/
-            z-index: 10;
-                      }
-
-            #image-container #image-preview {
-              display: none;
-              width: 120px;
-              height: 120px;
-              object-fit: cover;
-              object-position: center;
-                      }
+            .demo {
+            }
           </style>
 
     </head>  
     <body>  
 
-      <input type="file" id="image-source" onchange="previewImage();"/>
-      <br>
-      <br/>
-      <div id="image-container">
-      <img id="image-preview" alt="image preview"/>
-      </div>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class="">
+          <!-- or even simpler -->
+         <img class="my-image" src="images/person_1.jpg" />
+        <button class="basic-result">result</button>
+        <div id="output">
+        </div>
+        </div>
+
+
     </body>
+
+<!--     <script type="text/javascript">
+      var el = document.getElementById('my-image');
+      var vanilla = new Croppie(el, {
+          viewport: { width: 150, height: 150, type: 'circle' },
+          boundary: { width: 300, height: 300 },
+      });
+
+      $('.basic-result').click(function(event){
+        vanilla.result('canvas').then(function(canvas) {
+           console.log('asdasd')
+        });
+      })
+    </script> -->
+
+        <script>
+          var basic = $('.my-image').croppie({
+            viewport: {
+               width: 150,
+               height: 150,
+               type: 'circle'
+            },
+            boundary: {
+              width: 300,
+              height: 300
+            }
+          });
+
+          $('.basic-result').click(function(event){
+          basic.croppie('result', {
+                type: 'rawcanvas',
+                size: {width: 150, height: 150},
+                circle: true
+              }).then(function(resp){
+                console.log(resp);
+                $('#output').html(resp);
+                  });
+          });
+
+
+        </script>
 
     <script type="text/javascript">
       function previewImage() {
