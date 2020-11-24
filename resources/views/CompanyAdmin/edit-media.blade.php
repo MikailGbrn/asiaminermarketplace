@@ -10,9 +10,11 @@
         </div>
         <div class="row mb-3">
           <div class="col-md-12">
+            <h2><b>Edit Media/Resource</b></h2>
+            <h6 class="mb-3">Edit your existing Media/Resouce for your company</h6>
             <div class="card">
               <div class="card-header">
-               <h2 class="text-center h4">Edit Media Resource Title</h2>
+               <h2 class="text-center h4">Media/Resource Information</h2>
                 @if ($errors->any())
                         @foreach ($errors->all() as $error)
                           <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -31,7 +33,7 @@
                   <input type="hidden" name="id" value="{{$media->id}}">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="title">Media Resource Title</label>
+                        <label for="title">Media/Resource Title</label>
                         <input type="text" name="title" id="title" class="form-control" value="{{$media->title}}">
                       </div>
                       <div class="form-group col-md-6">
@@ -41,7 +43,7 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
-                        <label for="tags">Media Catagory</label>
+                        <label for="tags">Media Categories</label>
                         <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
                           @foreach ($catagory as $c)
                           <option value="{{$c->id}}" @if(in_array($c->id, $media->catagory->pluck('id')->toArray())) selected @endif>{{$c->name}}</option>
@@ -51,13 +53,7 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
-                        <label for="tags">Keyword</label>
-                        <input type="text" name="keyword" id="tags" class="form-control" value="{{$media->keyword}}">
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-12">
-                        <label for="tags">Description</label>
+                        <label for="tags">Media/Resource Description</label>
                         <textarea name="description" class="form-control">{{$media->description}}</textarea>
                       </div>
                     </div>
@@ -77,7 +73,7 @@
                     </div>
                     <div class="form-row mt-2">
                       <div class="form-group col-md-5 mb-3">
-                        <label for="foto"><span class="icon-image mr-3"></span>Upload Media Resource Image </label>
+                        <label for="foto"><span class="icon-image mr-3"></span>Upload Media/Resource Image </label>
                         <input type="file" name="photo" id="foto" class="form-control" accept="image/*" onchange="editRsc();">
                         <div id="resource-container" class="mt-3">
                           <img id="image-preview" alt="image-preview"/>
@@ -86,7 +82,7 @@
                     </div>
                     <div class="form-row mt-2">
                       <div class="form-group col-md-5">
-                        <label for="media"> <span class="icon-file mr-3"></span>Upload Media Resource File</label>
+                        <label for="media"> <span class="icon-file mr-3"></span>Upload Media/Resource File</label>
                         <input type="file" name="media" id="media" class="form-control">
                       </div>
                     </div>
@@ -94,7 +90,7 @@
                       <div class="form-group col-md-6">
                       </div>
                       <div class="form-group col-md-6" >
-                        <button type="submit" class="btn btn-primary ml-5" style="float: right;">Save Changes</button>
+                        <button type="submit" class="btn btn-primary ml-5" style="float: right;">Update Media/Resource</button>
                         <a href="dashboardmedia.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                       </div>
                     </div>

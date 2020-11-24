@@ -10,9 +10,11 @@
         </div>
         <div class="row mb-3">
           <div class="col-md-12">
+            <h2><b>Add Media/Resource</b></h2>
+            <h6 class="mb-3">Add new Media/Resource for your company </h6>
             <div class="card">
               <div class="card-header">
-                <h2 class="text-center h4">Add Media Resource Title</h2>
+                <h2 class="text-center h4">Media/Resource Information</h2>
                   @if ($errors->any())
                     @foreach ($errors->all() as $error)
                       <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -29,7 +31,7 @@
                   @csrf
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="title">Media Resource Title</label>
+                      <label for="title">Media/Resource Title</label>
                       <input type="text" name="title" value="{{old('title')}}" id="title" class="form-control" >
                     </div>
                     <div class="form-group col-md-6">
@@ -39,7 +41,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="tags">Media Catagory</label>
+                      <label for="tags">Media Categories</label>
                       <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
                         @foreach ($catagory as $c)
                         <option @if(in_array($c->id, old('catagory') ? old('catagory') : [])) selected @endif value="{{ $c->id}}">{{$c->name}}</option>
@@ -51,7 +53,7 @@
       
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="tags">Description</label>
+                      <label for="tags">Media/Resource Description</label>
                       <textarea name="description" class="form-control">{{old('description')}}</textarea>
                     </div>
                   </div>
@@ -82,7 +84,7 @@
 
                   <div class="form-row mt-2">
                     <div class="form-group col-md-6 mb-3">
-                      <label for="photo"><span class="icon-image mr-3"></span>Upload Media Resource Image </label>
+                      <label for="photo"><span class="icon-image mr-3"></span>Upload Media/Resource Image </label>
                       <p><small>*Max image size 1 mb; Ideal image aspect ratio 1:1 .jpg format</small></p>
                       <input type="file" name="photo" id="photo" class="form-control" accept="image/*" onchange="addRsc();">
                       <div id="resource-container" class="mt-3">
@@ -92,7 +94,7 @@
                   </div>
                   <div class="form-row mt-2">
                     <div class="form-group col-md-6">
-                      <label for="media"> <span class="icon-file mr-3"></span>Upload Media Resource File</label>
+                      <label for="media"> <span class="icon-file mr-3"></span>Upload Media/Resource File</label>
                       <input type="file" name="media" id="media" class="form-control">
                     </div>
                   </div>
@@ -100,7 +102,7 @@
                     <div class="form-group col-md-6">
                     </div>
                     <div class="form-group col-md-6" >
-                      <button type="submit" class="btn btn-primary ml-3" style="float: right;">Save Changes</button>
+                      <button type="submit" class="btn btn-primary ml-3" style="float: right;">Add Media/Resource</button>
                       <a href="{{url('/')}}/company-profile/media" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                     </div>
                   </div>

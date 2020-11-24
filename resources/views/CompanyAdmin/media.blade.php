@@ -6,7 +6,8 @@
            
         <div class="row ">
           <div class="col-md-6">
-            <h2>Media/Resources ({{$media->total()}})</h2>
+            <h2><b>Media/Resources ({{$media->total()}})</b></h2>
+            <h6 class="mb-3">Share your company's media or resources</h6>
           </div>
           <div class="col-md-6 text-right">
             <a href="{{url('/company-profile/media/add')}}"><h5>+ Add Item</h5></a>

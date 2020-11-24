@@ -191,6 +191,7 @@
 
           <!-- CATEGORIES START HERE -->
           <div class="col-lg-8">
+            <h4>Media/Resources ({{$resource->total()}})</h4>
             @foreach ($resource as $r)
             <div class="d-block d-md-flex listing-horizontal h-option">
 

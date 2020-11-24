@@ -11,10 +11,15 @@
             <p>{{$news->location}} / {{date( 'F j, Y',strtotime( $news->created_at ))}} / {{date( 'g:i a ',strtotime( $news->created_at ))}}</p>
             <p class="text-secondary">
             By <span>{{$news->author}}</span>
-            <a href="" data-toggle="modal" style="margin-left:20px" data-target="#exampleModal">
-              <span> <i class="fa fa-share" aria-hidden="true"></i></span>
-              <span>Share</span>
-            </a>
+                <!-- AddToAny BEGIN -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                  <a class="a2a_button_facebook"></a>
+                  <a class="a2a_button_twitter"></a>
+                  <a class="a2a_button_google_gmail"></a>
+                  <a class="a2a_button_linkedin"></a>
+                </div>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>
+                <!-- AddToAny END -->
             </p>
           </div>
           <div class="image-container"><img src="{{url('public/'.Storage::url($news->photo))}}"></div>

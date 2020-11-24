@@ -97,10 +97,12 @@
 <div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-lg">
   <div class="modal-content p-4">
+    <div class="modal-body">
     <div class="row">
       @foreach ($ccategory as $a)
-        <div class="col-lg-3"><a href="{{url("search?cat=".$a->id)}}">{{$a->name}}</a></div>
+        <div class="col-lg-3 mb-1 categories"><a href="{{url("search?cat=".$a->id)}}">{{$a->name}}</a></div>
       @endforeach
+    </div>
     </div>
   </div>
 </div>

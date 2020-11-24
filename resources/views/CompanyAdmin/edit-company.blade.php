@@ -12,7 +12,7 @@
         <h2>Edit Profile</h2>
         <div class="card mt-4">
           <div class="card-header">
-            <h4 class="text-center h4">Basic Information</h4>
+            <h4 class="text-center h4">Company Profile Information</h4>
           </div>
           <div class="card-body"> 
             <form action="" method="post" enctype="multipart/form-data">

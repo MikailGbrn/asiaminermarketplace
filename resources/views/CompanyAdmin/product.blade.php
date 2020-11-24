@@ -4,7 +4,8 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
-            <h2>Products ({{$product->total()}})</h2>
+            <h2><b>Products ({{$product->total()}})</b></h2>
+            <h6 class="mb-3">Share your company's product</h6>
           </div>
           <div class="col-md-6 text-right">
             <a href="{{url('/company-profile/product/add')}}"><h5>+ Add Item</h5></a>

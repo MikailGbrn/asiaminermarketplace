@@ -908,7 +908,7 @@ h1, h2, h3, h4, h5,
   border: 2px solid #ccc;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 10%;
   overflow: hidden;
   transform: translate(200px, -80px);
   z-index: 10;
@@ -928,7 +928,7 @@ h1, h2, h3, h4, h5,
   border: 2px solid #ccc;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 10%;
   overflow: hidden;
   transform: translate(290px, -80px);
   z-index: 10;
@@ -952,7 +952,7 @@ h1, h2, h3, h4, h5,
   border: 2px solid #ccc;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 10%;
   overflow: hidden;
   transform: translate(410px, -80px);
   z-index: 10;
@@ -977,19 +977,20 @@ h1, h2, h3, h4, h5,
   background-color: white;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  /*overflow: hidden;*/
+  border-radius: 10%;
+  overflow: hidden;
   transform: translate(500px, -80px);
   z-index: 10;
 }
 
 .company-profile .image-container img {
+  display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   max-width: 120px;
-  height: auto;
+  max-height: 120px;
   object-fit: cover;
   object-position: bottom;
 }
@@ -2215,6 +2216,17 @@ background-color: #e1f2f2;
 @media (max-width: 1199.98px) {
   .no-sm-border {
     border: none !important; } }
+
+.categories {
+  border-right: 1px solid #ccc;
+}
+
+.categories a {
+  /*position: relative;*/
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
 
 .listing-item {
   position: relative;

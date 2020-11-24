@@ -124,7 +124,7 @@
                   <span class="icon-eye"></span>
                   <span class="mr-3">Views: {{$t->view}}</span>
                 </p>
-                <p>{{$t->description}}</p>
+                <p class="text-limit">{{$t->description}}</p>
                 <p><a href="{{url('/product/').'/'.$company->id.'/'.$t->slug}}">Click here to open</a></p>
               </div>
             </div>

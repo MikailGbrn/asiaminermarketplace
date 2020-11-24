@@ -98,6 +98,7 @@
 
           <!-- COMPANY DIRECTORY START HERE -->
           <div class="col-lg-8">
+            <h4>Products ({{$product->total()}})</h4>
             <div class="row mb-3 align-items-stretch">
             @foreach ($product as $p)
             
