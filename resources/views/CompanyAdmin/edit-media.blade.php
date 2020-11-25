@@ -25,6 +25,14 @@
                           </div>
                         @endforeach
                 @endif 
+                @if($media->status == 0)
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>This content has been taken down by the admin due to inappropriate content, Please contact for more detail</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                @endif 
               </div>
               <div class="card-body">
                 <form method="post" action="{{url('/company-profile/media')}}" enctype="multipart/form-data">
@@ -34,11 +42,11 @@
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="title">Media/Resource Title</label>
-                        <input type="text" name="title" id="title" class="form-control" value="{{$media->title}}">
+                        <input type="text" name="title" id="title" class="form-control" value="{{old('title') ? old('title') : $media->title}}">
                       </div>
                       <div class="form-group col-md-6">
                         <label for="author">Author</label>
-                        <input type="text" name="author" id="author" class="form-control" value="{{$media->author}}">
+                        <input type="text" name="author" id="author" class="form-control" value="{{old('author') ? old('author') : $media->author}}">
                       </div>
                     </div>
                     <div class="form-row">
@@ -54,33 +62,42 @@
                     <div class="form-row">
                       <div class="form-group col-md-12">
                         <label for="tags">Media/Resource Description</label>
-                        <textarea name="description" class="form-control">{{$media->description}}</textarea>
+                        <textarea name="description" class="form-control">{{old('description') ? old('description') : $media->description}}</textarea>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
                         <label for="tags">Media Type</label>
-                        <select name="media_type" class="selectpicker form-control">
-                          <option selected disabled value="">Select Media Type</option>
-                          <option value="Audio">Audio</option>
-                          <option value="Catalogue">Catalogue</option>
-                          <option value="E-Book">E-Book</option>
-                          <option value="Image">Image</option>
-                          <option value="Power Point">Power Point</option>
-                          <option value="Case Study">Case Study</option>
+                        <select name="media_type" class="selectpicker form-control" id="type">
+                          <option @if(old('media_type') == "Another Link" || $media->type == "Another Link") selected @endif selected disabled value="">Select Media Type</option>
+                          <option @if(old('media_type') == "Audio" || $media->type == "Audio") selected @endif value="Audio">Audio</option>
+                          <option @if(old('media_type') == "Catalogue" || $media->type == "Catalogue") selected @endif value="Catalogue">Catalogue</option>
+                          <option @if(old('media_type') == "E-Book" || $media->type == "E-Book") selected @endif value="E-Book">E-Book</option>
+                          <option @if(old('media_type') == "Image" || $media->type == "Image") selected @endif value="Image">Image</option>
+                          <option @if(old('media_type') == "Power Point" || $media->type == "Power Point") selected @endif value="Power Point">Power Point</option>
+                          <option @if(old('media_type') == "Case Study" || $media->type == "Case Study") selected @endif value="Case Study">Case Study</option>
+                          <option @if(old('media_type') == "Youtube Video" || $media->type == "Youtube Video") selected @endif value="Youtube Video">Youtube Video</option>
+                          <option @if(old('media_type') == "Another Link" || $media->type == "Another Link") selected @endif value="Another Link">Another Link</option>
                         </select>
+                      </div>
+                    </div>
+                    <div class="form-row linkk" style="display:none;">
+                      <div class="form-group col-md-12">
+                        <label for="tags">Link</label>
+                        <input type="text" name="link" value="{{old('link') ? old('link') : $media->link}}" id="link"class="form-control">
                       </div>
                     </div>
                     <div class="form-row mt-2">
                       <div class="form-group col-md-5 mb-3">
                         <label for="foto"><span class="icon-image mr-3"></span>Upload Media/Resource Image </label>
+                        <p><small>*Max image size 1 mb; Ideal image aspect ratio 1:1 .jpg format</small></p>
                         <input type="file" name="photo" id="foto" class="form-control" accept="image/*" onchange="editRsc();">
                         <div id="resource-container" class="mt-3">
                           <img id="image-preview" alt="image-preview"/>
                         </div>
                       </div>
                     </div>
-                    <div class="form-row mt-2">
+                    <div class="form-row mt-2 filenya">
                       <div class="form-group col-md-5">
                         <label for="media"> <span class="icon-file mr-3"></span>Upload Media/Resource File</label>
                         <input type="file" name="media" id="media" class="form-control">
@@ -91,7 +108,7 @@
                       </div>
                       <div class="form-group col-md-6" >
                         <button type="submit" class="btn btn-primary ml-5" style="float: right;">Update Media/Resource</button>
-                        <a href="dashboardmedia.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                        <a href="{{url('/')}}/company-profile/media" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                       </div>
                     </div>
                   </form>
@@ -100,32 +117,32 @@
             
 
             </div>
-<!--             <h2>Edit Media Resource Title</h2>
-            <div class=" d-md-flex detail-content container mt-5">
-              <img src="images/img_1.jpg">
-              <div class="lh-content">
-                <object><a href="#" class="bookmark"><span class="icon-edit"></span></a></object>
-                <object><a href="#" class="delete"><span class="icon-trash"></span></a></object>
-                <h3 class="h1">Media Resource Title</h3>
-                <p class="mb-0">By: <a href="#">Company Name</a></p>
-                <p>Author: <a href="#">John Doe</a></p>
-                <p class="tag">
-                  <span>Tag 1</span>
-                  <span>Tag 2</span>
-                </p>
-                <p>
-                  <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                </p>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
     
+@endsection
+
+@section('jsplus')
+<script>
+  $('#type').change(function() {
+    if ($(this).val() === 'Youtube Video' || $(this).val() === 'Another Link') {
+      $(".linkk").css("display","block");
+      $(".filenya").css("display","none");
+    }else{
+      $(".filenya").css("display","block");
+      $(".linkk").css("display","none");
+    }
+});
+$( document ).ready(function() {
+  if ($('#type').val() === 'Youtube Video' || $('#type').val() === 'Another Link') {
+      $(".linkk").css("display","block");
+      $(".filenya").css("display","none");
+    }else{
+      $(".linkk").css("display","none");
+      $(".filenya").css("display","block");
+    }
+});
+</script>
 @endsection

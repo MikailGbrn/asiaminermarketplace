@@ -21,7 +21,15 @@
                   </button>
                 </div>
               @endforeach
-            @endif           
+            @endif
+            @if($product->status == 0)
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>This content has been taken down by the admin due to inappropriate content, Please contact for more detail</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endif            
           </div> 
           <div class="card-body">
             <form action="{{ url('/company-profile/product')}}" method="post" enctype="multipart/form-data">
@@ -31,13 +39,13 @@
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="title">Product Name</label>
-                  <input type="text" name="name" id="title" class="form-control" placeholder="Add Product Name" value="{{$product->name}}">
+                  <input type="text" name="name" id="title" class="form-control" placeholder="Add Product Name" value="{{old('name') ? old('name') : $product->name}}">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="tags">Description</label>
-                  <textarea name="description" class="form-control">{{$product->description}}</textarea>
+                  <textarea name="description" class="form-control">{{old('description') ? old('description') : $product->description}}</textarea>
                 </div>
               </div>
               <div class="form-row">
@@ -53,7 +61,7 @@
                 <div class="form-group col-md-6">
                 </div>
                 <div class="form-group col-md-6" >
-                  <button type="submit" class="btn btn-primary ml-3" style="float: right;">Add Product</button>
+                  <button type="submit" class="btn btn-primary ml-3" style="float: right;">Save Change</button>
                   <a href="dashboardproduct.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                 </div>
               </div>

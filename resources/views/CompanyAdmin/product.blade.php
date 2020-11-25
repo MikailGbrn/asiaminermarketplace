@@ -39,7 +39,12 @@
 
             @foreach ($product as $p)
             <div class=" d-md-flex detail-content container mt-5">
+              @if($p->status == 1)
               <img src="{{url('public/'.Storage::url($p->photo))}}">
+              @else
+              <img src="{{url('assets/frontend/images/takedown.jpg')}}">
+              @endif
+              
               <div class="lh-content">
                 <object><a href="{{url('/company-profile/product/').'/'.$p->id}}" class="bookmark"><span class="icon-edit"></span></a></object>
                 <object>
@@ -50,6 +55,7 @@
                     <button style="border:0px; color:red" type="submit" class="delete"><span class="icon-trash"></span></button>
                   </form>
                 </object>
+                <object style="position: absolute; top:120px; right:0px"><a target="_blank" href="{{url("/product/$p->company_id/$p->slug/")}}" class="bookmark"><span class="icon-search"></span></a></object>
                 <h3 class="h1">{{$p->name}}</h3>
                 <p class="mb-0">By: <a href="#">{{$p->company->name}}</a></p>
                 <p class="tag">

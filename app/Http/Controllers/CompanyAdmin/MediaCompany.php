@@ -46,6 +46,7 @@ class MediaCompany extends Controller
         $this->validate($request,[
             'title' => ['required', 'unique:media,title,'.$request->input('id'), 'max:255', 'min:10'],
             'description' => 'required',
+            'author' => 'required',
             'photo' => 'file|image|max:3072'
         ]);
         $media = Media::find($request->input('id'));
@@ -80,9 +81,10 @@ class MediaCompany extends Controller
         $media->uuid = (string) Str::uuid();
         $media->author = $request->input('author');
         $media->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('title'))));
-        $media->keyword = $request->input('keyword');
+        $media->keyword = "";
         $media->description = $request->input('description');
         $media->type = $request->input('media_type');
+        $media->link = $request->input('link');
         $media->save();
 
         $media->catagory()->sync($request->input('catagory'));
@@ -114,6 +116,7 @@ class MediaCompany extends Controller
         $this->validate($request,[
             'title' => ['required', 'unique:media', 'max:255', 'min:10'],
             'description' => 'required',
+            'author' => 'required',
             'photo' => 'file|image|max:3072'
         ]);
 

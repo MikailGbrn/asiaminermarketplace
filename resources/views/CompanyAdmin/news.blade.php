@@ -55,6 +55,8 @@
                 <a href="{{url('/')}}/company-profile/news/{{$n->id}}"><span class="icon-edit mr-5"></span></a>
                 
                 <a href="#" id="btnDelete" idCompany="{{ $n->company_id }}" idNews="{{ $n->id }}"><span class="icon-trash text-danger mr-5"></span></a>
+
+                <a target="_blank" href="{{url("/news/$n->company_id/$n->slug/")}}" class="bookmark"><span class="icon-search"></span></a>
               </td>
             </tr>
             @endforeach

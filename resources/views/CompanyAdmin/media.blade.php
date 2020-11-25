@@ -14,13 +14,13 @@
           </div>
         </div>
         @if (session('Media/Resource'))
-                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    @php echo session('Media/Resource'); @endphp !
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  @endif
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              @php echo session('Media/Resource'); @endphp !
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        @endif
         <div class="form-search-directory mt-1 ">
               <form method="get">
                 <div class="row align-items-center">
@@ -39,11 +39,18 @@
           <div class="col-md-12">
 
             @foreach ($media as $m)
-
+            
             <div class=" d-md-flex detail-content container mt-5">
+              @if($m->status == 1)
               <img src="{{url('public/'.Storage::url($m->photo))}}">
+              @else
+              <img src="{{url('assets/frontend/images/takedown.jpg')}}">
+              @endif
+
               <div class="lh-content">
+                
                 <object><a href="{{url('/company-profile/media/').'/'.$m->id}}" class="bookmark"><span class="icon-edit"></span></a></object>
+                
                 <object>
                   <form action="" id="myform2" method="post">
                     @csrf
@@ -52,7 +59,11 @@
                     <button style="border:0px; color:red" type="submit" class="delete"><span class="icon-trash"></span></button>
                   </form>
                 </object>
+                <object style="position: absolute; top:120px; right:0px"><a target="_blank" href="{{url("/resource/$m->company_id/$m->slug/")}}" class="bookmark"><span class="icon-search"></span></a></object>
+                {{-- <object style="margin-top:100px"><a href="{{url("/resource/$m->company_id/$m->slug/")}}" class="bookmark"><span class="icon-edit"></span></a></object> --}}
+                
                 <h3 class="h1">{{$m->title}}</h3>
+                
                 <p class="mb-0">By: <a href="#">{{$m->company->name}}</a></p>
                 <p>Author: <a href="#">{{$m->author}}</a></p>
                 <p class="tag">

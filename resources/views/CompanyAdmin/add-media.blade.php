@@ -92,7 +92,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-row mt-2">
+                  <div class="form-row mt-2 filenya">
                     <div class="form-group col-md-6">
                       <label for="media"> <span class="icon-file mr-3"></span>Upload Media/Resource File</label>
                       <input type="file" name="media" id="media" class="form-control">
@@ -120,15 +120,19 @@
   $('#type').change(function() {
     if ($(this).val() === 'Youtube Video' || $(this).val() === 'Another Link') {
       $(".linkk").css("display","block");
+      $(".filenya").css("display","none");
     }else{
       $(".linkk").css("display","none");
+      $(".filenya").css("display","block");
     }
 });
 $( document ).ready(function() {
   if ($('#type').val() === 'Youtube Video' || $('#type').val() === 'Another Link') {
       $(".linkk").css("display","block");
+      $(".filenya").css("display","none");
     }else{
       $(".linkk").css("display","none");
+      $(".filenya").css("display","block");
     }
 });
 </script>

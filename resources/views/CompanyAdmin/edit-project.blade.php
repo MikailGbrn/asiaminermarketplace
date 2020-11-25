@@ -31,17 +31,17 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="newstitle">Project Title</label>
-                      <input type="text" name="title" id="newstitle" class="form-control" placeholder="Add project title" value="{{$project->title}}">
+                      <input type="text" name="title" id="newstitle" class="form-control" placeholder="Add project title" value="{{old('title') ? old('title') : $project->title}}">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="author">Author</label>
-                      <input type="text" name="author" id="author" class="form-control" placeholder="Add author" value="{{$project->author}}">
+                      <input type="text" name="author" id="author" class="form-control" placeholder="Add author" value="{{old('author') ? old('author') : $project->author}}">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="newslocation">Project Location</label>
-                      <input type="text" name="location" id="newslocation" class="form-control" placeholder="Jakarta, Indonesia" value="{{$project->location}}">
+                      <input type="text" name="location" id="newslocation" class="form-control" placeholder="Jakarta, Indonesia" value="{{old('location') ? old('location') : $project->location}}">
                     </div>
                   </div>
                   <div class="form-row">
@@ -53,7 +53,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="newsbody">Project Body</label>
-                      <textarea name="description" id="newsbody" rows="4">{{$project->description}}</textarea>
+                      <textarea name="description" id="newsbody" rows="4">{{old('description') ? old('description') : $project->description}}</textarea>
                     </div>
                   </div>
                   <div class="form-row">

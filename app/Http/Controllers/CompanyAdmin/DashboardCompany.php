@@ -51,7 +51,7 @@ class DashboardCompany extends Controller
             $image1 = $request->file('logo');
             $path1 = 'public/logo/'.(string) Str::uuid().'.'.$image1->extension();
             $img1 = Image::make($image1->path());
-            $img1->fit(500,500)->save('storage/app/'.$path1);
+            $img1->save('storage/app/'.$path1,60);
         }
 
         $company->logo = $path1;

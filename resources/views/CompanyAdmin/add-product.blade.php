@@ -25,13 +25,13 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="title">Product Name</label>
-              <input type="text" name="name" id="title" class="form-control" placeholder="Add Product Name">
+              <input type="text" name="name" id="title" class="form-control" value="{{old('name')}}" placeholder="Add Product Name">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="tags">Description</label>
-              <textarea name="description" class="form-control"></textarea>
+              <textarea name="description" class="form-control">{{old('title')}}</textarea>
             </div>
           </div>
           <div class="form-row">

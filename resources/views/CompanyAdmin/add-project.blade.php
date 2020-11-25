@@ -29,17 +29,17 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="newstitle">Project Title</label>
-                      <input type="text" name="title" id="newstitle" class="form-control" placeholder="Add project title">
+                      <input type="text" name="title" id="newstitle" class="form-control" value="{{old('title')}}" placeholder="Add project title">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="author">Author</label>
-                      <input type="text" name="author" id="author" class="form-control" placeholder="Add author">
+                      <input type="text" name="author" id="author" class="form-control" value="{{old('author')}}" placeholder="Add author">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="newslocation">Project Location</label>
-                      <input type="text" name="location" id="newslocation" class="form-control" placeholder="Jakarta, Indonesia">
+                      <input type="text" name="location" id="newslocation" class="form-control" value="{{old('location')}}" placeholder="Jakarta, Indonesia">
                     </div>
                   </div>
                   <div class="form-row">
@@ -51,7 +51,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="newsbody">Project Body</label>
-                      <textarea name="description" id="newsbody" rows="4" class=""></textarea>
+                      <textarea name="description" id="newsbody" rows="4" class="">{{old('description')}}</textarea>
                     </div>
                   </div>
                   <div class="form-row">
