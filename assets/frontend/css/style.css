@@ -40,6 +40,18 @@ h1, h2, h3, h4, h5,
   -webkit-box-orient: vertical;
 }
 
+.contents .title{
+    overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 210px;
+}
+
+.contents:hover .title{
+  overflow: visible;
+  white-space: normal;
+}
+
 /*company login*/
 .companylogin {
   position: relative;
@@ -733,19 +745,25 @@ h1, h2, h3, h4, h5,
 
 #logo-container{
   display: none;
+  position: relative;
+  border: 2px solid #ccc;
+  background-color: white;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 10%;
   overflow: hidden;
-  /*z-index: 10;*/
 }
 
 #logo-container #logo-preview {
   display: none;
-  width: 120px;
-  height: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 120px;
+  max-height: 120px;
   object-fit: cover;
-  object-position: center;
+  object-position: bottom;
 }
 
 /*drag and drop upload*/
@@ -1863,9 +1881,27 @@ background-color: #e1f2f2;
 .unit-4 h3 {
   font-size: 20px; }
 
-.h-entry img {
+/*.h-entry img {
   border-top-left-radius: 7px;
-  border-top-right-radius: 7px; }
+  border-top-right-radius: 7px; }*/
+
+.h-entry .image-container {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.h-entry .image-container img {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 .h-entry .meta {
   color: #b3b3b3;
@@ -2218,14 +2254,29 @@ background-color: #e1f2f2;
     border: none !important; } }
 
 .categories {
-  border-right: 1px solid #ccc;
+  position: relative;
+  margin: 10px 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  text-align: center;
+    padding: 10px 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
 }
 
-.categories a {
-  /*position: relative;*/
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+.categories:hover {
+  display: block;
+  overflow: visible;
+  white-space: normal;
+  transform: scale(1.1);
+  z-index: 200;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
 .listing-item {

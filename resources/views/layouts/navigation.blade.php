@@ -1,4 +1,4 @@
-<div class="site-wrap">
+<div class="site">
 
   <div class="site-mobile-menu">
     <div class="site-mobile-menu-header">
@@ -15,7 +15,7 @@
   @endif
       
 
-    <div class="container pl-4 pr-4">
+    <div class="warp-container pl-4 pr-4">
       <div class="row align-items-center">
         
         <div class="col-11 col-xl-2">
@@ -39,6 +39,8 @@
               </li>
               <li><a href="{{url('company')}}"><span>Directory</span></a></li>
               <li><a href="{{url('product')}}"><span>Products</span></a></li>
+              <li><a href="{{url('product')}}"><span>Products</span></a></li>
+              <li><a href="{{url('product')}}"><span>Products</span></a></li>
               <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
               @guest
               <li><a data-toggle="modal" data-target="#signin" class="d-xl-none">SIGN IN</a></li>
@@ -54,7 +56,7 @@
         </div>
         
 
-        <div class="col-md-2 position-relative text-center"> 
+        <div class="col-md-2 position-relative text-left"> 
           @guest
           <a class="float-right" href="" data-toggle="modal" data-target="#signin" style="border: 1px solid #00918e; border-radius: 30px; padding: 8px;"><span>SIGN IN</span></a>
           @else
@@ -97,6 +99,9 @@
 <div class="modal fade" id="categories" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-lg">
   <div class="modal-content p-4">
+    <div class="modal-header">
+      <h4>Categories</h4>
+    </div>
     <div class="modal-body">
     <div class="row">
       @foreach ($ccategory as $a)

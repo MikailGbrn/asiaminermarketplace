@@ -9,9 +9,11 @@
     </div>
     <div class="row mb-3">
       <div class="col-md-12">
+        <h2><b>Edit Product</b></h2>
+        <h6 class="mb-3">Edit your existing Product of your company</h6>
         <div class="card">
           <div class="card-header">
-            <h2 class="text-center h4">Edit Product</h2>
+            <h2 class="text-center h4">Product Information</h2>
             @if ($errors->any())
               @foreach ($errors->all() as $error)
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">

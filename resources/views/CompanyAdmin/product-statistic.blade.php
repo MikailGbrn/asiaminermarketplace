@@ -1,7 +1,7 @@
 @extends('CompanyAdmin.layout')
     @section('content')
 
-    <div class="site-section">
+    <div class="site-section bg-light">
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-4" style="border-bottom: 1px solid #ccc">
@@ -10,11 +10,33 @@
         </div>
 
         <div class="row">
+          <div class="col-md-12">
+            <div class="form-search-directory mt-5 ">
+              <form method="get">
+                <div class="row align-items-center">
+                  <div class="col-lg-12 col-xl-10 no-sm-border border-right">
+                    <select class="form-control" name="kw">
+                      <option value=""></option>
+                      @foreach($product as $p)
+                      <option value="{{$p->name}}"> {{$p->name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="col-lg-12 col-xl-2 ml-auto text-right">
+                    <input type="submit" class="btn text-white btn-primary" value="Search">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
           <div class="col-md-12" style="border-bottom: 1px solid #ccc">
             
           
             <h3 class="mt-5 h4">Quotation List</h3>
-            <table class="table mt-5">
+            <table class="table mt-5 bg-white">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">#</th>
@@ -45,29 +67,7 @@
               </tbody>
             </table>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-search-directory mt-5 ">
-              <form method="get">
-                <div class="row align-items-center">
-                  <div class="col-lg-12 col-xl-10 no-sm-border border-right">
-                    <select class="form-control" name="kw">
-                      <option value=""></option>
-                      @foreach($product as $p)
-                      <option value="{{$p->name}}"> {{$p->name}}</option>
-                      @endforeach
-                    </select>
-                  </div>
-                  <div class="col-lg-12 col-xl-2 ml-auto text-right">
-                    <input type="submit" class="btn text-white btn-primary" value="Search">
-                  </div>
-                  
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-12">
+          <div class="col-md-12 bg-white">
             <h4 class="mt-5">Media/Resource View Data Chart</h4>
             <canvas id="chartproduct" width="100%" height="50"></canvas>
           </div>

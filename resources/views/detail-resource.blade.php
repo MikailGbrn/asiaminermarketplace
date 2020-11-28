@@ -62,7 +62,7 @@
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <h3>Related Resources</h3>
         @foreach ($relatedMedia as $r)
         <div class="d-block d-md-flex listing-horizontal h-option">
@@ -71,9 +71,9 @@
             {{-- <span class="category">Sample Category</span> --}}
           </a>
 
-          <div class="lh-content">
+          <div class="lh-content contents">
             <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
-            <h3><object><a href="{{url('/')}}/resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
+            <h3 class="title"><object><a href="{{url('/')}}/resource/{{$r->company->id}}/{{$r->slug}}" >{{$r->title}}</a></object></h3>
             <p><object><a href="{{url('/')}}/company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
             <p>
               <span class="icon-eye"></span>

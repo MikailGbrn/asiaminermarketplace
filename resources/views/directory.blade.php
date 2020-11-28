@@ -29,7 +29,7 @@
               </form>
             </div>
 
-        <div class="row mt-5">
+        <div class="row mt-5" data-aos="fade-up">
 
 
 
@@ -39,15 +39,17 @@
             <div class="row mb-3 align-items-stretch">
 
               @foreach($company as $c)
-              <div class="col-md-4 col-lg-4 mb-4 mb-lg-4">
+              <div class="col-md-3 col-lg-3 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
                   <a href="{{url('company/'.$c->slug)}}">
-                  <img src="{{url('public/'.Storage::url($c->logo))}}" alt="Image" class="img-fluid">
+                  <div class="image-container">
+                    <img src="{{url('public/'.Storage::url($c->logo))}}" alt="Image" class="img-fluid">
+                  </div>
                   <div class="h-entry-inner">
                   <h2 class="font-size-regular"><object><a href="{{url('company/'.$c->slug)}}">{{$c->name}}</a></object></h2>
                     <div class="meta"><span class="icon-envelope mr-2"></span><object><a href="">{{$c->email}}</a></object> <span class="mx-2">&bullet;</span></div>
                     <div class="meta mb-4"><span class="icon-phone mr-2"></span><object><a href="">{{$c->phone}}</a></object> <span class="mx-2">&bullet;</span></div>
-                    <p  class="text-limit">{{substr($c->description,0, 100)}}....</p>
+                    <!-- <p  class="text-limit">{{substr($c->description,0, 100)}}....</p> -->
                   </div>
                   </a>
                 </div> 
