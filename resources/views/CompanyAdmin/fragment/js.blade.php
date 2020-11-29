@@ -12,5 +12,5 @@
   <script src="{{asset('assets/frontend/js/rangeslider.min.js')}}"></script>
   <script src="{{asset('assets/frontend/ckeditor/ckeditor.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-<script src="{{asset('assets/frontend/js/main.js')}}"></script>
+  <script src="{{asset('assets/frontend/sweetalert/docs/assets/js/index.js')}}"></script>
+  <script src="{{asset('assets/frontend/js/main.js')}}"></script>

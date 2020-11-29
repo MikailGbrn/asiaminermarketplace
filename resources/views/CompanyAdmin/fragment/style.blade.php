@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/css/rangeslider.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
-
+    <link rel="stylesheet" href="{{asset('assets/frontend/sweetalert/docs/assets/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
     <style>
       .bootstrap-select > button{

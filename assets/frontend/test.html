@@ -8,8 +8,10 @@
           <script src="ckeditor/ckeditor.js"></script>
           <script src="chartjs/dist/Chart.js"></script>
           <script src="chartjs/samples/utils.js"></script>
+          <script src="sweetalert/docs/assets/js/index.js"></script>
           <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
           <link rel="stylesheet" href="croppie/croppie.css" />
+          <link rel="stylesheet" href="sweetalert/docs/assets/css/app.css" />
           
           <style type="text/css">
             .demo {
@@ -18,70 +20,27 @@
 
     </head>  
     <body>  
-
-        <div class="">
-          <!-- or even simpler -->
-         <img class="my-image" src="images/person_1.jpg" />
-        <button class="basic-result">result</button>
-        <div id="output">
-        </div>
-        </div>
-
-
+      <form action="twitter.com">
+        
+      <button class="first">asdasdasd</button>
+      </form>
     </body>
 
-<!--     <script type="text/javascript">
-      var el = document.getElementById('my-image');
-      var vanilla = new Croppie(el, {
-          viewport: { width: 150, height: 150, type: 'circle' },
-          boundary: { width: 300, height: 300 },
-      });
-
-      $('.basic-result').click(function(event){
-        vanilla.result('canvas').then(function(canvas) {
-           console.log('asdasd')
-        });
-      })
-    </script> -->
-
-        <script>
-          var basic = $('.my-image').croppie({
-            viewport: {
-               width: 150,
-               height: 150,
-               type: 'circle'
-            },
-            boundary: {
-              width: 300,
-              height: 300
-            }
-          });
-
-          $('.basic-result').click(function(event){
-          basic.croppie('result', {
-                type: 'rawcanvas',
-                size: {width: 150, height: 150},
-                circle: true
-              }).then(function(resp){
-                console.log(resp);
-                $('#output').html(resp);
-                  });
-          });
-
-
-        </script>
-
     <script type="text/javascript">
-      function previewImage() {
-    document.getElementById("image-preview").style.display = "block";
-    document.getElementById("image-container").style.display = "block";
-    var oFReader = new FileReader();
-     oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
-
-    oFReader.onload = function(oFREvent) {
-      document.getElementById("image-preview").src = oFREvent.target.result;
-    };
-  };
+      document.querySelector(".first").addEventListener('click', function(e){
+        e.preventDefault();
+        var form = $(this).parents('form');
+        swal({
+                  title: "Are you sure?",
+                  text: "You will not be able to recover this imaginary file!",
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, delete it!",
+                  closeOnConfirm: false
+              });
+      });
     </script>
+
 </html>
 

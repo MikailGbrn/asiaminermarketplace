@@ -51,7 +51,7 @@
                 </div>
               </div>
               <div class="form-row">
-                <label class="ml-2">Upload Product Image </label>
+                <label class="ml-2">Upload Product Imagee </label>
                 <div class="form-group col-md-12 mb-3">   
                   <input type="file" name="foto" id="mediapic" class="form-control" accept="image/*" onchange="editPdct();">
                   <div id="resource-container" class="mt-3">
@@ -63,7 +63,7 @@
                 <div class="form-group col-md-6">
                 </div>
                 <div class="form-group col-md-6" >
-                  <button type="submit" class="btn btn-primary ml-3" style="float: right;">Save Change</button>
+                  <button type="submit" class="btn btn-primary ml-3 first" style="float: right;">Save Change</button>
                   <a href="dashboardproduct.html" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                 </div>
               </div>
@@ -71,6 +71,29 @@
           </div>
         </div>
 
+        <script type="text/javascript">
+
+          document.querySelector(".first").addEventListener('click', function(){
+            swal("Our First Alert");
+          });
+
+          // $('#submitedit').on('click',function(e){
+          //     e.preventDefault();
+          //     var form = $(this).parents('form');
+          //     swal({
+          //         title: "Are you sure?",
+          //         text: "You will not be able to recover this imaginary file!",
+          //         type: "warning",
+          //         showCancelButton: true,
+          //         confirmButtonColor: "#DD6B55",
+          //         confirmButtonText: "Yes, delete it!",
+          //         closeOnConfirm: false
+          //     }, function(isConfirm){
+          //         if (isConfirm) form.submit();
+          //     });
+          // });
+
+        </script>
 
       </div>
     </div>

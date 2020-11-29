@@ -8,10 +8,13 @@
           <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
           <link rel="stylesheet" href="croppie/croppie.css" />
           <link rel="stylesheet" type="text/css" href="css/style.css">
+          <link rel="stylesheet" type="text/css" href="sweetalert/src/sweetalert.css">
     </head>  
     <body>
       <button data-toggle="modal" data-target="#coba">Click me</button>
     </body>
+
+    <script src="sweetalert/src/sweetalert.js"></script>
 
     <div class="modal fade" id="coba">
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
