@@ -2261,12 +2261,13 @@ background-color: #e1f2f2;
   text-overflow: ellipsis;
   max-width: 150px;
   text-align: center;
-    padding: 10px 20px;
+  padding: 10px 20px;
   background-color: #f2f2f2;
   border-radius: 10px;
 }
 
 .categories:hover {
+  position: relative;
   display: block;
   overflow: visible;
   white-space: normal;

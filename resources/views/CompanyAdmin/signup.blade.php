@@ -34,13 +34,13 @@
               </div>
               <div class="row form-group">
                 <div class="col-md-12 mt-4">
-                  <h4 style="text-align: left;"><b>Company Credential</b> </h4>
+                  <h4 style="text-align: left;"><b>Account Information</b> </h4>
                   <h6>This section will use for company account login</h6>
                 </div>
               </div>
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Name</label>
+                  <label class="text-black" for="fname">Account Name</label>
                   <input type="text" id="fname" name="name_user" value="{{ old('name_user') }}" class="form-control" required>
                 </div>
               </div>

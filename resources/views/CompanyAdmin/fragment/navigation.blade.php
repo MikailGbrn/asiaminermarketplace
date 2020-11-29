@@ -26,6 +26,7 @@
               <a href="{{url('/company-profile/media/statistic')}}">Media Statistic</a>
               <a href="{{url('/company-profile/product/statistic')}}">Product Statistic</a>
               <hr>
+              <a href="#">Account Setting</a>
               <a href="{{url('/company/logout')}}">Log out</a>
             </div>
           </div>
