@@ -16,7 +16,10 @@
                 <p class="mb-0">By: <a href="#">{{$resource->company->name}}</a></p>
                 <p>Author: <a href="#">{{$resource->author}}</a></p>
                 <p class="tag">
-                  <span>{{$resource->keyword}}</span>
+                  {{-- @if($m->category) --}}
+                  @foreach ($resource->catagory as $c)
+                  <span>{{$c->name}}</span>
+                  @endforeach
                 </p>
                 <p>
                   @guest

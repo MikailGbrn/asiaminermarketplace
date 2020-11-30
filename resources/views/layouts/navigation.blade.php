@@ -39,8 +39,6 @@
               </li>
               <li><a href="{{url('company')}}"><span>Directory</span></a></li>
               <li><a href="{{url('product')}}"><span>Products</span></a></li>
-              <li><a href="{{url('product')}}"><span>Products</span></a></li>
-              <li><a href="{{url('product')}}"><span>Products</span></a></li>
               <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
               @guest
               <li><a data-toggle="modal" data-target="#signin" class="d-xl-none">SIGN IN</a></li>

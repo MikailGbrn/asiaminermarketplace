@@ -209,7 +209,7 @@
                   <span class="icon-download text-left"></span>
                   <span>{{$r->download}} Downloads</span>
                 </p>
-                <object><a href="resource/{{$r->company->id}}/{{$r->slug}}">Open Details..</a></object>
+                <object><a href="{{url('/')}}/resource/{{$r->company->id}}/{{$r->slug}}">Open Details..</a></object>
               </div>
             </div>
             @endforeach

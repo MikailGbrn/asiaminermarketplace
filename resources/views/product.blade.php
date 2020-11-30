@@ -7,7 +7,6 @@
         <div class="row mt-5">
 
           <div class="col-lg-3 ml-auto">
-            <!-- FILTER STARTS HERE -->
         <!-- FILTER STARTS HERE -->
             <h4 class="h4">Filters</h4>
             <h3 class="h4 text-black accordion mb-0">Category</h3>
@@ -108,12 +107,12 @@
         </div>
 
           <!-- COMPANY DIRECTORY START HERE -->
-          <div class="col-lg-8">
+          <div class="col-lg-9">
             <h4>Products ({{$product->total()}})</h4>
             <div class="row mb-3 align-items-stretch">
             @foreach ($product as $p)
             
-              <div class="col-md-6 mb-4 mb-lg-4">
+              <div class="col-md-4 mb-4 mb-lg-4">
                 <div class="h-entry h-option">
                   <a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">
                   <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
@@ -145,4 +144,51 @@
         </div>
       </div>
     </div>
+
+        <script>
+      function checkBox(name) {
+        console.log("wkwkwkwkwkwkw");
+        if (document.getElementById(name).checked) {
+          var searchParams = new URLSearchParams(window.location.search)
+          searchParams.set("rt", name)
+          searchParams.delete("page")
+          window.location.search = searchParams.toString()
+        }else{
+          var searchParams = new URLSearchParams(window.location.search)
+          searchParams.delete("page")
+          searchParams.delete("rt")
+          window.location.search = searchParams.toString()
+        }
+      };
+      function keyword() {
+          var number = document.getElementById("kw").value;
+          if (number !== null) {
+              var searchParams = new URLSearchParams(window.location.search)
+              searchParams.set("kw", number)
+              searchParams.delete("page")
+              window.location.search = searchParams.toString()
+          }  
+      }
+      function company() {
+          var number = document.getElementById("comp").value;
+          if (number !== null) {
+              var searchParams = new URLSearchParams(window.location.search)
+              searchParams.set("comp", number)
+              searchParams.delete("page")
+              window.location.search = searchParams.toString()
+          }  
+      }
+      function myFunction() {
+          var x = document.getElementById("fltr").value;
+          console.log(x);
+      }
+      function addFilter(name) {
+          var number = document.getElementById(name).value;
+          if (number !== null) {
+              var searchParams = new URLSearchParams(window.location.search)
+              searchParams.set(name, number)
+              window.location.search = searchParams.toString()
+          }  
+      }
+  </script>
 @endsection
