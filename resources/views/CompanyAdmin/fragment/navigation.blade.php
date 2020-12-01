@@ -27,7 +27,7 @@
               <a href="{{url('/company-profile/product/statistic')}}">Product Statistic</a>
               <hr>
               <a href="{{url('/')}}">Go Back to Site</a>
-              <a href="#">Account Setting</a>
+              <a href="{{url('/company-profile/account-setting')}}">Account Setting</a>
               <a href="{{url('/company/logout')}}">Log out</a>
             </div>
           </div>

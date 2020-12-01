@@ -58,42 +58,29 @@
       <h2>Featured Resources</h2>
       <h6 class="mb-4">List of Resources that you might look about</h6>
       <div class="row align-items-center"  style="border-bottom: 3px solid #ccc;">
+        @foreach ($media as $r)
         <div class="col-md-6">
           <div class="d-block d-md-flex listing-horizontal h-option">
-          <a href="" class="img d-block" style="">
-          </a>
-          <div class="lh-content contents">
-            <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
-            <h3 class="title"><object><a href="#">Media / Resources Title</a></object></h3>
-            <p><object><a href="#">Company Name</a></object></p>
-            <p>
-              <span class="icon-eye"></span>
-              <span class="pr-3">49 Views</span>
-              <span class="icon-download text-left"></span>
-              <span>19 Downloads</span>
-            </p>
-            <object><a href="d-categories.html">Open Details..</a></object>
-          </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="d-block d-md-flex listing-horizontal h-option">
-          <a href="" class="img d-block" style="">
-          </a>
-          <div class="lh-content contents">
-            <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
-            <h3 class="title"><object><a href="#">Media / Resources Title</a></object></h3>
-            <p><object><a href="#">Company Name</a></object></p>
-            <p>
-              <span class="icon-eye"></span>
-              <span class="pr-3">49 Views</span>
-              <span class="icon-download text-left"></span>
-              <span>19 Downloads</span>
-            </p>
-            <object><a href="d-categories.html">Open Details..</a></object>
+
+            <a href="resource/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
+            </a>
+
+            <div class="lh-content">
+
+              <h3><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
+              <p><object><a href="company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
+              <p>
+                <span class="icon-eye"></span>
+                <span class="pr-3">{{$r->view}}</span>
+                <span class="icon-download text-left"></span>
+                <span>{{$r->download}} Downloads</span>
+              </p>
+              <object><a href="{{url('/')}}/resource/{{$r->company->id}}/{{$r->slug}}">Open Details..</a></object>
+            </div>
           </div>
         </div>
-        </div>
+        @endforeach 
+
       </div>
     </div>
 
@@ -101,45 +88,20 @@
       <h2>Featured Products</h2>
       <h6 class="mb-4">List of Product that you might look about</h6>
       <div class="row align-items-center" style="border-bottom: 3px solid #ccc;">
+        @foreach ($product as $p)
         <div class="col-md-4 mb-4 mb-lg-4">
           <div class="h-entry h-option">
-            <a href="#">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="h-entry-inner">
-                <h2 class="font-size-regular"><object><a href="blog-single.html">Product Name</a></object></h2>
-                <p class="text-secondary"><object>Company Name</object></p>
-                <p class="text-limit">Put Description of Product here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
+            <a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">
+            <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
+            <div class="h-entry-inner">
+              <h2 class="font-size-regular"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
+              <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
+              <p class="text-limit">{{$p->description}}</p>
+            </div>
             </a>
-          </div> 
+          </div>  
         </div>
-        <div class="col-md-4 mb-4 mb-lg-4">
-          <div class="h-entry h-option">
-            <a href="#">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="h-entry-inner">
-                <h2 class="font-size-regular"><object><a href="blog-single.html">Product Name</a></object></h2>
-                <p class="text-secondary"><object>Company Name</object></p>
-                <p class="text-limit">Put Description of Product here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-            </a>
-          </div> 
-        </div>
-        <div class="col-md-4 mb-4 mb-lg-4">
-          <div class="h-entry h-option">
-            <a href="#">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <div class="h-entry-inner">
-                <h2 class="font-size-regular"><object><a href="blog-single.html">Product Name</a></object></h2>
-                <p class="text-secondary"><object>Company Name</object></p>
-                <p class="text-limit">Put Description of Product here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-            </a>
-          </div> 
-        </div>
+        @endforeach
       </div>
     </div>
   </div>

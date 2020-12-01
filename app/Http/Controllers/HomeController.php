@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\MCatagory;
+use App\Media;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,7 +38,22 @@ class HomeController extends Controller
         //     (SELECT title, c.name, c.slug as Cslug, company_id, photo, t.slug, t.description, 'project' as type, t.created_at from projects t join companies c on c.id = company_id)
         //     order by created_at desc limit 6
         // ");
-        return view('homee',compact('MCatagory'));
+        $media = Media::with('company')->select("media.*", "companies.subscription")
+        ->where('media.status',1)
+        ->join('companies','company_id','=','companies.id')
+        ->orderBy('companies.subscription', 'DESC')->orderBy('media.id', 'DESC')
+        ->limit(2)
+        ->get();
+
+        $product = Product::select("products.*", "companies.subscription")
+        ->where('products.status',1)
+        ->join('companies','company_id','=','companies.id')
+        ->orderBy('companies.subscription', 'DESC')
+        ->orderBy('products.id', 'DESC')
+        ->limit(3)
+        ->get();
+
+        return view('homee',compact('MCatagory','media','product'));
     }
     public function contact()
     {
