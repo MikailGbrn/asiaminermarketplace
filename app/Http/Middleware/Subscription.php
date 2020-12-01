@@ -31,21 +31,21 @@ class Subscription
         }
         if($request->segment(2)=="media"){
             $name = "Media/Resource";
-            $object = $company->media()->count();
+            $object = $company->media()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
             $max = [3,999999,999999];
         }elseif ($request->segment(2)=="product") {
             $name = "Product";
-            $object = $company->product()->count();
+            $object = $company->product()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
             $max = [3,999999,999999];
         }
         elseif ($request->segment(2)=="news") {
             $name = "News";
-            $object = $company->news()->count();
+            $object = $company->news()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
             $max = [3,999999,999999];
         }
         elseif ($request->segment(2)=="project") {
             $name = "Project";
-            $object = $company->project()->count();
+            $object = $company->project()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
             $max = [3,999999,999999];
         }
         $subscription = $company->subscription;
@@ -57,6 +57,9 @@ class Subscription
                     }
                     session()->now($name, '<strong>'.$name.'</strong> limit has exceeded');
                     return $next($request);
+                }
+                if ($request->segment(3)=="statistic") {
+                    return redirect()->back();
                 }
                 return $next($request);
                 break;

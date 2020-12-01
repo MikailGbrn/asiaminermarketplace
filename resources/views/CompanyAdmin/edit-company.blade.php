@@ -42,6 +42,7 @@
                   <textarea class="form-control" name="description" id="fpdescription" rows="2">{{$company->description}}</textarea>
                 </div>
               </div>
+              @if($company->subscription !== 0)
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="website">Company's Website</label>
@@ -52,15 +53,18 @@
                   <input type="text" name="business_hour" id="website" class="form-control" value="{{$company->business_hour}}">
                 </div>
               </div>
+              @endif
               <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group  @if($company->subscription == 0) col-md-12 @else  col-md-6 @endif">
                   <label for="email">Company's E-mail</label>
                   <input type="text" name="email" id="email" class="form-control" value="{{$company->email}}">
                 </div>
+                @if($company->subscription !== 0)
                 <div class="form-group col-md-6">
                   <label for="website">Company's Phone</label>
                   <input type="tel" name="phone" id="website" class="form-control" value="{{$company->phone}}">
                 </div>
+                @endif
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">

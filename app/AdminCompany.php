@@ -11,6 +11,7 @@ class AdminCompany extends Authenticatable
         'name',
         'username',
         'email',
+        'phone',
         'password',
         'company_id'
   ];

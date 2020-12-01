@@ -27,6 +27,9 @@ Route::get('company/logout', 'CompanyAdmin\CompanyAuth@Logout');
 Route::prefix('company-profile')->middleware(['auth:admin-company','subscription'])->group( function(){
     Route::get('/','CompanyAdmin\DashboardCompany@index');
     Route::get('/edit','CompanyAdmin\DashboardCompany@showEditCompany');
+    Route::get('/account-setting','CompanyAdmin\DashboardCompany@showEditAccount');
+    Route::post('/account-setting/edit','CompanyAdmin\DashboardCompany@EditAccount');
+    Route::post('/account-setting/change-password','CompanyAdmin\DashboardCompany@changePassword');
     Route::get('/product/statistic','CompanyAdmin\DashboardCompany@showStatisticProduct');
     Route::get('/media/statistic','CompanyAdmin\DashboardCompany@showStatisticMedia');
     Route::post('/edit','CompanyAdmin\DashboardCompany@editCompany');

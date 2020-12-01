@@ -313,7 +313,7 @@
                   <select class="selectpicker form-control" name="company_catagory" data-live-search="true" id="" required="">
                     <option value="">Select Category</option>
                     @foreach ($catagory as $cat)
-                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    <option @if(old('company_catagory') == $cat->id) selected @endif value="{{ $cat->id }}">{{ $cat->name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -576,13 +576,13 @@
                   <label class="text-black" for="email">Region</label> 
                   <select class="selectpicker form-control" name="company_region" data-live-search="true" id="" required="">
                         <option value="">Select region</option>
-                        <option value="">Asia</option>
-                        <option value="">Asia/Pacific</option>
-                        <option value="">Africa</option>
-                        <option value="">Europe</option>
-                        <option value="">Middle East</option>
-                        <option value="">North America</option>
-                        <option value="">South &amp; Central America</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Asia/Pacific">Asia/Pacific</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Middle East">Middle East</option>
+                        <option value="North America">North America</option>
+                        <option value="Central America">South &amp; Central America</option>
                       </select>
                 </div>
                 <div class="col-md-6">

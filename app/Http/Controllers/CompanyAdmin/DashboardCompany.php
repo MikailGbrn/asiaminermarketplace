@@ -12,6 +12,7 @@ use Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardCompany extends Controller
 { 
@@ -26,6 +27,50 @@ class DashboardCompany extends Controller
         $company_id = Auth::guard('admin-company')->user()->company_id;
         $company = Company::where('id', $company_id)->firstOrFail();
         return view('CompanyAdmin.edit-company', compact('company'));
+    }
+    public function showEditAccount()
+    {
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+        $company = Company::where('id', $company_id)->firstOrFail();
+        return view('CompanyAdmin.account-setting',compact('company'));
+    }
+    public function EditAccount(Request $request)
+    {
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+        $this->validate($request,[
+            'company_name' => ['required', 'unique:companies,name,'.$company_id, 'max:255', 'min:10'],
+            'pic_name' => 'required',
+            'pic_email' => 'required|email',
+            'pic_phone' => 'required',
+            'pic_phone_code' => 'required',
+            'pic_username' => 'required|max:255'
+        ]);
+        $company = Company::find($company_id);
+        $company->name = $request->input('company_name');
+        $company->save();
+        $company->admin->name = $request->input('pic_name');
+        $company->admin->email = $request->input('pic_email');
+        $company->admin->phone = '+'.$request->input('pic_phone_code').$request->input('pic_phone');
+        $company->admin->username = $request->input('pic_username');
+        $company->push();
+
+        return redirect()->back()->with(['success' => 'Your account information has been update']);
+    }
+    public function changePassword(Request $request)
+    {
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+        $company = Company::find($company_id);
+        $this->validate($request,[
+            'new_password' => 'required|string|min:8|confirmed',
+            'old_password' => 'required|string|min:8|confirmed',
+        ]);
+        if (Hash::check($request->input('old_password'), $company->admin->password)){
+            $company->admin->password = $request->input('new_password');
+            $company->push();
+            return redirect()->back()->with(['success' => 'Your Password has been changed']);
+        }else {
+            return redirect()->back()->with(['error' => 'Your old password is wrong']);
+        }
     }
     public function editCompany(Request $request)
     {

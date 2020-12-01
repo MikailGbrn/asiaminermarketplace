@@ -69,10 +69,8 @@ class CompanyAuth extends Controller
             'company_city' => 'required',
             'company_region' => 'required',
             'company_province' => 'required',
-            'company_postal_code' => 'required',
-            'company_company_description' => 'required',
+            'company_postal_code' => 'required'
         ]);
-        if($request->input('company_phone'))
         
         $company = new Company;
         $company->name = $request->input('name');
