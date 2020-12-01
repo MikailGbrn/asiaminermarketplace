@@ -27,6 +27,9 @@ nav ul li:hover {
 .gradient-dara{
   background-image: linear-gradient(to right top, #fc86fc, #fc6ede, #fa55bf, #f439a0, #eb1280);
 }
+.gradient-fadho{
+  background: linear-gradient(to right, #9cecfb, #65c7f7, #0052d4);
+}
 
 .wangsit-color{
 	background-color: #54264E;

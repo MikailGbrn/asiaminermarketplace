@@ -10,6 +10,7 @@ use Spatie\Analytics\Period;
 use App\Company;
 use App\Product;
 use App\Media;
+use Illuminate\Support\Facades\DB;
 
 class DashboardAdmin extends Controller
 {
@@ -35,10 +36,23 @@ class DashboardAdmin extends Controller
                 'max-results' => 5
             ]
         );
+        $visitorByCountry = Analytics::performQuery(
+            Period::years(1),
+            'ga:users',
+            [
+                'metrics' => 'ga:users',
+                'dimensions' => 'ga:country',
+                'sort' => '-ga:users',
+                'max-results' => 10
+            ]
+        );
         $top['media'] = Media::count();
         $top['product'] = Product::count();
         $top['company'] = Company::count();
-        // print_r($visitor);
-        return view('admin.dashboard',compact('mostVisitedPage','visitor','top','visitorByCity'));
+        $companyCat = DB::table('companies')->join('ccatagory','catagory_id','=','ccatagory.id')
+        ->select('ccatagory.name', DB::raw('count(*) as total'))
+        ->groupBy('ccatagory.name')
+        ->get();
+        return view('admin.dashboard',compact('mostVisitedPage','visitor','top','visitorByCity','companyCat','visitorByCountry'));
     }
 }

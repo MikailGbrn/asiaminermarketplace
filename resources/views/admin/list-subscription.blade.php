@@ -12,14 +12,17 @@
             
           </div>
           <div class="card-content">
+            
             <table id="data-table-simple" class="striped" cellspacing="0" style="">
               <thead>
               <tr>
                 <th>No</th>
                 <th>Name</th>
+                <th>info</th>
                 <th>subscription</th>
-                <th style="width:300px">Description</th>
-                <th>action</th>
+                <th width="80px">Start Date</th>
+                <th width="80px">End Date</th>       
+                <th width="50px">action</th>
               </tr>
               </thead>
               <tbody>
@@ -27,6 +30,7 @@
               <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$c->name}}</td>
+                <td>{{$c->admin->email}}, {{$c->admin->phone}}</td>
                 <td>
                   @if($c->subscription == 0)
                     <b>Free</b>
@@ -36,7 +40,8 @@
                     <b>Gold</b>
                   @endif
                 </td>
-                <td>{{$c->description}}</td>
+                <td>{{$c->subscription_start}}</td>
+                <td>{{$c->subscription_end}}</td>
                 <td>
                   <a class="btn btn-small modal-trigger cyan" data-target="modal1" onclick="showModal({{$c->id}},'{{$c->name}}',{{$c->subscription}})" style="margin-right: 10px" href=""><i class="material-icons">attach_money</i></a>
                 </td>
@@ -44,6 +49,7 @@
               @endforeach
               </tbody> 
             </table>
+            
              {{-- Modal Delete --}}
             <div id="modal4" class="modal white" style="border : 0px">
               <div class="modal-content">
@@ -70,7 +76,7 @@
  
 
     {{-- modal edit --}}
-    <div id="modal1" class="modal white" style="border : 0px;">
+    <div id="modal1" class="modal white" style="border : 0px; height:100%;">
       <form id="myform" action="" method="POST" autocomplete="off">
         @csrf
         @method('put')
@@ -88,13 +94,36 @@
           </div>
           <div class="row" style="margin-bottom: 0px;">
             <div class="input-field input-outlined col s12" style="margin-top: 0px;">
-              <select name="subscription" id="subs">
+              <select name="subscription" id="subs" required="">
                 <option value="">Choose your option</option>
                 <option value="0">Free</option>
                 <option value="1">Silver</option>
                 <option value="2">Gold</option>
               </select>
               <label class="font-dara labell" for="first_name">Subscription</label>
+            </div>
+            <div class="input-field input-outlined col s12 bulan" style="margin-top: 0px;">
+              <select name="month" id="month">
+                <option value="">Choose your option</option>
+                <option value="1">1 Month</option>
+                <option value="2">2 Month</option>
+                <option value="3">3 Month</option>
+                <option value="4">4 Month</option>
+                <option value="5">5 Month</option>
+                <option value="6">6 Month</option>
+                <option value="7">7 Month</option>
+                <option value="8">8 Month</option>
+                <option value="9">9 Month</option>
+                <option value="10">10 Month</option>
+                <option value="11">11 Month</option>
+                <option value="12">12 Month</option>
+              </select>
+              <label class="font-dara labell" for="first_name">Add Month</label>
+            </div>
+            <div class="col s12 warn" style="display:none;">
+              <center>
+                <span style="color:red;">Anda akan melakukan downgrade, ke paket <b>Free</b> pastikan anda benar-benar yakin dengan pilihan anda..</span>
+              </center>
             </div>
             
   
@@ -103,7 +132,7 @@
 
         </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="bottom:0px; position: absolute;">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">close</a>
         <button type="submit" form="myform" class="btn">Agree</button>
       </div>
@@ -136,7 +165,21 @@
 
 @section('jsplus')
 <script>
-  function showModal(id,nama,subs)
+  $('#subs').change(function() {
+    if ($(this).val() === "0") {
+      $(".bulan").css("display","none");
+      $(".warn").css("display","block");
+      $("#month").removeAttr("required","");
+
+    }else{
+      $(".bulan").css("display","block");
+      $(".warn").css("display","none");
+      $("#month").attr("required","");
+    }
+});
+</script>
+<script>
+  function showModal(id,nama,subs,start,end)
   {
     //you can do anything with data, or pass more data to this function. i set this data to modal header for example
     document.getElementById('data-modall').value = id;

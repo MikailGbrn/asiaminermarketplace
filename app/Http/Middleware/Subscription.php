@@ -32,21 +32,21 @@ class Subscription
         if($request->segment(2)=="media"){
             $name = "Media/Resource";
             $object = $company->media()->count();
-            $max = [5,10,999999];
+            $max = [3,999999,999999];
         }elseif ($request->segment(2)=="product") {
             $name = "Product";
             $object = $company->product()->count();
-            $max = [10,15,999999];
+            $max = [3,999999,999999];
         }
         elseif ($request->segment(2)=="news") {
             $name = "News";
             $object = $company->news()->count();
-            $max = [10,15,999999];
+            $max = [3,999999,999999];
         }
         elseif ($request->segment(2)=="project") {
             $name = "Project";
             $object = $company->project()->count();
-            $max = [10,15,999999];
+            $max = [3,999999,999999];
         }
         $subscription = $company->subscription;
         switch ($subscription) {

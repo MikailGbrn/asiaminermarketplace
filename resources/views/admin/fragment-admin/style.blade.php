@@ -5,4 +5,9 @@
   	<link href="{{url('/')}}/assets/admin/css/materialize.css" rel="stylesheet" type="text/css">
   	<link href="{{url('/')}}/assets/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/assets/admin/css/jquery.dataTables.min.css">
-  	<link href="{{url('/')}}/assets/admin/css/style.css" rel="stylesheet" type="text/css"> 
+	  <link href="{{url('/')}}/assets/admin/css/style.css" rel="stylesheet" type="text/css"> 
+	<style>
+		.datepicker-modal{
+			width:100%;
+		}
+	</style>

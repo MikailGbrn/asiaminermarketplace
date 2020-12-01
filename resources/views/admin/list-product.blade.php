@@ -16,10 +16,11 @@
               <thead>
               <tr>
                 <th>No</th>
-                <th>Name</th>
+                <th style="width:200px">Name</th>
                 <th>company</th>
                 <th>status</th>
-                <th>action</th>
+                <th>date</th>
+                <th style="width:150px">action</th>
               </tr>
               </thead>
               <tbody>
@@ -35,6 +36,7 @@
                   <b>Available</b>
                   @endif
                 </td>
+                <td>{{$c->created_at}}</td>
                 <td>
                   <a class="btn btn-small modal-trigger @if($c->status == 1) cyan @else grey @endif " data-target="modal2" onclick="modalDelete({{$c->id}})"><i class="material-icons">security</i></a>
                   <a class="btn btn-small green" target="_blank" style="margin-left: 10px" href="{{url("/product/$c->company_id/$c->slug")}}"><i class="material-icons">language</i></a>

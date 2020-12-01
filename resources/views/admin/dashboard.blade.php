@@ -64,7 +64,7 @@
                 <tbody>
                   @foreach ($mostVisitedPage as $key => $vp)
                   <tr>
-                    <td>{{$vp['url']}}</td>
+                    <td><a href="https://indominingmarketplace.com{{$vp['url']}}" target="_blank">{{$vp['url']}}</a></td>
                     <td>{{$vp['pageViews']}}</td>
                   </tr>
                   @endforeach
@@ -86,6 +86,64 @@
             </div>
           </div>
          
+        </div>
+        <div class="col s12 m6">
+          <div class="card" style="border-top: 5px solid #f44336 ; border-radius:5px">
+            <div class="card-content" style="padding-top: 10px; padding-bottom: 0px">
+              <div class="fontt judul">
+                <div style="letter-spacing: 1px">Company per Category</div>
+              </div>
+              
+            </div>
+            <div class="card-content">
+              <table>
+                <thead>
+                  <tr>
+                      <th style="width: 70%;">Category</th>
+                      <th>Total</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  @foreach ($companyCat as $keyy)
+                  <tr>
+                    <td>{{$keyy->name}}</td>
+                    <td>{{$keyy->total}}</td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m6">
+          <div class="card" style="border-top: 5px solid #f44336 ; border-radius:5px">
+            <div class="card-content" style="padding-top: 10px; padding-bottom: 0px">
+              <div class="fontt judul">
+                <div style="letter-spacing: 1px">Visitor By country</div>
+              </div>
+              
+            </div>
+            <div class="card-content">
+              <table>
+                <thead>
+                  <tr>
+                      <th style="width: 70%;">Country</th>
+                      <th>Number</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  @foreach ($visitorByCountry as $key => $vp)
+                  <tr>
+                    <td>{{$vp[0]}}</td>
+                    <td>{{$vp[1]}}</td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     

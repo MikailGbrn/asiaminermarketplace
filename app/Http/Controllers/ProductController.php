@@ -14,14 +14,13 @@ class ProductController extends Controller
     {   
         $keyword = '%'.$request->input('kw').'%';
         $catagory = $request->input('cat');
-        $company = $request->input('comp');
+        $company = '%'.$request->input('comp').'%';
         $resourceType = $request->input('rt');
         $contentType = $request->input('ct');
         $uploadDate = $request->input('dt');
         $view = $request->input('view');
-        $download = $request->input('download');
 
-        $query = Product::where('name','like',$keyword)->where('status',1);
+        $query = Product::select("products.*", "companies.subscription")->where('products.name','like',$keyword)->where('products.status',1)->join('companies','company_id','=','companies.id');
         
         if(!empty($company)){
             $query->whereHas('company', function ($query) use($company) {
@@ -33,9 +32,9 @@ class ProductController extends Controller
         }
         if(!empty($uploadDate)){
             if ($uploadDate==1) {
-                $query->where(DB::raw("DATE(media.created_at)"),'=',date("Y-m-d"));    
+                $query->where(DB::raw("DATE(products.created_at)"),'=',date("Y-m-d"));    
             }else if($uploadDate==2){
-                $query->where(DB::raw("WEEK(media.created_at)"),'=',date("W"));   
+                $query->where(DB::raw("WEEK(products.created_at)"),'=',date("W"));   
             }
             else if($uploadDate==3){
                 $query->latest();  
@@ -51,14 +50,8 @@ class ProductController extends Controller
                 $query->orderBy('view', 'asc');   
             }
         }
-        if(!empty($download)){
-            if ($download==1) {
-                $query->orderBy('download', 'desc');    
-            }else if($download==2){
-                $query->orderBy('download', 'asc');  
-            }
-        }
-        $product = $query->orderBy('id', 'DESC')->paginate(20);
+   
+        $product = $query->orderBy('companies.subscription', 'DESC')->orderBy('products.id', 'DESC')->paginate(20);
        return view('product', compact('product'));
 
     }

@@ -17,8 +17,9 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th style="width:400px">Description</th>
-                <th>action</th>
+                <th style="width:150px">Tag</th>
+                <th style="width:300px">Info</th>
+                <th style="width:120px">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -26,7 +27,8 @@
               <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$c->name}}</td>
-                <td>{{$c->description}}</td>
+                <td><div class="chip gradient-fadho black-text text-lighten-2">{{$c->catagory->name}}</div></td>
+                <td>{{$c->admin->email}}, {{$c->admin->phone}}</td>
                 <td>
                   <a class="btn btn-small modal-trigger @if($c->status == 1) cyan @else grey @endif " data-target="modal2" onclick="modalDelete({{$c->id}})"><i class="material-icons">check</i></a>
                   <a class="btn btn-small red" target="_blank" style="margin-left: 10px" href="{{url("/company/$c->slug")}}"><i class="material-icons">language</i></a>

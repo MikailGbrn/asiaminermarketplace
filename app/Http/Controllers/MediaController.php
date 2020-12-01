@@ -25,7 +25,7 @@ class MediaController extends Controller
         $view = $request->input('view');
         $download = $request->input('download');
 
-        $query = Media::with('company')->where('status',1);
+        $query = Media::with('company')->select("media.*", "companies.subscription")->where('media.status',1)->join('companies','company_id','=','companies.id');
 
         if(!empty($keyword)){
             $query->where('title','like',$keyword);
@@ -74,7 +74,7 @@ class MediaController extends Controller
                 $query->orderBy('download', 'asc');  
             }
         }
-        $resource = $query->orderBy('id', 'DESC')->paginate(20);
+        $resource = $query->orderBy('companies.subscription', 'DESC')->orderBy('media.id', 'DESC')->paginate(20);
         return view('resource',compact('resource'));
     }
     public function detail($companyId,$slug)

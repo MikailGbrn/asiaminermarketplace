@@ -17,9 +17,10 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Company</th>
                 <th>Email</th>
-                <th>action</th>
+                <th>phone</th>
+                <th>Company</th>
+                <th>Address</th>
               </tr>
               </thead>
               <tbody>
@@ -27,11 +28,10 @@
               <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$c->first_name}} {{$c->last_name}}</td>
-                <td>{{$c->company_name}}</td>
                 <td>{{$c->email}}</td>
-                <td>
-                  <a class="btn btn-small modal-trigger green " data-target="modal2" onclick="modalDelete({{$c->id}})"><i class="material-icons">perm_identity</i></a>
-                </td>
+                <td>{{$c->cell}}</td>
+                <td>{{$c->company_name}}</td>
+                <td>{{$c->address}}, {{$c->city}}, {{$c->state}}, {{$c->country}}</td>
               </tr>
               @endforeach
               </tbody> 
@@ -63,22 +63,15 @@
 
   {{-- Modal acivate --}}
   <div id="modal2" class="modal white" style="border : 0px">
-    <form id="myform2" action="" method="POST" autocomplete="off">
-      @csrf
-      @method('put')
-      <input id="updateId" type="hidden" name="id" value="">
     <div class="modal-content">
-        <div class="row center-align">
-          <h5>Apakah anda yakin ?</h5>
-        </div>
-        <div class="row center-align" style="margin-bottom: 0px;">
-          <a form="myform" class="btn btn-large modal-close red" style="margin-right: 20px">Cancel</a>
-          <button type="submit" form="myform2" class="btn btn-large cyan">Update</button>
-
-        </div>
-      </form>
+      <table>
+        <tr>
+          <td>ghafdda</td>
+          <td>:</td>
+          <td>asdasdasdasdasdasd</td>
+        </tr>
+      </table>
     </div>
-    </form>
   </div>
 
 
@@ -94,7 +87,7 @@
     document.getElementById('catagory').value = nama;
 
   };
-  function modalDelete(id)
+  function modall(id)
   {
     //you can do anything with data, or pass more data to this function. i set this data to modal header for example
     document.getElementById('updateId').value = id;

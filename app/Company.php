@@ -26,4 +26,12 @@ class Company extends Model
     {
         return $this->hasMany('App\Project');
     }
+    public function admin()
+    {
+        return $this->hasOne('App\AdminCompany');
+    }
+    public function catagory()
+    {
+        return $this->belongsTo('App\CCatagory');
+    }
 }

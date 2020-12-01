@@ -29,7 +29,8 @@ class CompanyAuth extends Controller
 
     public function showRegister()
     {
-        return view('CompanyAdmin.signup');
+        $catagory = \App\CCatagory::all();
+        return view('CompanyAdmin.signup',compact('catagory'));
     }
 
     public function Login(Request $request)
@@ -81,7 +82,7 @@ class CompanyAuth extends Controller
         $company->logo = "public/logo/default.jpg";
         $company->header = "public/header/default.jpeg";
         $company->slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->input('name'))));
-        $company->catagory_id = null;
+        $company->catagory_id = $request->input('company_catagory');;
         $company->email = $request->input('company_email');
         $company->website = $request->input('company_website');
         $company->business_hour = $request->input('company_business_hour_start')." - ".$request->input('company_business_hour_until');
@@ -94,6 +95,7 @@ class CompanyAuth extends Controller
             'username' => "Administrator",
             'password' => $request->input('password'),
             'email' => $request->input('email'),
+            'phone' => "+".$request->input('pic_phone_code').$request->input('pic_phone'),
             'company_id' => $company->id
         ]);
         \App\CAddress::create([

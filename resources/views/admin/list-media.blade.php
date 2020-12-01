@@ -16,10 +16,12 @@
               <thead>
               <tr>
                 <th>No</th>
-                <th style="width: 300px">Title</th>
-                <th>company</th>
-                <th>status</th>
-                <th>action</th>
+                <th style="width:150px">Title</th>
+                <th>Tag</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th style="width:120px">action</th>
               </tr>
               </thead>
               <tbody>
@@ -27,6 +29,11 @@
               <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$c->title}}</td>
+                <td>
+                  @foreach($c->catagory as $cat)
+                  <div class="chip gradient-fadho black-text">{{$cat->name}}</div>
+                  @endforeach
+                </td>
                 <td>{{$c->company->name}}</td>
                 <td>
                   @if($c->status == 0)
@@ -35,8 +42,9 @@
                   <b>Available</b>
                   @endif
                 </td>
+                <td>{{ $c->created_at}}</td>
                 <td>
-                  <a class="btn btn-small modal-trigger @if($c->status == 1) cyan @else grey @endif " data-target="modal2" onclick="modalDelete({{$c->id}})"><i class="material-icons">security</i></a>
+                  <a class="btn btn-small modal-trigger @if($c->status == 1) cyan @else grey @endif " style="margin-left: 10px" data-target="modal2" onclick="modalDelete({{$c->id}})"><i class="material-icons">security</i></a>
                   <a class="btn btn-small green" target="_blank" style="margin-left: 10px" href="{{url("/resource/$c->company_id/$c->slug")}}"><i class="material-icons">language</i></a>
                 </td>
               </tr>

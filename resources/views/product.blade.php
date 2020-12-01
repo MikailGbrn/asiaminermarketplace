@@ -24,53 +24,7 @@
               </form>
             </div>  
 
-            <h4 class="h4 text-black accordion mb-0">Type of Resources</h4>
-            <div class="panel mb-5">
-              <form action="" method="GET">
-                <label class="text-sm text-secondary pt-3">Content Categories</label>
-                <!-- checklist for categories -->
-                  <div class="form-group">
-                    <ul class="list-unstyled">
-                      <li>
-                        <label for="option1">
-                          <input type="checkbox" name="Audio" id="Audio" onchange="checkBox('Audio')"  @if(app('request')->input('rt')=="Audio") checked @endif>
-                          Audio
-                        </label>
-                      </li>
-                      <li>
-                        <label for="option2">
-                          <input type="checkbox" name="Catalogue" id="Catalogue" onchange="checkBox('Catalogue')" @if(app('request')->input('rt')=="Catalogue") checked @endif>
-                          Catalogue
-                        </label>
-                      </li>
-                      <li>
-                        <label for="option3">
-                          <input type="checkbox" name="E-Book" id="E-Book" onchange="checkBox('E-Book')" @if(app('request')->input('rt')=="E-Book") checked @endif>
-                          E-Book
-                        </label>
-                      </li>
-                      <li>
-                        <label for="option4">
-                          <input type="checkbox" name="Image" id="Image" onchange="checkBox('Image')" @if(app('request')->input('rt')=="Image") checked @endif>
-                          Image
-                        </label>
-                      </li>
-                      <li>
-                        <label for="option4">
-                          <input type="checkbox" name="Power Point" id="Power Point" onchange="checkBox('Power Point')" @if(app('request')->input('rt')=="Power Point") checked @endif>
-                          Power Point
-                        </label>
-                      </li>
-                      <li>
-                        <label for="option4">
-                          <input type="checkbox" name="Case Study" id="Case Study" onchange="checkBox('Case Study')" @if(app('request')->input('rt')=="Case Study") checked @endif>
-                          Case Study
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
-              </form>
-            </div>
+    
 
             <h6 class="h4 text-black mb-0 accordion">Sort By</h6>
             <div class="panel">
@@ -93,14 +47,7 @@
                     <option value="2" @if(app('request')->input('view')=="2") selected @endif>Least Viewed</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label for="uploaddate">Download Count</label>
-                  <select name="download" class="form-control" id="download" onchange="addFilter('download')">
-                    <option value="">download</option>
-                    <option value="1" @if(app('request')->input('download')=="1") selected @endif>Most Downloaded</option>
-                    <option value="2" @if(app('request')->input('download')=="2") selected @endif>Least Downloaded</option>
-                  </select>
-                </div>
+
               </form>
               </div>
         <!-- FILTER END HERE -->
