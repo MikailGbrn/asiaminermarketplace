@@ -1,6 +1,9 @@
 <!doctype html>
 <html class="no-js" lang="en">
-@include('layouts.style')
+<head>
+    @include('layouts.style')
+    @yield('styleplus')
+</head>
 
 <body>
     @include('layouts.navigation')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MCatagory;
 use App\Media;
 use App\Product;
+use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +54,9 @@ class HomeController extends Controller
         ->limit(3)
         ->get();
 
-        return view('homee',compact('MCatagory','media','product'));
+        $company = Company::where('logo',"!=",'public/logo/default.jpg')->limit(10)->get();
+
+        return view('homee',compact('MCatagory','media','product','company'));
     }
     public function contact()
     {

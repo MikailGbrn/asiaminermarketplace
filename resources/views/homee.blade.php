@@ -24,7 +24,7 @@
                   <div class="col-lg-12 col-xl-3 no-sm-border border-right">
                     <div class="wrap-icon">
                       <span class="icon icon-room"></span>
-                      <input type="text" class="form-control" placeholder="Search by company">
+                      <input type="text" name="comp" class="form-control" placeholder="Search by company">
                     </div>
                     
                   </div>
@@ -50,6 +50,20 @@
 
           </div>
         </div>
+    </div>
+  </div>
+  
+  <div class="site-section" style="background-color:rgb(248, 248, 248); padding-top:20px; padding-bottom:20px;">
+    <div class="container">
+      <div class="owl-carousel owl-theme">
+        @foreach ($company as $c)
+        <div class="item">
+          <div class="col-lg-12">
+            <img src="{{url('public/'.Storage::url($c->logo))}}" style="height: 100px; width: auto;" alt="Image">
+          </div>
+        </div>
+        @endforeach
+      </div>
     </div>
   </div>
 
@@ -148,4 +162,26 @@
         </div>
       </div>
     </div>
+  @endsection
+
+  @section('jsplus')
+  <script>
+      $('.owl-carousel').owlCarousel({
+      autoplay:true,
+      loop:true,
+      margin:10,
+      nav:false,
+      responsive:{
+        0:{
+          items:3
+        },
+        600:{
+          items:5
+        },
+        1200:{
+          items:8
+        }
+      }
+    })
+  </script>
   @endsection
