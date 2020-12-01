@@ -45,9 +45,11 @@ h1, h2, h3, h4, h5,
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 210px;
+  -webkit-transition: 1.3s all ease;
 }
 
 .contents:hover .title{
+  -webkit-transition: 1.3s all ease;
   overflow: visible;
   white-space: normal;
 }
@@ -854,6 +856,7 @@ h1, h2, h3, h4, h5,
   padding: 10px;
   padding-right: 40px;
   border-right: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .news .news-header {
@@ -875,6 +878,7 @@ h1, h2, h3, h4, h5,
   font-size: 12px;
   color: #6c757d;
   border-bottom: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .news .news-body p {

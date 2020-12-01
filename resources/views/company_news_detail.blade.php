@@ -4,7 +4,7 @@
 <div class="site-section bg-light">
   <div class="container mt-5">
      <div class="row">
-       <div class="col-md-8">
+       <div class="col-md-9">
         <div class="news">
           <div class="news-header">
             <h1>{{$news->title}}</h1>
@@ -40,7 +40,7 @@
           </div>
         </div>
        </div>
-       <div class="col-md-4">
+       <div class="col-md-3">
          <h4 class="mb-5">Related News</h4>
 
          @foreach ($relatedNews as $r)
