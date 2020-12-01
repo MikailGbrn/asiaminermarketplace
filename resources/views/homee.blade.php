@@ -17,17 +17,17 @@
             <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
               <form action="{{ url('search')}}" method="get">
                 <div class="row align-items-center">
-                  <div class="col-lg-12 col-xl-7 no-sm-border border-right">
+                  <div class="col-lg-12 col-xl-4 no-sm-border border-right">
                     <input type="text" name="kw" class="form-control" placeholder="What are you looking for?">
                   </div>
 
-                  {{-- <div class="col-lg-12 col-xl-3 no-sm-border border-right">
+                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
                     <div class="wrap-icon">
                       <span class="icon icon-room"></span>
-                      <input type="text" class="form-control" placeholder="Location">
+                      <input type="text" class="form-control" placeholder="Search by company">
                     </div>
                     
-                  </div> --}}
+                  </div>
 
                   <div class="col-lg-12 col-xl-3">
                     <div class="select-wrap">
@@ -53,9 +53,93 @@
     </div>
   </div>
 
-  <div class="site-section">
-    <div class="container">
-      <div class="row">
+  <div class="site-section bg-light">
+    <div class="container mb-4" data-aos="fade-up" data-aos-delay="200">
+      <h2>Featured Resources</h2>
+      <h6 class="mb-4">List of Resources that you might look about</h6>
+      <div class="row align-items-center"  style="border-bottom: 3px solid #ccc;">
+        <div class="col-md-6">
+          <div class="d-block d-md-flex listing-horizontal h-option">
+          <a href="" class="img d-block" style="">
+          </a>
+          <div class="lh-content contents">
+            <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
+            <h3 class="title"><object><a href="#">Media / Resources Title</a></object></h3>
+            <p><object><a href="#">Company Name</a></object></p>
+            <p>
+              <span class="icon-eye"></span>
+              <span class="pr-3">49 Views</span>
+              <span class="icon-download text-left"></span>
+              <span>19 Downloads</span>
+            </p>
+            <object><a href="d-categories.html">Open Details..</a></object>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-block d-md-flex listing-horizontal h-option">
+          <a href="" class="img d-block" style="">
+          </a>
+          <div class="lh-content contents">
+            <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
+            <h3 class="title"><object><a href="#">Media / Resources Title</a></object></h3>
+            <p><object><a href="#">Company Name</a></object></p>
+            <p>
+              <span class="icon-eye"></span>
+              <span class="pr-3">49 Views</span>
+              <span class="icon-download text-left"></span>
+              <span>19 Downloads</span>
+            </p>
+            <object><a href="d-categories.html">Open Details..</a></object>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mb-4" data-aos="fade-up" data-aos-delay="200">
+      <h2>Featured Products</h2>
+      <h6 class="mb-4">List of Product that you might look about</h6>
+      <div class="row align-items-center" style="border-bottom: 3px solid #ccc;">
+        <div class="col-md-4 mb-4 mb-lg-4">
+          <div class="h-entry h-option">
+            <a href="#">
+              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              <div class="h-entry-inner">
+                <h2 class="font-size-regular"><object><a href="blog-single.html">Product Name</a></object></h2>
+                <p class="text-secondary"><object>Company Name</object></p>
+                <p class="text-limit">Put Description of Product here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </a>
+          </div> 
+        </div>
+        <div class="col-md-4 mb-4 mb-lg-4">
+          <div class="h-entry h-option">
+            <a href="#">
+              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              <div class="h-entry-inner">
+                <h2 class="font-size-regular"><object><a href="blog-single.html">Product Name</a></object></h2>
+                <p class="text-secondary"><object>Company Name</object></p>
+                <p class="text-limit">Put Description of Product here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </a>
+          </div> 
+        </div>
+        <div class="col-md-4 mb-4 mb-lg-4">
+          <div class="h-entry h-option">
+            <a href="#">
+              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+              <div class="h-entry-inner">
+                <h2 class="font-size-regular"><object><a href="blog-single.html">Product Name</a></object></h2>
+                <p class="text-secondary"><object>Company Name</object></p>
+                <p class="text-limit">Put Description of Product here Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </a>
+          </div> 
+        </div>
       </div>
     </div>
   </div>
