@@ -168,6 +168,7 @@
   <script>
       $('.owl-carousel').owlCarousel({
       autoplay:true,
+      autoWidth:true, 
       loop:true,
       margin:10,
       nav:false,

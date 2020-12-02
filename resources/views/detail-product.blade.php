@@ -57,7 +57,7 @@
         @foreach ($relatedProduct as $r)
         <div class="d-block d-md-flex listing-horizontal h-option">
 
-          <a href="{{url('/')}}/product/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url(assets/frontend/images/img_2.jpg);">
+          <a href="{{url('/')}}/product/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
             {{-- <span class="category">Sample Category</span> --}}
           </a>
 

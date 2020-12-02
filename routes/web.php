@@ -114,6 +114,11 @@ Route::prefix('administrator')->middleware('mimin')->group( function(){
     Route::put('/news','Admin\ContentAdmin@takedownNews');
     Route::get('/project','Admin\ContentAdmin@showProject');
     Route::put('/project','Admin\ContentAdmin@takedownProject');
+
+    Route::get('/banner','Admin\BannerAdmin@showBanner');
+    Route::post('/banner','Admin\BannerAdmin@addBanner');
+    Route::put('/banner','Admin\BannerAdmin@editBanner');
+    Route::delete('/banner','Admin\BannerAdmin@deleteBanner');
     
 });
 
