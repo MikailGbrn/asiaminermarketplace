@@ -4,6 +4,9 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +27,34 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $company = \App\Company::all();
+        $schedule->call(function () use($company) {
+            
+            foreach ($company as $c) {
+                if($c->subscription_end == Carbon::now()->toDateString()){
+                    DB::table('companies')
+                    ->where('id',$c->id)
+                    ->update([
+                        'subscription'=> 0,
+                        'subscription_end' => null,
+                        'subscription_start' => null,
+                    ]);
+                    $data = [
+                        "subscription" => 0,
+                    ];
+                    try {
+                        Mail::to($c->admin->email)->send(new \App\Mail\MailSubscriptionUpdate($data));
+                    } catch (\Throwable $th) {
+                        
+                    }
+                }elseif ($c->subscription_end == Carbon::now()->subDays(7)->toDateString()) {
+                    $data = [
+                        "endDate" => $c->subscription_end,
+                    ];
+                    Mail::to($c->admin->email)->send(new \App\Mail\MailReminderSubscription($data));
+                }
+            }
+        })->everyMinute();
     }
 
     /**

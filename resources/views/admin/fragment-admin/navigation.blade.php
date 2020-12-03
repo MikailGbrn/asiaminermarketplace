@@ -45,9 +45,23 @@
         </div>
       </li>
 
+
       <li style="margin-top: 15px;" class="font-dara"><a href="{{url('administrator/company')}}"><i class="material-icons">business</i>Company</a></li>
+      
 
       <li style="margin-top: 15px;" class="font-dara"><a href="{{url('administrator/subscription')}}"><i class="material-icons">credit_card</i>Subscription</a></li>
+
+      <li onmouseover="buka(this)" id="1" class="font-dara" style="margin-top: 15px;">
+        <a class="collapsible-header"  style="padding-left: 31px ">Banner<i class="material-icons">insert_photo</i><span class="material-icons" style="float: right; margin-top:12px;">
+          keyboard_arrow_down
+          </span></a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="{{url('administrator/banner')}}">Homepage Slider</a></li>
+
+          </ul>
+        </div>
+      </li>
       
       <li style="margin-top: 15px;" class="font-dara"><a href="{{url('administrator/user')}}"><i class="material-icons">contact_mail</i>User</a></li>
     </ul>
