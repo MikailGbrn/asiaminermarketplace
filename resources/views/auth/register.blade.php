@@ -7,6 +7,12 @@
           <div class="col-md-10 mb-5">
             <form method="POST" action="{{ route('register') }}" class="p-5 bg-white">
              @csrf
+             <div class="row form-group">
+               <div class="col-md-12 mb-3 mb-md-0">
+                 <h4 style="text-align: left;"><b>User Registration</b> </h4>
+                  <h6>Regist as a visitor to access directory, resources, products and more..</h6>
+               </div>
+             </div>
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
@@ -43,6 +49,20 @@
 
               <div class="row form-group">
                 <div class="col-md-6">
+                  <label class="text-black" for="email">Phone Number</label> 
+                  <input type="Number" id="pnumber" name="cell" class="form-control" required="">
+                  @error('cell')
+                    {{$message}}
+                  @enderror
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="email">Position</label> 
+                  <input type="text" id="position" name="pos" class="form-control" required="">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-6">
                   <label class="text-black" for="email">Company Name</label> 
                   <input type="text" id="companyname" name="company_name" class="form-control" required="">
                   @error('company_name')
@@ -50,35 +70,19 @@
                   @enderror
                 </div>
                 <div class="col-md-6">
-                  <label class="text-black" for="email">Phone Number</label> 
-                  <input type="Number" id="pnumber" name="cell" class="form-control" required="">
-                  @error('cell')
-                    {{$message}}
-                  @enderror
+                  <label class="text-black" for="email">Company Catagory</label> 
+                  <select class="selectpicker form-control" name="company_catagory" data-live-search="true" id="" required="">
+                    <option value="">Select Category</option>
+                    <option value="">to be determined</option>
+                  </select>
                 </div>
               </div>
 
               <div class="row form-group">
-                <div class="col-md-6">
-                  <label class="text-black" for="email">Address</label> 
-                  <input type="text" id="adress" name="address" class="form-control" required="">
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Company Address</label> 
+                  <input type="textarea" id="adress" name="address" class="form-control" required="">
                   @error('address')
-                    {{$message}}
-                  @enderror
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="email">Region</label> 
-                      <select class="form-control" name="region" id="" required="">
-                        <option value="" disabled="">Select region</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Asia/Pacific">Asia/Pacific</option>
-                        <option value="Africa">Africa</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Middle East">Middle East</option>
-                        <option value="North America">North America</option>
-                        <option value="South &amp; Central America">South &amp; Central America</option>
-                      </select>
-                  @error('region')
                     {{$message}}
                   @enderror
                 </div>

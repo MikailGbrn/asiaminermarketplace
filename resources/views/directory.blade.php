@@ -48,7 +48,12 @@
                   <div class="h-entry-inner">
                   <h2 class="font-size-regular"><object><a href="{{url('company/'.$c->slug)}}">{{$c->name}}</a></object></h2>
                     <div class="meta"><span class="icon-envelope mr-2"></span><object><a href="">{{$c->email}}</a></object> <span class="mx-2">&bullet;</span></div>
-                    <div class="meta mb-4"><span class="icon-phone mr-2"></span><object><a href="">{{$c->phone}}</a></object> <span class="mx-2">&bullet;</span></div>
+                    <div class="meta mb-2"><span class="icon-phone mr-2"></span><object><a href="">{{$c->phone}}</a></object> <span class="mx-2">&bullet;</span></div>
+                    <div class="meta mb-2">
+                      @foreach ($c->address as $address)
+                      <span class="icon-map-pin mr-2"></span><object><a href="">{{$address->city}}, {{$address->province}}</a></object> <span class="mx-2">&bullet;</span>
+                      @endforeach
+                    </div>
                     <!-- <p  class="text-limit">{{substr($c->description,0, 100)}}....</p> -->
                   </div>
                   </a>

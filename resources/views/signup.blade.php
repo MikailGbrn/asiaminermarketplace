@@ -7,6 +7,12 @@
           <div class="col-md-10 mb-5">
             <form method="POST" action="{{ route('register') }}" class="p-5 bg-white">
              @csrf
+             <div class="row form-group">
+               <div class="col-md-12 mb-3 mb-md-0">
+                 <h4 style="text-align: left;"><b>User Sign Up</b> </h4>
+                  <h6>Sign up as a visitor to access directory, resources, products and more..</h6>
+               </div>
+             </div>
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
@@ -35,6 +41,13 @@
                   <input type="text" id="companyname" name="company_name" class="form-control" required="">
                 </div>
                 <div class="col-md-6">
+                  <label class="text-black" for="email">Company Catagory</label> 
+                  <select class="selectpicker form-control" name="company_catagory" data-live-search="true" id="" required="">
+                    <option value="">Select Category</option>
+                    <option value="">to be determined</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
                   <label class="text-black" for="email">Phone Number</label> 
                   <input type="Number" id="pnumber" name="cell" class="form-control" required="">
                 </div>
@@ -42,21 +55,8 @@
 
               <div class="row form-group">
                 <div class="col-md-6">
-                  <label class="text-black" for="email">Address</label> 
+                  <label class="text-black" for="email">Company Address</label> 
                   <input type="text" id="adress" name="address" class="form-control" required="">
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="email">Region</label> 
-                  <select class="form-control" name="region" id="" required="">
-                        <option value="" disabled="">Select region</option>
-                        <option value="">Asia</option>
-                        <option value="">Asia/Pacific</option>
-                        <option value="">Africa</option>
-                        <option value="">Europe</option>
-                        <option value="">Middle East</option>
-                        <option value="">North America</option>
-                        <option value="">South &amp; Central America</option>
-                      </select>
                 </div>
               </div>
 
