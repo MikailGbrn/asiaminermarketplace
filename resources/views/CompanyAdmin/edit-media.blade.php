@@ -41,17 +41,17 @@
                   <input type="hidden" name="id" value="{{$media->id}}">
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="title">Media/Resource Title</label>
+                        <label for="title" class="text-black">Media/Resource Title</label>
                         <input type="text" name="title" id="title" class="form-control" value="{{old('title') ? old('title') : $media->title}}">
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="author">Author</label>
+                        <label for="author" class="text-black">Author</label>
                         <input type="text" name="author" id="author" class="form-control" value="{{old('author') ? old('author') : $media->author}}">
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
-                        <label for="tags">Media Categories</label>
+                        <label for="tags" class="text-black">Tags</label>
                         <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
                           @foreach ($catagory as $c)
                           <option value="{{$c->id}}" @if(in_array($c->id, $media->catagory->pluck('id')->toArray())) selected @endif>{{$c->name}}</option>
@@ -61,13 +61,13 @@
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
-                        <label for="tags">Media/Resource Description</label>
+                        <label for="tags" class="text-black"> Media/Resource Description</label>
                         <textarea name="description" class="form-control">{{old('description') ? old('description') : $media->description}}</textarea>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-12">
-                        <label for="tags">Media Type</label>
+                        <label for="tags" class="text-black">Media Type</label>
                         <select name="media_type" class="selectpicker form-control" id="type">
                           <option @if(old('media_type') == "Another Link" || $media->type == "Another Link") selected @endif selected disabled value="">Select Media Type</option>
                           <option @if(old('media_type') == "Audio" || $media->type == "Audio") selected @endif value="Audio">Audio</option>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="form-row mt-2">
                       <div class="form-group col-md-5 mb-3">
-                        <label for="foto"><span class="icon-image mr-3"></span>Upload Media/Resource Image </label>
+                        <label for="foto"><span class="icon-image mr-3 text-black"></span>Upload Media/Resource Image </label>
                         <p><small>*Max image size 1 mb; Ideal image aspect ratio 1:1 .jpg format</small></p>
                         <input type="file" name="photo" id="foto" class="form-control" accept="image/*" onchange="editRsc();">
                         <div id="resource-container" class="mt-3">
@@ -99,7 +99,7 @@
                     </div>
                     <div class="form-row mt-2 filenya">
                       <div class="form-group col-md-5">
-                        <label for="media"> <span class="icon-file mr-3"></span>Upload Media/Resource File</label>
+                        <label for="media"> <span class="icon-file mr-3 text-black"></span>Upload Media/Resource File</label>
                         <input type="file" name="media" id="media" class="form-control">
                       </div>
                     </div>

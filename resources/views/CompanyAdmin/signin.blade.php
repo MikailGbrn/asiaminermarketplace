@@ -46,7 +46,7 @@
                     <input type="password" name="password" id="companypassword" class="form-control" placeholder="">
                     <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
                     <label for="rememberme">Remember Me</label>
-                    {{-- <span style="float: right;"><a href="#">Forget Password?</a></span> --}}
+                    <span style="float: right;"><a href="#">Forget Password?</a></span>
                   </div>
                   <div class="form-group">
                     <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2" style="width: 100%">

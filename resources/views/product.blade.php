@@ -9,7 +9,21 @@
           <div class="col-lg-3 ml-auto">
         <!-- FILTER STARTS HERE -->
             <h4 class="h4">Filters</h4>
-            <h3 class="h4 text-black accordion mb-0">Category</h3>
+
+            <h6 class="h4 text-black mb-0 accordion">Filter by Categories</h6>
+            <div class="panel mb-5">
+              <form action="" method="GET">
+                <div class="form-group">
+                  <label for="uploaddate">Company Category</label>
+                  <select name="dt" class="form-control" id="dt" onchange="addFilter('dt')">
+                    <option value="">Company Coategory</option>
+                    <option>To be determined</option>
+                  </select>
+                </div>
+               </form>
+              </div>
+
+            <h3 class="h4 text-black accordion mb-0">Search</h3>
             <div class="panel mb-5">
                 <form action="" method="GET">
                   <div class="form-group">
@@ -47,7 +61,6 @@
                     <option value="2" @if(app('request')->input('view')=="2") selected @endif>Least Viewed</option>
                   </select>
                 </div>
-
               </form>
               </div>
         <!-- FILTER END HERE -->
@@ -60,11 +73,11 @@
             @foreach ($product as $p)
             
               <div class="col-md-4 mb-4 mb-lg-4">
-                <div class="h-entry h-option">
+                <div class="h-entry h-option contents">
                   <a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">
                   <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
                   <div class="h-entry-inner">
-                    <h2 class="font-size-regular"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
+                    <h2 class="font-size-regular title"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
                     <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
                     <p class="text-limit">{{$p->description}}</p>
                   </div>

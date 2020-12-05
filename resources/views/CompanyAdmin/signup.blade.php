@@ -332,7 +332,7 @@
               </div>
               <div class="row form-group">
                 <div class="col-md-6">
-                  <label class="text-black" for="email">Company Business Hour</label>
+                  <label class="text-black" for="email">Business Hour (start - end)</label>
                   <div class="input-group">
                     
                     <input type="time" name="company_business_hour_start" value="{{ old('company_business_hour_start') }}" class="form-control">
@@ -573,33 +573,19 @@
 
               <div class="row form-group">
                 <div class="col-md-6">
-                  <label class="text-black" for="email">Region</label> 
-                  <select class="selectpicker form-control" name="company_region" data-live-search="true" id="" required="">
-                        <option value="">Select region</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Asia/Pacific">Asia/Pacific</option>
-                        <option value="Africa">Africa</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Middle East">Middle East</option>
-                        <option value="North America">North America</option>
-                        <option value="Central America">South &amp; Central America</option>
-                      </select>
-                </div>
-                <div class="col-md-6">
                   <label class="text-black" for="email">Country</label>
                   <select name="company_country" class="selectpicker countries form-control" data-live-search="true" id="countryId"> 
                     <option value="">Select Country</option>
                   </select>
                 </div>
-                
-              </div>
-              <div class="row form-group">
                 <div class="col-md-6">
                   <label class="text-black" for="email">State</label>
                   <select name="company_province" class="selectpicker states form-control" data-live-search="true" id="stateId"> 
                     <option value="">Select State</option>
                   </select>
                 </div>
+              </div>
+              <div class="row form-group">
                 <div class="col-md-6">
                   <label class="text-black" for="email">City</label>
                   <select name="company_city" class="selectpicker cities form-control" data-live-search="true" id="cityId"> 
@@ -609,23 +595,23 @@
                     @endif
                   </select>
                 </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-6">
-                  <label class="text-black" for="email">Address</label> 
-                  <input type="text" id="adress" class="form-control" value="{{ old('company_address') }}" name="company_address" required="">
-                </div>
                 <div class="col-md-6">
                   <label class="text-black" for="email">Zip / Postal Code</label> 
                   <input type="text" id="postcode" name="company_postal_code" value="{{ old('company_postal_code') }}" class="form-control" required="">
                 </div>
               </div>
 
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Address</label> 
+                  <textarea class="form-control" id="adress" required="" name="company_address">{{ old('company_address') }}</textarea>
+                </div>
+              </div>
+
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Description</label> 
+                  <label class="text-black" for="email">Company Profile Description</label> 
                   <textarea class="form-control" required="" name="company_description">{{ old('company_description') }}</textarea>
                 </div>
               </div>
