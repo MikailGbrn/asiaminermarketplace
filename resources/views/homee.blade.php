@@ -59,7 +59,9 @@
         @foreach ($company as $c)
         <div class="item">
           <div class="col-lg-12">
-            <img src="{{url('public/'.Storage::url($c->logo))}}" style="height: 100px; width: auto;" alt="Image">
+            <div id="logo-container" style="display:block;">
+              <img src="{{url('public/'.Storage::url($c->logo))}}" id="logo-preview" style="display: block;" alt="Image">
+            </div>
           </div>
         </div>
         @endforeach
@@ -79,9 +81,9 @@
             <a href="resource/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
             </a>
 
-            <div class="lh-content">
+            <div class="lh-content contents">
 
-              <h3><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
+              <h3 class="title"><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
               <p><object><a href="company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
               <p>
                 <span class="icon-eye"></span>

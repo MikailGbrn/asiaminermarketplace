@@ -46,7 +46,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="tags">Description</label>
+                  <label for="tags">Product Description</label>
                   <textarea name="description" class="form-control">{{old('description') ? old('description') : $product->description}}</textarea>
                 </div>
               </div>

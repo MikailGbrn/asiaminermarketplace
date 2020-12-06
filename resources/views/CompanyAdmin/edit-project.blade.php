@@ -36,8 +36,8 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="author">Author</label>
-                      <input type="text" name="author" id="author" class="form-control" placeholder="Add author" value="{{old('author') ? old('author') : $project->author}}">
+                      <label for="author">Project Leader</label>
+                      <input type="text" name="author" id="author" class="form-control" placeholder="Add Project Leader" value="{{old('author') ? old('author') : $project->author}}">
                     </div>
                     <div class="form-group col-md-6">
                       <label for="newslocation">Project Location</label>
@@ -46,7 +46,7 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12 mb-3">
-                      <label for="photo"><span class="icon-image mr-3 ml-1"></span>Headline Image Upload (multiple files allowed)</label>
+                      <label for="photo"><span class="icon-image mr-3 ml-1"></span>Project Image Upload (multiple files allowed)</label>
                       <input type="file" name="photo[]" id="photo" class="form-control" accept="image/*" multiple>
                     </div>
                   </div>

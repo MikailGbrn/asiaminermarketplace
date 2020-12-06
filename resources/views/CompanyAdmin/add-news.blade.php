@@ -57,17 +57,17 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6 mb-3">
-                      <label for="photo"><span class="icon-image mr-3 ml-1"></span>Headline Image Upload </label>
+                      <label for="photo"><span class="icon-image mr-3 ml-1"></span>News Image Upload </label>
                       <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
                     </div>
                     <div class="form-group col-md-6">
-                      <label for="newslocation">Topic</label>
+                      <label for="newslocation">Tags</label>
                       <input type="text" name="topic" id="newslocation" class="form-control" placeholder="Mining, coal" value="{{old('topic')}}">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="abstract">News' Abstract</label>
+                      <label for="abstract">News Caption</label>
                       <textarea class="form-control" name="abstract" id="abstract" rows="3">{{old('abstract')}}</textarea>
                     </div>
                   </div>
