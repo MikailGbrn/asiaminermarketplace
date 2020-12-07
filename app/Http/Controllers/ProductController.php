@@ -28,8 +28,11 @@ class ProductController extends Controller
             });
         }
         if(!empty($catagory)){
-            $query->where('catagory_id','=',$catagory);
+            $query->whereHas('company', function ($query) use($catagory) {
+                return $query->where('catagory_id', '=', $catagory);
+            });
         }
+
         if(!empty($uploadDate)){
             if ($uploadDate==1) {
                 $query->where(DB::raw("DATE(products.created_at)"),'=',date("Y-m-d"));    
@@ -52,7 +55,8 @@ class ProductController extends Controller
         }
    
         $product = $query->orderBy('companies.subscription', 'DESC')->orderBy('products.id', 'DESC')->paginate(20);
-       return view('product', compact('product'));
+        $catagory = \App\CCatagory::all();
+       return view('product', compact('product','catagory'));
 
     }
     public function detail($companyId,$slug)

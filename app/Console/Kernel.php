@@ -54,7 +54,7 @@ class Kernel extends ConsoleKernel
                     Mail::to($c->admin->email)->send(new \App\Mail\MailReminderSubscription($data));
                 }
             }
-        })->everyMinute();
+        })->daily();
     }
 
     /**

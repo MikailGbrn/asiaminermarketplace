@@ -15,9 +15,11 @@
               <form action="" method="GET">
                 <div class="form-group">
                   <label for="uploaddate">Company Category</label>
-                  <select name="dt" class="form-control" id="dt" onchange="addFilter('dt')">
+                  <select name="cat" class="form-control" id="cat" onchange="addFilter('cat')">
                     <option value="">Company Coategory</option>
-                    <option>To be determined</option>
+                    @foreach ($catagory as $c)
+                    <option value="{{$c->id}}">{{$c->name}}</option>
+                    @endforeach
                   </select>
                 </div>
                </form>
