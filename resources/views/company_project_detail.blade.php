@@ -61,6 +61,20 @@
       </div>        
       </div>
 
+      {{-- <div class="col-md-3">
+        <h4>Product</h4>
+         <div class="related-news mb-5">
+            <div class="image-container">
+              <img src="{{url('public/'.Storage::url($news->product->photo))}}">
+            </div>
+            <a href="{{url("/product/$news->company_id/$news->product->slug")}}">{{$news->product->name}}</a>
+            <div class="abstract">
+              {{$news->product->description}}
+            </div>
+         </div>
+
+      </div> --}}
+
       <div class="col-md-3">
         <h4>More From {{$news->company->name}}</h4>
         @foreach ($relatedNews as $r)

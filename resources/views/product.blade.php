@@ -16,9 +16,9 @@
                 <div class="form-group">
                   <label for="uploaddate">Company Category</label>
                   <select name="cat" class="form-control" id="cat" onchange="addFilter('cat')">
-                    <option value="">Company Coategory</option>
+                    <option value="">Company Category</option>
                     @foreach ($catagory as $c)
-                    <option value="{{$c->id}}">{{$c->name}}</option>
+                    <option @if(app('request')->input('cat')==$c->id) selected @endif value="{{$c->id}}">{{$c->name}}</option>
                     @endforeach
                   </select>
                 </div>

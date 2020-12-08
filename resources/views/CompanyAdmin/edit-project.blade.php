@@ -46,6 +46,17 @@
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12 mb-3">
+                      <label class="text-black" for="email">Product</label> 
+                      <select class="selectpicker form-control" name="product" data-live-search="true" id="" required="">
+                        <option value="">Select Product</option>
+                        @foreach ($product as $p)
+                        <option @if($project->product_id == $p->id) selected @endif value="{{ $p->id }}">{{ $p->name }}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-12 mb-3">
                       <label for="photo"><span class="icon-image mr-3 ml-1"></span>Project Image Upload (multiple files allowed)</label>
                       <input type="file" name="photo[]" id="photo" class="form-control" accept="image/*" multiple>
                     </div>

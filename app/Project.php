@@ -14,6 +14,10 @@ class Project extends Model
     {
         return $this->belongsTo('App\Company');
     }
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
 
 
 }

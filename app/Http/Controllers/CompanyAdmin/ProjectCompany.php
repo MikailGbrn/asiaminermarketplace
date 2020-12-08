@@ -31,16 +31,19 @@ class ProjectCompany extends Controller
     }
     public function showAddProject()
     {
-        return view('CompanyAdmin.add-project');
+        $company_id = Auth::guard('admin-company')->user()->company_id;
+        $product = \App\Product::where('company_id',$company_id)->get();
+        return view('CompanyAdmin.add-project',compact('product'));
     }
     public function showEditProject($id)
     {
         $project = Project::where('id', $id)->firstOrFail();
         $company_id = Auth::guard('admin-company')->user()->company_id;
+        $product = \App\Product::where('company_id',$company_id)->get();
         if ($project->company_id !== $company_id) {
             return redirect()->back();
         }
-        return view('CompanyAdmin.edit-project',compact('project'));
+        return view('CompanyAdmin.edit-project',compact('project', 'product'));
     }
     public function addProject(Request $request)
     {
@@ -49,6 +52,7 @@ class ProjectCompany extends Controller
             'description' => 'required',
             'author' => 'required',
             'location' => 'required',
+            'product' => 'required',
             'photo.*' => 'image|max:3072'
         ]);
 
@@ -59,6 +63,7 @@ class ProjectCompany extends Controller
         $project->photo = "public/project/defaultProduct.jpg";
         $project->author = $request->input('author');
         $project->topic = "";
+        $project->product_id = $request->input('product');
         $project->location = $request->input('location');
         $project->description = $request->input('description');
         $project->save();
@@ -91,6 +96,7 @@ class ProjectCompany extends Controller
             'description' => 'required',
             'author' => 'required',
             'location' => 'required',
+            'product' => 'required',
             'photo.*' => 'image|max:3072'
         ]);
         $project = Project::find($request->input('id'));
@@ -100,6 +106,7 @@ class ProjectCompany extends Controller
         $project->company_id = Auth::guard('admin-company')->user()->company_id;
         $project->author = $request->input('author');
         $project->topic = "";
+        $project->product_id = $request->input('product');
         $project->location = $request->input('location');
         $project->description = $request->input('description');
         $project->save();
