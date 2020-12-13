@@ -47,7 +47,11 @@
                 </div>
               </form>
             </div>
-
+            <div class="row" style="padding: 20px; margin-top: 50px;">
+              <div class="banner">
+                <img src="images/person_1.jpg">
+              </div>
+            </div>
           </div>
         </div>
     </div>

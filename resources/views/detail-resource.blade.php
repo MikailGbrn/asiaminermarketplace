@@ -28,7 +28,7 @@
                   @if($resource->link !== null)
                   <a href="{{url("/download-resource/$resource->uuid")}}" class="btn btn-primary text-white">Download</a>
                   @else
-                  <a href="{{$resource->link}}" target="_blank"><i class="btn btn-primary text-white">Download</a>
+                  <a href="{{$resource->link}}" target="_blank"><i class="btn btn-primary text-white">Download</i></a>
                     @endif
                   @endguest
                 </p>
@@ -69,7 +69,7 @@
 
   <div class="container mt-5">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-8">
         <h3>Related Resources</h3>
         @foreach ($relatedMedia as $r)
         <div class="d-block d-md-flex listing-horizontal h-option">
@@ -92,7 +92,14 @@
           </div>
         </div>
         @endforeach
-
+      </div>
+      <div class="col-md-1">
+        
+      </div>
+      <div class="col-md-3" style="padding: 20px;">
+        <div class="banner-2">
+          <img src="images/person_1.jpg">
+        </div>
       </div>
     </div>
   </div>

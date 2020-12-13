@@ -1,4 +1,5 @@
   <script src="{{asset('assets/frontend/js/jquery-3.3.1.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="{{asset('assets/frontend/js/jquery-migrate-3.0.1.min.js')}}"></script>
   <script src="{{asset('assets/frontend/js/jquery-ui.js')}}"></script>
   <script src="{{asset('assets/frontend/js/popper.min.js')}}"></script>

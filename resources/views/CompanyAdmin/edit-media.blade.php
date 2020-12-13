@@ -35,7 +35,7 @@
                 @endif 
               </div>
               <div class="card-body">
-                <form method="post" action="{{url('/company-profile/media')}}" enctype="multipart/form-data">
+                <form method="post" action="{{url('/company-profile/media')}}" enctype="multipart/form-data" id="edit_form">
                     @csrf
                     @method('put')
                   <input type="hidden" name="id" value="{{$media->id}}">
@@ -107,7 +107,7 @@
                       <div class="form-group col-md-6">
                       </div>
                       <div class="form-group col-md-6" >
-                        <button type="submit" class="btn btn-primary ml-5" style="float: right;">Update Media/Resource</button>
+                        <button type="submit" class="btn btn-primary ml-5" id="btn_update" style="float: right;">Update Media/Resource</button>
                         <a href="{{url('/')}}/company-profile/media" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                       </div>
                     </div>
@@ -145,4 +145,49 @@ $( document ).ready(function() {
     }
 });
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $("#btn_update").click(function(e){
+    e.preventDefault();
+    $.post("",
+    {
+      name: "Donald Duck",
+      city: "Duckburg"
+    },
+    function(data,status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+</script>
+</script>
+<!-- <script>
+  document.querySelector('#btn_update').addEventListener('click', function(e){
+              e.preventDefault();
+              swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: [
+                  'No, cancel it!',
+                  'Yes, I am sure!'],
+              }).then((result) => {
+                if (result.value) {alert('submitting');
+                     $.ajax({
+                         url:'edit-media.blade.php',
+                         type:"post",
+                         data:new FormData(this),
+                         processData:false,
+                         contentType:false,
+                         cache:false,
+                         async:false,
+                          success: function(data){
+                              alert("Input Form Success.");
+                       }
+                  });
+                  };
+                });
+            })
+</script> -->
 @endsection

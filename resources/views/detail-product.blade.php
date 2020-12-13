@@ -80,6 +80,14 @@
         </div>
         @endforeach
       </div>
+      <div class="col-md-1">
+        
+      </div>
+      <div class="col-md-3" style="padding: 20px;">
+        <div class="banner-2">
+          <img src="images/person_1.jpg">
+        </div>
+      </div>
     </div>
   </div>
 
