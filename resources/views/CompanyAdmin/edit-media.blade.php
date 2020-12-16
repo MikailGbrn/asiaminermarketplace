@@ -15,6 +15,14 @@
             <div class="card">
               <div class="card-header">
                <h2 class="text-center h4">Media/Resource Information</h2>
+            @if (session('success'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            @endif
                 @if ($errors->any())
                         @foreach ($errors->all() as $error)
                           <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -145,8 +153,19 @@ $( document ).ready(function() {
     }
 });
 </script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+swal({
+                title: "Data Updated",
+                text: "You have successfully update your media/resource data",
+                icon: "success",
+                button: "ok", });
+  });
+});
+</script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function(){
   $("#btn_update").click(function(e){
     e.preventDefault();
@@ -160,8 +179,7 @@ $( document ).ready(function() {
     });
   });
 });
-</script>
-</script>
+</script> -->
 <!-- <script>
   document.querySelector('#btn_update').addEventListener('click', function(e){
               e.preventDefault();

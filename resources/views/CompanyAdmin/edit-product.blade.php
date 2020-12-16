@@ -100,3 +100,16 @@
   </div>
 </div>
 @endsection
+@section('jsplus')
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+swal({
+      title: "Product Data Updated",
+      text: "You have successfully update your existing product data",
+      icon: "success",
+      button: "ok", });
+  });
+});
+</script>
+@endsection

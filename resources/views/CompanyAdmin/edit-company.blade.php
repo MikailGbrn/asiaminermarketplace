@@ -92,3 +92,17 @@
   </div>
 </div>
 @endsection
+@section('jsplus')
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+swal({
+      title: "Company Data Updated",
+      text: "You have successfully update your company data!",
+      icon: "success",
+      button: "ok",
+    });
+  });
+});
+</script>
+@endsection

@@ -65,3 +65,16 @@
   </div>
 </div>
 @endsection
+@section('jsplus')
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+swal({
+      title: "Product Added",
+      text: "You have successfully add your new product data",
+      icon: "success",
+      button: "ok", });
+  });
+});
+</script>
+@endsection

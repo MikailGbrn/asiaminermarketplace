@@ -136,4 +136,16 @@ $( document ).ready(function() {
     }
 });
 </script>
+<script>
+$(document).ready(function(){
+  $("form").submit(function(){
+swal({
+                title: "Data Added",
+                text: "You have successfully add your new media/resource data",
+                icon: "success",
+                button: "ok", });
+  });
+});
+</script>
+
 @endsection

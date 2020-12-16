@@ -67,7 +67,6 @@ class CompanyAuth extends Controller
             'company_description' => 'required',
             'company_country' => 'required',
             'company_city' => 'required',
-            'company_region' => 'required',
             'company_province' => 'required',
             'company_postal_code' => 'required'
         ]);
