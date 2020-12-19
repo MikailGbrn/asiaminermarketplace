@@ -18,7 +18,8 @@
                 <th>No</th>
                 <th>Name</th>
                 <th style="width:150px">Tag</th>
-                <th style="width:300px">Info</th>
+                <th style="width:150px">Company PIC Name</th>
+                <th style="width:300px">Company PIC Contact</th>
                 <th style="width:120px">Action</th>
               </tr>
               </thead>
@@ -28,6 +29,7 @@
                 <td>{{$loop->iteration}}</td>
                 <td>{{$c->name}}</td>
                 <td><div class="chip gradient-fadho black-text text-lighten-2">{{$c->catagory->name}}</div></td>
+                <td>{{$c->admin->name}}</td>
                 <td>{{$c->admin->email}}, {{$c->admin->phone}}</td>
                 <td>
                   <a class="btn btn-small modal-trigger @if($c->status == 1) cyan @else grey @endif " data-target="modal2" onclick="modalDelete({{$c->id}})"><i class="material-icons">check</i></a>

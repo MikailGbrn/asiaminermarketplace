@@ -33,7 +33,7 @@
                 <td>{{$c->admin->email}}, {{$c->admin->phone}}</td>
                 <td>
                   @if($c->subscription == 0)
-                    <b>Free</b>
+                    <b>Trial</b>
                   @elseif($c->subscription == 1)
                     <b>Silver</b>
                   @elseif($c->subscription == 2)
@@ -96,7 +96,7 @@
             <div class="input-field input-outlined col s12" style="margin-top: 0px;">
               <select name="subscription" id="subs" required="">
                 <option value="">Choose your option</option>
-                <option value="0">Free</option>
+                <option value="0">Trial</option>
                 <option value="1">Silver</option>
                 <option value="2">Gold</option>
               </select>
@@ -122,7 +122,7 @@
             </div>
             <div class="col s12 warn" style="display:none;">
               <center>
-                <span style="color:red;">Anda akan melakukan downgrade, ke paket <b>Free</b> pastikan anda benar-benar yakin dengan pilihan anda..</span>
+                <span style="color:red;">Anda akan melakukan downgrade, ke paket <b>Trial</b> pastikan anda benar-benar yakin dengan pilihan anda..</span>
               </center>
             </div>
             
@@ -186,7 +186,7 @@
     document.getElementById('perusahaan').innerHTML =nama;
     var subscription = "";
     if (subs == 0) {
-      var subscription = "Free";
+      var subscription = "Trial";
     } else if (subs == 1) {
       var subscription = "Silver";
     } else if (subs == 2) {

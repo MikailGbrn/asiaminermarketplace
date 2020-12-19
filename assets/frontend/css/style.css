@@ -48,7 +48,21 @@ h1, h2, h3, h4, h5,
   -webkit-transition: 1.3s all ease;
 }
 
+.contents .title-home{
+    overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  -webkit-transition: 1.3s all ease;
+}
+
 .contents:hover .title{
+  -webkit-transition: 1.3s all ease;
+  overflow: visible;
+  white-space: normal;
+}
+
+.contents:hover .title-home{
   -webkit-transition: 1.3s all ease;
   overflow: visible;
   white-space: normal;
@@ -1923,6 +1937,9 @@ background-color: #e1f2f2;
 }
 
 .h-entry .image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   margin: 0;
   position: absolute;
   top: 50%;

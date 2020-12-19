@@ -29,7 +29,7 @@
                     <span class="mr-5 text-secondary"><span class="icon-map-pin mr-2"></span>{{$address->city}}, {{$address->province}}</span>
                   @endforeach
                   <span class="mr-5 text-secondary"><span class="icon-clock-o mr-2"></span>{{$company->business_hour}}</span>
-                  <span class="mr-5 text-secondary"><span class="icon-envelope mr-2"></span>{{$company->email}}</span>
+                  <span class="mr-5 text-secondary"><span class="icon-envelope mr-2"></span><a href="mailto:{{$company->email}}">{{$company->email}}</a></span>
                   <span class="text-secondary"><span class="icon-phone mr-2"></span>{{$company->phone}}</span>
                 </p>
               </div>

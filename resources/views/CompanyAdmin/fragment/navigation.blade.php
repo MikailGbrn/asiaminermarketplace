@@ -21,7 +21,7 @@
 
       <div class="col-md-3 d-none d-xl-block position-relative text-center"> 
           <div class="dropdownacc">
-            <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">{{ Auth::guard('admin-company')->user()->username}} !</span></a>
+            <a onclick="Dropdown()" class="dropbtn">Welcome, <span class="text-primary">{{ Auth::guard('admin-company')->user()->name}} !</span></a>
             <div id="dropdownacc" class="dropdown-content">
               <a href="{{url('/company-profile/media/statistic')}}">Media Statistic</a>
               <a href="{{url('/company-profile/product/statistic')}}">Product Statistic</a>

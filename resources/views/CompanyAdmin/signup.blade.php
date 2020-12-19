@@ -40,7 +40,7 @@
               </div>
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Account Name</label>
+                  <label class="text-black" for="fname">Person in Charge Name</label>
                   <input type="text" id="fname" name="name_user" value="{{ old('name_user') }}" class="form-control" required>
                 </div>
               </div>

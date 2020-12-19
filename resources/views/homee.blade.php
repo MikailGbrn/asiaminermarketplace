@@ -47,9 +47,14 @@
                 </div>
               </form>
             </div>
-            <div class="row" style="padding: 20px; margin-top: 50px;">
-              <div class="banner">
-                <img src="images/person_1.jpg">
+            <div class="row" style="padding: 20px; margin-top: 50px;" data-aos="fade-up" data-aos-delay="200">
+              <div class="banner" style="border: none;">
+                @php $banner = \App\Banner::where('type','Homepage')->first(); @endphp
+                @if($banner)
+                <a href="{{$banner->link}}" target="_blank">
+                  <img src="{{url('public/'.Storage::url($banner->photo))}}">
+                </a>
+                @endif
               </div>
             </div>
           </div>
@@ -87,7 +92,7 @@
 
             <div class="lh-content contents">
 
-              <h3 class="title"><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
+              <h3 class="title-home"><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
               <p><object><a href="company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
               <p>
                 <span class="icon-eye"></span>
