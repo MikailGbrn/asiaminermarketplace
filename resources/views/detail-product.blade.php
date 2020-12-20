@@ -15,8 +15,10 @@
 
           <div class=" d-md-flex detail-content container">
 
-
-              <img src="{{url('public/'.Storage::url($product->photo))}}">
+              <div class="imgcontainer">
+                <div class="bgimg" style="background-image: url({{url('public/'.Storage::url($product->photo))}});"></div>
+                <img src="{{url('public/'.Storage::url($product->photo))}}">
+              </div>
               <div class="lh-content">
                 <h3 class="h1">{{$product->name}}</h3>
                 <p class="mb-0">By: <a href="#">{{$product->company->name}}</a></p>
