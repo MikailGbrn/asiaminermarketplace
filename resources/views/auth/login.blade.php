@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
+<div class="site-section bg-light">
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6"  data-aos="fade-left" data-aos-delay="200">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -68,6 +69,33 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+            <h3>Welcome</h3> <h4>to the</h4>
+            <h2 class="font-weight-bold">Indonesia Mining Marketplace</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
     </div>
 </div>
+</div>
+
+    <div class="py-5 bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
+            <h2 class="mb-3 mt-0 text-white">Let's get started. Create your account</h2>
+            <p class="mb-0 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+          <div class="col-lg-4">
+            <p class="mb-0"><a href="{{url('/register')}}" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
 @endsection

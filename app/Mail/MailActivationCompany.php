@@ -16,9 +16,10 @@ class MailActivationCompany extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    protected $data;
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**

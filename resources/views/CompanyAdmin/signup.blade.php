@@ -303,8 +303,22 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="email">Company Name</label> 
-                  <input type="text" id="companyname" name="name" value="{{ old('name') }}" class="form-control" required="">
+                          <label class="text-black" for="email">Company Name</label> 
+                    <div class="input-group">
+                          <input type="text" id="companyname" name="name" value="{{ old('name') }}" class="form-control" required="">
+                        <div class="input-group-prepend">
+                          <select class="selectpicker form-control" name="centity">
+                              <option>LTD</option>
+                              <option>PT</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                      </div>
+                  </div>
                 </div>   
               </div>
               <div class="row form-group">
