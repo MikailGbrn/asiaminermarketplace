@@ -45,7 +45,7 @@ class ProductCompany extends Controller
             $image = $request->file('foto');
             $path = 'public/product/'.(string) Str::uuid().'.'.$image->extension();
             $img = Image::make($image->path());
-            $img->fit(800,687)->save('storage/app/'.$path);
+            $img->save('storage/app/'.$path);
         }
 
         $product = new Product;

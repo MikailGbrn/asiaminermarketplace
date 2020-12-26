@@ -40,7 +40,10 @@
             @foreach ($product as $p)
             <div class=" d-md-flex detail-content container mt-5">
               @if($p->status == 1)
+              <div class="imgcontainer">
+                <div class="bgimg" style="background-image: url({{url('public/'.Storage::url($p->photo))}});"></div>
               <img src="{{url('public/'.Storage::url($p->photo))}}">
+              </div>
               @else
               <img src="{{url('assets/frontend/images/takedown.jpg')}}">
               @endif

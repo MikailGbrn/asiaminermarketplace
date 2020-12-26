@@ -42,7 +42,8 @@
               </div>
 
 
-              <span><a class="editbtn" style="position:absolute; right:15px" href="{{url('/company-profile/edit')}}">Edit Profile</a></span>
+              <span><a class="editbtn d-block" style="position:absolute; right: 115px;" href="{{url('company/'.$company->slug)}}">View Profile</a></span>
+              <span><a class="editbtn d-block" style="position:absolute; right:15px" href="{{url('/company-profile/edit')}}">Edit Profile</a></span>
               <div class="profile-content mt-3">
               <h2>{{$company->name}}</h2>
                 <p class="description">{{$company->description}}</p>

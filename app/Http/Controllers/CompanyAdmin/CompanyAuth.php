@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Company;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use \App\Mail\MailRegistcompany;
 
 class CompanyAuth extends Controller
 {
@@ -72,7 +73,7 @@ class CompanyAuth extends Controller
         ]);
         
         $company = new Company;
-        $company->name = $request->input('name');
+        $company->name = $request->input('name').", ".$request->input('centity');
         $company->subscription = 0;
         $company->status = 0;
         $company->about = null;
@@ -110,7 +111,7 @@ class CompanyAuth extends Controller
             'password' => $request->input('password')
         ];
         try {
-            Mail::to($request->input('email'))->send(new \App\Mail\MailRegistcompany($data));
+            Mail::to($request->input('email'))->send(new MailRegistcompany($data));
         } catch (\Throwable $th) {
 
         }

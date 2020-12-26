@@ -34,4 +34,8 @@ class Company extends Model
     {
         return $this->belongsTo('App\CCatagory');
     }
+    public function companyadmin()
+    {
+        return $this->hasOne('App\AdminCompanies');
+    }
 }

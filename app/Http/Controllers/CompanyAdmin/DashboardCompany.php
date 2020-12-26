@@ -46,7 +46,7 @@ class DashboardCompany extends Controller
             'pic_username' => 'required|max:255'
         ]);
         $company = Company::find($company_id);
-        $company->name = $request->input('company_name');
+        $company->name = $request->input('company_name').", ".$request->input('comentity');
         $company->save();
         $company->admin->name = $request->input('pic_name');
         $company->admin->email = $request->input('pic_email');

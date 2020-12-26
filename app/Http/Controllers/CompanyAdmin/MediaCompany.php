@@ -64,7 +64,7 @@ class MediaCompany extends Controller
             $image = $request->file('photo');
             $path = 'public/media/'.(string) Str::uuid().'.'.$image->extension();
             $img = Image::make($image->path());
-            $img->fit(500,500)->save('storage/app/'.$path);
+            $img->save('storage/app/'.$path);
         }
 
         $path1=$media->file_name;

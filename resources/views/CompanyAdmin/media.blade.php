@@ -42,7 +42,10 @@
             
             <div class=" d-md-flex detail-content container mt-5">
               @if($m->status == 1)
+              <div class="imgcontainer">
+                <div class="bgimg" style="background-image: url({{url('public/'.Storage::url($m->photo))}});"></div>
               <img src="{{url('public/'.Storage::url($m->photo))}}">
+              </div>
               @else
               <img src="{{url('assets/frontend/images/takedown.jpg')}}">
               @endif

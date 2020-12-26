@@ -44,11 +44,29 @@
             @endif
               <form method="POST" action="{{ url('/company-profile/account-setting/edit')}}">
                 @csrf
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label for="fpdescription">Company Name</label>
-                  <input type="text" id="fname" name="company_name" value="{{$company->name}}" class="form-control" required>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Company Name</label> 
+                    <div class="input-group">
+                      <input type="text" id="companyname" name="company_name" value="{{$company->name}}" class="form-control" required="">
+                      <div class="input-group-prepend">
+                          <select class="selectpicker form-control" name="comentity">
+                              <option value="Ltd.">Limited (Ltd.)</option>
+                              <option value="PT.">Perseroan Terbatas (PT.)</option>
+                              <option value="CV.">Perseroan Komanditer (CV.)</option>
+                              <option value="Inc.">Incorporated (Inc.)</option>
+                              <option value="Co.">Company (Co.)</option>
+                              <option value="Corp.">Corporation (Corp.)</option>
+                          </select>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                      <div class="input-group-prepend">
+                      </div>
+                  </div>
+                </div>   
               </div>
               <div class="row form-group">
                 <div class="col-md-6">

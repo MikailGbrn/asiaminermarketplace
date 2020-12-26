@@ -14,4 +14,8 @@ class product extends Model
     {
         return $this->belongsTo('App\Company');
     }
+    public function project()
+    {
+    	return $this->hasOne('App\Project');
+    }
 }

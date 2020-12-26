@@ -100,6 +100,7 @@ Route::prefix('administrator')->middleware('mimin')->group( function(){
 
     Route::get('/company','Admin\CompanyAdmin@showCompany');
     Route::put('/company','Admin\CompanyAdmin@activate');
+    // Route::get('/activate','Admin\CompanyAdmin@sendMail');
 
     Route::get('/subscription','Admin\SubscriptionAdmin@showSubscription');
     Route::put('/subscription','Admin\SubscriptionAdmin@updateSubscription');

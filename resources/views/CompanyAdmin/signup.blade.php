@@ -303,13 +303,17 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                          <label class="text-black" for="email">Company Name</label> 
+                  <label class="text-black" for="email">Company Name</label> 
                     <div class="input-group">
-                          <input type="text" id="companyname" name="name" value="{{ old('name') }}" class="form-control" required="">
-                        <div class="input-group-prepend">
+                      <input type="text" id="companyname" name="name" value="{{ old('name') }}" class="form-control" required="">
+                      <div class="input-group-prepend">
                           <select class="selectpicker form-control" name="centity">
-                              <option>LTD</option>
-                              <option>PT</option>
+                              <option value="Ltd.">Limited (Ltd.)</option>
+                              <option value="PT.">Perseroan Terbatas (PT.)</option>
+                              <option value="CV.">Perseroan Komanditer (CV.)</option>
+                              <option value="Inc.">Incorporated (Inc.)</option>
+                              <option value="Co.">Company (Co.)</option>
+                              <option value="Corp.">Corporation (Corp.)</option>
                           </select>
                         </div>
                     </div>
@@ -321,6 +325,7 @@
                   </div>
                 </div>   
               </div>
+              
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="email">Company Catagory</label> 

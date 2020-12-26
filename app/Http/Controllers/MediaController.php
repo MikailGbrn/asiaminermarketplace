@@ -77,7 +77,7 @@ class MediaController extends Controller
         $resource = $query->orderBy('companies.subscription', 'DESC')->orderBy('media.id', 'DESC')->paginate(20);
         return view('resource',compact('resource'));
     }
-    public function detail($companyId,$slug)
+    public function detail($companyId, $slug)
     {
         $resource = Media::where("company_id","=",$companyId)
         ->where("media.slug","=",$slug)
@@ -87,7 +87,8 @@ class MediaController extends Controller
         $resource->timestamps = false;
         $resource->save();
 
-        $relatedMedia = Media::where("company_id","=",$companyId)->limit(5)->get();
+        // $relatedMedia = Media::where("company_id","=",106)->limit(5)->get();
+        
         if(Auth::check()){
             if (!DB::table('media_view')->where('user_id','=',Auth::user()->id)->where('media_id','=',$resource->id)->exists()) {
                 
@@ -101,6 +102,31 @@ class MediaController extends Controller
                 ]);
             }
         }
+        // return $resource->catagory;
+        
+        // retrive media ID data from mcatagory
+        $queryid = DB::table('mcatagory_media')->select('media_id');
+        for ($i=0; $i < count($resource->catagory) ; $i++) 
+        { 
+            $queryid->orwhere('mcatagory_id',$resource->catagory[$i]['id']);
+        }
+        $mediaid = $queryid->get();
+
+        // adding media ID data into array
+        $mediaaid[] = array();
+        foreach ($mediaid as $media) 
+        {
+            $mediaaid[] = $media->media_id;
+        }
+
+        // matching medias with the same categories
+        $query = Media::where("id","=",$mediaaid[1]);
+        for ($i=2; $i < count($mediaaid) ; $i++) { 
+            $query->orwhere('id',"=",$mediaaid[$i]);
+        }
+        $relatedMedia = $query->limit(8)->get();
+
+
         return view('detail-resource',compact('resource','relatedMedia'));
 
     }
