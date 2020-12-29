@@ -91,6 +91,26 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Related Project</h3>
+        @foreach ($relatedProject as $r)
+        <div class="d-block d-md-flex listing-horizontal h-option">
+
+          <a href="{{url('/')}}/project/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
+            {{-- <span class="category">Sample Category</span> --}}
+          </a>
+
+          <div class="lh-content">
+            <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
+            <h3><object><a href="{{url('/')}}/project/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
+            <p><object><a href="{{url('/')}}/company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
+            <object><a href="{{url('/')}}/project/{{$r->company->id}}/{{$r->slug}}">Open Details..</a></object>
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
   </div>
 
   <div class="modal fade " id="addquotation" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

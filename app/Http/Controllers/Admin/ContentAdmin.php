@@ -10,7 +10,9 @@ class ContentAdmin extends Controller
     public function showProduct()
     {
         $product = \App\Product::all()->sortByDesc('id');
-        return view('admin.list-product', compact('product'));
+        $project = \App\Project::all();
+
+        return view('admin.list-product', compact('product', 'project'));
     }
     public function takedownProduct(Request $request)
     {
@@ -58,6 +60,8 @@ class ContentAdmin extends Controller
     public function showProject()
     {
         $project = \App\Project::all()->sortByDesc('id');
+        $product = \App\Product::where('id',"=",$project->product_id)->firstOrFail();
+        return $product;
         return view('admin.list-project', compact('project'));
     }
     public function takedownProject(Request $request)

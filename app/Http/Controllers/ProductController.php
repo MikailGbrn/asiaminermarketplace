@@ -63,6 +63,7 @@ class ProductController extends Controller
     {
         $product = Product::where('slug',$slug)->where('company_id',$companyId)->where('status',1)->firstOrFail();
         $relatedProduct = Product::where("company_id","=",$companyId)->limit(5)->get();
+        $relatedProject = Product::find($product->id)->project;
 
         $product->increment('view');
         $product->timestamps = false;
@@ -79,7 +80,7 @@ class ProductController extends Controller
                 ]);
             }
         }
-        return view('detail-product', compact('product','relatedProduct'));
+        return view('detail-product', compact('product','relatedProduct','relatedProject'));
     }
     public function addQuotation(Request $request)
     {

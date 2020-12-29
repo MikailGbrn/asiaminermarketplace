@@ -11,4 +11,8 @@ class MCatagory extends Model
     {
         return $this->belongsToMany('App\Media','mcatagory_media','media_id','mcatagory_id');
     }
+    public function news()
+    {
+        return $this->belongsToMany('App\News','catagory_news','news_id','mcatagory_id');
+    }
 }

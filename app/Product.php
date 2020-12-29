@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Product extends Model
 {
     public function catagory()
     {
@@ -16,6 +16,6 @@ class product extends Model
     }
     public function project()
     {
-    	return $this->hasOne('App\Project');
+    	return $this->hasMany('App\Project', 'product_id', 'id');
     }
 }

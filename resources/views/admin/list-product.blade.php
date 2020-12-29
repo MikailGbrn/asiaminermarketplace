@@ -18,6 +18,7 @@
                 <th>No</th>
                 <th style="width:200px">Name</th>
                 <th>company</th>
+                <th>Related Project</th>
                 <th>status</th>
                 <th>date</th>
                 <th style="width:150px">action</th>
@@ -29,6 +30,15 @@
                 <td>{{$loop->iteration}}</td>
                 <td>{{$c->name}}</td>
                 <td>{{$c->company->name}}</td>
+                <td>
+                @foreach($project as $p)
+                  @if($p->product_id == $c->id)
+                  <p>{{$p->title}} @break</p>
+                  @else
+                  <P>@continue </P>
+                  @endif
+                @endforeach
+                </td>
                 <td>
                   @if($c->status == 0)
                   <b>Takedown</b>
