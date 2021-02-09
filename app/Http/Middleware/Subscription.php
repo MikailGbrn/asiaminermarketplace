@@ -23,35 +23,46 @@ class Subscription
         $object = 0;
         $max =[1,1,1];
         if ($company->status == 0) {
+            if ($request->segment(3)=="statistic") {
+                return redirect()->back();
+            }
             if ($request->segment(3)=="add") {
                 return redirect()->back();
             }
             session()->now("activate", '<strong>the account has not been activated</strong>, please contact the admin');
             return $next($request);
         }
+        
         if($request->segment(2)=="media"){
             $name = "Media/Resource";
-            $object = $company->media()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
-            $max = [3,999999,999999];
+            $object = $company->media()->count();
+            // $object = $company->media()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
+            $max = [2,999999,999999];
         }elseif ($request->segment(2)=="product") {
             $name = "Product";
-            $object = $company->product()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
-            $max = [3,999999,999999];
+            $object = $company->product()->count();
+            $max = [2,999999,999999];
         }
         elseif ($request->segment(2)=="news") {
             $name = "News";
-            $object = $company->news()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
-            $max = [3,999999,999999];
+            $object = $company->news()->count();
+            $max = [2,999999,999999];
         }
         elseif ($request->segment(2)=="project") {
             $name = "Project";
-            $object = $company->project()->whereYear('created_at', '=', date('yy'))->whereMonth('created_at', '=', date('m'))->count();
-            $max = [3,999999,999999];
+            $object = $company->project()->count();
+            $max = [2,999999,999999];
         }
         $subscription = $company->subscription;
+        $content = 0;
         switch ($subscription) {
             case 0:
-                if($object >= $max[0]){
+                $content += $company->media()->whereYear('created_at', '=', date('Y'))->whereMonth('created_at', '=', date('m'))->count();
+                $content += $company->project()->whereYear('created_at', '=', date('Y'))->whereMonth('created_at', '=', date('m'))->count();
+                $content += $company->product()->whereYear('created_at', '=', date('Y'))->whereMonth('created_at', '=', date('m'))->count();
+                $content += $company->news()->whereYear('created_at', '=', date('Y'))->whereMonth('created_at', '=', date('m'))->count();
+
+                if($content >= 2){
                     if ($request->segment(3)=="add") {
                         return redirect()->back();
                     }

@@ -80,15 +80,14 @@
               <div class="col-md-4">
                 <div class="card">
                   <div class="card-header text-center bg-black">
-                    <h3 class="mb-0"><b class="text-white">Free</b></h3>
+                    <h3 class="mb-0"><b class="text-white">Trial</b></h3>
                   </div>
                   <div class="card-body text-center">
-                    <h2><b>Rp 0</b></h2>
+                    <h2><b>Free</b></h2>
                   </div>
                   <div class="card-body text-center">
       
-                    <h5>5 Product</h5>
-                    <h5>10 Media/Resources</h5>
+                    <h5>2 Content Upload</h5>
                     <h5>&nbsp</h5>
                     <h5>&nbsp</h5>
    
@@ -108,13 +107,12 @@
                     <h3 class="mb-0"><b class="">Silver</b></h3>
                   </div>
                   <div class="card-body text-center">
-                    <h2><b>Rp 500.000</b></h2>
+                    <h2><b>Rp 2.500.000</b></h2>
                   </div>
                   <div class="card-body text-center">
-                    <h5>∞ News</h5>
-                    <h5>45 Product</h5>
-                    <h5>45 Media/Resources</h5>
-                    <h5>45 Project</h5>
+                    <h5>∞ Content Upload</h5>
+                    <h5>Full Profile Information</h5>
+                    <h5>Access to Company Statistics</h5>
                   </div>
                   <div class="card-body text-center">
                     @if($company->subscription==1)
@@ -131,13 +129,14 @@
                     <h3 class="mb-0"><b class="text-white">Gold</b></h3>
                   </div>
                   <div class="card-body text-center">
-                    <h2><b>Rp 1.000.000</b></h2>
+                    <h2><b>Rp 3.500.000</b></h2>
                   </div>
                   <div class="card-body text-center">
-                    <h5>∞ News</h5>
-                    <h5>45 Product</h5>
-                    <h5>45 Media/Resources</h5>
-                    <h5>45 Project</h5>
+                    <h5>∞ Content Upload</h5>
+                    <h5>Premium Listing</h5>
+                    <h5>Full Profile Information</h5>
+                    <h5>Access to Company Statistics</h5>
+                    <h5>Banner Ads Space <small>(Contact Admin)</small></h5>
                   </div>
                   <div class="card-body text-center">
                     @if($company->subscription==2)

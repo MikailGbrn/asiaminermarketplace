@@ -17,8 +17,11 @@ class Project extends Model
     }
     public function product()
     {
-        return $this->belongsTo('App\product');
+        return $this->belongsToMany('App\Product', 'product_project', 'project_id', 'product_id');
     }
-
+    public function location()
+    {
+        return $this->hasOne('App\ProjectLocation');
+    }
 
 }

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('assets/frontend/fonts/flaticon/font/flaticon.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/frontend/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/frontend/croppie/croppie.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/rangeslider.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">

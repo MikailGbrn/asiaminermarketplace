@@ -39,7 +39,9 @@ class MediaCompany extends Controller
         if ($media->company_id !== $company_id) {
             return redirect()->back();
         }
-        return view('CompanyAdmin.edit-media',compact('media','catagory'));
+        $company = Company::find($company_id);
+        $subs = $company->subscription;
+        return view('CompanyAdmin.edit-media',compact('media','catagory','subs'));
     }
     public function editMedia(Request $request)
     {
@@ -109,7 +111,9 @@ class MediaCompany extends Controller
     public function showAddMedia()
     {
         $catagory = MCatagory::all();
-        return view('CompanyAdmin.add-media', compact('catagory'));
+        $company = Company::find(Auth::guard('admin-company')->user()->company_id);
+        $subs = $company->subscription;
+        return view('CompanyAdmin.add-media', compact('catagory', 'subs'));
     }
     public function addMedia(Request $request)
     {
@@ -125,7 +129,7 @@ class MediaCompany extends Controller
             $image = $request->file('photo');
             $path = 'public/media/'.(string) Str::uuid().'.'.$image->extension();
             $img = Image::make($image->path());
-            $img->fit(500,500)->save('storage/app/'.$path);
+            $img->save('storage/app/'.$path);
         }
 
         $path1=null;

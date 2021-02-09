@@ -47,7 +47,7 @@
                         @if('$location->province')
                         <option value="{{$location->province}}">{{$location->province}}</option>
                         @endif
-                        <option value="">Select city</option>
+                        <option value="">Select State</option>
                       </select>
                     </div>
                   </div>

@@ -46,6 +46,16 @@ class DashboardAdmin extends Controller
                 'max-results' => 10
             ]
         );
+        // $visitorByPosition = Analytics::performQuery(
+        //     Period::years(1),
+        //     'ga:users',
+        //     [
+        //         'metrics' => 'ga:users',
+        //         'dimensions' => 'ga:position',
+        //         'sort' => '-ga:users',
+        //         'max-results' => 10
+        //     ]
+        // );
         $top['media'] = Media::count();
         $top['product'] = Product::count();
         $top['company'] = Company::count();

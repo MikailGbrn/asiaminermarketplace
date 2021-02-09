@@ -16,6 +16,14 @@ class Product extends Model
     }
     public function project()
     {
-    	return $this->hasMany('App\Project', 'product_id', 'id');
+    	return $this->belongsToMany('App\Project', 'product_project', 'product_id', 'project_id');
+    }
+    public function picture()
+    {
+        return $this->hasMany('App\ProductPicture');
+    }
+    public function category()
+    {
+        return $this->belongsToMany('App\PCategory','product_categories','product_id','pcategory_id');
     }
 }

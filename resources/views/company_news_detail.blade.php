@@ -8,7 +8,7 @@
         <div class="news">
           <div class="news-header">
             <h1>{{$news->title}}</h1>
-            <p>{{$news->location}} / {{date( 'F j, Y',strtotime( $news->created_at ))}} / {{date( 'g:i a ',strtotime( $news->created_at ))}}</p>
+            <p>{{$location->city}} / {{date( 'F j, Y',strtotime( $news->created_at ))}} / {{date( 'g:i a ',strtotime( $news->created_at ))}}</p>
             <p class="text-secondary">
             By <span>{{$news->author}}</span>
                 <!-- AddToAny BEGIN -->
@@ -42,7 +42,12 @@
        </div>
        <div class="col-md-3">
          <h4 class="mb-5">Related News</h4>
-
+        @php $banner = \App\Banner::where('type','News Detail')->first(); @endphp        
+        <div class="banner-2 mb-3 d-sm-none d-md-block">
+          <a href="{{$banner->link}}">
+            <img src="{{url('public/'.Storage::url($banner->photo))}}">
+          </a>
+        </div>
          @foreach ($relatedNews as $r)
          <div class="related-news mb-5">
             <div class="image-container">

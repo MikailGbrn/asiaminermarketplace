@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Product;
+use App\PCategory;
+use App\ProductPicture;
 use App\Quotation;
+use App\Company;
+use App\Mail\MailAddQuotation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -63,7 +68,18 @@ class ProductController extends Controller
     {
         $product = Product::where('slug',$slug)->where('company_id',$companyId)->where('status',1)->firstOrFail();
         $relatedProduct = Product::where("company_id","=",$companyId)->limit(5)->get();
-        $relatedProject = Product::find($product->id)->project;
+        $projectid = DB::table('product_project')->where('product_id',$product->id)->get();
+        $picture = ProductPicture::where('product_id', $product->id)->get();
+
+        foreach ($projectid as $pid) {
+        $query = \App\Project::where('id',"=",$pid->project_id);
+        }
+
+        if (!empty($query)) {
+        $relatedProject = $query->get();
+        }else {
+            $relatedProject = "";
+        }
 
         $product->increment('view');
         $product->timestamps = false;
@@ -80,14 +96,22 @@ class ProductController extends Controller
                 ]);
             }
         }
-        return view('detail-product', compact('product','relatedProduct','relatedProject'));
+
+        if (!empty($product->embedvid)) {
+        $embed = explode("=", $product->embedvid);
+        }else {
+        $embed = array('0' => 1, '1' => 1 );
+        }
+
+        return view('detail-product', compact('product','relatedProduct','relatedProject', 'embed', 'picture'));
     }
     public function addQuotation(Request $request)
     {
         $this->validate($request, [
-            'detail' => 'required|min:10',
+            'detail' => 'required|min:10|max:140',
             'company_id' => 'required',
             'file' => 'file|max:3072',
+            'additional' => 'required',
         ]);
 
         $path=null;
@@ -103,6 +127,14 @@ class ProductController extends Controller
         $quotation->additional = implode(',', $request->input('additional'));
         $quotation->file = $path;
         $quotation->save();
+
+        $data = [
+            "description" =>  $request->input('detail'),
+            "additional" => implode(', ', $request->input('additional')),
+            "product" => Product::find($request->input('product_id')),          
+        ];
+        $company = Company::find($request->input('company_id'));
+        Mail::to($company->admin->email)->send(new MailAddQuotation($data));
 
         return redirect()->back()->with(['success' => 'Quote/info sent successfully']);
     }

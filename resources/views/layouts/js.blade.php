@@ -11,6 +11,7 @@
   <script src="{{asset('assets/frontend/js/aos.js')}}"></script>
   <script src="{{asset('assets/frontend/js/rangeslider.min.js')}}"></script>
   <script src="{{asset('assets/frontend/js/typed.js')}}"></script>
+  <script src="{{asset('assets/frontend/croppie/croppie.js')}}"></script>
   <script>
   var typed = new Typed('.typed-words', {
   strings: ["Products"," Mining Needs"," Equipment", " Companies", " News"],

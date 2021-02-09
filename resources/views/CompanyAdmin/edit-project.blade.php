@@ -1,14 +1,14 @@
 @extends('CompanyAdmin.layout')
     @section('content')
 
-    <div class="site-section">
+    <div class="site-section bg-light">
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
             <a href="{{url('/')}}/company-profile/project"><span class="icon-arrow-left mr-3"></span>Go Back to Dashboard</a>
           </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-md-12">
             <h2>Edit Project</h2>
             @if ($errors->any())
@@ -22,48 +22,109 @@
                     @endforeach
             @endif
             <div class="card mt-4">
+
+                <div class="card-header">
+                    <h2 class="text-center h4">Project Information</h2>
+                </div>
               
               <div class="card-body"> 
+                @if (session('error'))
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{session('error')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+            @if (session('success'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            @endif
+            @if ($errors->any())
+              @foreach ($errors->all() as $error)
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>{{$error}}</strong>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              @endforeach
+            @endif
+            @if($project->status == 0)
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>This content has been taken down by the admin due to inappropriate content, Please contact for more detail</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endif  
                 <form action="{{ url('/company-profile/project')}}" method="post" enctype="multipart/form-data">
                   @csrf
                   @method('put')
                   <input type="hidden" name="id" value="{{$project->id}}">
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="newstitle">Project Title</label>
+                      <label for="newstitle" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Project Title</label>
                       <input type="text" name="title" id="newstitle" class="form-control" placeholder="Add project title" value="{{old('title') ? old('title') : $project->title}}">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="author">Project Leader</label>
+                      <label for="author" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Project Leader</label>
                       <input type="text" name="author" id="author" class="form-control" placeholder="Add Project Leader" value="{{old('author') ? old('author') : $project->author}}">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="newslocation">Project Location</label>
-                      <input type="text" name="location" id="newslocation" class="form-control" placeholder="Jakarta, Indonesia" value="{{old('location') ? old('location') : $project->location}}">
+                  </div>
+                  <div class="form-row form-group">
+                    <div class="col-md-6">
+                      <label class="text-black" for="email"><span class="icon-minus mr-3 ml-1"></span>Country</label>
+                      <select name="news_country" class="selectpicker countries form-control" data-live-search="true" id="countryId"> 
+                        <option value="">Select Country</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="text-black" for="email"><span class="icon-minus mr-3 ml-1"></span>State</label>
+                      <select name="proj_province" class="selectpicker states form-control" data-live-search="true" id="stateId"> 
+                        @if('$location->province')
+                        <option value="{{$location->province}}">{{$location->province}}</option>
+                        @endif
+                        <option value="">Select State</option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-row">
-                    <div class="form-group col-md-12 mb-3">
-                      <label class="text-black" for="email">Product</label> 
-                      <select class="selectpicker form-control" name="product" data-live-search="true" id="" required="">
+                    <div class="col-md-6">
+                      <label class="text-black" for="email"><span class="icon-minus mr-3 ml-1"></span>City</label>
+                      <select name="proj_city" class="selectpicker cities form-control" data-live-search="true" id="cityId"> 
+                        @if('$location->city')
+                        <option value="{{$location->city}}">{{$location->city}}</option>
+                        @endif
+                        <option value="">Select city</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                      <label class="text-black" for="email"><span class="icon-minus mr-3 ml-1"></span>Product</label> 
+                      <select class="selectpicker form-control" name="product[]" data-live-search="true" id="" required="" multiple="">
                         <option value="">Select Product</option>
                         @foreach ($product as $p)
-                        <option @if($project->product_id == $p->id) selected @endif value="{{ $p->id }}">{{ $p->name }}</option>
+                        <!-- <option @if($project->product_id == $p->id) selected @endif value="{{ $p->id }}">{{ $p->name }}</option> -->
+                          <option value="{{$p->id}}" @if(in_array($p->id, $project->product->pluck('id')->toArray())) selected @endif>{{$p->name}}</option>
                         @endforeach
                       </select>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12 mb-3">
-                      <label for="photo"><span class="icon-image mr-3 ml-1"></span>Project Image Upload (multiple files allowed)</label>
-                      <input type="file" name="photo[]" id="photo" class="form-control" accept="image/*" multiple>
+                      <label for="photo"><span class="icon-play-circle mr-3 ml-1"></span>Embed Video</label>
+                      <input type="text" name="video" id="video" class="form-control" accept="image/*" value="{{$project->embedvid}}">
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-12">
-                      <label for="newsbody">Project Body</label>
+                      <label for="newsbody" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Project Body</label>
                       <textarea name="description" id="newsbody" rows="4">{{old('description') ? old('description') : $project->description}}</textarea>
                     </div>
                   </div>
@@ -72,7 +133,57 @@
                     </div>
                     <div class="form-group col-md-6" >
                       <button type="submit" class="btn btn-primary ml-5" style="float: right;">Save Changes</button>
-                      <a href="{{url('/')}}/company-profile/news" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                      <a href="{{url('/')}}/company-profile/project" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="text-center h4">Project Image(s)</h2>
+              </div>
+              <div class="card-body">
+                <h6 class="text-black"><span class="icon-minus mr-3 ml-1"></span>Existing Project Image</h6>
+                <form method="POST" action="{{ url('/company-profile/project/delpic')}}">
+                  @csrf
+                  <div class="form-row">
+                    <div class="form-group col-md-6 mb-3">
+                    @if($picture)
+                    <div id="image_preview">
+                    @foreach($picture as $p)
+                      <span>
+                        <input type="hidden" name="id" value="{{$p->id}}">
+                        <button style="border:0px; color:red" type="submit" ><span class="icon-trash" style="color: red;"></span></button>
+                        <img src="{{url('public/'.Storage::url($p->photo))}}">
+                      </span>
+                    @endforeach
+                    </div>
+                    @endif
+                    </div>
+                  </div>
+                </form>
+                <form method="post" action="{{ url('/company-profile/project/addpic')}}" enctype="multipart/form-data">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$project->id}}">
+                  <div class="form-row">
+                    <div class="form-group col-md-6 mb-3">
+                      <label for="photo" class="text-black"><span class="icon-image mr-3 ml-1"></span>Project Image Upload (multiple files allowed)</label>
+                      <input type="file" name="photo[]" id="photo" class="form-control" accept="image/*" onchange="preview_image();" multiple>
+                       <div id="image_preview"></div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                    </div>
+                    <div class="form-group col-md-6" >
+                      <button type="submit" class="btn btn-primary ml-3 first" style="float: right;">Save Change</button>
+                      <a href="{{url('/')}}/company-profile/project" type="button" class="btn btn-secondary" style="float: right;">Cancel</a>
                     </div>
                   </div>
                 </form>
@@ -82,4 +193,277 @@
         </div>
       </div>
     </div>
+@endsection
+@section('jsplus')
+
+<script>
+    function preview_image() 
+    {
+     var total_file=document.getElementById("photo").files.length;
+     for(var i=0;i<total_file;i++)
+     {
+      $('#image_preview').append("<span><img src='"+URL.createObjectURL(event.target.files[i])+"'></span>");
+     }
+    }
+</script>
+
+   <script>
+      function ajaxCall() {
+    this.send = function(data, url, method, success, type) {
+        type = type||'json';
+        var successRes = function(data) {
+            success(data);
+        }
+
+        var errorRes = function(e) {
+            console.log(e);
+        }
+        jQuery.ajax({
+            url: url,
+            type: method,
+            data: data,
+            success: successRes,
+            error: errorRes,
+            dataType: type,
+            timeout: 60000
+        });
+
+    }
+
+}
+
+function locationInfo() {
+    var rootUrl = "https://geodata.solutions/api/api.php";
+    //now check for set values
+    var addParams = '';
+    if(jQuery("#gds_appid").length > 0) {
+        addParams += '&appid=' + jQuery("#gds_appid").val();
+    }
+    if(jQuery("#gds_hash").length > 0) {
+        addParams += '&hash=' + jQuery("#gds_hash").val();
+    }
+
+    var call = new ajaxCall();
+
+    this.confCity = function(id) {
+        var url = rootUrl+'?type=confCity&countryId='+ jQuery('#countryId option:selected').attr('countryid') +'&stateId=' + jQuery('#stateId option:selected').attr('stateid') + '&cityId=' + id;
+        var method = "post";
+        var data = {};
+        call.send(data, url, method, function(data) {
+        });
+    };
+
+
+    this.getCities = function(id) {
+        jQuery(".cities option:gt(0)").remove();
+        var stateClasses = jQuery('#cityId').attr('class');
+
+        var cC = stateClasses.split(" ");
+        cC.shift();
+        var addClasses = '';
+        if(cC.length > 0)
+        {
+            acC = cC.join();
+            addClasses = '&addClasses=' + encodeURIComponent(acC);
+        }
+        var url = rootUrl+'?type=getCities&countryId='+ jQuery('#countryId option:selected').attr('countryid') +'&stateId=' + id + addParams + addClasses;
+        var method = "post";
+        var data = {};
+        jQuery('.cities').find("option:eq(0)").html("Please wait..");
+        call.send(data, url, method, function(data) {
+            jQuery('.cities').find("option:eq(0)").html("Select City");
+            if(data.tp == 1){
+                var listlen = Object.keys(data['result']).length;
+
+                if(listlen > 0)
+                {
+                    jQuery.each(data['result'], function(key, val) {
+
+                        var option = jQuery('<option />');
+                        option.attr('value', val).text(val);
+                        jQuery('.cities').append(option);
+                    });
+                    $('#cityId').selectpicker('refresh');
+                }
+                else
+                {
+                    var usestate = jQuery('#stateId option:selected').val();
+                    var option = jQuery('<option />');
+                    option.attr('value', usestate).text(usestate);
+                    option.attr('selected', 'selected');
+                    jQuery('.cities').append(option);
+                }
+
+                jQuery(".cities").prop("disabled",false);
+            }
+            else{
+                alert(data.msg);
+            }
+        });
+    };
+
+    this.getStates = function(id) {
+        jQuery(".states option:gt(0)").remove();
+        jQuery(".cities option:gt(0)").remove();
+        //get additional fields
+        var stateClasses = jQuery('#stateId').attr('class');
+
+        var cC = stateClasses.split(" ");
+        cC.shift();
+        var addClasses = '';
+        if(cC.length > 0)
+        {
+            acC = cC.join();
+            addClasses = '&addClasses=' + encodeURIComponent(acC);
+        }
+        var url = rootUrl+'?type=getStates&countryId=' + id + addParams  + addClasses;
+        var method = "post";
+        var data = {};
+        jQuery('.states').find("option:eq(0)").html("Please wait..");
+        call.send(data, url, method, function(data) {
+            jQuery('.states').find("option:eq(0)").html("Select State");
+            if(data.tp == 1){
+                jQuery.each(data['result'], function(key, val) {
+                    var option = jQuery('<option />');
+                    option.attr('value', val).text(val);
+                    option.attr('stateid', key);
+                    jQuery('.states').append(option);
+                });
+                $('#stateId').selectpicker('refresh');
+                jQuery(".states").prop("disabled",false);
+            }
+            else{
+                alert(data.msg);
+            }
+        });
+    };
+
+    this.getCountries = function() {
+        //get additional fields
+        var countryClasses = jQuery('#countryId').attr('class');
+
+        var cC = countryClasses.split(" ");
+        cC.shift();
+        var addClasses = '';
+        if(cC.length > 0)
+        {
+            acC = cC.join();
+            addClasses = '&addClasses=' + encodeURIComponent(acC);
+        }
+
+        var presel = false;
+        var iip = 'N';
+        jQuery.each(cC, function( index, value ) {
+            if (value.match("^presel-")) {
+                presel = value.substring(7);
+
+            }
+            if(value.match("^presel-byi"))
+            {
+                var iip = 'Y';
+            }
+        });
+
+
+        var url = rootUrl+'?type=getCountries' + addParams + addClasses;
+        var method = "post";
+        var data = {};
+        jQuery('.countries').find("option:eq(0)").html("Please wait..");
+        call.send(data, url, method, function(data) {
+            jQuery('.countries').find("option:eq(0)").html("Select Country");
+
+            if(data.tp == 1){
+                if(presel == 'byip')
+                {
+                    presel = data['presel'];
+                    console.log('2 presel is set as ' + presel);
+                }
+
+
+                if(jQuery.inArray("group-continents",cC) > -1)
+                {
+                    var $select = jQuery('.countries');
+                    console.log(data['result']);
+                    jQuery.each(data['result'], function(i, optgroups) {
+                        var $optgroup = jQuery("<optgroup>", {label: i});
+                        if(optgroups.length > 0)
+                        {
+                            $optgroup.appendTo($select);
+                        }
+
+                        jQuery.each(optgroups, function(groupName, options) {
+                            var coption = jQuery('<option />');
+                            coption.attr('value', options.name).text(options.name);
+                            coption.attr('countryid', options.id);
+                            
+                            if(presel) {
+                                if (presel.toUpperCase() == options.id) {
+                                    coption.attr('selected', 'selected');
+                                }
+                            }
+                            coption.appendTo($optgroup);
+                        });
+                    });
+                }
+                else
+                {
+                    jQuery.each(data['result'], function(key, val) {
+                        var option = jQuery('<option />');
+                        option.attr('value', val).text(val);
+                        option.attr('countryid', key);
+
+                        if(option.attr('value') == '{{old('news_country')}}') {
+    
+                          option.attr('selected', 'selected');
+
+                        }
+                        jQuery('.countries').append(option);
+                       
+                    });
+                    $('#countryId').selectpicker('refresh');
+                }
+                if(presel)
+                {
+                    jQuery('.countries').trigger('change');
+                }
+                jQuery(".countries").prop("disabled",false);
+            }
+            else{
+                alert(data.msg);
+            }
+        });
+    };
+
+}
+
+jQuery(function() {
+    var loc = new locationInfo();
+    loc.getCountries();
+    jQuery(".countries").on("change", function(ev) {
+        var countryId = jQuery("option:selected", this).attr('countryid');
+        if(countryId != ''){
+            loc.getStates(countryId);
+        }
+        else{
+            jQuery(".states option:gt(0)").remove();
+        }
+    });
+    jQuery(".states").on("change", function(ev) {
+        var stateId = jQuery("option:selected", this).attr('stateid');
+        if(stateId != ''){
+            loc.getCities(stateId);
+        }
+        else{
+            jQuery(".cities option:gt(0)").remove();
+        }
+    });
+
+    jQuery(".cities").on("change", function(ev) {
+        var cityId = jQuery("option:selected", this).val();
+        if(cityId != ''){
+            loc.confCity(cityId);
+        }
+    });
+});
+    </script>
 @endsection

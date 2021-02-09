@@ -17,7 +17,12 @@
               </div>
 
 
-
+              @if($company->subscription == 0)
+              <div class="profile-content mt-3">
+              <h2>{{$company->name}}</h2>
+                <p class="description">{{$company->description}}</p>
+              </div>
+              @else
               <div class="profile-content mt-3">
               <h2>{{$company->name}}</h2>
                 <p class="description">{{$company->description}}</p>
@@ -33,7 +38,7 @@
                   <span class="text-secondary"><span class="icon-phone mr-2"></span>{{$company->phone}}</span>
                 </p>
               </div>
-
+              @endif
               
               <div class="profile-footer">
                 <ul class="companynav mr-auto">

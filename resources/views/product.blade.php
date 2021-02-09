@@ -30,7 +30,7 @@
                 <form action="" method="GET">
                   <div class="form-group">
                     <h6 class="text-sm text-secondary">Search By Keywords</h6>
-                    <input type="text" id="kw" name="kw" onblur="keyword()" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
+                    <input type="text" id="kw" name="kw" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
                   </div>
 
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
@@ -75,17 +75,21 @@
             @foreach ($product as $p)
             
               <div class="col-md-4 mb-4 mb-lg-4">
-                <div class="h-entry h-option contents">
+                <div class="h-entry h-option ">
                   <a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">
-                  <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
+                    <div class="image-container-product">
+                      <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid product">
+                    </div>
                   <div class="h-entry-inner">
-                    <h2 class="font-size-regular title"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
+                    <h2 class="font-size-regular title-limit"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
                     <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
                     <p class="text-limit">{{$p->description}}</p>
                   </div>
                   </a>
                 </div> 
               </div>
+
+              <!-- /storage/product/1ef8b149-8a9a-4a29-b332-bbb83b61c034.jpeg -->
             
             @endforeach
           </div>
@@ -122,7 +126,7 @@
           window.location.search = searchParams.toString()
         }
       };
-      function keyword() {
+      $("#kw").keyup(function(){
           var number = document.getElementById("kw").value;
           if (number !== null) {
               var searchParams = new URLSearchParams(window.location.search)
@@ -130,7 +134,16 @@
               searchParams.delete("page")
               window.location.search = searchParams.toString()
           }  
-      }
+      });
+      // function keyword() {
+      //     var number = document.getElementById("kw").value;
+      //     if (number !== null) {
+      //         var searchParams = new URLSearchParams(window.location.search)
+      //         searchParams.set("kw", number)
+      //         searchParams.delete("page")
+      //         window.location.search = searchParams.toString()
+      //     }  
+      // }
       function company() {
           var number = document.getElementById("comp").value;
           if (number !== null) {

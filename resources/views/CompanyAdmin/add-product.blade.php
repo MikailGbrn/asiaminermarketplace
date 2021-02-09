@@ -30,23 +30,52 @@
               @csrf
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="title">Product Name</label>
+                  <label for="title" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Product Name</label>
                   <input type="text" name="name" id="title" class="form-control" value="{{old('name')}}" placeholder="Add Product Name">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="tags">Product Description</label>
+                  <label for="tags" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Product Categories</label>
+                  <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
+                    @foreach ($catagory as $c)
+                    <option @if(in_array($c->id, old('catagory') ? old('catagory') : [])) selected @endif value="{{ $c->id}}">{{$c->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="tags" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Product Description</label>
                   <textarea name="description" class="form-control">{{old('title')}}</textarea>
                 </div>
               </div>
               <div class="form-row">
-                <div class="form-group col-md-12 mb-3">   
-                  <label class="ml-2">Upload Product Image </label>
+                <div class="form-group col-md-6 mb-3">
+                  <label for="photo"><span class="icon-play-circle mr-3 ml-1"></span>Embed Video</label>
+                  <input type="text" name="video" id="video" class="form-control" accept="image/*" multiple>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="tags" class="text-black"><span class="icon-minus mr-3 ml-1"></span>Product Categories</label>
+                  <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
+                    @foreach ($catagory as $c)
+                    <option @if(in_array($c->id, old('catagory') ? old('catagory') : [])) selected @endif value="{{ $c->id}}">{{$c->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-row mb-3">
+                <div class="form-group col-md-6 mb-3">   
+                  <label class="ml-2 text-black"><span class="icon-image mr-3 ml-1"></span>Product Page Cover </label>
                   <input type="file" name="foto" id="mediapic" class="form-control" accept="image/*" onchange="editPdct();">
                   <div id="resource-container" class="mt-3">
                     <img id="image-preview" alt="image-preview"/>
                   </div>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                  <label for="photo" class="text-black"><span class="icon-image mr-3 ml-1"></span>Product Image Upload (multiple files allowed)</label>
+                  <input type="file" name="photo[]" id="photo" class="form-control" accept="image/*" onchange="preview_image();" multiple>
+                <div id="image_preview"></div>
                 </div>
               </div>
               <div class="form-row">
@@ -66,6 +95,18 @@
 </div>
 @endsection
 @section('jsplus')
+
+<script>
+    function preview_image() 
+    {
+     var total_file=document.getElementById("photo").files.length;
+     for(var i=0;i<total_file;i++)
+     {
+      $('#image_preview').append("<span><img src='"+URL.createObjectURL(event.target.files[i])+"'></span>");
+     }
+    }
+</script>
+
 <script>
 $(document).ready(function(){
   $("form").submit(function(){

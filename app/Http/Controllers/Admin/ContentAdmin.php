@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use \App\Mail\MailTakeDown;
+use \App\Mail\MailReminderSubscription;
 
 class ContentAdmin extends Controller
 {
@@ -17,8 +20,16 @@ class ContentAdmin extends Controller
     public function takedownProduct(Request $request)
     {
         $product = \App\Product::find($request->input('id'));
+        $company = \App\Company::find($product->company_id);
         if ($product->status == 1) {
             $product->status = 0;
+
+            $data = [
+                "content" =>  "Product",
+                "productname" => $product->name,                
+            ];
+
+            Mail::to($company->admin->email)->send(new MailTakeDown($data));
         }else{
             $product->status = 1;
         }
@@ -60,8 +71,6 @@ class ContentAdmin extends Controller
     public function showProject()
     {
         $project = \App\Project::all()->sortByDesc('id');
-        $product = \App\Product::where('id',"=",$project->product_id)->firstOrFail();
-        return $product;
         return view('admin.list-project', compact('project'));
     }
     public function takedownProject(Request $request)

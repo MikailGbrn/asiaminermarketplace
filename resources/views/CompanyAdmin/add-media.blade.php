@@ -42,11 +42,19 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="tags" class="text-black">Tags</label>
+                      @if($subs == 0)
+                      <select name="catagory[]" class="selectpicker form-control" data-live-search="true">
+                        @foreach ($catagory as $c)
+                        <option @if(in_array($c->id, old('catagory') ? old('catagory') : [])) selected @endif value="{{ $c->id}}">{{$c->name}}</option>
+                        @endforeach
+                      </select>
+                      @else
                       <select name="catagory[]" class="selectpicker form-control" data-live-search="true" multiple>
                         @foreach ($catagory as $c)
                         <option @if(in_array($c->id, old('catagory') ? old('catagory') : [])) selected @endif value="{{ $c->id}}">{{$c->name}}</option>
                         @endforeach
                       </select>
+                      @endif
                     </div>
                   </div>
     

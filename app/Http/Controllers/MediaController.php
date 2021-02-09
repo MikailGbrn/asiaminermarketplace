@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Media;
+use App\MCatagory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\EmbedVideo;
 
 
 class MediaController extends Controller
@@ -24,6 +26,7 @@ class MediaController extends Controller
         $uploadDate = $request->input('dt');
         $view = $request->input('view');
         $download = $request->input('download');
+        $catagory = "empty";
 
         $query = Media::with('company')->select("media.*", "companies.subscription")->where('media.status',1)->join('companies','company_id','=','companies.id');
 
@@ -35,6 +38,7 @@ class MediaController extends Controller
             $query->whereHas('catagory', function ($query) use($contentCatagory) {
                 return $query->where('id', $contentCatagory);
             });
+            $catagory = MCatagory::find($contentCatagory);
         }
         if(!empty($company)){
             $query->whereHas('company', function ($query) use($company) {
@@ -75,7 +79,7 @@ class MediaController extends Controller
             }
         }
         $resource = $query->orderBy('companies.subscription', 'DESC')->orderBy('media.id', 'DESC')->paginate(20);
-        return view('resource',compact('resource'));
+        return view('resource',compact('resource', 'catagory'));
     }
     public function detail($companyId, $slug)
     {

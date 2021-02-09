@@ -45,6 +45,7 @@
                   <th scope="col">E-mail</th>
                   <th scope="col">Company</th>
                   <th scope="col">Request</th>
+                  <th scope="col">Additional</th>
                   <th scope="col">File</th>
                 </tr>
               </thead>
@@ -57,6 +58,7 @@
                   <td>{{$q->user->email}}</td>
                   <td>{{$q->user->company_name}}</td>
                   <td>{{$q->description}}</td>
+                  <td>{{$q->additional}}</td>
                   <td>
                     @if($q->file !== null)
                     <a href="{{url('/company-profile/download/')}}/{{$q->id}}" class="btn btn-primary">download</a>
@@ -68,7 +70,7 @@
             </table>
           </div>
           <div class="col-md-12 bg-white">
-            <h4 class="mt-5">Media/Resource View Data Chart</h4>
+            <h4 class="mt-5">Product View Data Chart</h4>
             <canvas id="chartproduct" width="100%" height="50"></canvas>
           </div>
         </div>

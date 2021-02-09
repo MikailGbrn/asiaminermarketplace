@@ -13,7 +13,7 @@ class CompanyAdmin extends Controller
 {
     public function showCompany()
     {
-        $company = Company::all()->sortByDesc('id');
+        $company = Company::all()->sortBy('status');
         return view('admin.list-company', compact('company'));
     }
     public function activate(Request $request )

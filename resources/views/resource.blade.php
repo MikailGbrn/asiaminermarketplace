@@ -6,12 +6,12 @@
           <div class="col-lg-3 ml-auto">
               <!-- FILTER STARTS HERE -->
             <h4 class="h4">Filters</h4>
-            <h3 class="h4 text-black accordion mb-0">Category</h3>
+            <h3 class="h4 text-black accordion mb-0">Search</h3>
             <div class="panel mb-5">
                 <form action="" method="GET">
                   <div class="form-group">
                     <h6 class="text-sm text-secondary">Search By Keywords</h6>
-                    <input type="text" id="kw" name="kw" onblur="keyword()" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
+                    <input type="text" id="kw" name="kw" value="{{ app('request')->input('kw') }}" placeholder="What are you looking for?" class="form-control">
                   </div>
 
                 <h6 class="text-sm text-secondary">Search By Companies</h6>
@@ -19,6 +19,21 @@
                   <input type="text" id="comp" name="comp" onblur="company()" value="{{ app('request')->input('comp') }}" placeholder="Company Name" class="form-control">
                 </div> 
               </form>
+            </div>  
+
+            <h3 class="h4 text-black accordion mb-0">Category</h3>
+            <div class="panel mb-5 p-3">
+                <form action="" method="GET">
+                  <select name="cat" class="form-control" id="categ">
+                    @if($catagory != "empty")
+                    <option value="{{$catagory->name}}">{{$catagory->name}}</option>
+                    @else
+                    <option value="">Category not Selected</option>
+                    @endif
+                    <option><a href="" data-toggle="modal" data-target="#categories">View All Categories..</a></option>
+                  </select>
+              </form>
+              <a href="{{url('search')}}">View All Contents ({{$resource->total()}})</a>
             </div>  
 
             <h4 class="h4 text-black accordion mb-0">Type of Resources</h4>
@@ -232,8 +247,12 @@
     @endsection
     @section('jsplus')
     <script>
+    $('#categ').change(function(){
+  $('#categories').modal('show');
+});
+
       function checkBox(name) {
-        console.log("wkwkwkwkwkwkw");
+        console.log("checked");
         if (document.getElementById(name).checked) {
           var searchParams = new URLSearchParams(window.location.search)
           searchParams.set("rt", name)
@@ -246,7 +265,7 @@
           window.location.search = searchParams.toString()
         }
       };
-      function keyword() {
+      $("#kw").keyup(function(){
           var number = document.getElementById("kw").value;
           if (number !== null) {
               var searchParams = new URLSearchParams(window.location.search)
@@ -254,7 +273,16 @@
               searchParams.delete("page")
               window.location.search = searchParams.toString()
           }  
-      }
+      });
+      // function keyword() {
+      //     var number = document.getElementById("kw").value;
+      //     if (number !== null) {
+      //         var searchParams = new URLSearchParams(window.location.search)
+      //         searchParams.set("kw", number)
+      //         searchParams.delete("page")
+      //         window.location.search = searchParams.toString()
+      //     }  
+      // }
       function company() {
           var number = document.getElementById("comp").value;
           if (number !== null) {

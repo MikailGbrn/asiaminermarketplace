@@ -27,7 +27,7 @@
                   @guest
                   <a data-toggle="modal" data-target="#signin" class="btn btn-primary text-white">Download</a>
                   @else
-                  @if($resource->link !== null)
+                  @if($resource->link == null)
                   <a href="{{url("/download-resource/$resource->uuid")}}" class="btn btn-primary text-white">Download</a>
                   @else
                   <a href="{{$resource->link}}" target="_blank"><i class="btn btn-primary text-white">Download</i></a>

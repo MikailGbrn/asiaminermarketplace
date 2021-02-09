@@ -5,7 +5,7 @@
             <div class="row">
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-4">
                 <h2 class="footer-heading mb-4">Location</h2>
-                  <p>Gedung Lokasi Perusahaan Terkait, Contoh 23E Lt 46, Jakarta, Indonesia (021)5930283</p>
+                  <p>Gedung 47, 2nd Floor Suite 201A, Jalan TB Simatupang No. 47, Tanjung Barat, Jakarta selatan 12530 INDONESIA T: (021) 8062 3711, E: events.pub@asiaminer.co.id</p>
               </div>
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
                 <h2 class="footer-heading mb-4">Quick Links</h2>
@@ -19,8 +19,7 @@
               </div>
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-5">
                 <h2 class="footer-heading mb-4">Indonesia Mining Marketplace</h2>
-                <p>Web Description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Find mine-tested products and services from trusted companies and solutions providers in Indonesia. Discover new technology, services and also an update mining industry in Indonesia.  Indomining Marketplace is an online platform connecting buyers and sellers In Indonesia, Be part of the marketplace.</p>
               </div>
             </div>
           </div>

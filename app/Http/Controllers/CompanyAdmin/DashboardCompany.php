@@ -85,7 +85,7 @@ class DashboardCompany extends Controller
             $image = $request->file('header');
             $path = 'public/header/'.(string) Str::uuid().'.'.$image->extension();
             $img = Image::make($image->path());
-            $img->fit(1200,400)->save('storage/app/'.$path);
+            $img->fit(1200)->save('storage/app/'.$path);
         }
 
         $path1=$company->logo;
@@ -154,7 +154,7 @@ class DashboardCompany extends Controller
     public function showStatisticProduct()
     {
         $company_id = Auth::guard('admin-company')->user()->company_id;
-        $quotation = Quotation::with('user')->where('company_id',$company_id)->paginate(20);
+        $quotation = Quotation::with('user')->where('company_id',$company_id)->paginate(10);
         $product = Product::where('company_id',$company_id)->get();
 
         $query1 = DB::table('product_view')

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\MCatagory;
 use App\Media;
+use App\News;
 use App\Product;
+use App\Project;
 use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +21,7 @@ class HomeController extends Controller
     public function __construct()
     {
         // , ['except' => ['index', 'show']]
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified'], ['except' => ['index', 'show']]);
     }
 
     /**
@@ -44,7 +46,14 @@ class HomeController extends Controller
         ->where('media.status',1)
         ->join('companies','company_id','=','companies.id')
         ->orderBy('companies.subscription', 'DESC')->orderBy('media.id', 'DESC')
-        ->limit(2)
+        ->limit(4)
+        ->get();
+
+        $news = News::with('company')->select("news.*", "companies.subscription")
+        ->where('news.status',1)
+        ->join('companies','company_id','=','companies.id')
+        ->orderBy('companies.subscription', 'DESC')->orderBy('news.id', 'DESC')
+        ->limit(3)
         ->get();
 
         $product = Product::select("products.*", "companies.subscription")
@@ -55,9 +64,17 @@ class HomeController extends Controller
         ->limit(3)
         ->get();
 
+        $project = Project::select("projects.*", "companies.subscription")
+        ->where('projects.status',1)
+        ->join('companies','company_id','=','companies.id')
+        ->orderBy('companies.subscription', 'DESC')
+        ->orderBy('projects.id', 'DESC')
+        ->limit(3)
+        ->get();
+
         $company = Company::where('logo',"!=",'public/logo/default.jpg')->limit(10)->get();
 
-        return view('homee',compact('MCatagory','media','product','company'));
+        return view('homee',compact('MCatagory','media','product','company', 'news', 'project'));
     }
     public function contact()
     {

@@ -22,6 +22,19 @@
               <div class="lh-content">
                 <h3 class="h1">{{$product->name}}</h3>
                 <p class="mb-0">By: <a href="#">{{$product->company->name}}</a></p>
+                <p class="tag">
+                  @foreach ($product->category as $c)
+                  <span>{{$c->name}}</span>
+                  @endforeach
+                </p>
+                <p>
+                  <div class="related-product">
+                    <small>Related Projects</small><br>
+                    @foreach($product->project as $p)
+                    <a href="{{url('/')}}/project/{{$p->company->id}}/{{$p->slug}}"><span>{{$p->title}}</span></a>
+                    @endforeach
+                  </div>
+                </p>
                 <p style="margin-top: 10px;">
                   @guest
                   <a data-toggle="modal" data-target="#signin" class="btn btn-primary text-white">Quote / Info</a>
@@ -55,6 +68,48 @@
         </div>
       </div>
     </div>
+    <div class="row mt-3 mb-5">
+    @if(count($picture) != 0)
+      <div class="col-md-5">
+      <div class="card">
+        <div class="card-header">
+          <span>Images from This Product</span>
+        </div>
+        <div class="card-body grid-container">
+          @foreach ($picture as $m)
+            <span class="img-container grid-item">
+             <img src="{{url('public/'.Storage::url($m->photo))}}" style="border:1px solid #ccc;" onclick="expand(this);">
+            </span>
+          @endforeach
+        </div>
+      </div>
+      </div>
+    @else
+      <div class="col-md-5">
+      <div class="card">
+        <div class="card-header">
+          <span>Images from This Product</span>
+        </div>
+        <div class="card-body text-center">
+          <p>There's no Additional Picture.</p>
+        </div>
+      </div>
+      </div>
+    @endif
+
+    @if($embed[1] != 1)
+      <div class="col-md-7">
+      <div class="card">
+        <div class="card-body">
+        <div style="width: 100%; height: calc(80vh); align-items: center; left: -20%;">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{$embed[1]}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>          
+        </div>
+        </div>
+      </div>
+      </div>
+    @endif
+
+    </div>
   </div>
 
   <div class="container mt-5">
@@ -86,29 +141,12 @@
         
       </div>
       <div class="col-md-3" style="padding: 20px;">
+         @php $banner = \App\Banner::where('type','Product Detail')->first(); @endphp
         <div class="banner-2">
-          <img src="images/person_1.jpg">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <h3>Related Project</h3>
-        @foreach ($relatedProject as $r)
-        <div class="d-block d-md-flex listing-horizontal h-option">
-
-          <a href="{{url('/')}}/project/{{$r->company->id}}/{{$r->slug}}" class="img d-block" style="background-image: url({{url('public/'.Storage::url($r->photo))}});">
-            {{-- <span class="category">Sample Category</span> --}}
+          <a href="{{$banner->link}}">
+            <img src="{{url('public/'.Storage::url($banner->photo))}}">
           </a>
-
-          <div class="lh-content">
-            <object><a href="#" class="bookmark"><span class="icon-heart"></span></a></object>
-            <h3><object><a href="{{url('/')}}/project/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
-            <p><object><a href="{{url('/')}}/company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
-            <object><a href="{{url('/')}}/project/{{$r->company->id}}/{{$r->slug}}">Open Details..</a></object>
-          </div>
         </div>
-        @endforeach
       </div>
     </div>
   </div>
@@ -165,11 +203,17 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" form="form1" type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit" form="form1" type="button" class="btn btn-primary">Send Quote</button>
         </div>
       </div>
     </div>
   </div>
+
+  <div id="expandimg" class="modalexpandimg">
+  <span class="closeexpanded">&times;</span>
+  <img class="modalexpandimg-content" id="expandedimg">
+  <div id="caption"></div>
+</div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -195,6 +239,30 @@
   @endsection
 
   @section('jsplus')
+
+<script>
+// Get the modal
+
+var modal = document.getElementById("expandimg");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var modalImg = document.getElementById("expandedimg");
+var captionText = document.getElementById("caption");
+function expand(imgs) {
+  modal.style.display = "block";
+  modalImg.src = imgs.src;
+  captionText.innerHTML = imgs.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closeexpanded")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
   @if ($errors->any())
   <script type="text/javascript">
     $(window).on('load',function(){

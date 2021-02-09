@@ -19,7 +19,9 @@
       <div class="row align-items-center">
         
         <div class="col-11 col-xl-2">
-          <h1 class="mb-0 site-logo"><a href="{{url('/')}}" class="h2 mb-0"><b>INDOMINING</b></a></h1>
+          <h1 class="mb-0 site-logo"><a href="{{url('/')}}" class="h2 mb-0">
+            <img src="{{url('public/storage/logo/indomininglogo.png')}}" class="img-fluid d-none d-xl-block" style="height: 60px; width: 80%; object-fit: cover;">
+          </a></h1>
         </div>
         <div class="col-12 col-md-8 d-none d-xl-block">
           <nav class="site-navigation position-relative text-center" role="navigation">
@@ -27,7 +29,7 @@
               $ccategory = \App\MCatagory::all();
             @endphp
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li><a href="{{url('/')}}"><span>Home</span></a></li>
+              <li class="@if(URL::current()=='https://indominingmarketplace.com') active @endif"><a href="{{url('/')}}"><span>Home</span></a></li>
               <li class="has-children">
                 <a><span>Categories</span></a>
                 <ul class="dropdown arrow-top">
@@ -37,9 +39,11 @@
                   <li><a data-toggle="modal" data-target="#categories">View All..</a></li>
                 </ul>
               </li>
-              <li><a href="{{url('company')}}"><span>Directory</span></a></li>
-              <li><a href="{{url('product')}}"><span>Products</span></a></li>
-              <li><a href="{{url('contact')}}"><span>Contact</span></a></li>
+              <li class="@if(URL::current()=='https://indominingmarketplace.com/company') active @endif"><a href="{{url('company')}}"><span>Directory</span></a></li>
+              <li class="@if(URL::current()=='https://indominingmarketplace.com/product') active @endif"><a href="{{url('product')}}"><span>Products</span></a></li>
+              <li class="@if(URL::current()=='https://indominingmarketplace.com/project') active @endif"><a href="{{url('project')}}"><span>Projects</span></a></li>
+              <li class="@if(URL::current()=='https://indominingmarketplace.com/news') active @endif"><a href="{{url('news')}}"><span>News</span></a></li>
+              <li class="@if(URL::current()=='https://indominingmarketplace.com/contact') active @endif"><a href="{{url('contact')}}"><span>Contact</span></a></li>
               @guest
               <li><a data-toggle="modal" data-target="#signin" class="d-xl-none">SIGN IN</a></li>
               @else
@@ -89,7 +93,7 @@
         
         </div>
 
-        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px; right: 0;"><a href="#" class="site-menu-toggle js-menu-toggle text-primary"><span class="icon-menu h3"></span></a></div>
         </div>
       </div>
     </div>

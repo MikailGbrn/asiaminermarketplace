@@ -10,8 +10,7 @@
         <div class="row">
           <div class="col-md-6" data-aos="fade-right">
             <h4 class="text-bold">Company Login</h4>
-            <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="text-sm">Welcome to the Company Dashboard. Here, you can share your company product, company resources and see how interested people are to the product of your company.</p>
           </div>
           <div class="col-md-6">
             <div class="card" data-aos="fade-left">
@@ -46,7 +45,7 @@
                     <input type="password" name="password" id="companypassword" class="form-control" placeholder="">
                     <input type="checkbox" id="rememberme" name="rememberme" value="rememberme">
                     <label for="rememberme">Remember Me</label>
-                    <span style="float: right;"><a href="#">Forget Password?</a></span>
+                    <span style="float: right;"><a href="{{url('company/forgotpw')}}">Forget Password?</a></span>
                   </div>
                   <div class="form-group">
                     <input type="submit" value="Login" class="btn btn-primary btn-md text-white mb-3 mt-2" style="width: 100%">

@@ -22,6 +22,9 @@ Route::get('company/register', 'CompanyAdmin\CompanyAuth@showRegister');
 Route::post('company/login', 'CompanyAdmin\CompanyAuth@Login');
 Route::post('company/register', 'CompanyAdmin\CompanyAuth@Register');
 Route::get('company/logout', 'CompanyAdmin\CompanyAuth@Logout');
+Route::get('company/forgotpw', 'CompanyAdmin\CompanyAuth@showForgetPassword');
+Route::post('company/forgotpw', 'CompanyAdmin\CompanyAuth@forgetPassword');
+
 
 
 Route::prefix('company-profile')->middleware(['auth:admin-company','subscription'])->group( function(){
@@ -41,6 +44,8 @@ Route::prefix('company-profile')->middleware(['auth:admin-company','subscription
     Route::get('/product','CompanyAdmin\ProductCompany@showProduct');
     Route::get('/product/add','CompanyAdmin\ProductCompany@showAddProduct');
     Route::get('/product/{id}','CompanyAdmin\ProductCompany@showEditProduct');
+    Route::post('/product/addpic','CompanyAdmin\ProductCompany@addPicture');
+    Route::post('/product/delpic','CompanyAdmin\ProductCompany@deletePicture');
     Route::post('/product','CompanyAdmin\ProductCompany@addProduct');
     Route::put('/product','CompanyAdmin\ProductCompany@editProduct');
     Route::delete('/product','CompanyAdmin\ProductCompany@deleteProduct');
@@ -62,6 +67,8 @@ Route::prefix('company-profile')->middleware(['auth:admin-company','subscription
     Route::get('/project','CompanyAdmin\ProjectCompany@showProject');
     Route::get('/project/add','CompanyAdmin\ProjectCompany@showAddProject');
     Route::get('/project/{id}','CompanyAdmin\ProjectCompany@showEditProject');
+    Route::post('/project/addpic','CompanyAdmin\ProjectCompany@addPicture');
+    Route::post('/project/delpic','CompanyAdmin\ProjectCompany@deletePicture');
     Route::post('/project','CompanyAdmin\ProjectCompany@addProject');
     Route::put('/project','CompanyAdmin\ProjectCompany@editProject');
     Route::delete('/project','CompanyAdmin\ProjectCompany@deleteProject');
@@ -78,7 +85,9 @@ Route::get('/company/{slug}/project', 'CompanyController@showCompanyProject');
 Route::get('/company/{slug}/about', 'CompanyController@showCompanyAbout');
 
 Route::get('/project/{CompanyId}/{slug}','ProjectController@detail');
+Route::get('/project', 'ProjectController@find')->name('project');
 Route::get('/news/{CompanyId}/{slug}','NewsController@detail');
+Route::get('/news', 'NewsController@find')->name('news');
 
 Route::get('/product', 'ProductController@find')->name('product');
 Route::get('/product/{CompanyId}/{slug}','ProductController@detail');

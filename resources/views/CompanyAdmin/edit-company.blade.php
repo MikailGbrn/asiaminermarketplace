@@ -21,7 +21,7 @@
                 <div class="form-group col-md-5 mb-3">
                   <label for="header"><span class="icon-image mr-3"></span>Upload Header Image</label>
                   <p><small>*Max image size 1 mb; Ideal image aspect ratio 16:9 with .jpg format</small></p>
-                  <input type="file" class="form-control" name="header" id="header" accept="image/*" onchange="editHdr();">
+                  <input type="file" class="form-control" name="header" id="header" accept="image/*" >
                   <div id="header-container" class="mt-3">
                     <img id="header-preview" alt="image-preview"/>
                   </div>
@@ -91,8 +91,78 @@
     </div>
   </div>
 </div>
+
+<div id="uploadheaderModal" class="modal" role="dialog">
+ <div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Crop Header</h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+         <div class="col-md-8 text-center">
+          <div id="headerimg" style="width:350px; margin-top:30px"></div>
+         </div>
+         <div class="col-md-4" style="padding-top:30px;">
+         </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success crop_image">Crop</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+   </div>
+  </div>
+</div>
 @endsection
 @section('jsplus')
+
+<script>  
+$(document).ready(function(){
+
+ $image_crop = $('#headerimg').croppie({
+    enableExif: true,
+    viewport: {
+      width:500,
+      height:150,
+      type:'square' //circle
+    },
+    boundary:{
+      width:500,
+      height:500
+    }
+  });
+
+  $('#header').on('change', function(){
+    var reader = new FileReader();
+    reader.onload = function (event) {
+      $image_crop.croppie('bind', {
+        url: event.target.result
+      }).then(function(){
+        console.log('jQuery bind complete');
+      });
+    }
+    reader.readAsDataURL(this.files[0]);
+    $('#uploadheaderModal').modal('show');
+  });
+
+  $('.crop_image').click(function(event){
+    $image_crop.croppie('result', {
+      type: 'canvas',
+      size: 'viewport'
+    }).then(function(response){
+      console.log(response);
+      document.getElementById("header-preview").style.display = "block";
+      document.getElementById("header-container").style.display = "block";
+      $('#header-preview').attr('src', response);
+
+    })
+  });
+
+});  
+</script>
+
 <script>
 $(document).ready(function(){
   $("form").submit(function(){

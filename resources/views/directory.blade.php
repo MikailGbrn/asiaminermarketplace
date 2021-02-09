@@ -14,7 +14,7 @@
                     <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                       <select name="cat" class="form-control">
-                        <option value="">Catagory</option>
+                        <option value="">Company Category</option>
                         @foreach($catList as $cat)
                         <option value="{{$cat->id}}">{{$cat->name}}</option>
                         @endforeach

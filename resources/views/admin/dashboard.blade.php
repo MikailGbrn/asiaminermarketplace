@@ -145,6 +145,45 @@
             </div>
           </div>
         </div>
+        <div class="col s12 m6">
+          <div class="card" style="border-top: 5px solid #f44336 ; border-radius:5px">
+            <div class="card-content" style="padding-top: 10px; padding-bottom: 0px">
+              <div class="fontt judul">
+                <div style="letter-spacing: 1px">Visitor By Position</div>
+              </div>
+              
+            </div>
+            <div class="card-content">
+              <table>
+                <thead>
+                  <tr>
+                      <th style="width: 70%;">Position</th>
+                      <th>Number</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr>
+                    <td>Manager</td>
+                    <td>72</td>
+                  </tr>
+                  <tr>
+                    <td>Marketing</td>
+                    <td>18</td>
+                  </tr>
+                  <tr>
+                    <td>Purchasing Lead</td>
+                    <td>14</td>
+                  </tr>
+                  <tr>
+                    <td>Purchasing Staff</td>
+                    <td>8</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     
     </div>

@@ -8,13 +8,29 @@
           <div class="news-header mb-5">
             <a href="#">{{$news->company->name}}</a>
               <h1>{{$news->title}}</h1>
-              <p>{{$news->location}} / {{date( 'F j, Y',strtotime( $news->created_at ))}} / {{date( 'g:i a ',strtotime( $news->created_at ))}}</p>
+              <p>{{$location->city}} / {{date( 'F j, Y',strtotime( $news->created_at ))}} / {{date( 'g:i a ',strtotime( $news->created_at ))}}</p>
               <p class="text-secondary">
               By <span>{{$news->author}}</span>
               <a href="" data-toggle="modal" style="margin-left:20px" data-target="#exampleModal">
                 <span> <i class="fa fa-share" aria-hidden="true"></i></span>
-                <span>Share</span>
+                <!-- AddToAny BEGIN -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                  <a class="a2a_button_facebook"></a>
+                  <a class="a2a_button_twitter"></a>
+                  <a class="a2a_button_google_gmail"></a>
+                  <a class="a2a_button_linkedin"></a>
+                </div>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>
+                <!-- AddToAny END -->
               </a>
+              </p>
+              <p>
+                <div class="related-product">
+                  <small>Product in This Project</small><br>
+                  @foreach($news->product as $pr)
+                   <a href="{{url("/product/$news->company_id/$pr->slug")}}"><span>{{$pr->name}}</span></a>
+                  @endforeach
+                </div>
               </p>
           </div>
           <!-- carousel -->
@@ -53,6 +69,12 @@
     <div class="row">
       <div class="col-md-8">
       <div class="news">
+        @if($embed[1] != 1)
+        <div style="width: 560px; height: 315px; align-items: center; left: -20%;">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{$embed[1]}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>          
+        </div>
+
+        @endif
         <div style="padding: 20px 40px;">
           @php 
           echo $news->description;
@@ -76,19 +98,12 @@
       </div> --}}
 
       <div class="col-md-3">
-        <h4>Product in This Project</h4>
-         <div class="related-news mb-5">
-            <div class="image-container">
-             <img src="{{url('public/'.Storage::url($product->photo))}}">
-            </div>
-            <a href="{{url("/product/$news->company_id/$product->slug")}}">{{$product->title}}</a>
-            <div class="abstract">
-              {{$product->description}}
-            </div>
-         </div>
-      </div>
-
-      <div class="col-md-3">
+        @php $banner = \App\Banner::where('type','Project Detail')->first(); @endphp        
+        <div class="banner-2 mb-3 d-sm-none d-md-block">
+          <a href="{{$banner->link}}">
+            <img src="{{url('public/'.Storage::url($banner->photo))}}">
+          </a>
+        </div>
         <h4>More From {{$news->company->name}}</h4>
         @foreach ($relatedNews as $r)
          <div class="related-news mb-5">
@@ -103,7 +118,21 @@
          @endforeach
       </div>
     </div>
-  </div>
+
+    {{-- <div class="row mt-3">
+      <div class="col-md-3">
+        <h4>Product in This Project</h4>
+        @foreach($product as $rp)
+         <div class="related-news mb-5">
+            <a href="{{url("/product/$news->company_id/$rp->slug")}}">{{$rp->name}}</a>
+            <div class="abstract text-limit">
+              {{$rp->description}}
+            </div>
+         </div>
+        @endforeach
+      </div>
+    </div> --}}
+  </div> 
 
 
 

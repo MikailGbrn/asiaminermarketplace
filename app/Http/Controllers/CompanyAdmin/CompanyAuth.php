@@ -9,6 +9,7 @@ use App\Company;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use \App\Mail\MailRegistcompany;
+use \App\Mail\MailForgetPasswordCompany;
 
 class CompanyAuth extends Controller
 {
@@ -117,6 +118,16 @@ class CompanyAuth extends Controller
         }
         
         return redirect()->route('company.login')->with('success', 'Successfully register!');
+    }
+
+    public function showForgetPassword()
+    {
+        return view('auth.forgetpassword');
+    }
+
+    public function forgetPassword(Request $email)
+    {
+        Mail::to($email->input('email'))->send(new MailForgetPasswordCompany());
     }
     
     public function Logout()

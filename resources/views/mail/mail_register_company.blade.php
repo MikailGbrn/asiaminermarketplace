@@ -4,7 +4,6 @@
 @component('mail::panel')
 <p>Credentials for login as company :</p> 
 <p><b>Email :</b> {{$email}}</p>
-<p><b>Password :</b> {{$password}}</p>
 <p><b>Login Page :</b> https://indominingmarketplace.com/company/login</p>
 @endcomponent
  

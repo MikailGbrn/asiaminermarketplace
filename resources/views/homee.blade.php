@@ -80,8 +80,15 @@
 
   <div class="site-section bg-light">
     <div class="container mb-4" data-aos="fade-up" data-aos-delay="200">
-      <h2>Featured Resources</h2>
-      <h6 class="mb-4">List of Resources that you might look about</h6>
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Featured Resources</h2>
+          <h6 class="mb-4">List of Resources that you might look about</h6>
+        </div>
+        <div class="col-md-4 text-right">
+          <a href="{{url('/search')}}">See More Resources</a>
+        </div>
+      </div>
       <div class="row align-items-center"  style="border-bottom: 3px solid #ccc;">
         @foreach ($media as $r)
         <div class="col-md-6">
@@ -92,7 +99,7 @@
 
             <div class="lh-content contents">
 
-              <h3 class="title-home"><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
+              <h3 class="title-limit-2"><object><a href="resource/{{$r->company->id}}/{{$r->slug}}">{{$r->title}}</a></object></h3>
               <p><object><a href="company/{{$r->company->slug}}">{{$r->company->name}}</a></object></p>
               <p>
                 <span class="icon-eye"></span>
@@ -110,18 +117,84 @@
     </div>
 
     <div class="container mb-4" data-aos="fade-up" data-aos-delay="200">
-      <h2>Featured Products</h2>
-      <h6 class="mb-4">List of Product that you might look about</h6>
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Featured Products</h2>
+          <h6 class="mb-4">List of Product that you might look about</h6>
+        </div>
+        <div class="col-md-4 text-right">
+          <a href="{{url('/product')}}">See More Products</a>
+        </div>
+      </div>
       <div class="row align-items-center" style="border-bottom: 3px solid #ccc;">
         @foreach ($product as $p)
         <div class="col-md-4 mb-4 mb-lg-4">
           <div class="h-entry h-option">
             <a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">
-            <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
+              <div class="image-container-product">
+                <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
+              </div>
             <div class="h-entry-inner">
-              <h2 class="font-size-regular"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
+              <h2 class="font-size-regular title-limit"><object><a href="{{url('product/'.$p->company->id.'/'.$p->slug)}}">{{$p->name}}</a></object></h2>
               <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
               <p class="text-limit">{{$p->description}}</p>
+            </div>
+            </a>
+          </div>  
+        </div>
+        @endforeach
+      </div>
+    </div>
+
+    <div class="container mb-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Featured Project</h2>
+          <h6 class="mb-4">List of Project that you might look about</h6>
+        </div>
+        <div class="col-md-4 text-right">
+          <a href="">See More Projects</a>
+        </div>
+      </div>
+      <div class="row align-items-center" style="border-bottom: 3px solid #ccc;">
+        @foreach ($project as $p)
+        <div class="col-md-4 mb-4 mb-lg-4">
+          <div class="h-entry h-option">
+            <a href="{{url('project/'.$p->company->id.'/'.$p->slug)}}">
+            <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
+            <div class="h-entry-inner">
+              <h2 class="font-size-regular title-limit"><object><a href="{{url('project/'.$p->company->id.'/'.$p->slug)}}">{{$p->title}}</a></object></h2>
+              <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
+              <p class="text-secondary"><object>{{date( 'F j, Y',strtotime( $p->created_at ))}}</object></p>
+              <p class="caption-limit"></p>
+            </div>
+            </a>
+          </div>  
+        </div>
+        @endforeach
+      </div>
+    </div>
+
+    <div class="container mb-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Featured News</h2>
+          <h6 class="mb-4">List of News that you might look about</h6>
+        </div>
+        <div class="col-md-4 text-right">
+          <a href="">See More News</a>
+        </div>
+      </div>
+      <div class="row align-items-center" style="border-bottom: 3px solid #ccc;">
+        @foreach ($news as $p)
+        <div class="col-md-4 mb-4 mb-lg-4">
+          <div class="h-entry h-option">
+            <a href="{{url('news/'.$p->company->id.'/'.$p->slug)}}">
+            <img src="{{url('public/'.Storage::url($p->photo))}}" alt="Image" class="img-fluid">
+            <div class="h-entry-inner">
+              <h2 class="font-size-regular title-limit"><object><a href="{{url('news/'.$p->company->id.'/'.$p->slug)}}">{{$p->title}}</a></object></h2>
+              <p><object><a href="{{url('/')}}/company/{{$p->company->slug}}">{{$p->company->name}}</a></object></p>
+              <p class="text-limit">{{$p->abstract}}</p>
             </div>
             </a>
           </div>  

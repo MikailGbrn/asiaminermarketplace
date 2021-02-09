@@ -7,20 +7,25 @@
           <div class="col-md-12">
 
             <div class="company-profile">
-
-                 <!-- header company profile -->
+                <!-- header company profile -->
               <div class="profile-header">
 
                 <img class="header" src="{{url('public/'.Storage::url($company->header))}}"> 
                 <!-- profile picture company -->
-                <div style="margin-top:15px" class="image-container">
-                  <img style="object-position:0px 0px" src="{{url('public/'.Storage::url($company->logo))}}">
+                <div class="image-container">
+                  <img src="{{url('public/'.Storage::url($company->logo))}}">
                 </div>
               </div>
 
 
 
-              <div class="profile-content">
+              @if($company->subscription == 0)
+              <div class="profile-content mt-3">
+              <h2>{{$company->name}}</h2>
+                <p class="description">{{$company->description}}</p>
+              </div>
+              @else
+              <div class="profile-content mt-3">
               <h2>{{$company->name}}</h2>
                 <p class="description">{{$company->description}}</p>
                 <p>
@@ -30,28 +35,27 @@
                   @foreach ($company->address as $address)
                     <span class="mr-5 text-secondary"><span class="icon-map-pin mr-2"></span>{{$address->city}}, {{$address->province}}</span>
                   @endforeach
-                  <span class="text-secondary"><span class="icon-clock-o mr-2"></span>{{$company->business_hour}}</span>
-                </p>
-                <p>
-                  <span class="mr-5 text-secondary"><span class="icon-envelope mr-2"></span>{{$company->email}}</span>
+                  <span class="mr-5 text-secondary"><span class="icon-clock-o mr-2"></span>{{$company->business_hour}}</span>
+                  <span class="mr-5 text-secondary"><span class="icon-envelope mr-2"></span><a href="mailto:{{$company->email}}">{{$company->email}}</a></span>
                   <span class="text-secondary"><span class="icon-phone mr-2"></span>{{$company->phone}}</span>
                 </p>
               </div>
+              @endif
 
-              <div class="profile-footer" style="margin-top: 12px;">
+              
+              <div class="profile-footer">
                 <ul class="companynav mr-auto">
                   <li><a href="{{url('/')}}/company/{{$company->slug}}"><span>TIMELINE</span></a></li>
                   <li><a href="{{url('/')}}/company/{{$company->slug}}/media"><span>MEDIA/RESOURCE</span></a></li>
                   <li><a href="{{url('/')}}/company/{{$company->slug}}/product"><span>PRODUCTS</span></a></li>
-                  <li  class="active"><a href="{{url('/')}}/company/{{$company->slug}}/news"><span>NEWS</span></a></li>
+                  <li class="active"><a href="{{url('/')}}/company/{{$company->slug}}/news"><span>NEWS</span></a></li>
                   <li><a href="{{url('/')}}/company/{{$company->slug}}/project"><span>PROJECT</span></a></li>
                   <li><a href="{{url('/')}}/company/{{$company->slug}}/about"><span>ABOUT</span></a></li>
                 </ul>
               </div>
 
-            </div>
-
           </div>
+        </div>
         </div>
       </div>
       <div class="container company-content">

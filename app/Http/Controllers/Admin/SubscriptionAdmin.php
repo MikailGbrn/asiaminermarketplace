@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\MailSubscriptionUpdate;
 
 use App\Company;
 use Carbon\Carbon;
@@ -51,7 +52,7 @@ class SubscriptionAdmin extends Controller
         ];
         $emailAdminCompany = \App\AdminCompany::where('company_id', $company->id)->first()->email;
         try {
-            Mail::to($emailAdminCompany)->send(new \App\Mail\MailSubscriptionUpdate($data));
+            Mail::to($emailAdminCompany)->send(new MailSubscriptionUpdate($data));
         } catch (\Throwable $th) {
 
         }
